@@ -39,6 +39,12 @@ public class ManualPager : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 	}
 
 	IEnumerator Start() {
+		StartCoroutine (Gravity ());
+
+		yield return null;
+	}
+
+	IEnumerator Gravity() {
 
 		while (isStop) {
 			yield return null;
@@ -48,9 +54,16 @@ public class ManualPager : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 			yield return null;
 			float targetPageNumber = curPageNumberFrac > 0.5f ? curPageNumberFloor + 1f : curPageNumberFloor;
 			curPageNumber = Mathf.Lerp (curPageNumber, targetPageNumber, 0.05f);
-		}
 
-		StartCoroutine (Start ());
+			if (Mathf.Abs (curPageNumber - targetPageNumber) < 0.001f) {
+				curPageNumber = targetPageNumber;
+				break;
+			}
+		}
+		isStop = true;
+
+		yield return null;
+		StartCoroutine (Gravity ());
 	}
 
 }
