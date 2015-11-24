@@ -32,9 +32,9 @@
 			float p = 2 * t -1;  // -1 to 1
 			float4 u = v;
 
-			float turn_power = 0.2 * exp(-0.1 * pow(x - 0.5, 2));
+			float turn_power = 0.3 * exp(-0.1 * pow(x - 0.5, 2));
 			float turn_angle = sqrt(1 - p * p);
-			float turn_z = -0.001* z*z*z + z*0.02;
+			float turn_z = -0.002* z*z*z + z*0.03;
 
 		    float dtheta = (turn_power + turn_z) * turn_angle;
 		    float theta = t * Pi + dtheta;

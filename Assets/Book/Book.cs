@@ -34,34 +34,6 @@ public class Book : MonoBehaviour {
 	public TargetPage curTarget;
 	private Material   material;
 
-	IEnumerator Start() {
-
-		curPageNumber = 0f;
-
-		while (true) {
-			yield return null;
-
-			yield return StartCoroutine (TurnPage());
-
-			yield return new WaitForSeconds (2f);
-		}
-	}
-
-	private IEnumerator TurnPage() {
-		float time = 0;
-		while (true) {
-			float dt = Time.deltaTime;
-
-			time += dt;
-			if (time > 1f) break;
-			yield return null;
-
-			curPageNumber += dt;
-		}
-
-		curPageNumber = Mathf.Ceil (curPageNumber);
-	}
-
 	void Update () {
 		if (!textures.Any ()) return;
 
