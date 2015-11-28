@@ -1,4 +1,4 @@
-﻿Shader "Bubble/Bubble" {
+﻿Shader "Bubble/Rainbow" {
   Properties {
     _Color ("Color", Color) = (1,1,1,1)
     _Reflection ("Reflection", Range(0,1)) = 1
@@ -7,14 +7,13 @@
     _Gloss ("Gloss", Range(1,10)) = 3
     _Rim ("Rim", Range(0,1)) = 1
     _RimPower ("Rim Power", Range(1,10)) = 3
-    _FrontAlpha ("Front Alpha", Range(0,1)) = 1
-    _BackAlpha ("Back Alpha", Range(0,1)) = 1
-  }
-  SubShader {
-    Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
-    LOD 100
-    Blend SrcAlpha OneMinusSrcAlpha
 
+    _Rainbow ("Rainbow", Float) = 3
+    _RainbowScale ("Rainbow Scale", Float) = 1
+    _RainbowOffset ("Rainbow Offset", Float) = 0
+  }
+
+  SubShader {
     CGINCLUDE
     #include "UnityCG.cginc"
     #include "AutoLight.cginc"
@@ -27,8 +26,10 @@
     half _Gloss;
     half _Rim;
     half _RimPower;
-    half _FrontAlpha;
-    half _BackAlpha;
+
+    half _Rainbow;
+    half _RainbowScale;
+    half _RainbowOffset;
 
     struct v2f {
       half4 pos      : SV_POSITION;
@@ -38,6 +39,23 @@
       LIGHTING_COORDS(3,4)
       UNITY_FOG_COORDS(5)
     };
+
+    half3 hue2rgb(half h) {
+      half p = h * 3;
+      half u = pow(p - floor(p), 1);
+      if (h <     0.0) return half3(  1,  0,  0);
+      if (h < 1.0/3.0) return half3(1-u,  u,  0);
+      if (h < 2.0/3.0) return half3(  0,1-u,  u);
+      if (h <=3.0/3.0) return half3(  u,  0,1-u);
+      else             return half3(  1,  0,  0);
+    }
+    half gauss(half x) {
+      return exp(-pow(x - 0.5,2)/sqrt(2));
+    }
+    half3 rainbow(half spec) {
+      half3 r = hue2rgb(_RainbowScale * spec + _RainbowOffset);
+      return (r + 0.5) * gauss(spec);
+    }
 
     v2f vert(appdata_full v) {
       v2f o;
@@ -52,7 +70,7 @@
       return o;
     }
 
-    half4 frag(v2f i, bool is_front) {
+    half4 frag(v2f i) : SV_Target {
       half atten = LIGHT_ATTENUATION(i);
 
       half3 viewDir = normalize(_WorldSpaceCameraPos - i.worldPos);
@@ -60,10 +78,6 @@
       half3 normalDir = i.normal;
       half3 halfDir = normalize(viewDir + lightDir);
       half3 reflectDir = reflect(-viewDir, normalDir);
-
-      if (!is_front) {
-        normalDir *= -1;
-      }
 
       half NdotL = max(0.0, dot(normalDir, lightDir));
       half NdotH = max(0.0, dot(normalDir, halfDir ));
@@ -73,47 +87,27 @@
       half rim = _Rim * pow(1 - NdotV, _RimPower);
       half spec = _Specular * pow(NdotH, _Gloss);
 
+      half4 rain = _Rainbow * half4(rainbow(NdotH), 1) * (1 - NdotH);
       half4 refl = lerp(half4(0,0,0,0), rgbm, _Reflection);
 
-      half4 col = refl * _Color + spec + rim;
+      half4 col = refl * _Color + spec * rain + rim;
       col.rgb = (col.rgb * _LightColor0.rgb) + UNITY_LIGHTMODEL_AMBIENT.rgb;
-      col.a *= is_front ? _FrontAlpha : _BackAlpha;
 
       UNITY_APPLY_FOG(i.fogCoord, col);
 
       return col;
     }
 
-    half4 frag_front(v2f i) : SV_Target {
-      return frag(i, true);
-    }
-    half4 frag_back(v2f i) : SV_Target {
-      return frag(i, false);
-    }
-
     ENDCG
-
-    Pass {
-      //Tags { "LightMode" = "ForwardAdd" }
-      Cull Front
-      ZWrite Off
-      CGPROGRAM
-      #pragma multi_compile_fog
-      #pragma vertex vert
-      #pragma fragment frag_back
-      #pragma target 3.0
-      ENDCG
-    }
 
     Pass {
       Tags { "LightMode" = "ForwardBase" }
       Cull Back
-      ZWrite Off
       CGPROGRAM
       #pragma multi_compile_fwdbase
       #pragma multi_compile_fog
       #pragma vertex vert
-      #pragma fragment frag_front
+      #pragma fragment frag
       #pragma target 3.0
       ENDCG
     }
