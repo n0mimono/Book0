@@ -19,12 +19,6 @@ SubShader {
     CGINCLUDE
     #include "UnityCG.cginc" 
 
-    #define DIR_FORWARD half4( 0, 0, 1,1)
-    #define DIR_BACK    half4( 0, 0,-1,1)
-    #define DIR_LEFT    half4(-1, 0, 0,1)
-    #define DIR_RIGHT   half4( 1, 0, 0,1)
-    #define DIR_UP      half4( 0, 1, 0,1)
-    #define DIR_DOWN    half4( 0,-1, 0,1)
 	uniform float global_LightFactor;
 	uniform float4 global_LightPos;
 	uniform float4 global_LightColor;
@@ -81,7 +75,7 @@ SubShader {
     #endif
     }
 
-    v2f skybox_vert (appdata_t v, half4 dir) {
+    inline v2f skybox_vert (appdata_t v) {
         v2f o;
         float4 vertex = RotateAroundYInDegrees(v.vertex, _Rotation);
         o.vertex = mul(UNITY_MATRIX_MVP, vertex);
@@ -91,7 +85,7 @@ SubShader {
         return o;
     }
 
-    half4 skybox_frag (v2f i, sampler2D smp, half4 smpDecode, half fogBase)
+    inline half4 skybox_frag (v2f i, sampler2D smp, half fogBase)
     {
         half4 tex = tex2D (smp, i.texcoord);
         half3 c = tex.rgb;
@@ -111,9 +105,8 @@ SubShader {
         #pragma fragment frag
         #pragma multi_compile_fog
         sampler2D _FrontTex;
-        half4 _FrontTex_HDR;
-        v2f vert (appdata_t v) { return skybox_vert(v, DIR_FORWARD); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_FrontTex, _FrontTex_HDR, 1); }
+        v2f vert (appdata_t v) { return skybox_vert(v); }
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_FrontTex, 1); }
         ENDCG 
     }
     Pass{
@@ -122,9 +115,8 @@ SubShader {
         #pragma fragment frag
         #pragma multi_compile_fog
         sampler2D _BackTex;
-        half4 _BackTex_HDR;
-        v2f vert (appdata_t v) { return skybox_vert(v, DIR_BACK); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_BackTex, _BackTex_HDR, 1); }
+        v2f vert (appdata_t v) { return skybox_vert(v); }
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_BackTex, 1); }
         ENDCG 
     }
     Pass{
@@ -133,9 +125,8 @@ SubShader {
         #pragma fragment frag
         #pragma multi_compile_fog
         sampler2D _LeftTex;
-        half4 _LeftTex_HDR;
-        v2f vert (appdata_t v) { return skybox_vert(v, DIR_LEFT); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_LeftTex, _LeftTex_HDR, 1); }
+        v2f vert (appdata_t v) { return skybox_vert(v); }
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_LeftTex, 1); }
         ENDCG
     }
     Pass{
@@ -144,9 +135,8 @@ SubShader {
         #pragma fragment frag
         #pragma multi_compile_fog
         sampler2D _RightTex;
-        half4 _RightTex_HDR;
-        v2f vert (appdata_t v) { return skybox_vert(v, DIR_RIGHT); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_RightTex, _RightTex_HDR, 1); }
+        v2f vert (appdata_t v) { return skybox_vert(v); }
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_RightTex, 1); }
         ENDCG
     }    
     Pass{
@@ -155,9 +145,8 @@ SubShader {
         #pragma fragment frag
         #pragma multi_compile_fog
         sampler2D _UpTex;
-        half4 _UpTex_HDR;
-        v2f vert (appdata_t v) { return skybox_vert(v, DIR_UP); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_UpTex, _UpTex_HDR, 0); }
+        v2f vert (appdata_t v) { return skybox_vert(v); }
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_UpTex, 0); }
         ENDCG
     }    
     Pass{
@@ -166,9 +155,8 @@ SubShader {
         #pragma fragment frag
         #pragma multi_compile_fog
         sampler2D _DownTex;
-        half4 _DownTex_HDR;
-        v2f vert (appdata_t v) { return skybox_vert(v, DIR_DOWN); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_DownTex, _DownTex_HDR, 0); }
+        v2f vert (appdata_t v) { return skybox_vert(v); }
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_DownTex, 0); }
         ENDCG
     }
 }
