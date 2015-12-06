@@ -101,7 +101,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
 	private void ApplyCurrentAlpha() {
 		Renderer effectRenderer = touchEffect.GetComponent<Renderer> ();
-		effectRenderer.sharedMaterial.SetColor ("_Color", new Color(1f,1f,1f,cur.alpha)); // stupid thing
+		effectRenderer.sharedMaterial.SetFloat ("_Alpha", cur.alpha);
 	}
 
 	private void SetTargetAlpha(float alpha) {

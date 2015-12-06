@@ -1,6 +1,7 @@
 ﻿Shader "Elastic/ElasticUnlit" {
   Properties {
     _Color ("Main Color", Color) = (1,1,1,1)
+    _Alpha ("Alpha", Range(0,1)) = 1
     _MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
     _StretchStrength ("Stretch Strength", Range(0,100)) = 1
     _StretchDirection ("Stretch Direction", Vector) = (0,0,1,1)
@@ -48,6 +49,7 @@
 
       sampler2D _MainTex; float4 _MainTex_ST;
       float4 _Color;
+      float _Alpha;
 
       struct v2f {
         float2 uv : TEXCOORD0;
@@ -66,6 +68,7 @@
 
       fixed4 frag (v2f i) : SV_Target {
         fixed4 c = tex2D(_MainTex, i.uv) * _Color;
+        c.a *= _Alpha;
         return c;
       }
 
