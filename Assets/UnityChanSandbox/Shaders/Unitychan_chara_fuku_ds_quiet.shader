@@ -20,8 +20,8 @@ Shader "UnityChan/Clothing - Double-sided-quiet"
 		Tags
 		{
 			"RenderType"="Opaque"
-				"Queue"="Geometry"
-				"LightMode"="ForwardBase"
+			"Queue"="Geometry"
+			"LightMode"="ForwardBase"
 		}		
 
 		Pass

@@ -17,7 +17,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		public float   Mag { get { return (end - start).magnitude; } }
 	}
 	private TouchStatus st = new TouchStatus ();
-
+	public Vector2 Dir { get { return st.Mag != 0f ? st.Mag * st.Dir : Vector2.zero; } }
+			
 	private class EffectStatus {
 		public float alpha;
 		public float targetAlpha;
@@ -42,10 +43,13 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		touchEffectRect.localPosition = new Vector3(pos.x, pos.y, 0f);
 
 		st.start = pos;
+		st.end = pos;
 		SetTargetAlpha (1f);
 		SetStretch (0f);
 	}
 	public void OnPointerUp (PointerEventData eventData) {
+		st.start = Vector2.zero;
+		st.end = Vector2.zero;
 		SetTargetAlpha (0f);
 	}
 	public void OnDrag (PointerEventData eventData) {
