@@ -69,7 +69,7 @@
       half NdotH = max(0.0, dot(normalDir, halfDir ));
       half NdotV = max(0.0, dot(normalDir, viewDir ));
 
-      half4 rgbm = 2.0 * texCUBElod(unity_SpecCube0, half4(reflectDir, _Mip));
+      half4 rgbm = 2.0 * UNITY_SAMPLE_TEXCUBE_LOD(unity_SpecCube0, reflectDir, _Mip);
       half rim = _Rim * pow(1 - NdotV, _RimPower);
       half spec = _Specular * pow(NdotH, _Gloss);
 
