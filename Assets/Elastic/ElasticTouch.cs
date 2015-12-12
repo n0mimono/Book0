@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler {
 	public RectTransform touchEffectRect;
@@ -38,18 +39,27 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	}
 	private EffectStatus cur = new EffectStatus();
 
+
 	public void OnPointerDown (PointerEventData eventData) {
 		Vector2 pos = LocalPos (eventData.position);
-		touchEffectRect.localPosition = new Vector3(pos.x, pos.y, 0f);
+		touchEffectRect.localPosition = Local2Screen(pos);
+
+		StartCoroutine (ripple (Local2Screen(pos)));
 
 		st.start = pos;
-		st.end = pos;
+		st.end   = Vector2.zero;
 		SetTargetAlpha (1f);
 		SetStretch (0f);
 	}
 	public void OnPointerUp (PointerEventData eventData) {
+		Vector2 pos = LocalPos (eventData.position);
+
+		if (st.end != Vector2.zero) {
+			StartCoroutine (ripple (Local2Screen(pos)));
+		}
+
 		st.start = Vector2.zero;
-		st.end = Vector2.zero;
+		st.end   = Vector2.zero;
 		SetTargetAlpha (0f);
 	}
 	public void OnDrag (PointerEventData eventData) {
@@ -66,6 +76,10 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		effectRenderer.sharedMaterial.hideFlags = HideFlags.HideAndDontSave;
 
 		StartCoroutine (AlphaSetter ());
+	}
+
+	private Vector3 Local2Screen(Vector2 pos) {
+		return new Vector3(pos.x, pos.y, 0f);
 	}
 
 	private Vector2 LocalPos(Vector2 pos) {
@@ -114,6 +128,14 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
 	private void SetCurrentAlpha(float alpha) {
 		cur.alpha = alpha;
+	}
+
+	private IEnumerator ripple(Vector3 pos) {
+		GameObject obj = UIPoolManager.Instance.GetObject (UIPoolManager.Type.Ripple);
+		//obj.transform.position = touchEffectRect.position;
+		obj.transform.localPosition = pos;
+		yield return null;
+		obj.GetComponent<UIRipple> ().Initilize ();
 	}
 
 }
