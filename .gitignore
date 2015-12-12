@@ -11,8 +11,8 @@
 /*.pidb
 /*.booproj
 
-Editor/
-Editor.meta
+/Assets/Editor/
+/Assets/Editor.meta
 Store\ Assets/
 Store\ Assets.meta
 Standard\ Assets/
