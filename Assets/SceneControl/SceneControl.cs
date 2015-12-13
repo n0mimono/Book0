@@ -55,6 +55,7 @@ public class SceneControl : MonoBehaviour {
 		yield return fadePanel.FadeOut();
 	}
 
+	#if UNITY_EDITOR
 	private void UpdateBuiltScenes() {
 		scenes = new List<BuiltScene> ();
 		foreach (var s in UnityEditor.EditorBuildSettings.scenes) {
@@ -68,5 +69,6 @@ public class SceneControl : MonoBehaviour {
 		}
 		scenes [0].enabled = false;
 	}
+	#endif
 
 }

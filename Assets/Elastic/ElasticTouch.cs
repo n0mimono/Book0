@@ -14,12 +14,13 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		public Vector2 start;
 		public Vector2 end;
 
+		public Vector2 Vec { get { return end - start; } }
 		public Vector2 Dir { get { return (end - start).normalized; } }
 		public float   Mag { get { return (end - start).magnitude; } }
 	}
 	private TouchStatus st = new TouchStatus ();
-	public Vector2 Dir { get { return st.Mag != 0f ? st.Mag * st.Dir : Vector2.zero; } }
-			
+	public Vector2 Vec { get { return st.Vec; } }
+
 	private class EffectStatus {
 		public float alpha;
 		public float targetAlpha;
@@ -47,7 +48,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		StartCoroutine (ripple (Local2Screen(pos)));
 
 		st.start = pos;
-		st.end   = Vector2.zero;
+		st.end   = pos;
 		SetTargetAlpha (1f);
 		SetStretch (0f);
 	}

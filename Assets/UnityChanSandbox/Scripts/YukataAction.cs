@@ -10,14 +10,21 @@ public class YukataAction : MonoBehaviour {
 	public float maxSpeed;
 	public float animSpeedScale;
 
+	private Texture2D rimMask;
+
 	IEnumerator Start() {
+		
+		rimMask = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+		rimMask.SetPixel (0, 0, Color.black);
+		rimMask.Apply ();
+		yield return null;
+
 		foreach (Renderer renderer in GetComponentsInChildren<Renderer> ()) {
 			Material material = renderer.sharedMaterial;
 
 			Material tmpMaterial = Material.Instantiate (material);
-			if (tmpMaterial.HasProperty ("_EdgeThickness")) {
-				tmpMaterial.SetFloat ("_EdgeThickness", 0f);
-			}
+			tmpMaterial.SetFloat ("_EdgeThickness", 0f);
+			tmpMaterial.SetTexture("_RimLightSampler", rimMask);
 
 			renderer.sharedMaterial = tmpMaterial;
 			yield return null;

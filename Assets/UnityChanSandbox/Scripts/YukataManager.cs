@@ -15,7 +15,7 @@ public class YukataManager : MonoBehaviour {
 		while (true) {
 			yield return null;
 
-			Vector2 touchDir = elasticTouch.Dir;
+			Vector2 touchDir = elasticTouch.Vec;
 			Vector3 velocity = new Vector3 (touchDir.x, 0f, touchDir.y) * speedScale;
 			velocity = Quaternion.AngleAxis (cameraTrans.eulerAngles.y, Vector3.up) * velocity;
 
