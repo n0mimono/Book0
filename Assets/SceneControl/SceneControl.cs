@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneControl : MonoBehaviour {
 	public UIScrollPanel scrollPanel;
-	public GameObject toTop;
+	public GameObject    toTop;
+	public FadeManager   fadePanel;
 
 	[System.Serializable]
 	public class BuiltScene {
@@ -31,6 +32,9 @@ public class SceneControl : MonoBehaviour {
 			scrollPanel.AddItem (scene.name, action);
 			yield return null;
 		}
+
+		yield return new WaitUntil (() => fadePanel.IsReady);
+		yield return fadePanel.FadeOut();
 	}
 
 	public void LoadTopScene() {
@@ -43,9 +47,12 @@ public class SceneControl : MonoBehaviour {
 
 	private IEnumerator LoadSceneAsync(string name) {
 		currentScene = scenes.Where (s => s.name == name).FirstOrDefault ();
+		yield return fadePanel.FadeIn();
 
 		AsyncOperation op = SceneManager.LoadSceneAsync (currentScene.name);
 		yield return op;
+
+		yield return fadePanel.FadeOut();
 	}
 
 	private void UpdateBuiltScenes() {
