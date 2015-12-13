@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class UISceneControlPanel : MonoBehaviour {
+public class SceneControl : MonoBehaviour {
 	public UIScrollPanel scrollPanel;
+	public GameObject toTop;
 
 	[System.Serializable]
 	public class BuiltScene {
@@ -15,10 +16,14 @@ public class UISceneControlPanel : MonoBehaviour {
 	}
 	public List<BuiltScene> scenes;
 
+	private BuiltScene currentScene = null;
+
 	[Custom.Button("UpdateBuiltScenes", "Update Built Scenes" )]
 	public int ButtonUpdateBuiltScenes;
 
 	IEnumerator Start() {
+		DontDestroyOnLoad (gameObject);
+
 		foreach (BuiltScene scene in scenes.Where(s => s.enabled)) {
 			System.Action action =
 				((System.Func<string, System.Action>)((name) => (() => LoadScene (name)))) (scene.name);
@@ -28,12 +33,18 @@ public class UISceneControlPanel : MonoBehaviour {
 		}
 	}
 
-	private void LoadScene(string path) {
-		StartCoroutine (LoadSceneAsync (path));
+	public void LoadTopScene() {
+		LoadScene (scenes [0].name);
 	}
 
-	private IEnumerator LoadSceneAsync(string path) {
-		AsyncOperation op = SceneManager.LoadSceneAsync (path);
+	private void LoadScene(string name) {
+		StartCoroutine (LoadSceneAsync (name));
+	}
+
+	private IEnumerator LoadSceneAsync(string name) {
+		currentScene = scenes.Where (s => s.name == name).FirstOrDefault ();
+
+		AsyncOperation op = SceneManager.LoadSceneAsync (currentScene.name);
 		yield return op;
 	}
 
@@ -48,6 +59,7 @@ public class UISceneControlPanel : MonoBehaviour {
 				}
 			);
 		}
+		scenes [0].enabled = false;
 	}
 
 }
