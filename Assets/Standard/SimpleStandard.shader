@@ -1,15 +1,10 @@
-﻿Shader "Standard/Water" {
+﻿Shader "Standard/Simple" {
   Properties {
     _Color ("Color", Color) = (1,1,1,1)
     _MainTex ("Albedo (RGB)", 2D) = "white" {}
 
     _Metallic ("Metallic", Range(0, 1)) = 0
     _Gloss ("Gloss", Range(0, 1)) = 1
-
-	[NoScaleOffset] _BumpMap0 ("Normal Map 0", 2D) = "bump" {}
-	[NoScaleOffset] _BumpMap1 ("Normal Map 1", 2D) = "bump" {}
-    _WaveSpeed4 ("Wave Speed 4", Vector) = (1,1,-1,-1)
-    _WaveScale4 ("Wave Scale 4", Vector) = (1,1,1,1)
 
     _Mip("Cupe Mip Resolution", Range(1, 10)) = 7
     [KeywordEnum(BRDF1, BRDF2, BRDF3)] _PBS_QUALITY("PBR Quality", Float) = 0
@@ -40,10 +35,6 @@
     uniform half _Metallic;
     uniform half _Gloss;
 
-    uniform sampler2D _BumpMap0;
-    uniform sampler2D _BumpMap1;
-    uniform half4 _WaveSpeed4;
-    uniform half4 _WaveScale4;
     uniform half _Mip;
 
     struct v2f {
@@ -51,10 +42,8 @@
       float2 uv       : TEXCOORD0;
       float3 worldPos : TEXCOORD1;
       float3 normal   : TEXCOORD2;
-      float2 bumpuv0  : TEXCOORD3;
-      float2 bumpuv1  : TEXCOORD4;
-      LIGHTING_COORDS(5,6)
-      UNITY_FOG_COORDS(7)
+      LIGHTING_COORDS(3,4)
+      UNITY_FOG_COORDS(5)
     };
 
     v2f vert(appdata_full v) {
@@ -65,10 +54,6 @@
       o.worldPos = mul(_Object2World, v.vertex).xyz;
       o.normal = v.normal;
 
-      float4 temp = (o.worldPos.xzxz + _WaveSpeed4 * _Time.x) * _WaveScale4;
-      o.bumpuv0 = temp.xy;
-      o.bumpuv1 = temp.wz;
-
       TRANSFER_VERTEX_TO_FRAGMENT(o);
       UNITY_TRANSFER_FOG(o,o.pos);
       return o;
@@ -78,24 +63,18 @@
       // temp, we don't use atten info.
       half atten = LIGHT_ATTENUATION(i);
 
-      half3 normalDir  = half3(0,1,0);
+      // directions
+      half3 normalDir  = normalize(i.normal);
       half3 viewDir    = normalize(_WorldSpaceCameraPos.xyz - i.worldPos);
       half3 lightDir   = normalize(_WorldSpaceLightPos0.xyz);
       half3 reflectDir = reflect( -viewDir, normalDir );
-      half3 modDir     = viewDir;
-
-      // normal direction
-      half3 bump0 = UnpackNormal(tex2D( _BumpMap0, i.bumpuv0 )).rgb;
-      half3 bump1 = UnpackNormal(tex2D( _BumpMap1, i.bumpuv1 )).rgb;
-      half3 bump = normalize(bump0 + bump1);
-      half3 bumpReflect = reflect( -viewDir, bump );
 
       // gi set
       UnityGI gi;
-      half4 rgbm = UNITY_SAMPLE_TEXCUBE_LOD(unity_SpecCube0, bumpReflect, _Mip);
+      half4 rgbm = UNITY_SAMPLE_TEXCUBE_LOD(unity_SpecCube0, reflectDir, _Mip);
       gi.light.dir = lightDir;
       gi.light.color = _LightColor0.rgb;
-      gi.light.ndotl = LambertTerm (bump, gi.light.dir);
+      gi.light.ndotl = LambertTerm (normalDir, gi.light.dir);
       gi.indirect.specular = 2.0 * rgbm.rgb;
       gi.indirect.diffuse  = half3(1,1,1);
 
@@ -108,7 +87,7 @@
       half3 diffColor = DiffuseAndSpecularFromMetallic(albedo, _Metallic, specColor, oneMinusReflectivity);
 
       // calc PBS
-      fixed4 col = STANDARD_PBS(diffColor, specColor, oneMinusReflectivity, _Gloss, bump, modDir, gi.light, gi.indirect);
+      fixed4 col = STANDARD_PBS(diffColor, specColor, oneMinusReflectivity, _Gloss, normalDir, viewDir, gi.light, gi.indirect);
 
       UNITY_APPLY_FOG(i.fogCoord, col);
       return col;
