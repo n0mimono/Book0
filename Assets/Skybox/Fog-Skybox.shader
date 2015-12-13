@@ -4,6 +4,7 @@ Properties {
     [Gamma] _Exposure ("Exposure", Range(0, 8)) = 1.0
     _Rotation ("Rotation", Range(0, 360)) = 0
     _FogFactor ("Fog Factor", Float) = 0
+    _LightFactor ("Light Factor", Range(0,1)) = 1
     [NoScaleOffset] _FrontTex ("Front [+Z]", 2D) = "grey" {}
     [NoScaleOffset] _BackTex ("Back [-Z]", 2D) = "grey" {}
     [NoScaleOffset] _LeftTex ("Left [+X]", 2D) = "grey" {}
@@ -27,6 +28,7 @@ SubShader {
     half _Exposure;
     float _Rotation;
     float _FogFactor;
+    float _LightFactor;
 
     inline float4 RotateAroundYInDegrees (float4 vertex, float degrees) {
         float alpha = degrees * UNITY_PI / 180.0;
@@ -66,7 +68,7 @@ SubShader {
         half3 lightDir = normalize(global_LightPos.xyz);
         half3 viewDir = normalize(_WorldSpaceCameraPos - i.posWorld);
         half LdotNV = max(0, dot(lightDir, -viewDir));
-        half lightFactor = LdotNV * global_LightFactor;
+        half lightFactor = LdotNV * global_LightFactor * _LightFactor;
         half3 fogColor = saturate(unity_FogColor.rgb + global_LightColor.rgb * lightFactor);
 
         return lerp(c, fogColor, fogFactor);
