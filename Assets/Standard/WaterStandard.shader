@@ -82,12 +82,11 @@
       half3 viewDir    = normalize(_WorldSpaceCameraPos.xyz - i.worldPos);
       half3 lightDir   = normalize(_WorldSpaceLightPos0.xyz);
       half3 reflectDir = reflect( -viewDir, normalDir );
-      half3 modDir     = viewDir;
 
       // normal direction
       half3 bump0 = UnpackNormal(tex2D( _BumpMap0, i.bumpuv0 )).rgb;
       half3 bump1 = UnpackNormal(tex2D( _BumpMap1, i.bumpuv1 )).rgb;
-      half3 bump = normalize(bump0 + bump1);
+      half3 bump = normalize(bump0 + bump1).rbg; // wtf
       half3 bumpReflect = reflect( -viewDir, bump );
 
       // gi set
@@ -108,7 +107,7 @@
       half3 diffColor = DiffuseAndSpecularFromMetallic(albedo, _Metallic, specColor, oneMinusReflectivity);
 
       // calc PBS
-      fixed4 col = STANDARD_PBS(diffColor, specColor, oneMinusReflectivity, _Gloss, bump, modDir, gi.light, gi.indirect);
+      fixed4 col = STANDARD_PBS(diffColor, specColor, oneMinusReflectivity, _Gloss, bump, viewDir, gi.light, gi.indirect);
 
       UNITY_APPLY_FOG(i.fogCoord, col);
       return col;
