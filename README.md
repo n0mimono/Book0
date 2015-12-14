@@ -1,6 +1,6 @@
 # Book0
 
-Shader Training
+Shader Practice
 
 # License
 
