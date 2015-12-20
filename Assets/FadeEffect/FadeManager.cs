@@ -25,11 +25,11 @@ public class FadeManager : MonoBehaviour {
 	}
 
 	public Custom.ActionWithTime FadeIn() {
-		return new Custom.ActionWithTime (t => -1f + t, SetOpen, fadeTimeScale);
+		return new Custom.ActionWithTime ((t,dt) => SetOpen(-1+t), fadeTimeScale);
 	}
 
 	public Custom.ActionWithTime FadeOut() {
-		return new Custom.ActionWithTime (t => t, SetOpen, fadeTimeScale);
+		return new Custom.ActionWithTime ((t,dt) => SetOpen(t), fadeTimeScale);
 	}
 
 }

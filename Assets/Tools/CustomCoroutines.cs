@@ -5,8 +5,7 @@ using System;
 namespace Custom {
 
 	public class ActionWithTime : CustomYieldInstruction {
-		private Func<float, float> timeToValue;
-		private Action<float> actionByTime;
+		private Action<float,float> actionByTime;
 		private float timeScale;
 		private Func<bool> keepWaitCondition;
 
@@ -19,16 +18,15 @@ namespace Custom {
 				time += Time.deltaTime * timeScale;
 				bool isKeepWait = time < 1f;
 				if (isKeepWait) {
-					actionByTime (timeToValue (time));
+					actionByTime (time, Time.deltaTime);
 				} else {
-					actionByTime (timeToValue (1f));
+					actionByTime (1f, Time.deltaTime);
 				}
 				return isKeepWait;
 			}
 		}
 
-		public ActionWithTime(Func<float, float> timeToValue, Action<float> actionByTime, float timeScale, Func<bool> keepWaitCondition = null) {
-			this.timeToValue = timeToValue;
+		public ActionWithTime(Action<float,float> actionByTime, float timeScale, Func<bool> keepWaitCondition = null) {
 			this.actionByTime = actionByTime;
 			this.timeScale = timeScale;
 			this.keepWaitCondition = keepWaitCondition != null ? keepWaitCondition : () => true;
