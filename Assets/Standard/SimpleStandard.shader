@@ -73,7 +73,7 @@
       UnityGI gi;
       half4 rgbm = UNITY_SAMPLE_TEXCUBE_LOD(unity_SpecCube0, reflectDir, _Mip);
       gi.light.dir = lightDir;
-      gi.light.color = _LightColor0.rgb;
+      gi.light.color = _LightColor0.rgb * atten;
       gi.light.ndotl = LambertTerm (normalDir, gi.light.dir);
       gi.indirect.specular = 2.0 * rgbm.rgb;
       gi.indirect.diffuse  = half3(1,1,1);
