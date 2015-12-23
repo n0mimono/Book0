@@ -3,7 +3,9 @@ using System.Collections;
 
 public class YukataManager : MonoBehaviour {
 
+	public MultiTargetCamera cameraManager;
 	public ElasticTouch elasticTouch;
+
 	public YukataAction yukataAction;
 	public Transform    cameraTrans;
 
@@ -22,6 +24,10 @@ public class YukataManager : MonoBehaviour {
 			yukataAction.SetTargetVelocity (velocity);
 		}
 
+	}
+
+	public void OnClickedCameraButton() {
+		cameraManager.StartMagi ();
 	}
 
 }
