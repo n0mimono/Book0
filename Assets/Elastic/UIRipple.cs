@@ -8,6 +8,8 @@ public class UIRipple : MonoBehaviour {
 	public float         timeSacle;
 
 	public void Initilize() {
+		image.color = new Color (image.color.r, image.color.g, image.color.b, 0f);
+
 		StartCoroutine (Ripple ());
 	}
 

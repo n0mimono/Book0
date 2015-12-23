@@ -135,8 +135,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		GameObject obj = UIPoolManager.Instance.GetObject (UIPoolManager.Type.Ripple);
 		//obj.transform.position = touchEffectRect.position;
 		obj.transform.localPosition = pos;
-		yield return null;
 		obj.GetComponent<UIRipple> ().Initilize ();
+		yield return null;
 	}
 
 }
