@@ -7,9 +7,19 @@ public class VanillaEditor {
 
 	[MenuItem("Assets/Create/Shader/Lit Vanilla")]
 	public static void CreateLitVanilla() {
+		string filename = "VanillaLight.shader";
+		CreateVanilla (filename);
+	}
+
+	[MenuItem("Assets/Create/Shader/Unlit Vanilla")]
+	public static void CreateUnlitVanilla() {
+		string filename = "VanillaUnlit.shader";
+		CreateVanilla (filename);
+	}
+
+	public static void CreateVanilla(string filename) {
 		string curPath = Directory.GetCurrentDirectory ();
 		string dirPath = AssetDatabase.GetAssetPath (Selection.activeObject);
-		string filename = "VanillaLight.shader";
 		string srcPath = "Assets/Vanilla";
 
 		string srcFullpath = curPath + "/" + srcPath + "/" + filename;
