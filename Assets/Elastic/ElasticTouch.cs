@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,11 +10,19 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	public RectTransform touchEffectRect;
 	public GameObject touchEffect;
 
+	[Header("Elastics")]
 	public float stretchScale;
+	[Header("Chains")]
+	public float chainTime;
+	public List<Color> chainColors;
 
 	private class TouchStatus {
 		public Vector2 start;
 		public Vector2 end;
+
+		public Vector2 last;
+		public float   time;
+		public int     count;
 
 		public Vector2 Vec { get { return end - start; } }
 		public Vector2 Dir { get { return (end - start).normalized; } }
@@ -41,7 +51,9 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
 	public class EventHandler {
 		public delegate void DirectionHandler(Vector2 vec);
-		public DirectionHandler OnUpdate;
+		public delegate void ChainHandler (int count);
+		public DirectionHandler OnUpdate = (vec) => {};
+		public ChainHandler OnChain = (count) => {};
 	}
 	public EventHandler handler = new EventHandler();
 
@@ -59,13 +71,16 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	public void OnPointerUp (PointerEventData eventData) {
 		Vector2 pos = LocalPos (eventData.position);
 
-		if (st.end != Vector2.zero) {
-			StartCoroutine (ripple (Local2Screen(pos)));
-		}
+		StartCoroutine (ripple (Local2Screen(pos)));
 
 		st.start = Vector2.zero;
 		st.end   = Vector2.zero;
 		SetTargetAlpha (0f);
+
+		handler.OnChain (st.count);
+		st.count++;
+		st.last = pos;
+		st.time = chainTime;
 	}
 	public void OnDrag (PointerEventData eventData) {
 		Vector2 pos = LocalPos (eventData.position);
@@ -84,9 +99,12 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	}
 
 	void Update() {
-		if (handler.OnUpdate != null) {
-			handler.OnUpdate (st.Vec);
+		st.time = Mathf.Max (st.time - Time.deltaTime, 0f);
+		if (st.time == 0f) {
+			st.count = 0;
 		}
+
+		handler.OnUpdate (st.Vec);
 	}
 
 	private Vector3 Local2Screen(Vector2 pos) {
@@ -145,9 +163,16 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		GameObject obj = UIPoolManager.Instance.GetObject (UIPoolManager.Type.Ripple);
 		//obj.transform.position = touchEffectRect.position;
 		obj.transform.localPosition = pos;
-		obj.GetComponent<UIRipple> ().Initilize ();
+		obj.GetComponent<UIRipple> ().Initilize (GetChainColor());
 		yield return null;
 	}
 
+	private Color GetChainColor() {
+		if (st.count < chainColors.Count) {
+			return chainColors [st.count];
+		} else {
+			return chainColors.LastOrDefault ();
+		}
+	}
 }
 

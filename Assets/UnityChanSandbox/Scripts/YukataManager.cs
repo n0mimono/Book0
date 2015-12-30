@@ -13,6 +13,7 @@ public class YukataManager : MonoBehaviour {
 
 	IEnumerator Start() {
 		elasticTouch.handler.OnUpdate += OnTouchUpdate;
+		elasticTouch.handler.OnChain += OnChainAction;
 
 		yield return null;
 	}
@@ -26,6 +27,10 @@ public class YukataManager : MonoBehaviour {
 		velocity = Quaternion.AngleAxis (cameraTrans.eulerAngles.y, Vector3.up) * velocity;
 
 		yukataAction.SetTargetVelocity (velocity);
+	}
+
+	private void OnChainAction(int count) {
+		//Debug.Log (count);
 	}
 
 }

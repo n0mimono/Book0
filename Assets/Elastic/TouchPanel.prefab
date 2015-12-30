@@ -141,6 +141,13 @@ MonoBehaviour:
   touchEffectRect: {fileID: 22433322}
   touchEffect: {fileID: 107900}
   stretchScale: 0.1
+  chainTime: 1
+  chainDist: 10
+  chainColors:
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 0.862069, g: 1, b: 0, a: 0}
+  - {r: 1, g: 0.7241379, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &11409174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,7 +294,79 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[0].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[0].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[1].r
+      value: 0.862069
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[1].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[1].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[7].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[7].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[7].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[2].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[2].g
+      value: 0.7241379
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[2].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[3].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[3].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainColors.Array.data[3].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainDist
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 124796}
