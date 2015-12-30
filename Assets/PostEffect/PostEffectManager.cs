@@ -12,6 +12,10 @@ public class PostEffectManager : MonoBehaviour {
 	}
 	public List<EffectMaterial> materials;
 
+	void Start() {
+		Camera.main.depthTextureMode = DepthTextureMode.Depth;
+	}
+
 	void OnRenderImage(RenderTexture src, RenderTexture dst) {
 		if (!materials.Any (m => m.isEnabled)) {
 			Graphics.Blit (src, dst);
