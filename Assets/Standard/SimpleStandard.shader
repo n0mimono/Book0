@@ -60,7 +60,6 @@
     }
 
     half4 frag(v2f i) : SV_Target {
-      // temp, we don't use atten info.
       half atten = LIGHT_ATTENUATION(i);
 
       // directions

@@ -1,4 +1,4 @@
-﻿Shader "Standard/Water" {
+﻿Shader "Standard/Water-Reflection" {
   Properties {
     _Color ("Color", Color) = (1,1,1,1)
     _MainTex ("Albedo (RGB)", 2D) = "white" {}
@@ -13,6 +13,9 @@
 
     _Mip("Cupe Mip Resolution", Range(1, 10)) = 7
     [KeywordEnum(BRDF1, BRDF2, BRDF3)] _PBS_QUALITY("PBR Quality", Float) = 0
+
+    _ReflDistort ("Reflection Distortion", Float) = 0
+    [HideInInspector] _ReflectionTex ("Reflection Tex", 2D) = "white" {}
   }
   SubShader {
     Tags { "RenderType"="Opaque" }
@@ -46,6 +49,9 @@
     uniform half4 _WaveScale4;
     uniform half _Mip;
 
+    uniform half _ReflDistort;
+    uniform sampler2D _ReflectionTex;
+
     struct v2f {
       float4 pos      : SV_POSITION;
       float2 uv       : TEXCOORD0;
@@ -53,8 +59,9 @@
       float3 normal   : TEXCOORD2;
       float2 bumpuv0  : TEXCOORD3;
       float2 bumpuv1  : TEXCOORD4;
-      LIGHTING_COORDS(5,6)
-      UNITY_FOG_COORDS(7)
+      float4 refl     : TEXCOORD5;
+      LIGHTING_COORDS(6,7)
+      UNITY_FOG_COORDS(8)
     };
 
     v2f vert(appdata_full v) {
@@ -64,6 +71,7 @@
       o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
       o.worldPos = mul(_Object2World, v.vertex).xyz;
       o.normal = v.normal;
+      o.refl = ComputeScreenPos (o.pos);
 
       float4 temp = (o.worldPos.xzxz + _WaveSpeed4 * _Time.x) * _WaveScale4;
       o.bumpuv0 = temp.xy;
@@ -98,7 +106,9 @@
       gi.indirect.diffuse  = half3(1,1,1);
 
       // main albedo
-      half3 albedo = tex2D(_MainTex, i.uv) * _Color;
+      i.refl.xz -= bump * _ReflDistort;
+      half4 refl = tex2Dproj(_ReflectionTex, UNITY_PROJ_COORD(i.refl));
+      half3 albedo = refl * tex2D(_MainTex, i.uv + bump * _ReflDistort) * _Color;
 
       // calc diffuse and specular
       half oneMinusReflectivity;

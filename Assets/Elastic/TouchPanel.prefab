@@ -142,7 +142,6 @@ MonoBehaviour:
   touchEffect: {fileID: 107900}
   stretchScale: 0.1
   chainTime: 1
-  chainDist: 10
   chainColors:
   - {r: 1, g: 1, b: 1, a: 0}
   - {r: 0.862069, g: 1, b: 0, a: 0}
@@ -365,7 +364,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: chainDist
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
