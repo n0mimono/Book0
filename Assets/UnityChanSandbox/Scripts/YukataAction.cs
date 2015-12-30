@@ -11,6 +11,17 @@ public class YukataAction : MonoBehaviour {
 	public float charSpeedScale;
 	public float animSpeedScale;
 
+	private UnityChanLocoSD stateMachine;
+
+	public enum AnimeAction {
+		None   = 0,
+		Salute = 1,
+	}
+
+	void Start() {
+		stateMachine = animator.GetBehaviour<UnityChanLocoSD> ();
+	}
+
 	public void SetTargetVelocity(Vector3 tgtVelocity) {
 		tgtVelocity = tgtVelocity.normalized * Mathf.Min (maxSpeed, tgtVelocity.magnitude);
 		if (tgtVelocity.magnitude < 0.2f) {
@@ -28,7 +39,11 @@ public class YukataAction : MonoBehaviour {
 
 		// animation
 		animator.SetFloat("Speed", tgtVelocity.magnitude * animSpeedScale);
+	}
 
+	public void StartAnimeAction(AnimeAction act, System.Action onCompleted) {
+		stateMachine.OnExit = (hash) => onCompleted();
+		animator.SetInteger ("Action", (int)act);
 	}
 
 }

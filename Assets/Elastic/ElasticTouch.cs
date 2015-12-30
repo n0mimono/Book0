@@ -16,6 +16,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	public float chainTime;
 	public List<Color> chainColors;
 
+	private bool isActive;
+
 	private class TouchStatus {
 		public Vector2 start;
 		public Vector2 end;
@@ -58,6 +60,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	public EventHandler handler = new EventHandler();
 
 	public void OnPointerDown (PointerEventData eventData) {
+		if (!isActive) return;
+
 		Vector2 pos = LocalPos (eventData.position);
 		touchEffectRect.localPosition = Local2Screen(pos);
 
@@ -69,6 +73,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		SetStretch (0f);
 	}
 	public void OnPointerUp (PointerEventData eventData) {
+		if (!isActive) return;
+
 		Vector2 pos = LocalPos (eventData.position);
 
 		StartCoroutine (ripple (Local2Screen(pos)));
@@ -83,6 +89,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		st.time = chainTime;
 	}
 	public void OnDrag (PointerEventData eventData) {
+		if (!isActive) return;
+
 		Vector2 pos = LocalPos (eventData.position);
 
 		st.end = pos;
@@ -91,6 +99,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	}
 
 	void Awake() {
+		isActive = true;
+
 		Renderer effectRenderer = touchEffect.GetComponent<Renderer> ();
 		effectRenderer.sharedMaterial = Material.Instantiate (effectRenderer.material);
 		effectRenderer.sharedMaterial.hideFlags = HideFlags.HideAndDontSave;
@@ -99,6 +109,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	}
 
 	void Update() {
+		if (!isActive) return;
+
 		st.time = Mathf.Max (st.time - Time.deltaTime, 0f);
 		if (st.time == 0f) {
 			st.count = 0;
@@ -174,5 +186,24 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 			return chainColors.LastOrDefault ();
 		}
 	}
+
+	public void SetActive(bool isActive) {
+		this.isActive = isActive;
+
+		if (!isActive) {
+			ClearState ();
+		}
+	}
+
+	private void ClearState() {
+		st.start = Vector2.zero;
+		st.end   = Vector2.zero;
+		SetTargetAlpha (0f);
+
+		st.count = 0;
+		st.last = Vector2.zero;
+		st.time = 0f;
+	}
+
 }
 

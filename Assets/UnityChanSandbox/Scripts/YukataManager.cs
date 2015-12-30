@@ -30,7 +30,18 @@ public class YukataManager : MonoBehaviour {
 	}
 
 	private void OnChainAction(int count) {
-		//Debug.Log (count);
+		if (count == 3) {
+			LockAction ();
+			yukataAction.StartAnimeAction (YukataAction.AnimeAction.Salute, UnlockAction);
+		}
+	}
+
+	private void LockAction() {
+		elasticTouch.SetActive (false);
+	}
+
+	private void UnlockAction() {
+		elasticTouch.SetActive (true);
 	}
 
 }
