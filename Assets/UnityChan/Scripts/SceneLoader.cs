@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour {
 
@@ -14,20 +15,20 @@ public class SceneLoader : MonoBehaviour {
 
 	void LoadPreScene()
 	{
-		int nextLevel = Application.loadedLevel + 1;
-		if( nextLevel <= 1)
-			nextLevel = Application.levelCount;
+		int nextLevel = SceneManager.GetActiveScene ().buildIndex + 1;
+		if (nextLevel <= 1)
+			nextLevel = SceneManager.sceneCountInBuildSettings;
 
-		Application.LoadLevel(nextLevel);
+		SceneManager.LoadScene(nextLevel);
 	}
 
 	void LoadNextScene()
 	{
-		int nextLevel = Application.loadedLevel + 1;
-		if( nextLevel >= Application.levelCount)
+		int nextLevel = SceneManager.GetActiveScene ().buildIndex + 1;
+		if( nextLevel >= SceneManager.sceneCountInBuildSettings)
 			nextLevel = 1;
 
-		Application.LoadLevel(nextLevel);
+		SceneManager.LoadScene(nextLevel);
 
 	}
 }

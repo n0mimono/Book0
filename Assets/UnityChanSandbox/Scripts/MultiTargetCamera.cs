@@ -9,7 +9,6 @@ public class MultiTargetCamera : MonoBehaviour {
 
 	private IEnumerator curRoutine;
 
-	private readonly float defaultLerpSpeed = 2f;
 	private float lerpSpeed = 2f;
 
 	[System.Serializable]
