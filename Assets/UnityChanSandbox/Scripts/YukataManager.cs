@@ -12,22 +12,20 @@ public class YukataManager : MonoBehaviour {
 	public float speedScale;
 
 	IEnumerator Start() {
+		elasticTouch.handler.OnUpdate += OnTouchUpdate;
+
 		yield return null;
-
-		while (true) {
-			yield return null;
-
-			Vector2 touchDir = elasticTouch.Vec;
-			Vector3 velocity = new Vector3 (touchDir.x, 0f, touchDir.y) * speedScale;
-			velocity = Quaternion.AngleAxis (cameraTrans.eulerAngles.y, Vector3.up) * velocity;
-
-			yukataAction.SetTargetVelocity (velocity);
-		}
-
 	}
 
 	public void OnClickedCameraButton() {
 		cameraManager.StartMagi ();
+	}
+
+	private void OnTouchUpdate(Vector2 touchDir) {
+		Vector3 velocity = new Vector3 (touchDir.x, 0f, touchDir.y) * speedScale;
+		velocity = Quaternion.AngleAxis (cameraTrans.eulerAngles.y, Vector3.up) * velocity;
+
+		yukataAction.SetTargetVelocity (velocity);
 	}
 
 }

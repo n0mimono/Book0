@@ -19,7 +19,6 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		public float   Mag { get { return (end - start).magnitude; } }
 	}
 	private TouchStatus st = new TouchStatus ();
-	public Vector2 Vec { get { return st.Vec; } }
 
 	private class EffectStatus {
 		public float alpha;
@@ -40,6 +39,11 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	}
 	private EffectStatus cur = new EffectStatus();
 
+	public class EventHandler {
+		public delegate void DirectionHandler(Vector2 vec);
+		public DirectionHandler OnUpdate;
+	}
+	public EventHandler handler = new EventHandler();
 
 	public void OnPointerDown (PointerEventData eventData) {
 		Vector2 pos = LocalPos (eventData.position);
@@ -77,6 +81,12 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		effectRenderer.sharedMaterial.hideFlags = HideFlags.HideAndDontSave;
 
 		StartCoroutine (AlphaSetter ());
+	}
+
+	void Update() {
+		if (handler.OnUpdate != null) {
+			handler.OnUpdate (st.Vec);
+		}
 	}
 
 	private Vector3 Local2Screen(Vector2 pos) {
