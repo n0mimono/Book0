@@ -33,6 +33,7 @@ public class YukataManager : MonoBehaviour {
 		if (count == 3) {
 			LockAction ();
 			yukataAction.StartAnimeAction (YukataAction.AnimeAction.Salute, UnlockAction);
+			cameraManager.StartSalute();
 		}
 	}
 
