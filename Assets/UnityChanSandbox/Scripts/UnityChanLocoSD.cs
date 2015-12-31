@@ -9,7 +9,9 @@ public class UnityChanLocoSD : StateMachineBehaviour {
 	}
 
 	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		OnExit (stateInfo.shortNameHash);
+		if (layerIndex == 0) {
+			OnExit (stateInfo.shortNameHash);
+		}
 	}
 
 	public override void OnStateMachineEnter(Animator animator, int stateMachinePathHash) {
