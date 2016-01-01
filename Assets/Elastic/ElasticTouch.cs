@@ -21,6 +21,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	public float holdCountTime;
 	public float holdDistance;
 	public List<Color> holdColors;
+	[Header("Flick")]
+	public float flickDistance;
 
 	private bool isActive;
 
@@ -73,7 +75,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		if (!isActive) return;
 
 		Vector2 pos = LocalPos (eventData.position);
-		touchEffectRect.localPosition = Local2Screen(pos);
+		SetPos (Local2Screen (pos));
 
 		StartCoroutine (ripple (Local2Screen(pos), GetChainColor()));
 
@@ -86,8 +88,10 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		if (!isActive) return;
 
 		Vector2 pos = LocalPos (eventData.position);
+		Vector2 delta = LocalDelta (eventData.position, eventData.delta);
 
 		StartCoroutine (ripple (Local2Screen(pos), GetChainColor()));
+		StartCoroutine (FlickAction(Local2Screen(pos), Local2Screen(delta)));
 
 		st.start = Vector2.zero;
 		st.end   = Vector2.zero;
@@ -142,10 +146,20 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		return vec;
 	}
 
+	private Vector2 LocalDelta(Vector2 pos, Vector2 delta) {
+		Vector2 curPos = LocalPos (pos);
+		Vector2 prevPos = LocalPos (pos - delta);
+		return curPos - prevPos;
+	}
+
 	[ContextMenu("Set Sorting Order Of Touch Effect")]
 	public void SetSortingOrderOfTouchEffect() {
 		Renderer effectRenderer = touchEffect.GetComponent<Renderer> ();
 		effectRenderer.sortingOrder = 1;
+	}
+
+	private void SetPos(Vector2 pos) {
+		touchEffectRect.localPosition = pos;
 	}
 
 	private void SetStretch(float strength) {
@@ -177,6 +191,10 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
 		float baseAlpha = mat.GetColor ("_Color").a;
 		mat.SetColor ("_Color", cur.color.ToColor (baseAlpha));
+	}
+
+	private void SetCurrentAlpha(float alpha) {
+		cur.alpha = alpha;
 	}
 
 	private void SetTargetAlpha(float alpha) {
@@ -279,4 +297,30 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 			holdEvent ();
 		}
 	}
+
+	private IEnumerator FlickAction(Vector3 pos, Vector3 vec) {
+		Vector3 org = pos - vec;
+
+		if (vec.magnitude < holdDistance) {
+			yield break;
+		}
+		Color effectColor = Color.green;
+
+		StartCoroutine(ripple(org, effectColor));
+		StartCoroutine(ripple(pos, effectColor));
+		yield return null;
+
+		SetPos (org);
+		SetStretch (vec.magnitude * stretchScale);
+		SetDirection (vec.normalized);
+
+		SetTargetColor (effectColor);
+		SetTargetAlpha (1f);
+		SetCurrentAlpha (0f);
+
+		yield return new WaitForSeconds(0.3f);
+		SetTargetColor (Color.white);
+		SetTargetAlpha (0f);
+	}
+
 }
