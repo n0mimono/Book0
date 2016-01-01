@@ -84,4 +84,13 @@ public static class AnimatorProxy {
 	public static void InitAnimeAction(this Animator animator) {
 		animator.SetAnimeAction (0);
 	}
+
+	public static void SetFace(this Animator animator, int id) {
+		animator.SetInteger ("FaceType", id);
+	}
+
+	public static bool IsFullName(this AnimatorStateInfo stateInfo, string fullpath) {
+		return stateInfo.fullPathHash == Animator.StringToHash (fullpath);
+	}
 }
+

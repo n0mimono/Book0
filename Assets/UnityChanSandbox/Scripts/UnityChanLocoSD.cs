@@ -14,10 +14,4 @@ public class UnityChanLocoSD : StateMachineBehaviour {
 		}
 	}
 
-	public override void OnStateMachineEnter(Animator animator, int stateMachinePathHash) {
-	}
-
-	public override void OnStateMachineExit(Animator animator, int stateMachinePathHash) {
-	}
-
 }
