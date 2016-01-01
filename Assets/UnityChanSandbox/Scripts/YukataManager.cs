@@ -32,7 +32,7 @@ public class YukataManager : MonoBehaviour {
 	private void OnChainAction(int count) {
 		if (count == 3) {
 			LockAction ();
-			yukataAction.StartAnimeAction (YukataAction.AnimeAction.Salute, UnlockAction);
+			yukataAction.StartAnimeAction (YukataAction.AnimeAction.Salute, UnlockAction, true);
 			cameraManager.StartSalute();
 		}
 	}

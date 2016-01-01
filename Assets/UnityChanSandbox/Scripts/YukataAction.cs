@@ -8,10 +8,14 @@ public class YukataAction : MonoBehaviour {
 	public Animator animator;
 
 	public float maxSpeed;
+	public float acceleration;
 	public float charSpeedScale;
 	public float animSpeedScale;
 
 	private UnityChanLocoSD stateMachine;
+
+	private Vector3 tgtVelocity;
+	private Vector3 curVelocity;
 
 	public enum AnimeAction {
 		None   = 0,
@@ -22,26 +26,44 @@ public class YukataAction : MonoBehaviour {
 		stateMachine = animator.GetBehaviour<UnityChanLocoSD> ();
 	}
 
-	public void SetTargetVelocity(Vector3 tgtVelocity) {
-		tgtVelocity = tgtVelocity.normalized * Mathf.Min (maxSpeed, tgtVelocity.magnitude);
+	void Update() {
+		UpdateVelocity ();
+	}
 
+	private void UpdateVelocity() {
 		// move control
+		tgtVelocity = tgtVelocity.normalized * Mathf.Min (maxSpeed, tgtVelocity.magnitude);
 		tgtVelocity = tgtVelocity.magnitude < 0.2f ?  Vector3.zero : tgtVelocity;
+		curVelocity = Vector3.Lerp (curVelocity, tgtVelocity, acceleration * Time.deltaTime);
 
 		// position
-		characterControl.Move (charSpeedScale * tgtVelocity * Time.deltaTime);
+		characterControl.Move (charSpeedScale * curVelocity * Time.deltaTime);
 
 		// angle
-		if (tgtVelocity.magnitude > 0.1f) {
+		if (curVelocity.magnitude > 0.1f) {
 			Transform trans = transform;
 			trans.LookAt (trans.position + tgtVelocity);
 		}
 
 		// animation control
-		animator.SetSpeed(tgtVelocity.magnitude * animSpeedScale);
+		animator.SetSpeed(curVelocity.magnitude * animSpeedScale);
 	}
 
-	public void StartAnimeAction(AnimeAction act, System.Action onCompleted) {
+	public void SetTargetVelocity(Vector3 tgtVelocity) {
+		this.tgtVelocity = tgtVelocity;
+	}
+
+	public void ForceStop() {
+		tgtVelocity = Vector3.zero;
+		curVelocity = Vector3.zero;
+		UpdateVelocity ();
+	}
+
+	public void StartAnimeAction(AnimeAction act, System.Action onCompleted, bool isForceStop = false) {
+		if (isForceStop) {
+			ForceStop ();
+		}
+
 		stateMachine.OnExit = (hash) => onCompleted();
 		animator.SetAnimeAction ((int)act);
 	}
