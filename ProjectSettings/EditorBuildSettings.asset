@@ -24,6 +24,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Standard/Standard.unity
   - enabled: 1
+    path: Assets/Toon/Toon.unity
+  - enabled: 1
     path: Assets/Trailer/Trailer.unity
   - enabled: 1
     path: Assets/UnityChanSandbox/UnityChanSandbox.unity
