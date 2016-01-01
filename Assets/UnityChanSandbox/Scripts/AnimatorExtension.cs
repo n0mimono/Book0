@@ -49,7 +49,7 @@ public static class AnimatorExtension {
 	}
 
 	public static bool IsUnlockState(this AnimatorStateInfo stateInfo) {
-		return stateInfo.IsFullName ("Base.Lock Action.Unlock");
+		return stateInfo.IsTag ("Unlock");
 	}
 
 }

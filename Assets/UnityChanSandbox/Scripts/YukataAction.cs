@@ -8,12 +8,14 @@ public class YukataAction : MonoBehaviour {
 	public Animator animator;
 
 	public float maxSpeed;
+	public float diveSpeed;
 	public float acceleration;
 	public float charSpeedScale;
 	public float animSpeedScale;
 
 	private List<UnityChanLocoSD> stateMachines;
 
+	private bool isWalkable;
 	private Vector3 tgtVelocity;
 	private Vector3 curVelocity;
 
@@ -21,11 +23,13 @@ public class YukataAction : MonoBehaviour {
 		None   = 0,
 		Salute = 1,
 		Jump   = 2,
-		Slide  = 3,
+		Dive   = 3,
 	}
 
 	void Start() {
 		stateMachines = animator.GetBehaviours<UnityChanLocoSD> ().ToList();
+
+		SetWalkable (true);
 	}
 
 	void Update() {
@@ -34,8 +38,6 @@ public class YukataAction : MonoBehaviour {
 
 	private void UpdateVelocity() {
 		// move control
-		tgtVelocity = tgtVelocity.normalized * Mathf.Min (maxSpeed, tgtVelocity.magnitude);
-		tgtVelocity = tgtVelocity.magnitude < 0.2f ?  Vector3.zero : tgtVelocity;
 		curVelocity = Vector3.Lerp (curVelocity, tgtVelocity, acceleration * Time.deltaTime);
 
 		// position
@@ -48,11 +50,19 @@ public class YukataAction : MonoBehaviour {
 		}
 
 		// animation control
-		animator.SetSpeed(curVelocity.magnitude * animSpeedScale);
+		if (isWalkable) {
+			animator.SetSpeed(curVelocity.magnitude * animSpeedScale);
+		}
 	}
 
 	public void SetTargetVelocity(Vector3 tgtVelocity) {
+		tgtVelocity = tgtVelocity.normalized * Mathf.Min (maxSpeed, tgtVelocity.magnitude);;
+		tgtVelocity = tgtVelocity.magnitude < 0.2f ?  Vector3.zero : tgtVelocity;
 		this.tgtVelocity = tgtVelocity;
+	}
+
+	public void SetDiveVelocity() {
+		tgtVelocity = transform.forward * diveSpeed;
 	}
 
 	public void ForceStop() {
@@ -70,5 +80,8 @@ public class YukataAction : MonoBehaviour {
 		animator.SetAnimeAction ((int)act);
 	}
 
+	public void SetWalkable(bool isWalkable) {
+		this.isWalkable = isWalkable;
+	}
 }
 

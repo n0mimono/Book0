@@ -47,15 +47,19 @@ public class YukataManager : MonoBehaviour {
 	}
 
 	private void OnFlickSlide(Vector2 slideDir) {
-		
+		LockAction ();
+		yukataAction.StartAnimeAction (YukataAction.AnimeAction.Dive, UnlockAction, false);
+		yukataAction.SetDiveVelocity ();
 	}
 
 	private void LockAction() {
 		elasticTouch.SetActive (false);
+		yukataAction.SetWalkable (false);
 	}
 
 	private void UnlockAction() {
 		elasticTouch.SetActive (true);
+		yukataAction.SetWalkable (true);
 	}
 
 }

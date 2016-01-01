@@ -4936,6 +4936,7 @@ MonoBehaviour:
   characterControl: {fileID: 14365608}
   animator: {fileID: 9541692}
   maxSpeed: 2
+  diveSpeed: 2
   acceleration: 2
   charSpeedScale: 2
   animSpeedScale: 0.5
