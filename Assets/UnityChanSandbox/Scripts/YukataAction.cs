@@ -20,6 +20,8 @@ public class YukataAction : MonoBehaviour {
 	public enum AnimeAction {
 		None   = 0,
 		Salute = 1,
+		Jump   = 2,
+		Slide  = 3,
 	}
 
 	void Start() {
