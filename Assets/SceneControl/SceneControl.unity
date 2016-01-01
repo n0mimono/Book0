@@ -1295,6 +1295,9 @@ MonoBehaviour:
   - name: Standard
     enabled: 1
     path: Assets/Standard/Standard.unity
+  - name: Toon
+    enabled: 1
+    path: Assets/Toon/Toon.unity
   - name: Trailer
     enabled: 1
     path: Assets/Trailer/Trailer.unity
