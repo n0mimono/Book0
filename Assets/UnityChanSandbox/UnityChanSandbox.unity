@@ -1220,14 +1220,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11479086, guid: a29ee4fadfca643db9aa9356d5db1e0a, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11479086, guid: a29ee4fadfca643db9aa9356d5db1e0a, type: 2}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a29ee4fadfca643db9aa9356d5db1e0a, type: 2}
   m_IsPrefabParent: 0
@@ -1419,14 +1411,6 @@ Prefab:
     - target: {fileID: 475100, guid: 8f742c1308399468083cbac54797f73a, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a, type: 2}
-      propertyPath: animSpeedScale
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a, type: 2}
-      propertyPath: acceleration
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f742c1308399468083cbac54797f73a, type: 2}

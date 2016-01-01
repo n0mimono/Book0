@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Custom;
 
 public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler {
 	public RectTransform touchEffectRect;
@@ -15,6 +16,9 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	[Header("Chains")]
 	public float chainTime;
 	public List<Color> chainColors;
+	[Header("Hold")]
+	public float holdDistance;
+	public List<Color> holdColors;
 
 	private bool isActive;
 
@@ -26,6 +30,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		public float   time;
 		public int     count;
 
+		public int holdCount;
+
 		public Vector2 Vec { get { return end - start; } }
 		public Vector2 Dir { get { return (end - start).normalized; } }
 		public float   Mag { get { return (end - start).magnitude; } }
@@ -33,20 +39,21 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	private TouchStatus st = new TouchStatus ();
 
 	private class EffectStatus {
+		public Vector3 color;
+		public Vector3 targetColor;
 		public float alpha;
 		public float targetAlpha;
 
-		public void UpdateAlpha(float da) {
-			float dAlpha = targetAlpha - alpha;
-			if (Mathf.Abs (dAlpha) < da) {
-				alpha = targetAlpha;
-			} else {
-				alpha += Mathf.Sign (dAlpha) * da;
-			}
+		public void Update(float delta) {
+			alpha = Utility.ConstLerp (alpha, targetAlpha, delta);
+			color = Utility.ConstLerp (color, targetColor, delta);
 		}
-		public void InitilizeAlpha() {
-			alpha = 0f;
+
+		public void Initilize() {
+			alpha       = 0f;
 			targetAlpha = 0f;
+			color       = Vector3.one;
+			targetColor = Vector3.one;
 		}
 	}
 	private EffectStatus cur = new EffectStatus();
@@ -65,7 +72,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		Vector2 pos = LocalPos (eventData.position);
 		touchEffectRect.localPosition = Local2Screen(pos);
 
-		StartCoroutine (ripple (Local2Screen(pos)));
+		StartCoroutine (ripple (Local2Screen(pos), GetChainColor()));
 
 		st.start = pos;
 		st.end   = pos;
@@ -77,7 +84,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
 		Vector2 pos = LocalPos (eventData.position);
 
-		StartCoroutine (ripple (Local2Screen(pos)));
+		StartCoroutine (ripple (Local2Screen(pos), GetChainColor()));
 
 		st.start = Vector2.zero;
 		st.end   = Vector2.zero;
@@ -99,13 +106,14 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	}
 
 	void Awake() {
-		isActive = true;
-
 		Renderer effectRenderer = touchEffect.GetComponent<Renderer> ();
 		effectRenderer.sharedMaterial = Material.Instantiate (effectRenderer.material);
 		effectRenderer.sharedMaterial.hideFlags = HideFlags.HideAndDontSave;
 
-		StartCoroutine (AlphaSetter ());
+		StartCoroutine (UpdateEffectColor ());
+		StartCoroutine (CheckHoldDown ());
+
+		SetActive (true);
 	}
 
 	void Update() {
@@ -146,45 +154,49 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		effectRenderer.sharedMaterial.SetVector ("_StretchDirection", new Vector4(dir.x, 0f, -dir.y, 1f));
 	}
 
-	private IEnumerator AlphaSetter() {
-		cur.InitilizeAlpha ();
-		ApplyCurrentAlpha ();
+	private IEnumerator UpdateEffectColor() {
+		cur.Initilize ();
+		ApplyCurrentEffectColor ();
 
 		while (true) {
 			yield return true;
 
-			cur.UpdateAlpha (Time.deltaTime * 6f);
-			ApplyCurrentAlpha ();
+			cur.Update (Time.deltaTime * 6f);
+			ApplyCurrentEffectColor ();
 		}
 	}
 
-	private void ApplyCurrentAlpha() {
+	private void ApplyCurrentEffectColor() {
 		Renderer effectRenderer = touchEffect.GetComponent<Renderer> ();
-		effectRenderer.sharedMaterial.SetFloat ("_Alpha", cur.alpha);
+		Material mat = effectRenderer.sharedMaterial;
+		mat.SetFloat ("_Alpha", cur.alpha);
+
+		float baseAlpha = mat.GetColor ("_Color").a;
+		mat.SetColor ("_Color", cur.color.ToColor (baseAlpha));
 	}
 
 	private void SetTargetAlpha(float alpha) {
 		cur.targetAlpha = alpha;
 	}
 
-	private void SetCurrentAlpha(float alpha) {
-		cur.alpha = alpha;
+	public void SetTargetColor(Color color) {
+		cur.targetColor = color.ToVector3();
 	}
 
-	private IEnumerator ripple(Vector3 pos) {
+	private IEnumerator ripple(Vector3 pos, Color color) {
 		GameObject obj = UIPoolManager.Instance.GetObject (UIPoolManager.Type.Ripple);
 		//obj.transform.position = touchEffectRect.position;
 		obj.transform.localPosition = pos;
-		obj.GetComponent<UIRipple> ().Initilize (GetChainColor());
+		obj.GetComponent<UIRipple> ().Initilize (color);
 		yield return null;
 	}
 
 	private Color GetChainColor() {
-		if (st.count < chainColors.Count) {
-			return chainColors [st.count];
-		} else {
-			return chainColors.LastOrDefault ();
-		}
+		return st.count < chainColors.Count ? chainColors [st.count] : chainColors.LastOrDefault ();
+	}
+
+	private Color GetHoldColor() {
+		return st.holdCount < holdColors.Count ? holdColors [st.holdCount] : holdColors.LastOrDefault ();
 	}
 
 	public void SetActive(bool isActive) {
@@ -205,5 +217,61 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		st.time = 0f;
 	}
 
-}
+	private IEnumerator CheckHoldDown() {
+		bool curIsHold = false;
+		IEnumerator holdRoutine = null;
 
+		System.Func<bool> isHold = () => 
+			st.start != Vector2.zero && Vector2.Distance (st.start, st.end) < holdDistance;
+		System.Action startHold = () => {
+			holdRoutine = HoldDown ();
+			StartCoroutine (holdRoutine);
+		};
+		System.Action stopHold = () => {
+			st.holdCount = 0;
+			if (holdRoutine != null) {
+				StopCoroutine (holdRoutine);
+			}
+			SetTargetColor (Color.white);
+		};
+
+		while (isActive) {
+			bool prevIsHold = curIsHold;
+			curIsHold = isHold ();
+
+			if (!prevIsHold && curIsHold) {
+				startHold();
+			} else if (prevIsHold && !curIsHold) {
+				stopHold();
+			}
+
+			yield return null;
+		}
+		stopHold ();
+
+		while (!isActive) {
+			yield return null;
+		}
+
+		StartCoroutine (CheckHoldDown ());
+	}
+
+	private IEnumerator HoldDown() {
+		st.holdCount = 0;
+
+		System.Action holdEvent = () => {
+			st.holdCount++;
+			Color effectColor = GetHoldColor();
+			StartCoroutine (ripple (Local2Screen(st.end), effectColor));
+			SetTargetColor(effectColor);
+		};
+
+		yield return new WaitForSeconds (1f);
+		holdEvent ();
+
+		while (true) {
+			yield return new WaitForSeconds (1f);
+			holdEvent ();
+		}
+	}
+}

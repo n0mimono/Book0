@@ -147,6 +147,12 @@ MonoBehaviour:
   - {r: 0.862069, g: 1, b: 0, a: 0}
   - {r: 1, g: 0.7241379, b: 0, a: 0}
   - {r: 1, g: 0, b: 0, a: 0}
+  holdDistance: 50
+  holdColors:
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 0, g: 1, b: 0.83448267, a: 0}
+  - {r: 0, g: 0.6275859, b: 1, a: 0}
+  - {r: 0, g: 0.17241383, b: 1, a: 0}
 --- !u!114 &11409174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
