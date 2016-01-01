@@ -10,6 +10,11 @@ namespace Custom {
 				Mathf.LerpAngle (a.z, b.z, t));
 		}
 
+		public static void SetEulerAngleX(this Transform trans, float x) {
+			Vector3 ang = trans.eulerAngles;
+			trans.eulerAngles = new Vector3 (x, ang.y, ang.z);
+		}
+
 		public static void SetPositionY(this Transform trans, float y) {
 			Vector3 pos = trans.position;
 			trans.position = new Vector3 (pos.x, y, pos.z);

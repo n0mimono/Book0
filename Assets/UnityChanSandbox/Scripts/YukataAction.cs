@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Custom;
 
 public class YukataAction : MonoBehaviour {
 	public CharacterController characterControl;
@@ -50,9 +51,8 @@ public class YukataAction : MonoBehaviour {
 		}
 
 		// animation control
-		if (isWalkable) {
-			animator.SetSpeed(curVelocity.magnitude * animSpeedScale);
-		}
+		float animSpeed = isWalkable ? curVelocity.magnitude * animSpeedScale : 0f;
+		animator.SetSpeed (animSpeed);
 	}
 
 	public void SetTargetVelocity(Vector3 tgtVelocity) {

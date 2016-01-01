@@ -96,6 +96,7 @@ public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointer
 
 		StartCoroutine (ripple (Local2Screen(pos), GetChainColor()));
 		StartCoroutine (FlickAction(Local2Screen(pos), PopHistory(flickTime)));
+		handler.OnRelease (st.holdCount);
 
 		st.start = Vector2.zero;
 		st.end   = Vector2.zero;
@@ -270,7 +271,6 @@ public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointer
 			if (!prevIsHold && curIsHold) {
 				startHold();
 			} else if (prevIsHold && !curIsHold) {
-				handler.OnRelease (st.holdCount);
 				stopHold();
 			}
 
