@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Custom;
 
-public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler {
+public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler {
 	public RectTransform touchEffectRect;
 	public GameObject touchEffect;
 
@@ -22,6 +22,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	public float holdDistance;
 	public List<Color> holdColors;
 	[Header("Flick")]
+	public float flickTime;
 	public float flickDistance;
 
 	private bool isActive;
@@ -68,6 +69,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		public DirectionHandler OnUpdate = (vec) => {};
 		public CountFireHandler OnChain = (count) => {};
 		public CountFireHandler OnRelease = (count) => {};
+		public DirectionHandler OnFlicked = (vec) => {};
 	}
 	public EventHandler handler = new EventHandler();
 
@@ -89,9 +91,10 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
 		Vector2 pos = LocalPos (eventData.position);
 		Vector2 delta = LocalDelta (eventData.position, eventData.delta);
+		PushHistory (Local2Screen(delta));
 
 		StartCoroutine (ripple (Local2Screen(pos), GetChainColor()));
-		StartCoroutine (FlickAction(Local2Screen(pos), Local2Screen(delta)));
+		StartCoroutine (FlickAction(Local2Screen(pos), PopHistory(flickTime)));
 
 		st.start = Vector2.zero;
 		st.end   = Vector2.zero;
@@ -107,6 +110,8 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		if (!isActive) return;
 
 		Vector2 pos = LocalPos (eventData.position);
+		Vector2 delta = LocalDelta (eventData.position, eventData.delta);
+		PushHistory (Local2Screen(delta));
 
 		st.end = pos;
 		SetStretch (st.Mag * stretchScale);
@@ -301,7 +306,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	private IEnumerator FlickAction(Vector3 pos, Vector3 vec) {
 		Vector3 org = pos - vec;
 
-		if (vec.magnitude < holdDistance) {
+		if (vec.magnitude < flickDistance) {
 			yield break;
 		}
 		Color effectColor = Color.green;
@@ -309,6 +314,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		StartCoroutine(ripple(org, effectColor));
 		StartCoroutine(ripple(pos, effectColor));
 		yield return null;
+		handler.OnFlicked (vec);
 
 		SetPos (org);
 		SetStretch (vec.magnitude * stretchScale);
@@ -321,6 +327,35 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		yield return new WaitForSeconds(0.3f);
 		SetTargetColor (Color.white);
 		SetTargetAlpha (0f);
+	}
+
+}
+
+public partial class ElasticTouch {
+
+	private struct TouchPoint {
+		public Vector3 vec;
+		public float   time;
+	}
+	private Queue<TouchPoint> touchHistory = new Queue<TouchPoint>();
+
+	private void PushHistory(Vector3 vec) {
+		touchHistory.Enqueue(new TouchPoint() { vec = vec, time = Time.time });
+	}
+	private Vector3 PopHistory(float dt) {
+		List<Vector3> curVecs = touchHistory.Where (t => Time.time - t.time < dt).Select(t => t.vec).ToList();
+		int count = curVecs.Count;
+
+		if (count == 0) {
+			return Vector3.zero;
+		}
+		float w = 1f / count;
+		Vector3 avg = curVecs.Aggregate ((m, v) => m += w * v);
+
+		touchHistory.Clear ();
+
+		Debug.Log (count + " > " + avg);
+		return avg;
 	}
 
 }

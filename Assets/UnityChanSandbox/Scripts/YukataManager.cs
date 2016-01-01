@@ -15,6 +15,7 @@ public class YukataManager : MonoBehaviour {
 		elasticTouch.handler.OnUpdate += OnTouchUpdate;
 		elasticTouch.handler.OnChain += OnChainAction;
 		elasticTouch.handler.OnRelease += OnReleaseAction;
+		elasticTouch.handler.OnFlicked += OnFlickSlide;
 
 		yield return null;
 	}
@@ -39,6 +40,10 @@ public class YukataManager : MonoBehaviour {
 			yukataAction.StartAnimeAction (YukataAction.AnimeAction.Salute, UnlockAction, true);
 			cameraManager.StartSalute();
 		}
+	}
+
+	private void OnFlickSlide(Vector2 slideDir) {
+		
 	}
 
 	private void LockAction() {
