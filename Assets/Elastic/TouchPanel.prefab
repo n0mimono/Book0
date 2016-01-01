@@ -142,11 +142,13 @@ MonoBehaviour:
   touchEffect: {fileID: 107900}
   stretchScale: 0.1
   chainTime: 1
+  chainDistance: 50
   chainColors:
   - {r: 1, g: 1, b: 1, a: 0}
   - {r: 0.862069, g: 1, b: 0, a: 0}
   - {r: 1, g: 0.7241379, b: 0, a: 0}
   - {r: 1, g: 0, b: 0, a: 0}
+  holdCountTime: 1
   holdDistance: 50
   holdColors:
   - {r: 1, g: 1, b: 1, a: 0}

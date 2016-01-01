@@ -15,8 +15,10 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	public float stretchScale;
 	[Header("Chains")]
 	public float chainTime;
+	public float chainDistance;
 	public List<Color> chainColors;
 	[Header("Hold")]
+	public float holdCountTime;
 	public float holdDistance;
 	public List<Color> holdColors;
 
@@ -91,6 +93,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		st.end   = Vector2.zero;
 		SetTargetAlpha (0f);
 
+		st.count = Vector3.Distance (st.last, pos) < chainDistance ? st.count : 0;
 		handler.OnChain (st.count);
 		st.count++;
 		st.last = pos;
@@ -268,11 +271,11 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 			SetTargetColor(effectColor);
 		};
 
-		yield return new WaitForSeconds (1f);
+		yield return new WaitForSeconds (holdCountTime);
 		holdEvent ();
 
 		while (true) {
-			yield return new WaitForSeconds (1f);
+			yield return new WaitForSeconds (holdCountTime);
 			holdEvent ();
 		}
 	}
