@@ -24,6 +24,7 @@ public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointer
 	[Header("Flick")]
 	public float flickTime;
 	public float flickDistance;
+	public Color flickColor;
 
 	private bool isActive;
 
@@ -309,7 +310,7 @@ public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointer
 		if (vec.magnitude < flickDistance) {
 			yield break;
 		}
-		Color effectColor = Color.green;
+		Color effectColor = flickColor;
 
 		StartCoroutine(ripple(org, effectColor));
 		StartCoroutine(ripple(pos, effectColor));
