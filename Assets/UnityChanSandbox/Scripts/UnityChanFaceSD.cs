@@ -11,7 +11,7 @@ public class UnityChanFaceSD : StateMachineBehaviour {
 	}
 
 	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		if (stateInfo.IsFullName("Base.Salute")) {
+		if (stateInfo.IsFullName("Base.Lock Action.Salute")) {
 			animator.SetFace ((int)FaceType.Salute);
 		} else if (stateInfo.IsFullName("Face.Salute")) {
 			animator.SetFace ((int)FaceType.Loop);

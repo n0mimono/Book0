@@ -47,4 +47,9 @@ public static class AnimatorExtension {
 	public static bool IsFullName(this AnimatorStateInfo stateInfo, string fullpath) {
 		return stateInfo.fullPathHash == Animator.StringToHash (fullpath);
 	}
+
+	public static bool IsUnlockState(this AnimatorStateInfo stateInfo) {
+		return stateInfo.IsFullName ("Base.Lock Action.Unlock");
+	}
+
 }

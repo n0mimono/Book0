@@ -12,7 +12,7 @@ public class YukataAction : MonoBehaviour {
 	public float charSpeedScale;
 	public float animSpeedScale;
 
-	private UnityChanLocoSD stateMachine;
+	private List<UnityChanLocoSD> stateMachines;
 
 	private Vector3 tgtVelocity;
 	private Vector3 curVelocity;
@@ -23,7 +23,7 @@ public class YukataAction : MonoBehaviour {
 	}
 
 	void Start() {
-		stateMachine = animator.GetBehaviour<UnityChanLocoSD> ();
+		stateMachines = animator.GetBehaviours<UnityChanLocoSD> ().ToList();
 	}
 
 	void Update() {
@@ -64,7 +64,7 @@ public class YukataAction : MonoBehaviour {
 			ForceStop ();
 		}
 
-		stateMachine.OnExit = (hash) => onCompleted();
+		stateMachines.ForEach (m => m.OnExit = (hash) => onCompleted());
 		animator.SetAnimeAction ((int)act);
 	}
 

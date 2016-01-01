@@ -354,8 +354,6 @@ public partial class ElasticTouch {
 		Vector3 avg = curVecs.Aggregate ((m, v) => m += w * v);
 
 		touchHistory.Clear ();
-
-		Debug.Log (count + " > " + avg);
 		return avg;
 	}
 
