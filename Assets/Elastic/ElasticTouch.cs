@@ -60,9 +60,10 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
 	public class EventHandler {
 		public delegate void DirectionHandler(Vector2 vec);
-		public delegate void ChainHandler (int count);
+		public delegate void CountFireHandler (int count);
 		public DirectionHandler OnUpdate = (vec) => {};
-		public ChainHandler OnChain = (count) => {};
+		public CountFireHandler OnChain = (count) => {};
+		public CountFireHandler OnRelease = (count) => {};
 	}
 	public EventHandler handler = new EventHandler();
 
@@ -242,6 +243,7 @@ public class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 			if (!prevIsHold && curIsHold) {
 				startHold();
 			} else if (prevIsHold && !curIsHold) {
+				handler.OnRelease (st.holdCount);
 				stopHold();
 			}
 

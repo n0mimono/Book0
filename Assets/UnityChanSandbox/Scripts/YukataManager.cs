@@ -14,6 +14,7 @@ public class YukataManager : MonoBehaviour {
 	IEnumerator Start() {
 		elasticTouch.handler.OnUpdate += OnTouchUpdate;
 		elasticTouch.handler.OnChain += OnChainAction;
+		elasticTouch.handler.OnRelease += OnReleaseAction;
 
 		yield return null;
 	}
@@ -30,7 +31,10 @@ public class YukataManager : MonoBehaviour {
 	}
 
 	private void OnChainAction(int count) {
-		if (count == 3) {
+	}
+
+	private void OnReleaseAction(int count) {
+		if (count >= 3) {
 			LockAction ();
 			yukataAction.StartAnimeAction (YukataAction.AnimeAction.Salute, UnlockAction, true);
 			cameraManager.StartSalute();
