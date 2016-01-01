@@ -4937,7 +4937,7 @@ MonoBehaviour:
   animator: {fileID: 9541692}
   maxSpeed: 2
   charSpeedScale: 2
-  animSpeedScale: 0.4
+  animSpeedScale: 0.5
 --- !u!114 &11497228
 MonoBehaviour:
   m_ObjectHideFlags: 1

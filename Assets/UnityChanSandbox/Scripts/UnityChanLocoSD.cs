@@ -5,7 +5,7 @@ public class UnityChanLocoSD : StateMachineBehaviour {
 	public System.Action<int> OnExit = (hash) => {};
 
 	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		animator.SetInteger ("Action", 0);
+		animator.InitAnimeAction ();
 	}
 
 	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

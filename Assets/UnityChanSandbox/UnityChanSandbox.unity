@@ -1418,23 +1418,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 475100, guid: 8f742c1308399468083cbac54797f73a, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 445218, guid: 8f742c1308399468083cbac54797f73a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 445218, guid: 8f742c1308399468083cbac54797f73a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1.4210855e-14
-      objectReference: {fileID: 0}
-    - target: {fileID: 445218, guid: 8f742c1308399468083cbac54797f73a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 1.4210855e-14
-      objectReference: {fileID: 0}
-    - target: {fileID: 445218, guid: 8f742c1308399468083cbac54797f73a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
+    - target: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a, type: 2}
+      propertyPath: animSpeedScale
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f742c1308399468083cbac54797f73a, type: 2}
