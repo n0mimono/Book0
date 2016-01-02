@@ -5,10 +5,15 @@ using System.Linq;
 using Custom;
 
 public partial class ElasticCameraOperator : MonoBehaviour {
+
+	[Header("Common Settings")]
 	public Transform opTrans;
 
 	public enum Mode {
-		Targeting = 0,
+		Forwarding = 0,
+		LookupForwarding,
+		PlayerTargeting,
+		MultiTargeting,
 		Magi,
 		Salute
 	}
@@ -45,13 +50,15 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 
 	private void Initilize() {
 		cur = this.InnerCreate<Status, ElasticCameraOperator> ();
-		cur.baseMode = Mode.Targeting;
 
-		GetScheme (Mode.Targeting).routiner = () => UpdateRoutine(TargettingUpdate);
+		GetScheme (Mode.Forwarding).routiner = () => UpdateRoutine(ForwardingUpdate);
+		GetScheme (Mode.LookupForwarding).routiner = () => UpdateRoutine(ForwardingUpdate); // dummy
+		GetScheme (Mode.PlayerTargeting).routiner = () => UpdateRoutine(TargettingUpdate); // dummy
+		GetScheme (Mode.MultiTargeting).routiner = () => UpdateRoutine(TargettingUpdate);
 		GetScheme (Mode.Magi).routiner = () => TemporaryRoutine(Magi);
 		GetScheme (Mode.Salute).routiner = () => TemporaryRoutine(Salute);
 
-		SetMode (Mode.Targeting);
+		SetMode (Mode.Forwarding, true);
 	}
 
 	public Scheme GetScheme(Mode mode) {
@@ -86,7 +93,10 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 		SetMode (cur.baseMode);
 	}
 
-	public void SetMode(Mode mode) {
+	public void SetMode(Mode mode, bool isAlsoSetBaseMode = false) {
+		if (isAlsoSetBaseMode) {
+			cur.baseMode = mode;
+		}
 		cur.mode = mode;
 
 		StartLateCoroutine (cur.scheme.routiner ());

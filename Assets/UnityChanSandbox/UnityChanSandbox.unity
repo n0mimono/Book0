@@ -1489,13 +1489,17 @@ MonoBehaviour:
   opTrans: {fileID: 1802821561}
   schemes:
   - mode: 0
-    lerpSpeed: 2
+    lerpSpeed: 1
   - mode: 1
     lerpSpeed: 2
   - mode: 2
+    lerpSpeed: 2
+  - mode: 3
+    lerpSpeed: 2
+  - mode: 4
+    lerpSpeed: 2
+  - mode: 5
     lerpSpeed: 5
-  targettingParams:
-    height: 2
   targets:
   - trans: {fileID: 288359225}
     isPlayer: 1
@@ -1503,6 +1507,12 @@ MonoBehaviour:
   - trans: {fileID: 1292904502}
     isPlayer: 0
     isEnemy: 1
+  forwardingParams:
+    height: 1.5
+    back: -2
+    forward: 4
+  targettingParams:
+    height: 2
 --- !u!4 &1802821561
 Transform:
   m_ObjectHideFlags: 0
