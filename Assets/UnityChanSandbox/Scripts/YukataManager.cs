@@ -4,7 +4,7 @@ using Custom;
 
 public partial class YukataManager : MonoBehaviour {
 
-	public MultiTargetCamera cameraManager;
+	public ElasticCameraOperator cameraOperator;
 	public ElasticTouch elasticTouch;
 
 	public YukataAction yukataAction;
@@ -22,7 +22,7 @@ public partial class YukataManager : MonoBehaviour {
 	}
 
 	public void OnClickedCameraButton() {
-		cameraManager.StartMagi ();
+		cameraOperator.StartMagi ();
 	}
 
 	private void OnTouchUpdate(Vector2 touchDir) {
@@ -41,7 +41,7 @@ public partial class YukataManager : MonoBehaviour {
 		if (count >= 3) {
 			LockAction ();
 			yukataAction.StartAnimeAction (YukataAction.AnimeAction.Salute, UnlockAction, true);
-			cameraManager.StartSalute();
+			cameraOperator.StartSalute();
 		}
 	}
 
