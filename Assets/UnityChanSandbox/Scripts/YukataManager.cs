@@ -22,7 +22,7 @@ public partial class YukataManager : MonoBehaviour {
 	}
 
 	public void OnClickedCameraButton() {
-		cameraOperator.StartMagi ();
+		cameraOperator.SetMode (ElasticCameraOperator.Mode.Magi);
 	}
 
 	private void OnTouchUpdate(Vector2 touchDir) {
@@ -41,7 +41,7 @@ public partial class YukataManager : MonoBehaviour {
 		if (count >= 3) {
 			LockAction ();
 			yukataAction.StartAnimeAction (YukataAction.AnimeAction.Salute, UnlockAction, true);
-			cameraOperator.StartSalute();
+			cameraOperator.SetMode (ElasticCameraOperator.Mode.Salute);
 		}
 	}
 

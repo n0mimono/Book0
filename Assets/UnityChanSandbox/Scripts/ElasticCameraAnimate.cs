@@ -4,14 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Custom;
 
-public partial class ElasticCameraOperator : MonoBehaviour {
-
-	public void StartMagi() {
-		StartLateCoroutine (Magi ());
-	}
+public partial class ElasticCameraOperator {
 
 	private IEnumerator Magi() {
-		Push ();
+		cur.lerpSpeed = cur.scheme.lerpSpeed;
 
 		Transform player = targets.Where (t => t.isPlayer).Select (t => t.trans).FirstOrDefault ();
 		Transform enemy = targets.Where (t => t.isEnemy).Select (t => t.trans).FirstOrDefault ();
@@ -32,18 +28,10 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 
 		transform.LookAt (enemy.position + Vector3.up * 7f);
 		for (float time = 0f; time < 5f; time += Time.deltaTime) yield return null;
-
-		Pop ();
-		StartRegularUpdate ();
-	}
-
-	public void StartSalute() {
-		StartLateCoroutine (Salute ());
 	}
 
 	private IEnumerator Salute() {
-		Push ();
-		lerpSpeed = 5f;
+		cur.lerpSpeed = cur.scheme.lerpSpeed;
 
 		Transform player = targets.Where (t => t.isPlayer).Select (t => t.trans).FirstOrDefault ();
 
@@ -53,9 +41,6 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 
 		for (float time = 0f; time < 3f; time += Time.deltaTime) yield return null;
 		yield return null;
-
-		Pop ();
-		StartRegularUpdate ();
 	}
 
 }

@@ -25,6 +25,10 @@ namespace Custom {
 			trans.eulerAngles = new Vector3 (ang.x, ang.y + y, ang.z);
 		}
 
+		public static Vector3 Ground(this Vector3 pos, float height) {
+			return new Vector3 (pos.x, height, pos.z);
+		}
+
 		public static float ConstLerp(float value, float target, float delta) {
 			float d = target - value;
 			if (Mathf.Abs(d) < delta) {
@@ -60,4 +64,24 @@ namespace Custom {
 			return worldVec;
 		}
 	}
+
+	public class InnerClass<TP> {
+		private TP parent;
+		public TP Parent { get { return parent; } }
+
+		public void SetParent(TP parent) {
+			this.parent = parent;
+		}
+	}
+
+	public static class InnerClassExtension {
+		
+		public static T InnerCreate<T, TP>(this TP parent) where T : InnerClass<TP>, new() {
+			T obj = new T (); //InnerClassExtension.Construct<T> ();
+			obj.SetParent (parent);
+			return obj;
+		}
+
+	}
+
 }
