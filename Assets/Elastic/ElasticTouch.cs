@@ -25,6 +25,8 @@ public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointer
 	public float flickTime;
 	public float flickDistance;
 	public Color flickColor;
+	public float elasticDistance;
+	public float elasticDotSimilarity;
 
 	private bool isActive;
 
@@ -307,7 +309,10 @@ public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointer
 	private IEnumerator FlickAction(Vector3 pos, Vector3 vec) {
 		Vector3 org = pos - vec;
 
-		if (vec.magnitude < flickDistance) {
+		bool isWeak  = vec.magnitude < flickDistance;
+		bool isDist  = vec.Similarity (st.Vec) < elasticDotSimilarity;
+		bool isShort = st.Vec.magnitude < elasticDistance;
+		if (isWeak || isDist || isShort) {
 			yield break;
 		}
 		Color effectColor = flickColor;

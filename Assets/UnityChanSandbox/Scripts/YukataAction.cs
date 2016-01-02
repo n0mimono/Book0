@@ -61,8 +61,9 @@ public class YukataAction : MonoBehaviour {
 		this.tgtVelocity = tgtVelocity;
 	}
 
-	public void SetDiveVelocity() {
-		tgtVelocity = transform.forward * diveSpeed;
+	public void SetDiveVelocity(Vector3 dir) {
+		transform.forward = dir;
+		tgtVelocity = dir * diveSpeed;
 	}
 
 	public void ForceStop() {

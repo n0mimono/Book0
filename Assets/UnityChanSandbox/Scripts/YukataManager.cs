@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Custom;
 
-public class YukataManager : MonoBehaviour {
+public partial class YukataManager : MonoBehaviour {
 
 	public MultiTargetCamera cameraManager;
 	public ElasticTouch elasticTouch;
@@ -25,9 +26,7 @@ public class YukataManager : MonoBehaviour {
 	}
 
 	private void OnTouchUpdate(Vector2 touchDir) {
-		Vector3 velocity = new Vector3 (touchDir.x, 0f, touchDir.y) * speedScale;
-		velocity = Quaternion.AngleAxis (cameraTrans.eulerAngles.y, Vector3.up) * velocity;
-
+		Vector3 velocity = cameraTrans.ToWorldVec (touchDir) * speedScale;
 		yukataAction.SetTargetVelocity (velocity);
 	}
 
@@ -47,9 +46,11 @@ public class YukataManager : MonoBehaviour {
 	}
 
 	private void OnFlickSlide(Vector2 slideDir) {
+		Vector3 dir = cameraTrans.ToWorldVec (slideDir).normalized;
+
 		LockAction ();
 		yukataAction.StartAnimeAction (YukataAction.AnimeAction.Dive, UnlockAction, false);
-		yukataAction.SetDiveVelocity ();
+		yukataAction.SetDiveVelocity (dir);
 	}
 
 	private void LockAction() {

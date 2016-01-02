@@ -158,6 +158,8 @@ MonoBehaviour:
   flickTime: 0.2
   flickDistance: 20
   flickColor: {r: 0.11724138, g: 1, b: 0, a: 0}
+  elasticDistance: 50
+  elasticDotSimilarity: 0.85
 --- !u!114 &11409174
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -50,5 +50,14 @@ namespace Custom {
 			return new Color (vec.x, vec.y, vec.z, alpha);
 		}
 
+		public static float Similarity(this Vector3 a, Vector3 b) {
+			return Vector3.Dot (a.normalized, b.normalized);
+		}
+
+		public static Vector3 ToWorldVec(this Transform cameraTrans, Vector2 touchVec) {
+			Vector3 screenVec = new Vector3 (touchVec.x, 0f, touchVec.y);
+			Vector3 worldVec = Quaternion.AngleAxis (cameraTrans.eulerAngles.y, Vector3.up) * screenVec;
+			return worldVec;
+		}
 	}
 }
