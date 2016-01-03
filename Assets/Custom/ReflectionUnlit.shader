@@ -35,7 +35,7 @@
         o.view     = normalize(o.worldPos - _WorldSpaceCameraPos.xyz);
         o.reflec   = reflect(o.view, o.normal);
 
-        UNITY_TRANSFER_FOG(o,o.vertex);
+        UNITY_TRANSFER_FOG(o,o.pos);
         return o;
       }
 
