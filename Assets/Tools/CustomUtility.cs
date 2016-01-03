@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 namespace Custom {
 	public static class Utility {
@@ -62,6 +63,10 @@ namespace Custom {
 			Vector3 screenVec = new Vector3 (touchVec.x, 0f, touchVec.y);
 			Vector3 worldVec = Quaternion.AngleAxis (cameraTrans.eulerAngles.y, Vector3.up) * screenVec;
 			return worldVec;
+		}
+
+		public static void SetColor(this Button button, Color color) {
+			button.targetGraphic.color = color;
 		}
 	}
 

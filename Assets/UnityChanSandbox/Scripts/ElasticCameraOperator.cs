@@ -37,6 +37,13 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 	}
 	private Status cur;
 
+	public delegate void ModeChangeHandler (Mode mode);
+	public event ModeChangeHandler OnModeChanged;
+
+	void Awake() {
+		OnModeChanged += (mode) => {};
+	}
+
 	void Start() {
 		Initilize ();
 	}
@@ -98,6 +105,8 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 		cur.mode = mode;
 
 		StartLateCoroutine (cur.scheme.routiner ());
+
+		OnModeChanged (cur.mode);
 	}
 
 }

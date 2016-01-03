@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UI;
+using Custom;
 
 public class UICameraControl : MonoBehaviour {
-	public delegate void CameraSwitchHandler(ElasticCameraOperator.Mode mode, bool isBase);
-	public event CameraSwitchHandler OnCameraSwitch;
+	public delegate void CameraChangeHandler(ElasticCameraOperator.Mode mode, bool isBase);
+	public event CameraChangeHandler OnCameraChanged;
 
 	[System.Serializable]
 	public class SwitchButton {
@@ -17,26 +18,43 @@ public class UICameraControl : MonoBehaviour {
 	}
 	public List<SwitchButton> buttons;
 
+	public Color playingColor;
+	public Color inactiveColor;
+
 	void Awake() {
-		OnCameraSwitch += (mode, isBase) =>  {};
+		OnCameraChanged += (mode, isBase) =>  {};
 	}
 
-	public void OnCameraSwitchButton(int id) {
+	public void OnCameraChangeButtonClicked(int id) {
 		ElasticCameraOperator.Mode mode = (ElasticCameraOperator.Mode)id;
 
-		SwitchButton button = buttons.Where (b => b.mode == mode).FirstOrDefault ();
+		SwitchButton button = buttons
+			.Where (b => b.mode == mode).FirstOrDefault ();
+
+		OnCameraChanged (mode, button.isBaseButton);
+	}
+
+	public void UpdateCameraButtons(ElasticCameraOperator.Mode mode) {
+		SwitchButton button = buttons
+			.Where (b => b.mode == mode).FirstOrDefault ();
+		List<SwitchButton> others = buttons
+			.Where (b => b.mode != mode)
+			.Where (b => !b.isDummy).ToList ();
+
+		// interactive
 		if (!button.isDummy && button.isBaseButton) {
 			button.button.interactable = false;
-			buttons
-				.Where(b => !b.isDummy)
-				.Where (b => b.mode != mode)
+			others
 				.Where (b => b.isBaseButton)
-				.Select (b => b.button)
-				.ToList ()
+				.Select (b => b.button).ToList ()
 				.ForEach (b => b.interactable = true);
 		}
 
-		OnCameraSwitch (mode, button.isBaseButton);
+		// color
+		if (!button.isDummy) {
+			button.button.SetColor (playingColor);
+		}
+		others.ForEach (b => b.button.SetColor (inactiveColor));
 	}
 
 }

@@ -19,11 +19,11 @@ public partial class YukataManager : MonoBehaviour {
 		elasticTouch.handler.OnRelease += OnReleaseAction;
 		elasticTouch.handler.OnFlicked += OnFlickSlide;
 
-		uiCameraControl.OnCameraSwitch += OnCameraSwitch;
-
+		uiCameraControl.OnCameraChanged += OnCameraChanged;
+		cameraOperator.OnModeChanged += uiCameraControl.UpdateCameraButtons;
 		yield return null;
 
-		uiCameraControl.OnCameraSwitchButton ((int)ElasticCameraOperator.Mode.Forwarding);
+		uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Forwarding);
 	}
 
 	private void OnTouchUpdate(Vector2 touchDir) {
@@ -43,7 +43,7 @@ public partial class YukataManager : MonoBehaviour {
 			LockAction ();
 			yukataAction.StartAnimeAction (YukataAction.AnimeAction.Salute, UnlockAction, true);
 
-			uiCameraControl.OnCameraSwitchButton ((int)ElasticCameraOperator.Mode.Salute);
+			uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Salute);
 		}
 	}
 
@@ -65,7 +65,7 @@ public partial class YukataManager : MonoBehaviour {
 		yukataAction.SetWalkable (true);
 	}
 
-	private void OnCameraSwitch(ElasticCameraOperator.Mode mode, bool isBase) {
+	private void OnCameraChanged(ElasticCameraOperator.Mode mode, bool isBase) {
 		cameraOperator.SetMode (mode, isBase);
 	}
 }

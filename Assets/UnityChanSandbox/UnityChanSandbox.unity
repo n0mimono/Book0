@@ -173,7 +173,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 366954477}
-        m_MethodName: OnCameraSwitchButton
+        m_MethodName: OnCameraChangeButtonClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -517,6 +517,8 @@ MonoBehaviour:
     isBaseButton: 0
     button: {fileID: 0}
     isDummy: 1
+  playingColor: {r: 0.3602941, g: 1, b: 0.7882353, a: 1}
+  inactiveColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &366954478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,10 +577,10 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      StartPos: {x: -120, y: 0, z: 0}
+      StartPos: {x: -100, y: 0, z: 0}
       EndPos: {x: 0, y: 0, z: 0}
-      StartWorldPos: {x: -0.15408504, y: 0.57735026, z: 0}
-      EndWorldPos: {x: 0.0000000027939677, y: 0.57735026, z: 0}
+      StartWorldPos: {x: -0.1284042, y: 0.57735026, z: 0}
+      EndWorldPos: {x: 0.0000000023283064, y: 0.57735026, z: 0}
     ScalePropetiesAnim:
       scaleEnabled: 0
       TweenCurveEnterScale:
@@ -1296,7 +1298,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 366954477}
-        m_MethodName: OnCameraSwitchButton
+        m_MethodName: OnCameraChangeButtonClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1417,7 +1419,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 366954477}
-        m_MethodName: OnCameraSwitchButton
+        m_MethodName: OnCameraChangeButtonClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1613,7 +1615,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 366954477}
-        m_MethodName: OnCameraSwitchButton
+        m_MethodName: OnCameraChangeButtonClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
