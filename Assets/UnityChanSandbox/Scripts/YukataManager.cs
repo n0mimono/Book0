@@ -21,6 +21,9 @@ public partial class YukataManager : MonoBehaviour {
 
 		uiCameraControl.OnCameraChanged += OnCameraChanged;
 		cameraOperator.OnModeChanged += uiCameraControl.UpdateCameraButtons;
+
+		yukataAction.InLockAction += LockAction;
+
 		yield return null;
 
 		uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Forwarding);
@@ -33,14 +36,12 @@ public partial class YukataManager : MonoBehaviour {
 
 	private void OnChainAction(int count) {
 		if (count >= 3) {
-			LockAction ();
 			yukataAction.StartLockedAction (YukataAction.AnimeAction.Jump, UnlockAction, true);
 		}
 	}
 
 	private void OnReleaseAction(int count) {
 		if (count >= 3) {
-			LockAction ();
 			yukataAction.StartLockedAction (YukataAction.AnimeAction.Salute, UnlockAction, true);
 			uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Salute);
 		}
@@ -49,16 +50,15 @@ public partial class YukataManager : MonoBehaviour {
 	private void OnFlickSlide(Vector2 slideDir) {
 		Vector3 dir = cameraTrans.ToWorldVec (slideDir).normalized;
 
-		LockAction ();
 		yukataAction.StartLockedAction (YukataAction.AnimeAction.Dive, UnlockAction, false);
 		yukataAction.SetDiveVelocity (dir);
 	}
 
-	private void LockAction() {
+	private void LockAction(YukataAction.AnimeAction act) {
 		elasticTouch.SetActive (false);
 	}
 
-	private void UnlockAction() {
+	private void UnlockAction(YukataAction.AnimeAction act) {
 		elasticTouch.SetActive (true);
 	}
 

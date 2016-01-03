@@ -37,11 +37,16 @@ public class YukataChan : MonoBehaviour {
 
 	void Start() {
 		myTrans = yukataAction.transform;
+		yukataAction.InLockAction += InLockInterrupt;
 
 		CreateAim ();
 
 		StartCoroutine (UpdateCommon ());
 		NextState (Search);
+	}
+
+	private void InLockInterrupt(YukataAction.AnimeAction act) {
+
 	}
 
 	private void CreateAim() {
@@ -145,7 +150,7 @@ public class YukataChan : MonoBehaviour {
 
 		yield return null;
 		cur.isUpdateCommon = false;
-		System.Action onCompleted = () => cur.isUpdateCommon = true;
+		YukataAction.LockHandler onCompleted = (act) => cur.isUpdateCommon = true;
 
 		yukataAction.StartLockedAction (YukataAction.AnimeAction.Dive, onCompleted, false);
 		yukataAction.SetDiveVelocity (myTrans.forward);

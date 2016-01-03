@@ -27,7 +27,14 @@ public class YukataAction : MonoBehaviour {
 		Dive   = 3,
 	}
 
+	public delegate void LockHandler(AnimeAction act);
+	public event LockHandler InLockAction;
+	public event LockHandler OutLockAction;
+
 	void Start() {
+		InLockAction += (act) => SetWalkable (false);
+		OutLockAction += (act) => SetWalkable (true);
+
 		stateMachines = animator.GetBehaviours<UnityChanLocoSD> ().ToList();
 
 		SetWalkable (true);
@@ -72,16 +79,16 @@ public class YukataAction : MonoBehaviour {
 		UpdateVelocity ();
 	}
 
-	public void StartLockedAction(AnimeAction act, System.Action onCompleted, bool isForceStop = false) {
+	public void StartLockedAction(AnimeAction act, LockHandler onCompleted, bool isForceStop = false) {
 		if (isForceStop) {
 			ForceStop ();
 		}
 
 		// anime
-		SetWalkable (false);
+		InLockAction(act);
 		stateMachines.ForEach (m => m.OnExit = (hash) => {
-			SetWalkable(true);
-			onCompleted();
+			OutLockAction(act);
+			onCompleted(act);
 		});
 		animator.SetAnimeAction ((int)act);
 	}
