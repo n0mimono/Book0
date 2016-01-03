@@ -66,23 +66,29 @@ public class YukataAction : MonoBehaviour {
 		tgtVelocity = dir * diveSpeed;
 	}
 
-	public void ForceStop() {
+	private void ForceStop() {
 		tgtVelocity = Vector3.zero;
 		curVelocity = Vector3.zero;
 		UpdateVelocity ();
 	}
 
-	public void StartAnimeAction(AnimeAction act, System.Action onCompleted, bool isForceStop = false) {
+	public void StartLockedAction(AnimeAction act, System.Action onCompleted, bool isForceStop = false) {
 		if (isForceStop) {
 			ForceStop ();
 		}
 
-		stateMachines.ForEach (m => m.OnExit = (hash) => onCompleted());
+		// anime
+		SetWalkable (false);
+		stateMachines.ForEach (m => m.OnExit = (hash) => {
+			SetWalkable(true);
+			onCompleted();
+		});
 		animator.SetAnimeAction ((int)act);
 	}
 
-	public void SetWalkable(bool isWalkable) {
+	private void SetWalkable(bool isWalkable) {
 		this.isWalkable = isWalkable;
 	}
+
 }
 
