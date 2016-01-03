@@ -1523,7 +1523,7 @@ GameObject:
   - 114: {fileID: 11495504}
   - 143: {fileID: 14328860}
   - 114: {fileID: 11421228}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SD_unitychan_enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

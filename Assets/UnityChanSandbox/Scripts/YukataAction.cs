@@ -21,19 +21,28 @@ public class YukataAction : MonoBehaviour {
 	private Vector3 curVelocity;
 
 	public enum AnimeAction {
-		None   = 0,
-		Salute = 1,
-		Jump   = 2,
-		Dive   = 3,
+		None    = 0,
+		Salute  = 1,
+		Jump    = 2,
+		Dive    = 3,
+		Damaged = 4,
 	}
+	private AnimeAction inAction;
+	public AnimeAction InAction { get { return inAction; } }
 
 	public delegate void LockHandler(AnimeAction act);
 	public event LockHandler InLockAction;
 	public event LockHandler OutLockAction;
 
 	void Start() {
-		InLockAction += (act) => SetWalkable (false);
-		OutLockAction += (act) => SetWalkable (true);
+		InLockAction += (act) => {
+			SetWalkable (false);
+			inAction = act;
+		};
+		OutLockAction += (act) => {
+			SetWalkable (true);
+			inAction = AnimeAction.None;
+		};
 
 		stateMachines = animator.GetBehaviours<UnityChanLocoSD> ().ToList();
 
@@ -95,6 +104,27 @@ public class YukataAction : MonoBehaviour {
 
 	private void SetWalkable(bool isWalkable) {
 		this.isWalkable = isWalkable;
+	}
+
+	void OnControllerColliderHit(ControllerColliderHit hit) {
+		if (!hit.collider.gameObject.IsLayer (Common.Layer.Character)) {
+			return;
+		}
+
+		YukataAction opponent = hit.collider.GetComponent<YukataAction> ();
+		AttackTo (opponent);
+	}
+
+	private void AttackTo(YukataAction receiver) {
+		if (InAction == AnimeAction.Dive && receiver.InAction != AnimeAction.Damaged) {
+			receiver.OnAttackedBy (this);
+		}
+	}
+
+	private void OnAttackedBy(YukataAction server) {
+		YukataAction.LockHandler onCompleted = (act) => {};
+		StartLockedAction (AnimeAction.Damaged, onCompleted, true);
+		transform.LookAt (server.transform);
 	}
 
 }

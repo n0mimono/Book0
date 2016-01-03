@@ -13,6 +13,7 @@ public class YukataChan : MonoBehaviour {
 	private Transform myTrans;
 
 	public enum State {
+		Noop,
 		Search,
 		Chase,
 		Attack
@@ -38,6 +39,7 @@ public class YukataChan : MonoBehaviour {
 	void Start() {
 		myTrans = yukataAction.transform;
 		yukataAction.InLockAction += InLockInterrupt;
+		yukataAction.OutLockAction += OutLockInterrupt;
 
 		CreateAim ();
 
@@ -46,7 +48,16 @@ public class YukataChan : MonoBehaviour {
 	}
 
 	private void InLockInterrupt(YukataAction.AnimeAction act) {
-
+		if (act == YukataAction.AnimeAction.Damaged) {
+			NextState (Noop);
+		}
+		cur.isUpdateCommon = false;
+	}
+	private void OutLockInterrupt(YukataAction.AnimeAction act) {
+		if (act == YukataAction.AnimeAction.Damaged) {
+			NextState (Search);
+		}
+		cur.isUpdateCommon = true;
 	}
 
 	private void CreateAim() {
@@ -103,7 +114,7 @@ public class YukataChan : MonoBehaviour {
 		while (true) {
 			yield return null;
 			if (IsStraightToTarget(0.8f) || IsNearTarget(10f)) {
-				NextState (Chase);
+				//NextState (Chase);
 			}
 			yield return null;
 
@@ -120,6 +131,14 @@ public class YukataChan : MonoBehaviour {
 			yield return new WaitForSeconds (2f);
 		}
 
+	}
+
+	private IEnumerator Noop() {
+		cur.state = State.Noop;
+		cur.turnSpeed = 0f;
+		cur.walkSpeed = 0f;
+
+		yield return null;
 	}
 
 	private IEnumerator Chase() {
@@ -149,7 +168,7 @@ public class YukataChan : MonoBehaviour {
 
 		yield return null;
 		cur.isUpdateCommon = false;
-		YukataAction.LockHandler onCompleted = (act) => cur.isUpdateCommon = true;
+		YukataAction.LockHandler onCompleted = (act) => {};
 
 		yukataAction.StartLockedAction (YukataAction.AnimeAction.Dive, onCompleted, false);
 		yukataAction.SetDiveVelocity (myTrans.forward);

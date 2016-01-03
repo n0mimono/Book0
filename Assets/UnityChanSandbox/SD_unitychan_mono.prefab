@@ -1026,7 +1026,7 @@ GameObject:
   - 114: {fileID: 11437204}
   - 114: {fileID: 11496856}
   - 143: {fileID: 14365608}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SD_unitychan_mono
   m_TagString: Player
   m_Icon: {fileID: 0}
