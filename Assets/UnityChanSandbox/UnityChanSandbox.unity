@@ -86,34 +86,10 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &7820717 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 170372, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
-  m_PrefabInternal: {fileID: 295032684}
---- !u!114 &7820719 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11495504, guid: 80eb3520c11df43f2bf292537130bb71,
-    type: 2}
-  m_PrefabInternal: {fileID: 295032684}
-  m_Script: {fileID: 11500000, guid: a1eb55cecbb2d4acd95c1c98d3f0d322, type: 3}
 --- !u!4 &7820726 stripped
 Transform:
   m_PrefabParentObject: {fileID: 416576, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
   m_PrefabInternal: {fileID: 295032684}
---- !u!114 &7820727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 7820717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0761be65ba7e7435483b2553f72b73db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yukataAction: {fileID: 7820719}
-  walkingSpeed: 0.5
-  runningSpeed: 1
 --- !u!224 &130036057 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22402032, guid: a29ee4fadfca643db9aa9356d5db1e0a,
@@ -396,42 +372,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 13718754, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4075166f6a7c14fad8452c98170289a6, type: 2}
-    - target: {fileID: 13734526, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 14bf25838e49c4c96b9433ea8fab2109, type: 2}
-    - target: {fileID: 13784394, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4075166f6a7c14fad8452c98170289a6, type: 2}
-    - target: {fileID: 13784394, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4075166f6a7c14fad8452c98170289a6, type: 2}
-    - target: {fileID: 13718106, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4075166f6a7c14fad8452c98170289a6, type: 2}
-    - target: {fileID: 13718106, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4075166f6a7c14fad8452c98170289a6, type: 2}
-    - target: {fileID: 13774814, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4075166f6a7c14fad8452c98170289a6, type: 2}
-    - target: {fileID: 13774814, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4075166f6a7c14fad8452c98170289a6, type: 2}
-    - target: {fileID: 13774814, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4075166f6a7c14fad8452c98170289a6, type: 2}
+    - target: {fileID: 170372, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
   m_IsPrefabParent: 0
