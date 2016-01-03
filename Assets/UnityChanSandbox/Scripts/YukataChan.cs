@@ -127,8 +127,7 @@ public class YukataChan : MonoBehaviour {
 		cur.turnSpeed = 10f;
 
 		// temp solution
-		cur.tgtTrans = GameObject.FindObjectsOfType<YukataAction> ()
-			.Where (y => y.gameObject.tag == "Player").FirstOrDefault ().transform;
+		cur.tgtTrans = GameObject.FindGameObjectWithTag ("Player").transform;
 
 		cur.walkSpeed = runningSpeed;
 		while (true) {
