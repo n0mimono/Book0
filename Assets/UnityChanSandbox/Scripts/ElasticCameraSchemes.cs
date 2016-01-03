@@ -45,16 +45,35 @@ public partial class ElasticCameraOperator {
 }
 
 public partial class ElasticCameraOperator {
+	[System.Serializable]
+	public class PlayerTargetingParams {
+		public float height;
+		public float back;
+	}
+	[Header("Player-Targeting Mode Details")]
+	public PlayerTargetingParams pTargettingParams;
+
+	private void PlayerTargettingUpdate() {
+		float height = pTargettingParams.height;
+		float back = pTargettingParams.back;
+		cur.lerpSpeed = cur.scheme.lerpSpeed;
+
+		Vector3 pos = Player.trans.position + transform.forward * back;
+		opTrans.position = pos.Ground (height);
+	}
+}
+
+public partial class ElasticCameraOperator {
 
 	[System.Serializable]
-	public class TargetingParams {
+	public class MultiTargetingParams {
 		public float height;
 	}
-	[Header("Targeting Mode Details")]
-	public TargetingParams targettingParams;
+	[Header("Multi-Targeting Mode Details")]
+	public MultiTargetingParams mTargettingParams;
 
-	private void TargettingUpdate() {
-		float height = targettingParams.height;
+	private void MultiTargettingUpdate() {
+		float height = mTargettingParams.height;
 		cur.lerpSpeed = cur.scheme.lerpSpeed;
 
 		int n = targets.Count;

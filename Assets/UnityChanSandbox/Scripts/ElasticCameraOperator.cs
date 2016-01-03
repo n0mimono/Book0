@@ -10,12 +10,12 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 	public Transform opTrans;
 
 	public enum Mode {
-		Forwarding = 0,
-		LookupForwarding,
-		PlayerTargeting,
-		MultiTargeting,
-		Magi,
-		Salute
+		Forwarding       =  0,
+		LookupForwarding =  1,
+		PlayerTargeting  =  2,
+		MultiTargeting   =  3,
+		Magi             = 11,
+		Salute           = 13
 	}
 
 	[System.Serializable]
@@ -53,12 +53,10 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 
 		GetScheme (Mode.Forwarding).routiner = () => UpdateRoutine(ForwardingUpdate);
 		GetScheme (Mode.LookupForwarding).routiner = () => UpdateRoutine(ForwardingUpdate); // dummy
-		GetScheme (Mode.PlayerTargeting).routiner = () => UpdateRoutine(TargettingUpdate); // dummy
-		GetScheme (Mode.MultiTargeting).routiner = () => UpdateRoutine(TargettingUpdate);
+		GetScheme (Mode.PlayerTargeting).routiner = () => UpdateRoutine(PlayerTargettingUpdate); // dummy
+		GetScheme (Mode.MultiTargeting).routiner = () => UpdateRoutine(MultiTargettingUpdate);
 		GetScheme (Mode.Magi).routiner = () => TemporaryRoutine(Magi);
 		GetScheme (Mode.Salute).routiner = () => TemporaryRoutine(Salute);
-
-		SetMode (Mode.Forwarding, true);
 	}
 
 	public Scheme GetScheme(Mode mode) {
