@@ -65,7 +65,8 @@
       o.worldPos = mul(_Object2World, v.vertex).xyz;
       o.normal = v.normal;
 
-      float4 temp = (o.worldPos.xzxz + _WaveSpeed4 * _Time.x) * _WaveScale4;
+      float4 wpos = o.worldPos.xzxz + o.worldPos.y;
+      float4 temp = (wpos + _WaveSpeed4 * _Time.x) * _WaveScale4;
       o.bumpuv0 = temp.xy;
       o.bumpuv1 = temp.wz;
 
@@ -77,7 +78,7 @@
     half4 frag(v2f i) : SV_Target {
       half atten = LIGHT_ATTENUATION(i);
 
-      half3 normalDir  = half3(0,1,0);
+      half3 normalDir  = i.normal;
       half3 viewDir    = normalize(_WorldSpaceCameraPos.xyz - i.worldPos);
       half3 lightDir   = normalize(_WorldSpaceLightPos0.xyz);
       half3 reflectDir = reflect( -viewDir, normalDir );
