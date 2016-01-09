@@ -26,17 +26,19 @@
       struct v2f {
         float2 uv : TEXCOORD0;
         float4 vertex : SV_POSITION;
+        float4 color : TEXCOORD1;
       };
 
       v2f vert (appdata_full v) {
         v2f o;
         o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
         o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+        o.color = v.color;
         return o;
       }
 
       fixed4 frag (v2f i) : SV_Target {
-        fixed4 c = tex2D(_MainTex, i.uv) * _Color;
+        fixed4 c = tex2D(_MainTex, i.uv) * _Color * i.color;
         c.rgb = c.rgb * (1 + _Emission * (1 + cos(_Time.y * _Frequency)) * 0.5);
         return c;
       }
