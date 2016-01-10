@@ -77,18 +77,24 @@ public partial class ElasticCameraOperator {
 	[System.Serializable]
 	public class MultiTargetingParams {
 		public float height;
+		public float distScale;
+		public float distPower;
+		public float minDist;
 	}
 	[Header("Multi-Targeting Mode Details")]
 	public MultiTargetingParams mTargettingParams;
 
 	private void MultiTargettingUpdate() {
 		float height = mTargettingParams.height;
+		float distScale = mTargettingParams.distScale;
+		float distPower = mTargettingParams.distPower;
+		float minDist = mTargettingParams.minDist;
 		cur.lerpSpeed = cur.scheme.lerpSpeed;
 
 		int n = targets.Count;
 		Vector3 center = targets.Select (t => t.trans.position).Aggregate (Vector3.zero, (m, p) => m += p * (1f / n));
 		float range = targets.Select (t => t.trans.position).Aggregate (0f, (m, p) => m += Vector3.Distance(p, center));
-		float dist = Mathf.Max(Mathf.Pow(range, 0.5f) * 2f, 5f);
+		float dist = Mathf.Max(Mathf.Pow(range, distPower) * distScale, minDist);
 
 		opTrans.LookAt (center);
 		Vector3 pos = center - opTrans.forward * dist;
