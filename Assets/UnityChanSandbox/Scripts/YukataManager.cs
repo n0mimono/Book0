@@ -26,7 +26,7 @@ public partial class YukataManager : MonoBehaviour {
 
 		yield return null;
 
-		uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Forwarding);
+		uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.MultiTargeting);
 	}
 
 	private void OnTouchUpdate(Vector2 touchDir) {

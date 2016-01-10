@@ -2469,11 +2469,11 @@ MonoBehaviour:
   opTrans: {fileID: 1802821561}
   schemes:
   - mode: 0
-    lerpSpeed: 1
+    lerpSpeed: 5
   - mode: 1
-    lerpSpeed: 2
+    lerpSpeed: 1
   - mode: 2
-    lerpSpeed: 2
+    lerpSpeed: 10
   - mode: 3
     lerpSpeed: 2
   - mode: 11
