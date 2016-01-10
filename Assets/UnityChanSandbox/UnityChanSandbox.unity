@@ -2531,6 +2531,9 @@ MonoBehaviour:
     back: -4
   mTargettingParams:
     height: 2
+    distScale: 2
+    distPower: 0.6
+    minDist: 5
 --- !u!4 &1802821561
 Transform:
   m_ObjectHideFlags: 0
