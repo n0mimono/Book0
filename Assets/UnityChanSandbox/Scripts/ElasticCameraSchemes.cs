@@ -17,6 +17,15 @@ public partial class ElasticCameraOperator {
 
 	private Target Player { get { return targets.Where (t => t.isPlayer).FirstOrDefault (); } }
 
+	public void SetEnemyTarget(Transform target) {
+		Target enemy = targets.Where (t => t.isEnemy).FirstOrDefault ();
+		if (enemy == null) {
+			enemy = new Target ();
+			enemy.isEnemy = true;
+			targets.Add (enemy);
+		}
+		enemy.trans = target;
+	}
 }
 
 public partial class ElasticCameraOperator {

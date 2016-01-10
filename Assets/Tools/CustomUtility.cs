@@ -29,6 +29,14 @@ namespace Custom {
 		public static Vector3 Ground(this Vector3 pos, float height) {
 			return new Vector3 (pos.x, height, pos.z);
 		}
+		public static Vector3 Ground(this Vector3 pos) {
+			return pos.Ground (0f);
+		}
+
+		public static void LookAtOnGround(this Transform trans, Vector3 pos) {
+			pos.y = trans.position.y;
+			trans.LookAt (pos);
+		}
 
 		public static float ConstLerp(float value, float target, float delta) {
 			float d = target - value;

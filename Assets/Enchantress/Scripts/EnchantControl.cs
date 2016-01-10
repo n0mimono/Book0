@@ -19,12 +19,9 @@ public class EnchantControl : MonoBehaviour {
 	[Button("Fire", "Fire")] public float ButtonFire;
 	[Button("ForceHit", "Hit")] public float ButtonForceHit;
 
-	void Start() {
-		Initilize ();
-	}
-
-	private void Initilize() {
-
+	public void Initilize(string tag) {
+		gameObject.tag = tag;
+		magazines.ForEach (m => m.Initilize (gameObject.tag));
 	}
 
 	public void Hold() {
@@ -34,6 +31,8 @@ public class EnchantControl : MonoBehaviour {
 	}
 
 	public void Release() {
+		if (!isActive) return;
+
 		circle.Release ();
 		Unload ();
 

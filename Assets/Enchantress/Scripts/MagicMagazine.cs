@@ -8,10 +8,15 @@ public class MagicMagazine : MonoBehaviour {
 
 	public bool IsLoaded { get { return bullet != null; } }
 
+	public void Initilize(string tag) {
+		gameObject.tag = tag;
+	}
+
 	public void Load() {
 		circle.Hold ();
 
 		bullet = PoolManager.Instance.GetInstance ("MagicBullet").GetComponent<MagicBullet>();
+		bullet.gameObject.tag = gameObject.tag;
 		bullet.Initialize ();
 	}
 

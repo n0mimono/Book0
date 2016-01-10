@@ -10,13 +10,16 @@ GameObject:
   - 4: {fileID: 438206}
   - 114: {fileID: 11405034}
   - 96: {fileID: 9650892}
-  m_Layer: 0
+  - 54: {fileID: 5417616}
+  - 135: {fileID: 13553536}
+  - 114: {fileID: 11488868}
+  m_Layer: 9
   m_Name: MagicBullet
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &181342
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +62,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 438206}
   m_RootOrder: 0
+--- !u!54 &5417616
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107380}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!96 &9650892
 TrailRenderer:
   m_ObjectHideFlags: 1
@@ -85,7 +103,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 3
   m_StartWidth: 0.1
   m_EndWidth: 0.1
   m_Colors:
@@ -118,15 +136,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trail: {fileID: 9650892}
+  collide: {fileID: 13553536}
   cur:
     mode: 0
   speed: 8
-  angleSpeed: 2
+  angleSpeed: 10
   loadOffset: {x: 0, y: 2, z: 0}
   loadNoise: {x: 0.1, y: 0, z: 0.1}
   circleRotateSpeed: {x: 120, y: 90, z: 0}
   circle: {fileID: 0}
   target: {fileID: 0}
+  damageSource: {fileID: 11488868}
+--- !u!114 &11488868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageableLayer: 8
+--- !u!135 &13553536
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19809254
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1672,6 +1716,46 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: speed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: collide
+      value: 
+      objectReference: {fileID: 13553536}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Time
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: angleSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

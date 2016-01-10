@@ -71,6 +71,7 @@ public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointer
 		public delegate void CountFireHandler (int count);
 		public DirectionHandler OnUpdate = (vec) => {};
 		public CountFireHandler OnChain = (count) => {};
+		public CountFireHandler OnHold = (count) => {};
 		public CountFireHandler OnRelease = (count) => {};
 		public DirectionHandler OnFlicked = (vec) => {};
 	}
@@ -264,6 +265,8 @@ public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointer
 				StopCoroutine (holdRoutine);
 			}
 			SetTargetColor (Color.white);
+
+			handler.OnHold(st.holdCount);
 		};
 
 		while (isActive) {
@@ -295,6 +298,8 @@ public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointer
 			Color effectColor = GetHoldColor();
 			StartCoroutine (ripple (Local2Screen(st.end), effectColor));
 			SetTargetColor(effectColor);
+
+			handler.OnHold(st.holdCount);
 		};
 
 		yield return new WaitForSeconds (holdCountTime);

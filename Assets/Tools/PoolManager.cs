@@ -33,7 +33,9 @@ public class PoolManager : MonoBehaviour {
 			go.transform.SetParent (transform);
 			pool.Add (go);
 		}
+
 		go.SetActive (true);
+		go.transform.position = Vector3.down * -10f;
 
 		return go;
 	}

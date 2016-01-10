@@ -17,6 +17,7 @@ public class DamageSource : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
+		Debug.Log (gameObject + " > " + collision);
 		OnCollision (collision.gameObject);
 	}
 

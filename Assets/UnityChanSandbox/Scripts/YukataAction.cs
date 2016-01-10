@@ -37,7 +37,9 @@ public partial class YukataAction : MonoBehaviour {
 
 	void Start() {
 		InitilizeActions ();
+
 		InitilizeDamagers ();
+		InitilizeEnchantress ();
 	}
 
 	private void InitilizeActions() {
@@ -129,7 +131,75 @@ public partial class YukataAction {
 	private void OnDamage(DamageSource src) {
 		YukataAction.LockHandler onCompleted = (act) => {};
 		StartLockedAction (AnimeAction.Damaged, onCompleted, true);
-		transform.LookAt (src.transform);
+		transform.LookAtOnGround (src.transform.position);
+	}
+
+	[Header("Targetting")]
+	public Transform target;
+	public System.Action<Transform> OnSetTarget = (tgt) => {};
+
+	public void SetTarget(Transform target) {
+		this.target = target;
+		if (enchantress != null) {
+			enchantress.target = target;
+		}
+
+		OnSetTarget (target);
+	}
+
+	private IEnumerator Targettting() {
+		yield return null;
+
+		while (true) {
+			if (target == null) {
+				GameObject tgtObj = gameObject.FindOpposites ()
+					.Where (g => g.IsLayer (Common.Layer.Character))
+					.FirstOrDefault ();
+				if (tgtObj != null) {
+					SetTarget (tgtObj.transform);
+				}
+			}
+			yield return null;
+		}
+	}
+
+	[Header("Enchantress")]
+	public EnchantControl enchantress;
+	private bool isSpelling = false;
+
+	private void InitilizeEnchantress() {
+		Targettting ().StartBy (this);
+
+		if (enchantress == null) return;
+		enchantress.Initilize (gameObject.tag);
+	}
+
+	public void StartSpell() {
+		isSpelling = true;
+		Spell ()
+			.While (() => isSpelling)
+			.StartBy (this);
+	}
+
+	private IEnumerator Spell() {
+		enchantress.Hold ();
+		while (true) {
+			yield return new WaitForSeconds(1f);
+			enchantress.Load ();
+		}
+	}
+
+	public void StopSpell() {
+		isSpelling = false;
+		enchantress.Unload ();
+		enchantress.Release ();
+	}
+
+	public void RelaseSpell() {
+		isSpelling = false;
+		enchantress.Fire ();
+		enchantress.Release ();
 	}
 
 }
+

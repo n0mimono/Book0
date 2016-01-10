@@ -472,8 +472,8 @@ MonoBehaviour:
         m_RotationOrder: 4
       StartPos: {x: 200, y: 0, z: 0}
       EndPos: {x: 200, y: -450, z: 0}
-      StartWorldPos: {x: 783.75, y: 294, z: 0}
-      EndWorldPos: {x: 783.75, y: -293.8125, z: 0}
+      StartWorldPos: {x: 627, y: 235, z: 0}
+      EndWorldPos: {x: 627, y: -235.24998, z: 0}
     ScalePropetiesAnim:
       scaleEnabled: 0
       TweenCurveEnterScale:
@@ -1043,6 +1043,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 2097001730}
   button: {fileID: 1739060147}
+--- !u!1 &1352085301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1352085302}
+  m_Layer: 0
+  m_Name: Dummy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1352085302
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1352085301}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.322363, y: 1.1695251, z: -10.940773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1 &1417671447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1144,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1073322448}
   m_HandleRect: {fileID: 1073322447}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1283,6 +1310,9 @@ MonoBehaviour:
   - name: Elastic
     enabled: 1
     path: Assets/Elastic/Elastic.unity
+  - name: Enchantress
+    enabled: 1
+    path: Assets/Enchantress/Enchantress.unity
   - name: GUI
     enabled: 1
     path: Assets/GUI/GUI.unity
@@ -1444,7 +1474,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 300}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2097001728

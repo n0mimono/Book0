@@ -16,6 +16,7 @@ public partial class YukataManager : MonoBehaviour {
 	IEnumerator Start() {
 		elasticTouch.handler.OnUpdate += OnTouchUpdate;
 		elasticTouch.handler.OnChain += OnChainAction;
+		elasticTouch.handler.OnHold += OnHoldction;
 		elasticTouch.handler.OnRelease += OnReleaseAction;
 		elasticTouch.handler.OnFlicked += OnFlickSlide;
 
@@ -23,6 +24,7 @@ public partial class YukataManager : MonoBehaviour {
 		cameraOperator.OnModeChanged += uiCameraControl.UpdateCameraButtons;
 
 		yukataAction.InLockAction += LockAction;
+		yukataAction.OnSetTarget = cameraOperator.SetEnemyTarget;
 
 		yield return null;
 
@@ -40,10 +42,19 @@ public partial class YukataManager : MonoBehaviour {
 		}
 	}
 
+	private void OnHoldction(int count) {
+		if (count == 0) {
+			yukataAction.StopSpell ();
+		} else if (count == 1) {
+			yukataAction.StartSpell ();
+		}
+	}
+
 	private void OnReleaseAction(int count) {
-		if (count >= 3) {
-			yukataAction.StartLockedAction (YukataAction.AnimeAction.Salute, UnlockAction, true);
-			uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Salute);
+		if (count >= 2) {
+			yukataAction.RelaseSpell ();
+			//yukataAction.StartLockedAction (YukataAction.AnimeAction.Salute, UnlockAction, true);
+			//uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Salute);
 		}
 	}
 

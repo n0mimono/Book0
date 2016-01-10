@@ -7,21 +7,28 @@ public static class Common {
 		Character = 8,
 		Spell = 9,
 	}
+	public const string PlayerTag = "Player";
+	public const string EnemyTag = "Enemy";
 
 	public static bool IsLayer(this GameObject obj, Layer layer) {
 		return obj.layer == (int)layer;
 	}
 
 	public static bool IsPlayerTag(this GameObject obj) {
-		return obj.tag == "Player";
+		return obj.tag == PlayerTag;
 	}
 
 	public static bool IsEnemyTag(this GameObject obj) {
-		return obj.tag == "Enemy";
+		return obj.tag == EnemyTag;
 	}
 
 	public static bool IsOppositeTo(this GameObject obj, GameObject other) {
 		return (obj.IsPlayerTag () && other.IsEnemyTag ())
 			|| (obj.IsEnemyTag () && other.IsPlayerTag ());
+	}
+
+	public static GameObject[] FindOpposites(this GameObject go) {
+		string op = go.IsPlayerTag () ? EnemyTag : PlayerTag;
+		return GameObject.FindGameObjectsWithTag (op);
 	}
 }

@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Custom;
 
-public class MagicBullet : MonoBehaviour {
+public partial class MagicBullet : MonoBehaviour {
 	public TrailRenderer trail;
+	public Collider collide;
 
 	public enum Mode {
 		None,
@@ -40,11 +41,15 @@ public class MagicBullet : MonoBehaviour {
 
 	public void Initialize() {
 		trail.material = Material.Instantiate (trail.material);
+		trail.enabled = false;
+		collide.enabled = false;
+		InitiilzeDamageSource ();
 	}
 
 	public void Load() {
 		gameObject.SetActive (true);
 		trail.enabled = false;
+		collide.enabled = false;
 
 		cur.mode = Mode.Load;
 	}
@@ -52,6 +57,7 @@ public class MagicBullet : MonoBehaviour {
 	public void Fire() {
 		transform.forward = (-TargetDirection + loadNoise.GenerateRandom() + loadOffset).normalized;
 		trail.enabled = true;
+		collide.enabled = true;
 
 		cur.mode = Mode.Fire;
 		Move ().While (cur.Is(Mode.Fire)).StartBy (this);
@@ -59,11 +65,7 @@ public class MagicBullet : MonoBehaviour {
 	}
 
 	public void Hit() {
-		cur.mode = Mode.None;
-
 		Explotion ().StartBy (this);
-
-		gameObject.SetActive (false);
 	}
 
 	IEnumerator Explotion() {
@@ -75,6 +77,8 @@ public class MagicBullet : MonoBehaviour {
 		detonator.UpdateComponents ();
 		detonator.Explode ();
 		yield return null;
+		cur.mode = Mode.None;
+		gameObject.SetActive (false);
 	}
 
 	public void Unload() {
@@ -82,6 +86,7 @@ public class MagicBullet : MonoBehaviour {
 
 		gameObject.SetActive (false);
 		trail.enabled = false;
+		collide.enabled = false;
 	}
 
 	IEnumerator ForwardTarget() {
@@ -98,12 +103,15 @@ public class MagicBullet : MonoBehaviour {
 		}
 	}
 
-	IEnumerator Ripple() {
+}
 
-		while (true) {
-			
-			yield return new WaitForSeconds (1f);
-		}
+public partial class MagicBullet {
+	public DamageSource damageSource;
+
+	private void InitiilzeDamageSource() {
+		damageSource.OnHit += (src) => {
+			Hit();
+		};
 	}
 
 }
