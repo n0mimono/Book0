@@ -68,6 +68,11 @@ namespace Custom {
 		public static void SetColor(this Button button, Color color) {
 			button.targetGraphic.color = color;
 		}
+
+		public static Vector3 GenerateRandom(this Vector3 scales) {
+			Vector3 r = (new Vector3 (Random.value, Random.value, Random.value) * 2f - Vector3.one);
+			return new Vector3(r.x * scales.x, r.y * scales.y, r.z * scales.z);
+		}
 	}
 
 	public class InnerClass<TP> {

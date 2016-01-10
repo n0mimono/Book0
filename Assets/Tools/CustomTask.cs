@@ -170,6 +170,35 @@ namespace Custom {
 		public static Task ToTask(this IEnumerator enumerator) {
 			return new Task (enumerator);
 		}
+
+		public static void StartBy(this IEnumerator enumerator, MonoBehaviour behav) {
+			behav.StartCoroutine (enumerator);
+		}
+
+		public static Task Continue(this IEnumerator enumerator, IEnumerator routine) {
+			return new PostTask (enumerator, routine);
+		}
+
+		public static Task Continue(this IEnumerator enumerator, Func<IEnumerator> routiner) {
+			return enumerator.Continue (routiner ());
+		}
+
+		public static Task Add(this IEnumerator enumerator, IEnumerator routine) {
+			return new MultiTask (enumerator, routine);
+		}
+
+		public static Task OnCompleted(this IEnumerator enumerator, Action onCompleted) {
+			return new TaskWithCompleteAction (enumerator, onCompleted);
+		}
+
+		public static Task OnUpdate(this IEnumerator enumerator, Action action) {
+			return new TaskWithAction (enumerator, action);
+		}
+
+		public static Task While(this IEnumerator enumerator, Func<bool> predicate) {
+			return new TaskWithPredicate (enumerator, predicate);
+		}
+
 	}
 
 }
