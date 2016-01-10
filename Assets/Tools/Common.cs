@@ -5,6 +5,7 @@ public static class Common {
 
 	public enum Layer {
 		Character = 8,
+		Spell = 9,
 	}
 
 	public static bool IsLayer(this GameObject obj, Layer layer) {
@@ -19,4 +20,8 @@ public static class Common {
 		return obj.tag == "Enemy";
 	}
 
+	public static bool IsOppositeTo(this GameObject obj, GameObject other) {
+		return (obj.IsPlayerTag () && other.IsEnemyTag ())
+			|| (obj.IsEnemyTag () && other.IsPlayerTag ());
+	}
 }

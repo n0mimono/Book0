@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Custom;
 
-public class YukataAction : MonoBehaviour {
+public partial class YukataAction : MonoBehaviour {
 	public CharacterController characterControl;
 	public Animator animator;
 
@@ -29,12 +29,18 @@ public class YukataAction : MonoBehaviour {
 	}
 	private AnimeAction inAction;
 	public AnimeAction InAction { get { return inAction; } }
+	public bool Is(AnimeAction act) { return InAction == act; }
 
 	public delegate void LockHandler(AnimeAction act);
 	public event LockHandler InLockAction;
 	public event LockHandler OutLockAction;
 
 	void Start() {
+		InitilizeActions ();
+		InitilizeDamagers ();
+	}
+
+	private void InitilizeActions() {
 		InLockAction += (act) => {
 			SetWalkable (false);
 			inAction = act;
@@ -106,26 +112,24 @@ public class YukataAction : MonoBehaviour {
 		this.isWalkable = isWalkable;
 	}
 
-	void OnControllerColliderHit(ControllerColliderHit hit) {
-		if (!hit.collider.gameObject.IsLayer (Common.Layer.Character)) {
-			return;
-		}
+}
 
-		YukataAction opponent = hit.collider.GetComponent<YukataAction> ();
-		AttackTo (opponent);
+public partial class YukataAction {
+	
+	[Header("Damage Control")]
+	public DamageSource damageSource;
+	public DamageReceptor damageReceptor;
+
+	private void InitilizeDamagers() {
+		damageSource.IsDamageable = () => Is (AnimeAction.Dive);
+		damageReceptor.IsDamageable = () => !Is (AnimeAction.Damaged);
+		damageReceptor.OnDamage += OnDamage;
 	}
 
-	private void AttackTo(YukataAction receiver) {
-		if (InAction == AnimeAction.Dive && receiver.InAction != AnimeAction.Damaged) {
-			receiver.OnAttackedBy (this);
-		}
-	}
-
-	private void OnAttackedBy(YukataAction server) {
+	private void OnDamage(DamageSource src) {
 		YukataAction.LockHandler onCompleted = (act) => {};
 		StartLockedAction (AnimeAction.Damaged, onCompleted, true);
-		transform.LookAt (server.transform);
+		transform.LookAt (src.transform);
 	}
 
 }
-

@@ -1026,6 +1026,8 @@ GameObject:
   - 114: {fileID: 11437204}
   - 114: {fileID: 11496856}
   - 143: {fileID: 14365608}
+  - 114: {fileID: 11499066}
+  - 114: {fileID: 11480244}
   m_Layer: 8
   m_Name: SD_unitychan_mono
   m_TagString: Player
@@ -4730,6 +4732,17 @@ MonoBehaviour:
   - {fileID: 11412354}
   debug: 1
   threshold: 0.01
+--- !u!114 &11480244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a34d3420aee554e3d9036badfc168710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11480544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4940,6 +4953,8 @@ MonoBehaviour:
   acceleration: 2
   charSpeedScale: 2
   animSpeedScale: 0.5
+  damageSource: {fileID: 11499066}
+  damageReceptor: {fileID: 11480244}
 --- !u!114 &11497228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4962,6 +4977,18 @@ MonoBehaviour:
   timeBlink: 0.4
   threshold: 0.3
   interval: 3
+--- !u!114 &11499066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageableLayer: 8
 --- !u!119 &11958202
 Projector:
   m_ObjectHideFlags: 1
