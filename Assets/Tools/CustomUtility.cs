@@ -55,6 +55,16 @@ namespace Custom {
 			);
 		}
 
+		public static Vector3 ToAbs(this Vector3 vec) {
+			return new Vector3 (Mathf.Abs (vec.x), Mathf.Abs (vec.y), Mathf.Abs (vec.z));
+		}
+
+		public static Vector3 WhichNear(this Vector3 vec, Vector3 vec1, Vector3 vec2) {
+			float dist1 = Vector3.Distance (vec, vec1);
+			float dist2 = Vector3.Distance (vec, vec2);
+			return dist1 < dist2 ? vec1 : vec2;
+		}
+
 		public static Vector3 ToVector3(this Color color) {
 			return new Vector3(color.r, color.g, color.b);
 		}
