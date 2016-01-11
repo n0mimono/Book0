@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Custom {
 	public static class Utility {
@@ -91,6 +93,13 @@ namespace Custom {
 			Vector3 r = (new Vector3 (Random.value, Random.value, Random.value) * 2f - Vector3.one);
 			return new Vector3(r.x * scales.x, r.y * scales.y, r.z * scales.z);
 		}
+
+		public static T RandomOrDefault<T>(this IEnumerable<T> src) {
+			int count = src.Count();
+			if (count <= 1) return src.FirstOrDefault();
+			else return src.ElementAt((int)(Random.value * count));
+		}
+
 	}
 
 	public class InnerClass<TP> {

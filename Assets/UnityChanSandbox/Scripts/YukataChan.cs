@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Custom;
 
-public class YukataChan : MonoBehaviour {
+public partial class YukataChan : MonoBehaviour {
 
 	public YukataAction yukataAction;
 	public float walkingSpeed;
@@ -92,7 +92,7 @@ public class YukataChan : MonoBehaviour {
 			}
 
 			// position
-			yukataAction.SetTargetVelocity (myTrans.forward * cur.walkSpeed);
+			yukataAction.Move (myTrans.forward * cur.walkSpeed);
 
 			yield return null;
 		}
@@ -106,6 +106,10 @@ public class YukataChan : MonoBehaviour {
 	public bool IsNearTarget(float distance) {
 		return Vector3.Distance(myTrans.position, cur.aimTrans.position) < distance;
 	}
+
+}
+
+public partial class YukataChan {
 
 	private IEnumerator Search() {
 		cur.state = State.Search;
@@ -145,8 +149,7 @@ public class YukataChan : MonoBehaviour {
 		cur.state = State.Chase;
 		cur.turnSpeed = 10f;
 
-		// temp solution
-		cur.tgtTrans = GameObject.FindGameObjectWithTag ("Player").transform;
+		cur.tgtTrans = gameObject.FindOpposites().RandomOrDefault().transform;
 
 		cur.walkSpeed = runningSpeed;
 		while (true) {
@@ -170,8 +173,7 @@ public class YukataChan : MonoBehaviour {
 		cur.isUpdateCommon = false;
 		YukataAction.LockHandler onCompleted = (act) => {};
 
-		yukataAction.StartLockedAction (YukataAction.AnimeAction.Dive, onCompleted, false);
-		yukataAction.SetDiveVelocity (myTrans.forward);
+		yukataAction.Dive (myTrans.forward, onCompleted);
 
 		while (!cur.isUpdateCommon) {
 			yield return null;

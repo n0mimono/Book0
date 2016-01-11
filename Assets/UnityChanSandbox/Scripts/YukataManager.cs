@@ -33,12 +33,13 @@ public partial class YukataManager : MonoBehaviour {
 
 	private void OnTouchUpdate(Vector2 touchDir) {
 		Vector3 velocity = cameraTrans.ToWorldVec (touchDir) * speedScale;
-		yukataAction.SetTargetVelocity (velocity);
+		yukataAction.Move (velocity);
 	}
 
 	private void OnChainAction(int count) {
 		if (count >= 3) {
-			yukataAction.StartLockedAction (YukataAction.AnimeAction.Jump, UnlockAction, true);
+			yukataAction.SpellFlower (UnlockAction);
+			uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Salute);
 		}
 	}
 
@@ -53,16 +54,12 @@ public partial class YukataManager : MonoBehaviour {
 	private void OnReleaseAction(int count) {
 		if (count >= 2) {
 			yukataAction.RelaseSpell ();
-			//yukataAction.StartLockedAction (YukataAction.AnimeAction.Salute, UnlockAction, true);
-			//uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Salute);
 		}
 	}
 
 	private void OnFlickSlide(Vector2 slideDir) {
 		Vector3 dir = cameraTrans.ToWorldVec (slideDir).normalized;
-
-		yukataAction.StartLockedAction (YukataAction.AnimeAction.Dive, UnlockAction, false);
-		yukataAction.SetDiveVelocity (dir);
+		yukataAction.Dive (dir, UnlockAction);
 	}
 
 	private void LockAction(YukataAction.AnimeAction act) {

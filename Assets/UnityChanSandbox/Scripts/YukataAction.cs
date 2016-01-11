@@ -79,13 +79,13 @@ public partial class YukataAction : MonoBehaviour {
 		animator.SetSpeed (animSpeed);
 	}
 
-	public void SetTargetVelocity(Vector3 tgtVelocity) {
+	private void SetTargetVelocity(Vector3 tgtVelocity) {
 		tgtVelocity = tgtVelocity.normalized * Mathf.Min (maxSpeed, tgtVelocity.magnitude);;
 		tgtVelocity = tgtVelocity.magnitude < 0.2f ?  Vector3.zero : tgtVelocity;
 		this.tgtVelocity = tgtVelocity;
 	}
 
-	public void SetDiveVelocity(Vector3 dir) {
+	private void SetDiveVelocity(Vector3 dir) {
 		transform.forward = dir;
 		tgtVelocity = dir * diveSpeed;
 	}
@@ -96,7 +96,7 @@ public partial class YukataAction : MonoBehaviour {
 		UpdateVelocity ();
 	}
 
-	public void StartLockedAction(AnimeAction act, LockHandler onCompleted, bool isForceStop = false) {
+	private void StartLockedAction(AnimeAction act, LockHandler onCompleted, bool isForceStop = false) {
 		if (isForceStop) {
 			ForceStop ();
 		}
@@ -112,6 +112,24 @@ public partial class YukataAction : MonoBehaviour {
 
 	private void SetWalkable(bool isWalkable) {
 		this.isWalkable = isWalkable;
+	}
+
+}
+
+public partial class YukataAction {
+
+	public void Move(Vector3 velocity) { 
+		SetTargetVelocity (velocity);
+	}
+
+	public void Dive(Vector3 dir, LockHandler onCompleted) {
+		StartLockedAction (AnimeAction.Dive, onCompleted, false);
+		SetDiveVelocity (dir);
+	}
+
+	public void SpellFlower(LockHandler onCompleted) {
+		StartLockedAction (AnimeAction.Salute, onCompleted, true);
+		StartAutoSpell ();
 	}
 
 }
@@ -175,6 +193,8 @@ public partial class YukataAction {
 	}
 
 	public void StartSpell() {
+		if (isSpelling) return;
+
 		isSpelling = true;
 		Spell ()
 			.While (() => isSpelling)
@@ -199,6 +219,19 @@ public partial class YukataAction {
 		isSpelling = false;
 		enchantress.Fire ();
 		enchantress.Release ();
+	}
+
+	private void StartAutoSpell() {
+		if (isSpelling) return;
+
+		isSpelling = true;
+		AutoSpell ()
+			.While (() => isSpelling)
+			.StartBy (this);		
+	}
+
+	private IEnumerator AutoSpell() {
+		yield return null;
 	}
 
 }
