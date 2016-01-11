@@ -147,9 +147,16 @@ public partial class YukataAction {
 	}
 
 	private void OnDamage(DamageSource src) {
+		CancelActions ();
+
+		// damage action
 		YukataAction.LockHandler onCompleted = (act) => {};
 		StartLockedAction (AnimeAction.Damaged, onCompleted, true);
 		transform.LookAtOnGround (src.transform.position);
+	}
+
+	private void CancelActions() {
+		if (enchantress != null) StopSpell();
 	}
 
 	[Header("Targetting")]
