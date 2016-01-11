@@ -9,6 +9,8 @@ public class UICameraControl : MonoBehaviour {
 	public delegate void CameraChangeHandler(ElasticCameraOperator.Mode mode, bool isBase);
 	public event CameraChangeHandler OnCameraChanged;
 
+	public System.Action OnCameraForwardUpdate = () => {};
+
 	[System.Serializable]
 	public class SwitchButton {
 		public ElasticCameraOperator.Mode mode;
@@ -55,6 +57,10 @@ public class UICameraControl : MonoBehaviour {
 			button.button.SetColor (playingColor);
 		}
 		others.ForEach (b => b.button.SetColor (inactiveColor));
+	}
+
+	public void CameraForwardUpdate() {
+		OnCameraForwardUpdate ();
 	}
 
 }

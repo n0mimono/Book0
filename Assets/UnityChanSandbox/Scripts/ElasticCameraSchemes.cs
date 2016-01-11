@@ -51,6 +51,10 @@ public partial class ElasticCameraOperator {
 		Vector3 fwd = Player.trans.position + Player.trans.forward * forward;
 		opTrans.LookAt (fwd);
 	}
+		
+	public void ForwardUpdateImmediate() {
+		ForwardingUpdate ();
+	}
 }
 
 public partial class ElasticCameraOperator {

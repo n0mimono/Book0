@@ -21,6 +21,7 @@ public partial class YukataManager : MonoBehaviour {
 		elasticTouch.handler.OnFlicked += OnFlickSlide;
 
 		uiCameraControl.OnCameraChanged += OnCameraChanged;
+		uiCameraControl.OnCameraForwardUpdate = cameraOperator.ForwardUpdateImmediate;
 		cameraOperator.OnModeChanged += uiCameraControl.UpdateCameraButtons;
 
 		yukataAction.InLockAction += LockAction;
@@ -29,7 +30,7 @@ public partial class YukataManager : MonoBehaviour {
 
 		yield return null;
 
-		uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.MultiTargeting);
+		uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.PlayerTargeting);
 	}
 
 	private void OnTouchUpdate(Vector2 touchDir) {
