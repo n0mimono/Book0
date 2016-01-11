@@ -10,6 +10,13 @@ public partial class YukataChan : MonoBehaviour {
 	public float walkingSpeed;
 	public float runningSpeed;
 
+	public enum Type {
+		Walker,
+		Chaser,
+	}
+	public Type type;
+	public bool Is(Type type) { return this.type == type; }
+
 	private Transform myTrans;
 
 	public enum State {
@@ -21,7 +28,6 @@ public partial class YukataChan : MonoBehaviour {
 
 	private class Status {
 		public State state;
-		public IEnumerator routine;
 		public float walkSpeed;
 		public float turnSpeed;
 
@@ -37,25 +43,30 @@ public partial class YukataChan : MonoBehaviour {
 	private Status cur = new Status();
 
 	void Start() {
+		cur.isUpdateCommon = true;
+
+		// event initilize
 		myTrans = yukataAction.transform;
 		yukataAction.InLockAction += InLockInterrupt;
 		yukataAction.OutLockAction += OutLockInterrupt;
 
+		// others
 		CreateAim ();
 
-		StartCoroutine (UpdateCommon ());
-		NextState (Search);
+		// start update
+		UpdateCommon ().When (() => cur.isUpdateCommon).StartBy (this);
+		NextState (State.Search);
 	}
 
 	private void InLockInterrupt(YukataAction.AnimeAction act) {
 		if (act == YukataAction.AnimeAction.Damaged) {
-			NextState (Noop);
+			NextState (State.Noop);
 		}
 		cur.isUpdateCommon = false;
 	}
 	private void OutLockInterrupt(YukataAction.AnimeAction act) {
 		if (act == YukataAction.AnimeAction.Damaged) {
-			NextState (Search);
+			NextState (State.Search);
 		}
 		cur.isUpdateCommon = true;
 	}
@@ -66,24 +77,13 @@ public partial class YukataChan : MonoBehaviour {
 		cur.aimTrans.SetParent (GameObject.Find ("Misc").transform);
 	}
 
-	private void NextState(System.Func<IEnumerator> routiner) {
-		if (cur.routine != null) {
-			StopCoroutine (cur.routine);
-		}
-
-		cur.routine = routiner ();
-		StartCoroutine (cur.routine);
+	private void NextState(State next) {
+		cur.state = next;
+		StartCoroutine (next.ToString());
 	}
 
 	private IEnumerator UpdateCommon() {
-		cur.isUpdateCommon = true;
-
 		while (true) {
-			if (!cur.isUpdateCommon) {
-				yield return null;
-				continue;
-			}
-
 			Vector3 tgtDir = (cur.aimTrans.position - myTrans.position).normalized;
 
 			// direction
@@ -112,14 +112,17 @@ public partial class YukataChan : MonoBehaviour {
 public partial class YukataChan {
 
 	private IEnumerator Search() {
-		cur.state = State.Search;
+		if (Is (Type.Walker)) {
+			return UpdateSearch ().While(() => cur.Is (State.Search));
+		} else {
+			return UpdateSearch ().Add(TransSearch()).While(() => cur.Is (State.Search));
+		}
+	}
+
+	private IEnumerator UpdateSearch() {
 		cur.turnSpeed = 1f;
 
 		while (true) {
-			yield return null;
-			if (IsStraightToTarget(0.8f) || IsNearTarget(10f)) {
-				//NextState (Chase);
-			}
 			yield return null;
 
 			float r = Random.value * 10f + 10f;
@@ -137,8 +140,17 @@ public partial class YukataChan {
 
 	}
 
+	private IEnumerator TransSearch() {
+		while (true) {
+			yield return null;
+
+			if (IsStraightToTarget(0.8f) && IsNearTarget(15f)) {
+				NextState (State.Chase);
+			}
+		}
+	}
+
 	private IEnumerator Noop() {
-		cur.state = State.Noop;
 		cur.turnSpeed = 0f;
 		cur.walkSpeed = 0f;
 
@@ -146,40 +158,55 @@ public partial class YukataChan {
 	}
 
 	private IEnumerator Chase() {
-		cur.state = State.Chase;
+		return UpdateChase ().Add (TransChase ())
+			.While (() => cur.Is (State.Chase));
+	}
+
+	private IEnumerator UpdateChase() {
 		cur.turnSpeed = 10f;
 
-		cur.tgtTrans = gameObject.FindOpposites().RandomOrDefault().transform;
+		cur.tgtTrans = gameObject.FindOppositeCharacters ().RandomOrDefault().transform;
 
 		cur.walkSpeed = runningSpeed;
 		while (true) {
 			cur.aimTrans.position = cur.tgtTrans.position;
-
-			if (IsStraightToTarget (0.95f) && IsNearTarget (5f)) {
-				NextState (Attack);
-			} else if (!IsStraightToTarget (0f) || !IsNearTarget (10f)) {
-				NextState (Search);
-			}
-
 			yield return null;
 		}
 	}
 
+	private IEnumerator TransChase() {
+		while (true) {
+			yield return null;
+
+			if (IsStraightToTarget (0.95f) && IsNearTarget (5f)) {
+				NextState (State.Attack);
+			} else if (!IsStraightToTarget (0f) && !IsNearTarget (20f)) {
+				NextState (State.Search);
+			}
+		}
+
+	}
+
 	private IEnumerator Attack() {
-		cur.state = State.Attack;
+		return UpdateAttack ().Continue (TransAttack ())
+			.While(() => cur.Is (State.Attack));
+	}
+
+	private IEnumerator UpdateAttack() {
 		cur.turnSpeed = 0.1f;
 
 		yield return null;
-		cur.isUpdateCommon = false;
-		YukataAction.LockHandler onCompleted = (act) => {};
+		bool isFin = false;
+		yukataAction.Dive (myTrans.forward, (act) => isFin = true);
 
-		yukataAction.Dive (myTrans.forward, onCompleted);
-
-		while (!cur.isUpdateCommon) {
+		while (!isFin) {
 			yield return null;
 		}
+	}
 
-		NextState (Chase);
+	private IEnumerator TransAttack() {
+		yield return null;
+		NextState (State.Chase);
 	}
 
 }

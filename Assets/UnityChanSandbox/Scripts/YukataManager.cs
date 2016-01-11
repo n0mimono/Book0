@@ -24,6 +24,7 @@ public partial class YukataManager : MonoBehaviour {
 		cameraOperator.OnModeChanged += uiCameraControl.UpdateCameraButtons;
 
 		yukataAction.InLockAction += LockAction;
+		yukataAction.OutLockAction += UnlockAction;
 		yukataAction.OnSetTarget = cameraOperator.SetEnemyTarget;
 
 		yield return null;
@@ -38,7 +39,7 @@ public partial class YukataManager : MonoBehaviour {
 
 	private void OnChainAction(int count) {
 		if (count >= 3) {
-			yukataAction.SpellFlower (UnlockAction);
+			yukataAction.SpellFlower ((act) => {});
 			uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Salute);
 		}
 	}
@@ -59,7 +60,7 @@ public partial class YukataManager : MonoBehaviour {
 
 	private void OnFlickSlide(Vector2 slideDir) {
 		Vector3 dir = cameraTrans.ToWorldVec (slideDir).normalized;
-		yukataAction.Dive (dir, UnlockAction);
+		yukataAction.Dive (dir, (act) => {});
 	}
 
 	private void LockAction(YukataAction.AnimeAction act) {

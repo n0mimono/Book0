@@ -199,6 +199,10 @@ namespace Custom {
 			return new TaskWithPredicate (enumerator, predicate);
 		}
 
+		public static Task When(this IEnumerator enumerator, Func<bool> predicate) {
+			return enumerator.While (predicate).Add (new Noop ().While (() => !predicate ()));
+		}
+
 	}
 
 }

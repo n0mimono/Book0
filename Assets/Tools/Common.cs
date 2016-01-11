@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public static class Common {
 
@@ -31,4 +33,9 @@ public static class Common {
 		string op = go.IsPlayerTag () ? EnemyTag : PlayerTag;
 		return GameObject.FindGameObjectsWithTag (op);
 	}
+	public static GameObject[] FindOppositeCharacters(this GameObject go) {
+		string op = go.IsPlayerTag () ? EnemyTag : PlayerTag;
+		return GameObject.FindGameObjectsWithTag (op).Where (g => g.IsLayer (Layer.Character)).ToArray();
+	}
+
 }
