@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Custom;
 
 public static class Common {
 
@@ -37,5 +38,13 @@ public static class Common {
 		string op = go.IsPlayerTag () ? EnemyTag : PlayerTag;
 		return GameObject.FindGameObjectsWithTag (op).Where (g => g.IsLayer (Layer.Character)).ToArray();
 	}
+	public static GameObject FindOppositeCharacterInFront(this GameObject go) {
+		Vector3 pos = go.transform.position;
+		Vector3 bck = go.transform.forward * -1f;
+
+		GameObject[] opps = go.FindOppositeCharacters ();
+		return opps.WhichMin (g => Vector3.Dot ((g.transform.position - pos).normalized, bck));
+	}
+
 
 }

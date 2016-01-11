@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Custom {
 	public static class Utility {
@@ -90,14 +91,33 @@ namespace Custom {
 		}
 
 		public static Vector3 GenerateRandom(this Vector3 scales) {
-			Vector3 r = (new Vector3 (Random.value, Random.value, Random.value) * 2f - Vector3.one);
+			Vector3 r = (new Vector3 (UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value) * 2f - Vector3.one);
 			return new Vector3(r.x * scales.x, r.y * scales.y, r.z * scales.z);
 		}
 
 		public static T RandomOrDefault<T>(this IEnumerable<T> src) {
 			int count = src.Count();
 			if (count <= 1) return src.FirstOrDefault();
-			else return src.ElementAt((int)(Random.value * count));
+			else return src.ElementAt((int)(UnityEngine.Random.value * count));
+		}
+
+		public static TSource WhichMin<TSource, TResult>(this IEnumerable<TSource> srcs, Func<TSource, TResult> selector) where TResult: IComparable {
+			IEnumerator<TSource> iter = srcs.GetEnumerator();
+			iter.MoveNext();
+
+			TSource minItem = iter.Current;
+			TResult minVal  = selector(minItem);
+
+			while (iter.MoveNext()) {
+				TSource item = iter.Current;
+				TResult val  = selector(item);
+
+				if (val.CompareTo(minVal) < 0) {
+					minVal  = val;
+					minItem = item;
+				}
+			}
+			return minItem;
 		}
 
 	}

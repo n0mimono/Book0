@@ -169,15 +169,13 @@ public partial class YukataAction {
 		yield return null;
 
 		while (true) {
-			if (target == null) {
-				GameObject tgtObj = gameObject.FindOpposites ()
-					.Where (g => g.IsLayer (Common.Layer.Character))
-					.FirstOrDefault ();
-				if (tgtObj != null) {
-					SetTarget (tgtObj.transform);
-				}
+			GameObject tgtObj = gameObject.FindOppositeCharacterInFront ();
+
+			if (tgtObj != null) {
+				SetTarget (tgtObj.transform);
 			}
-			yield return null;
+
+			yield return new WaitForSeconds(1f);
 		}
 	}
 
