@@ -16,7 +16,6 @@ public class DragonMaster : MonoBehaviour {
 
 	void Start() {
 		StartEightCurve ();
-		//RotateAlign(dragonChair).StartBy(this);
 	}
 
 	void Update() {
