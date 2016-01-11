@@ -54,7 +54,7 @@ public partial class YukataManager : MonoBehaviour {
 
 	private void OnReleaseAction(int count) {
 		if (count >= 2) {
-			yukataAction.RelaseSpell ();
+			yukataAction.ReleaseSpell ();
 		}
 	}
 

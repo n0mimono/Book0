@@ -9,14 +9,19 @@ public class EnchantControl : MonoBehaviour {
 	public List<EnchantRotater> rotaters;
 	public List<MagicMagazine> magazines;
 
-	public Transform target;
+	public enum TargetMode {
+		Single,
+		Multi
+	}
 
-	private List<MagicBullet> bullets;
+	public Transform primaryTarget;
+	public List<Transform> targetList;
+
 	private bool isActive;
 
 	[Button("Hold", "Hold")] public float ButtonHold;
 	[Button("LoadAll", "LoadAll")] public float ButtonLoadAll;
-	[Button("Fire", "Fire")] public float ButtonFire;
+	[Button("ForceFire", "Fire")] public float ButtonFire;
 	[Button("ForceHit", "Hit")] public float ButtonForceHit;
 
 	public void Initilize(string tag) {
@@ -68,13 +73,17 @@ public class EnchantControl : MonoBehaviour {
 			.ForEach (m => m.Unload ());
 	}
 
-	public void Fire() {
+	public void Fire(TargetMode mode) {
 		if (!isActive) return;
 
 		magazines
 			.Where (m => m.IsLoaded)
 			.ToList ()
-			.ForEach (m => m.Fire (target));
+			.ForEach (m => m.Fire (GetTarget(mode)));
+	}
+
+	public void ForceFire() {
+		Fire (TargetMode.Single);
 	}
 
 	public void ForceHit() {
@@ -82,6 +91,21 @@ public class EnchantControl : MonoBehaviour {
 			.GetComponentsInChildren<MagicBullet> (false)
 			.ToList ()
 			.ForEach (b => b.Hit ());
+	}
+
+	public void SetTarget (Transform primaryTarget) {
+		this.primaryTarget = primaryTarget;
+	}
+	public void SetTarget(List<Transform> targetList) {
+		this.targetList = targetList;
+	}
+
+	public Transform GetTarget(TargetMode mode) {
+		if (mode == TargetMode.Single) {
+			return primaryTarget;
+		} else {
+			return targetList.RandomOrDefault ();
+		}
 	}
 
 }

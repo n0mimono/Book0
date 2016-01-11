@@ -39,12 +39,15 @@ public static class Common {
 		return GameObject.FindGameObjectsWithTag (op).Where (g => g.IsLayer (Layer.Character)).ToArray();
 	}
 	public static GameObject FindOppositeCharacterInFront(this GameObject go) {
-		Vector3 pos = go.transform.position;
-		Vector3 bck = go.transform.forward * -1f;
-
 		GameObject[] opps = go.FindOppositeCharacters ();
-		return opps.WhichMin (g => Vector3.Dot ((g.transform.position - pos).normalized, bck));
+		return go.transform.WhichInFront(opps.Select(g => g.transform).ToList()).gameObject;
 	}
 
+	public static Transform WhichInFront(this Transform trans, List<Transform> transList) {
+		Vector3 pos = trans.position;
+		Vector3 bck = trans.forward * -1f;
+
+		return transList.WhichMin (t => Vector3.Dot ((t.position - pos).normalized, bck));
+	}
 
 }

@@ -161,7 +161,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1157311345}
-        m_MethodName: Fire
+        m_MethodName: ForceFire
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -817,9 +817,9 @@ GameObject:
   - 33: {fileID: 716235109}
   - 65: {fileID: 716235108}
   - 23: {fileID: 716235107}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Target
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1219,6 +1219,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a, type: 2}
+      propertyPath: enchantress
+      value: 
+      objectReference: {fileID: 1157311345}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f742c1308399468083cbac54797f73a, type: 2}
   m_IsPrefabParent: 0
@@ -1387,6 +1391,10 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 716235110}
+    - target: {fileID: 11497634, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
+      propertyPath: primaryTarget
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
   m_IsPrefabParent: 0

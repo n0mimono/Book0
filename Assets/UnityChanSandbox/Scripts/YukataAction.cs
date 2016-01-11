@@ -129,7 +129,7 @@ public partial class YukataAction {
 
 	public void SpellFlower(LockHandler onCompleted) {
 		StartLockedAction (AnimeAction.Salute, onCompleted, true);
-		StartAutoSpell ();
+		StartFlowerMagic ();
 	}
 
 }
@@ -146,12 +146,15 @@ public partial class YukataAction {
 		damageReceptor.OnDamage += OnDamage;
 	}
 
+	private void BodyDown() {
+		YukataAction.LockHandler onCompleted = (act) => {};
+		StartLockedAction (AnimeAction.Damaged, onCompleted, true);
+	}
+
 	private void OnDamage(DamageSource src) {
 		CancelActions ();
 
-		// damage action
-		YukataAction.LockHandler onCompleted = (act) => {};
-		StartLockedAction (AnimeAction.Damaged, onCompleted, true);
+		BodyDown();
 		transform.LookAtOnGround (src.transform.position);
 	}
 
@@ -163,10 +166,16 @@ public partial class YukataAction {
 	public Transform target;
 	public System.Action<Transform> OnSetTarget = (tgt) => {};
 
+	public void SetTargetList(List<Transform> targets) {
+		if (enchantress != null) {
+			enchantress.SetTarget (targets);
+		}
+	}
+
 	public void SetTarget(Transform target) {
 		this.target = target;
 		if (enchantress != null) {
-			enchantress.target = target;
+			enchantress.SetTarget (target);
 		}
 
 		OnSetTarget (target);
@@ -175,11 +184,14 @@ public partial class YukataAction {
 	private IEnumerator Targettting() {
 		yield return null;
 
-		while (true) {
-			GameObject tgtObj = gameObject.FindOppositeCharacterInFront ();
+		List<Transform> targetList = gameObject.FindOppositeCharacters ().Select (g => g.transform).ToList ();
+		SetTargetList (targetList);
 
-			if (tgtObj != null) {
-				SetTarget (tgtObj.transform);
+		while (true) {
+			Transform front = transform.WhichInFront (targetList);
+
+			if (front != null) {
+				SetTarget (front);
 			}
 
 			yield return new WaitForSeconds(1f);
@@ -220,23 +232,29 @@ public partial class YukataAction {
 		enchantress.Release ();
 	}
 
-	public void RelaseSpell() {
+	public void ReleaseSpell() {
 		isSpelling = false;
-		enchantress.Fire ();
+		enchantress.Fire (EnchantControl.TargetMode.Single);
 		enchantress.Release ();
 	}
 
-	private void StartAutoSpell() {
-		if (isSpelling) return;
-
+	private void StartFlowerMagic() {
 		isSpelling = true;
-		AutoSpell ()
-			.While (() => isSpelling)
-			.StartBy (this);		
+
+		FlowerMagic ().StartBy (this);		
 	}
 
-	private IEnumerator AutoSpell() {
+	private IEnumerator FlowerMagic() {
 		yield return null;
+		enchantress.Hold();
+		yield return null;
+		enchantress.LoadAll ();
+
+		yield return new WaitForSeconds(3f);
+		BodyDown ();
+
+		enchantress.Fire (EnchantControl.TargetMode.Multi);
+		enchantress.Release ();
 	}
 
 }
