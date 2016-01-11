@@ -213,7 +213,7 @@ RectTransform:
   m_Children:
   - {fileID: 1432058448}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -488,7 +488,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &1158071435
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100264, guid: 13a16f60da4245c45a865b2136ba272c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13a16f60da4245c45a865b2136ba272c, type: 2}
@@ -768,7 +768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1432058448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -883,113 +883,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objs:
-  - {fileID: 1598131246}
   - {fileID: 1176900733}
   activeIndex: 0
---- !u!1 &1598131246 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100374, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-  m_PrefabInternal: {fileID: 1748248284}
---- !u!1001 &1748248284
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400374, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400374, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400374, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400374, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400374, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400374, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400374, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400374, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some transforms are animated by both a Humanoid animation
-        clip and a Generic animation clip. Only the Humanoid clip will be applied
-        on those transforms.\n\tTransform 'J_L_HairSide_00'\n\tTransform 'J_R_HairSide_00'\n\tTransform
-        'J_L_HairSide_00'\n\tTransform 'J_R_HairSide_00'\n\tTransform 'J_L_HairFront_00'\n\tTransform
-        'J_L_HairSide_00'\n\tTransform 'J_R_HairSide_00'\n\tTransform 'J_L_HairFront_00'\n\tTransform
-        'J_L_HairFront_00'\n\tFrom animation clip 'POSE01'\n\tFrom animation clip
-        'POSE02'\n\tFrom animation clip 'POSE03'\n\tFrom animation clip 'POSE04'\n\tFrom
-        animation clip 'POSE05'\n\tFrom animation clip 'POSE06'\n\tFrom animation
-        clip 'POSE07'\n\tFrom animation clip 'POSE08'\n\tFrom animation clip 'POSE09'\n\tFrom
-        animation clip 'POSE10'\n\tand more ..."
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -.0937465355
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: .697855115
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: .707468987
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .0608067587
-      objectReference: {fileID: 0}
-    - target: {fileID: 400162, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: .224375024
-      objectReference: {fileID: 0}
-    - target: {fileID: 400162, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: .670563936
-      objectReference: {fileID: 0}
-    - target: {fileID: 400162, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -.506723285
-      objectReference: {fileID: 0}
-    - target: {fileID: 400162, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -.493184865
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: aed77c9fdbb096549bdd5e780e64c65d, type: 2}
-  m_IsPrefabParent: 0
