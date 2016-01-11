@@ -25,9 +25,8 @@ public class Dragon : MonoBehaviour {
 	public List<StateScheme> schemes;
 	public StateScheme cur;
 
-	[Button("SetState", "Set Idle", State.Idle)] public float ButtonIdle;
-	[Button("SetState", "Set FlyIdle", State.FlyIdle)] public float ButtonFlyIdle;
-	[Button("SetState", "Set Fly", State.Fly)] public float ButtonFly;
+	public float maxAngleSpeed;
+	private float angleSpeed;
 
 	void Start() {
 		Initilize ();
@@ -43,6 +42,7 @@ public class Dragon : MonoBehaviour {
 		});
 
 		UpdateByScheme ().StartBy (this);
+		Rotate ().StartBy (this);
 	}
 
 	public void SetState(State state) {
@@ -61,7 +61,6 @@ public class Dragon : MonoBehaviour {
 	private void OnStateEnter(int hash) {
 		StateScheme next = schemes.Where (s => Animator.StringToHash(s.path) == hash).FirstOrDefault ();
 		if (next != null) {
-			Debug.Log (cur.state + " > " + next.state + ": " + cur.pos + " > " + next.pos);
 			cur = next;
 		}
 	}
@@ -69,4 +68,19 @@ public class Dragon : MonoBehaviour {
 	private void OnStateExit(int hash) {
 	}
 
+	public void SetAngleSpeed(float angleSpeed) {
+		this.angleSpeed = Mathf.Clamp (angleSpeed, -maxAngleSpeed, maxAngleSpeed);
+	}
+
+	private IEnumerator Rotate() {
+		while (true) {
+			transform.Rotate (Vector3.up, angleSpeed * Time.deltaTime);
+			yield return null;
+		}
+	}
+
+	public bool Is(State state) {
+		return cur.state == state;
+	}
 }
+
