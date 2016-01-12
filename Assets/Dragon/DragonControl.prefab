@@ -176,9 +176,8 @@ GameObject:
   - 4: {fileID: 490842}
   - 95: {fileID: 9577390}
   - 114: {fileID: 11488406}
-  - 135: {fileID: 13590350}
-  - 54: {fileID: 5492724}
-  - 135: {fileID: 13511700}
+  - 54: {fileID: 5452370}
+  - 135: {fileID: 13568504}
   m_Layer: 8
   m_Name: Dragon_LOD5
   m_TagString: Enemy
@@ -637,6 +636,21 @@ GameObject:
   - 4: {fileID: 487376}
   m_Layer: 8
   m_Name: English DragonRLeg2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &134232
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 445976}
+  m_Layer: 8
+  m_Name: BreathePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1736,6 +1750,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &188686
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 405732}
+  - 33: {fileID: 3307970}
+  - 23: {fileID: 2306618}
+  m_Layer: 8
+  m_Name: DummyCube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &189424
 GameObject:
   m_ObjectHideFlags: 1
@@ -1806,6 +1837,21 @@ GameObject:
   - 4: {fileID: 459564}
   m_Layer: 8
   m_Name: English DragonTail4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &195214
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 420052}
+  m_Layer: 8
+  m_Name: BreatheAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2011,6 +2057,18 @@ Transform:
   - {fileID: 402778}
   m_Father: {fileID: 421622}
   m_RootOrder: 2
+--- !u!4 &405732
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445976}
+  m_RootOrder: 0
 --- !u!4 &405766
 Transform:
   m_ObjectHideFlags: 1
@@ -2260,6 +2318,19 @@ Transform:
   m_Children:
   - {fileID: 459758}
   m_Father: {fileID: 402066}
+  m_RootOrder: 0
+--- !u!4 &420052
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195214}
+  m_LocalRotation: {x: 0, y: 0, z: 0.13052621, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 445976}
+  m_Father: {fileID: 492266}
   m_RootOrder: 0
 --- !u!4 &421622
 Transform:
@@ -2698,6 +2769,19 @@ Transform:
   - {fileID: 412718}
   m_Father: {fileID: 410374}
   m_RootOrder: 3
+--- !u!4 &445976
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 405732}
+  m_Father: {fileID: 420052}
+  m_RootOrder: 0
 --- !u!4 &447784
 Transform:
   m_ObjectHideFlags: 1
@@ -3341,7 +3425,8 @@ Transform:
   m_LocalRotation: {x: -0.00000009241131, y: -0.000000061118435, z: -0.4928166, w: 0.8701332}
   m_LocalPosition: {x: -0.282565, y: 0.24143767, z: -0.000000038146972}
   m_LocalScale: {x: 0.9999715, y: 1.0000287, z: 1.0000001}
-  m_Children: []
+  m_Children:
+  - {fileID: 420052}
   m_Father: {fileID: 424342}
   m_RootOrder: 0
 --- !u!4 &494234
@@ -3443,7 +3528,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436058}
   m_RootOrder: 0
---- !u!54 &5492724
+--- !u!23 &2306618
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188686}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3307970
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188686}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5452370
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3493,6 +3611,7 @@ MonoBehaviour:
   ButtonFlyIdle: 0
   ButtonFly: 0
   ButtonEightCurve: 0
+  ButtonFire: 0
 --- !u!114 &11488406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3507,6 +3626,7 @@ MonoBehaviour:
   ctrlTrans: {fileID: 423432}
   myTrans: {fileID: 490842}
   animator: {fileID: 9577390}
+  breathePoint: {fileID: 420052}
   schemes:
   - state: 0
     path: Base Layer.Idle
@@ -3544,19 +3664,7 @@ Projector:
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 256
---- !u!135 &13511700
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110596}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.5
-  m_Center: {x: 0, y: 2.5, z: 0}
---- !u!135 &13590350
+--- !u!135 &13568504
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

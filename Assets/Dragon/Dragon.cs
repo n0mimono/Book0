@@ -9,6 +9,8 @@ public partial class Dragon : MonoBehaviour {
 	public Transform myTrans;
 	public Animator animator;
 
+	public Transform breathePoint;
+
 	public enum State {
 		Idle     = 0,
 		FlyIdle  = 1,
