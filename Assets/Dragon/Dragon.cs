@@ -4,7 +4,7 @@ using Custom;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Dragon : MonoBehaviour {
+public partial class Dragon : MonoBehaviour {
 	public Transform ctrlTrans;
 	public Transform myTrans;
 	public Animator animator;
@@ -33,7 +33,7 @@ public class Dragon : MonoBehaviour {
 	}
 
 	private void Initilize() {
-		SetState (State.Idle);
+		//SetState (State.Idle);
 
 		animator.GetBehaviours<DragonStateMachine> ().ToList ()
 			.ForEach (d => {
@@ -82,5 +82,28 @@ public class Dragon : MonoBehaviour {
 	public bool Is(State state) {
 		return cur.state == state;
 	}
+
 }
 
+public partial class Dragon {
+
+	public enum HeadState {
+		None    = 0,
+		Breathe = 1,
+	}
+
+	public void StartSpell() {
+	}
+
+	public void EndSpell() {
+	}
+
+	public void StartBreathe() {
+		animator.SetInteger ("Head", (int)HeadState.Breathe);
+	}
+
+	public void StopBreathe() {
+		animator.SetInteger ("Head", (int)HeadState.None);
+	}
+
+}

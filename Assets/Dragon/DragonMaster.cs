@@ -13,9 +13,10 @@ public class DragonMaster : MonoBehaviour {
 	[Button("SetState", "Set FlyIdle", Dragon.State.FlyIdle)] public float ButtonFlyIdle;
 	[Button("SetState", "Set Fly", Dragon.State.Fly)] public float ButtonFly;
 	[Button("StartEightCurve", "Start Fly")] public float ButtonEightCurve;
+	[Button("StartFire", "Start Fire")] public float ButtonFire;
 
 	void Start() {
-		StartEightCurve ();
+		//StartEightCurve ();
 	}
 
 	void Update() {
@@ -87,5 +88,8 @@ public class DragonMaster : MonoBehaviour {
 		}
 	}
 
+	public void StartFire() {
+		dragon.StartBreathe ();
+	}
 
 }
