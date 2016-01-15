@@ -19,6 +19,13 @@ public partial class MagicFireball : MagicProjectile {
 			p.startSpeed = speed;
 			p.Play();
 		});	
+
+		AutoHit ().StartBy (this);
+	}
+
+	IEnumerator AutoHit() {
+		yield return new WaitForSeconds (10f);
+		Hit ();
 	}
 
 }

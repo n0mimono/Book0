@@ -29,8 +29,13 @@ public class MagicProjectile : MonoBehaviour {
 
 	[Header("Targert")]
 	public Transform target;
-	public Vector3 TargetDirection { get { return (target.position - transform.position).normalized; } }
-	public bool TargetIsForward { get { return Vector3.Dot (transform.forward, TargetDirection) > 0f; } }
+	public Vector3 TargetDirection { get {
+			if (target == null) {
+				return transform.forward;
+			} else {
+				return (target.position - transform.position).normalized;
+			}
+		} }
 
 	[Header("Damage Source")]
 	public DamageSource damageSource;

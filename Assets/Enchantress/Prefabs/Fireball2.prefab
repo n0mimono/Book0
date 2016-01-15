@@ -117,15 +117,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d66cd937ced470697e28b4a82a0669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystems:
-  - {fileID: 19898282}
-  - {fileID: 19849536}
   collide: {fileID: 13594054}
   cur:
     mode: 0
-  speed: 5
+  speed: 50
   target: {fileID: 0}
   damageSource: {fileID: 11422704}
+  particleSystems:
+  - {fileID: 19898282}
+  - {fileID: 19849536}
 --- !u!114 &11422704
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -34,6 +34,7 @@ public class MagicSpawner : MonoBehaviour {
 
 	public void Fire(Transform target) {
 		OnRelease ();
+		projectile.transform.forward = transform.forward;
 
 		projectile.target = target;
 		projectile.Fire ();
@@ -48,11 +49,17 @@ public class MagicSpawner : MonoBehaviour {
 
 	[Button("Initilize", "Initilize", "Player")] public float ButtonInitilize;
 	[Button("Load", "Load")] public float ButtonLoad;
-	[Button("ForceFire", "Fire")] public float ButtonFire;
+	[Button("ForceFireTarget", "Fire")] public float ButtonFire;
+	[Button("ForceFireNonTarget", "Fire (None)")] public float ButtonFireNone;
 	[Button("Unload", "Unload")] public float ButtonUnload;
 
-	public void ForceFire() {
+	public void ForceFireTarget() {
 		GameObject enemy = gameObject.FindOppositeCharacters ().FirstOrDefault ();
 		Fire (enemy.transform);
 	}
+
+	public void ForceFireNonTarget() {
+		Fire (null);
+	}
+
 }

@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SmokeBNew2
+  m_Name: FireGatherAdditive
   m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -19,9 +19,9 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 2a6221eb1b1c50a4cb69a62e2f264e58, type: 3}
-          m_Scale: {x: 0.5, y: 1}
-          m_Offset: {x: 0.5, y: 0}
+          m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 1, y: 0}
       data:
         first:
           name: _BumpMap
@@ -50,7 +50,7 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: 0.9852941, g: 0.7151877, b: 0.24632353, a: 0.85882354}
+        second: {r: 1, g: 0.5691684, b: 0.4705882, a: 0.684}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6

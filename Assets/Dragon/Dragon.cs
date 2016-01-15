@@ -10,6 +10,7 @@ public partial class Dragon : MonoBehaviour {
 	public Animator animator;
 
 	public Transform breathePoint;
+	public MagicCannon cannon;
 
 	public enum State {
 		Idle     = 0,
@@ -35,7 +36,7 @@ public partial class Dragon : MonoBehaviour {
 	}
 
 	private void Initilize() {
-		//SetState (State.Idle);
+		SetState (State.Idle);
 
 		animator.GetBehaviours<DragonStateMachine> ().ToList ()
 			.ForEach (d => {
@@ -45,6 +46,8 @@ public partial class Dragon : MonoBehaviour {
 
 		UpdateByScheme ().StartBy (this);
 		Rotate ().StartBy (this);
+
+		InitilizeSpell ();
 	}
 
 	public void SetState(State state) {
@@ -92,6 +95,10 @@ public partial class Dragon {
 	public enum HeadState {
 		None    = 0,
 		Breathe = 1,
+	}
+
+	public void InitilizeSpell() {
+		cannon.Initilize (gameObject.tag);
 	}
 
 	public void StartSpell() {
