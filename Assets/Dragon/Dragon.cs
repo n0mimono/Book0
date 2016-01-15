@@ -120,7 +120,7 @@ public partial class Dragon {
 		GameObject enemy = gameObject.FindOppositeCharacters ().FirstOrDefault ();
 		cannon.Fire (enemy.transform);
 
-		SetAngleSpeed (GetAngleSpeed (enemy.transform.position));
+		//SetAngleSpeed (GetAngleSpeed (enemy.transform.position));
 		yield return null;
 	}
 

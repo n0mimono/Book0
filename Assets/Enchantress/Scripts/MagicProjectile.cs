@@ -70,16 +70,18 @@ public class MagicProjectile : MonoBehaviour {
 	}
 
 	public virtual void Hit() {
-		Explotion ().StartBy (this);
+		if (!cur.Is (Mode.None)()) {
+			Explotion ().StartBy (this);
+		}
+		cur.mode = Mode.None;
 	}
 
-	protected virtual IEnumerator Explotion() {
+	IEnumerator Explotion() {
 		GameObject obj = PoolManager.Instance.GetInstance (instanceName);
 		obj.transform.position = transform.position;
 
 		OnExplotion (obj);
 		yield return null;
-		cur.mode = Mode.None;
 		gameObject.SetActive (false);
 	}
 
