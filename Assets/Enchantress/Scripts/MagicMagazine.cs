@@ -2,44 +2,15 @@
 using System.Collections;
 using Custom;
 
-public class MagicMagazine : MonoBehaviour {
+public class MagicMagazine : MagicSpawner {
 	public MagicCircle circle;
-	public MagicBullet bullet;
 
-	public bool IsLoaded { get { return bullet != null; } }
+	public override void Initilize(string tag) {
+		base.Initilize (tag);
 
-	public void Initilize(string tag) {
-		gameObject.tag = tag;
+		instanceName = "MagicBullet";
+		OnHold = () => circle.Hold ();
+		OnRelease = () => circle.Release ();
 	}
-
-	public void Load() {
-		circle.Hold ();
-
-		bullet = PoolManager.Instance.GetInstance ("MagicBullet").GetComponent<MagicBullet>();
-		bullet.gameObject.tag = gameObject.tag;
-		bullet.Initialize ();
-	}
-
-	public void Unload() {
-		circle.Release ();
-
-		bullet.Unload ();
-		bullet = null;
-	}
-
-	public void Fire(Transform target) {
-		circle.Release ();
-
-		bullet.target = target;
-		bullet.Fire ();
-		bullet = null;
-	}
-
-	void Update() {
-		if (bullet != null) {
-			bullet.transform.position = transform.position;
-		}
-	}
-
 }
 		
