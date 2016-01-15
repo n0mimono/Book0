@@ -78,12 +78,9 @@ public class DragonMaster : MonoBehaviour {
 	}
 
 	private IEnumerator RotateTo(Transform target) {
-		Transform drans = dragon.transform;
 
 		while (true) {
-			Vector3 tgtFwd = (target.position.Ground() - drans.position.Ground()).normalized;
-			tgtAngleSpeed = Utility.Angle (drans.forward, tgtFwd);
-
+			tgtAngleSpeed = dragon.GetAngleSpeed (target.position);
 			yield return null;
 		}
 	}

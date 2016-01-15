@@ -84,6 +84,11 @@ public partial class Dragon : MonoBehaviour {
 		}
 	}
 
+	public float GetAngleSpeed(Vector3 targetPosition) {
+		Vector3 tgtFwd = (targetPosition.Ground() - transform.position.Ground()).normalized;
+		return Utility.Angle (transform.forward, tgtFwd);
+	}
+
 	public bool Is(State state) {
 		return cur.state == state;
 	}
@@ -102,9 +107,21 @@ public partial class Dragon {
 	}
 
 	public void StartSpell() {
+		ProcSpell ().StartBy (this);
 	}
 
 	public void EndSpell() {
+	}
+
+	IEnumerator ProcSpell() {
+		cannon.Load ();
+		yield return new WaitForSeconds (0.5f);
+
+		GameObject enemy = gameObject.FindOppositeCharacters ().FirstOrDefault ();
+		cannon.Fire (enemy.transform);
+
+		SetAngleSpeed (GetAngleSpeed (enemy.transform.position));
+		yield return null;
 	}
 
 	public void StartBreathe() {

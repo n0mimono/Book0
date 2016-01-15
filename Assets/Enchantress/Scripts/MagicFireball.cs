@@ -10,6 +10,11 @@ public partial class MagicFireball : MagicProjectile {
 	public override void Initialize() {
 		base.Initialize ();
 		instanceName = "FireballExplosion";
+
+		OnExplotion = (obj) => {
+			ParticleSystem particle = obj.GetComponent<ParticleSystem>();
+			particle.Play();
+		};
 	}
 
 	public override void Fire() {
