@@ -47,6 +47,23 @@ namespace Custom {
 		}
 	}
 
+	public class JointTask : Task {
+		private IEnumerator[] enumerators;
+
+		public JointTask(IEnumerator enumerator, params IEnumerator[] enumerators) : base(enumerator) {
+			this.enumerators = enumerators;
+		}
+
+		public override bool MoveNext () {
+			bool hasNext = base.MoveNext ();
+			for (int i = 0; i < enumerators.Length; i++) {
+				hasNext = hasNext && enumerators [i].MoveNext ();
+			}
+			return hasNext;
+		}
+	}
+
+
 	public class MultiTask : Task {
 		private IEnumerator[] enumerators;
 
@@ -147,6 +164,10 @@ namespace Custom {
 			return Continue (routiner ());
 		}
 
+		public Task And(IEnumerator routine) {
+			return new JointTask (this, routine);
+		}
+
 		public Task Add(IEnumerator routine) {
 			return new MultiTask (this, routine);
 		}
@@ -163,6 +184,17 @@ namespace Custom {
 			return new TaskWithPredicate (this, predicate);
 		}
 
+		public IEnumerator Count(float time) {
+			float t = 0f;
+			while (t < time) {
+				t += Time.deltaTime;
+				yield return null;
+			}
+		}
+
+		public Task WhileInCount(float time) {
+			return And (Count (time));
+		}
 	}
 
 	public static class TaskUtility {
@@ -183,6 +215,10 @@ namespace Custom {
 			return enumerator.Continue (routiner ());
 		}
 
+		public static Task And(this IEnumerator enumerator, IEnumerator routine) {
+			return new JointTask (enumerator, routine);
+		}
+
 		public static Task Add(this IEnumerator enumerator, IEnumerator routine) {
 			return new MultiTask (enumerator, routine);
 		}
@@ -201,6 +237,11 @@ namespace Custom {
 
 		public static Task When(this IEnumerator enumerator, Func<bool> predicate) {
 			return enumerator.While (predicate).Add (new Noop ().While (() => !predicate ()));
+		}
+
+		public static Task WhileInCount(this IEnumerator enumerator, float time) {
+			Task t = new Task (enumerator);
+			return new JointTask (enumerator, t.Count(time));
 		}
 
 	}
