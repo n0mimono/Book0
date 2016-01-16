@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400680}
   - 114: {fileID: 11419422}
   m_Layer: 0
-  m_Name: MagicMagazine
+  m_Name: MagicMagazine0
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ GameObject:
   - 4: {fileID: 429792}
   - 114: {fileID: 11458958}
   m_Layer: 0
-  m_Name: BulletPoint (4)
+  m_Name: MagicMagazine4
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 423204}
   - 114: {fileID: 11472114}
   m_Layer: 0
-  m_Name: BulletPoint (3)
+  m_Name: MagicMagazine3
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ GameObject:
   - 4: {fileID: 490230}
   - 114: {fileID: 11454072}
   m_Layer: 0
-  m_Name: BulletPoint (2)
+  m_Name: MagicMagazine2
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ GameObject:
   - 4: {fileID: 480052}
   - 114: {fileID: 11493212}
   m_Layer: 0
-  m_Name: BulletPoint (1)
+  m_Name: MagicMagazine1
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
