@@ -136,7 +136,7 @@ Material:
       data:
         first:
           name: _Exposure
-        second: 1
+        second: 1.28
       data:
         first:
           name: _Parallax
@@ -180,7 +180,7 @@ Material:
       data:
         first:
           name: _FogFactor
-        second: 25.94
+        second: 13.3
       data:
         first:
           name: _UV_SKY

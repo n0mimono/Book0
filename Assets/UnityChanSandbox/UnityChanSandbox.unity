@@ -14,10 +14,10 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 0
-  m_FogColor: {r: 0.3152033, g: 0.3895437, b: 0.4044118, a: 0.978}
+  m_Fog: 1
+  m_FogColor: {r: 0.42352945, g: 0.5647059, b: 0.5764706, a: 0.978}
   m_FogMode: 3
-  m_FogDensity: 0.08
+  m_FogDensity: 0.03
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -452,7 +452,7 @@ Transform:
   m_Children:
   - {fileID: 831576445}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!114 &288359220 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a,
@@ -948,6 +948,10 @@ Prefab:
     - target: {fileID: 11421228, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
       propertyPath: type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 170372, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
@@ -1473,7 +1477,7 @@ Transform:
   m_Children:
   - {fileID: 827477111}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1216586686
 GameObject:
   m_ObjectHideFlags: 0
