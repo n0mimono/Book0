@@ -102,13 +102,16 @@ public partial class Dragon {
 		None    = 0,
 		Breathe = 1,
 	}
+	private bool isBreathing;
 
 	public void InitilizeSpell() {
 		cannon.Initilize (gameObject.tag);
 	}
 
 	public void StartSpell() {
-		ProcSpell ().StartBy (this);
+		if (isBreathing) {
+			ProcSpell ().StartBy (this);
+		}
 	}
 
 	public void EndSpell() {
@@ -122,11 +125,13 @@ public partial class Dragon {
 		yield return null;
 	}
 
-	public void StartBreathe() {
+	public void StartBreathe(bool isActiveBreath) {
+		isBreathing = isActiveBreath;
 		animator.SetInteger ("Head", (int)HeadState.Breathe);
 	}
 
 	public void StopBreathe() {
+		isBreathing = false;
 		animator.SetInteger ("Head", (int)HeadState.None);
 	}
 

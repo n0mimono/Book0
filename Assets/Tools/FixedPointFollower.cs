@@ -3,10 +3,15 @@ using System.Collections;
 
 public class FixedPointFollower : MonoBehaviour {
 	public Transform target;
+	public Transform actualTarget;
+
+	void Start() {
+		actualTarget = target.GetTarget ();
+	}
 
 	void Update() {
-		if (target != null) {
-			transform.LookAt (target);
+		if (actualTarget != null) {
+			transform.LookAt (actualTarget);
 		}
 	}
 

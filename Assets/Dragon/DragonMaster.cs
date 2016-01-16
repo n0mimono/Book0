@@ -11,6 +11,8 @@ public partial class DragonMaster : MonoBehaviour {
 	public Transform focusCenter;
 	public float tgtAngleSpeed;
 
+	public bool isPlayOnStart;
+
 	public enum State {
 		None = 0,
 		Idle = 1,
@@ -22,7 +24,9 @@ public partial class DragonMaster : MonoBehaviour {
 	void Start() {
 		state = State.None;
 
-		ChooseProc ().StartBy (this);
+		if (isPlayOnStart) {
+			ChooseProc ().StartBy (this);
+		}
 	}
 
 	void Update() {
@@ -129,7 +133,7 @@ public partial class DragonMaster {
 		while (!dragon.Is(Dragon.State.FlyIdle)) yield return null;
 
 		dragon.target = target;
-		dragon.StartBreathe ();
+		dragon.StartBreathe (true);
 		RotateTo (dragon.target).While (() => dragon.target != null).StartBy (this);
 		yield return new WaitForSeconds (10f);
 
@@ -164,7 +168,7 @@ public partial class DragonMaster {
 		GameObject enemy = gameObject.FindOppositeCharacters ().FirstOrDefault ();
 
 		dragon.target = enemy.transform;
-		dragon.StartBreathe ();
+		dragon.StartBreathe (true);
 
 		RotateTo (dragon.target).While (() => dragon.target != null).StartBy (this);
 	}
@@ -176,6 +180,22 @@ public partial class DragonMaster {
 
 	public void GoToBy(int index) {
 		GoTo (dragonChairs.ElementAtOrDefault (index));
+	}
+
+	[Button("Roar", "Roar")] public float ButtonRoar;
+
+	public void Roar() {
+		SubProcRoar ().StartBy (this);
+	}
+
+	private IEnumerator SubProcRoar() {
+		yield return null;
+		dragon.StartBreathe (false);
+
+		yield return new WaitForSeconds (1f);
+		dragon.StopBreathe ();
+
+		yield return null;
 	}
 
 }
