@@ -67,6 +67,7 @@ public partial class DragonMaster {
 		while (true) {
 			if (state == State.None) {
 				procs.RandomOrDefault () ();
+				//procs.FirstOrDefault () ();
 			}
 
 			yield return new WaitForSeconds (1f);
@@ -75,7 +76,11 @@ public partial class DragonMaster {
 
 	private IEnumerator ProcIdle() {
 		state = State.Idle;
-		yield return new WaitForSeconds (10f);
+		yield return new WaitForSeconds (3f);
+
+		yield return StartCoroutine (SubProcRoar ());
+
+		yield return new WaitForSeconds (3f);
 		state = State.None;
 	}
 
@@ -146,6 +151,16 @@ public partial class DragonMaster {
 		state = State.None;
 	}
 
+	private IEnumerator SubProcRoar() {
+		yield return null;
+		dragon.StartBreathe (false);
+
+		yield return new WaitForSeconds (1f);
+		dragon.StopBreathe ();
+
+		yield return new WaitForSeconds (3f);
+	}
+
 }
 
 public partial class DragonMaster {
@@ -186,16 +201,6 @@ public partial class DragonMaster {
 
 	public void Roar() {
 		SubProcRoar ().StartBy (this);
-	}
-
-	private IEnumerator SubProcRoar() {
-		yield return null;
-		dragon.StartBreathe (false);
-
-		yield return new WaitForSeconds (1f);
-		dragon.StopBreathe ();
-
-		yield return null;
 	}
 
 }

@@ -4,16 +4,13 @@ using Custom;
 
 public class Shaker : MonoBehaviour {
 
-	public float   amplitude;
-	public float   damp;
+	public float amplitude;
+	public float damp;
+	public float keepTime;
 
 	public Vector3 offset;
 
 	[Button("StartShake", "Start Shake")] public float ButtonStartShake;
-
-	void Update() {
-		transform.position = offset;
-	}
 
 	public void StartShake() {
 		ProcShake ().StartBy (this);
@@ -22,9 +19,14 @@ public class Shaker : MonoBehaviour {
 	private IEnumerator ProcShake() {
 		float tmpAmplitude = amplitude;
 
+		float time = 0f;
 		while (tmpAmplitude > 0f) {
+			time += Time.deltaTime;
+
 			offset = Random.insideUnitSphere * tmpAmplitude;
-			tmpAmplitude -= damp * Time.deltaTime;
+			if (time > keepTime) {
+				tmpAmplitude -= damp * Time.deltaTime;
+			}
 			yield return null;
 		}
 

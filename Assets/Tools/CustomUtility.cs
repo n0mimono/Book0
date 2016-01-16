@@ -8,6 +8,17 @@ using System;
 namespace Custom {
 	public static class Utility {
 
+		public static void SetTag(this GameObject obj, string tag, bool isRecursive = true) {
+			if (isRecursive) {
+				obj.GetComponentsInChildren<Transform> ()
+					.Select (t => t.gameObject)
+					.ToList ()
+					.ForEach (g => g.tag = tag);
+			} else {
+				obj.tag = tag;
+			}
+		}
+
 		public static Vector3 AngleLerp(Vector3 a, Vector3 b, float t) {
 			return new Vector3 (Mathf.LerpAngle (a.x, b.x, t),
 				Mathf.LerpAngle (a.y, b.y, t),
@@ -37,6 +48,7 @@ namespace Custom {
 		public static Vector3 Ground(this Vector3 pos, float height) {
 			return new Vector3 (pos.x, height, pos.z);
 		}
+
 		public static Vector3 Ground(this Vector3 pos) {
 			return pos.Ground (0f);
 		}
@@ -44,6 +56,11 @@ namespace Custom {
 		public static void LookAtOnGround(this Transform trans, Vector3 pos) {
 			pos.y = trans.position.y;
 			trans.LookAt (pos);
+		}
+
+		public static void LookAtLerp(this Transform trans, Vector3 pos, float t) {
+			Vector3 dir = (pos - trans.position).normalized;
+			trans.forward = Vector3.Slerp (trans.forward, dir, t);
 		}
 
 		public static float ConstLerp(float value, float target, float delta) {

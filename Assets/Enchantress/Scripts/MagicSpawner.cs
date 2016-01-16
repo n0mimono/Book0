@@ -14,12 +14,12 @@ public class MagicSpawner : MonoBehaviour {
 	protected Action OnRelease = () => {};
 
 	public virtual void Initilize(string tag) {
-		gameObject.tag = tag;
+		gameObject.SetTag (tag, true);
 	}
 
 	public void Load() {
 		projectile = PoolManager.Instance.GetInstance (instanceName).GetComponent<MagicProjectile>();
-		projectile.gameObject.tag = gameObject.tag;
+		projectile.gameObject.SetTag(gameObject.tag, true);
 		projectile.Initialize ();
 
 		projectile.Load ();
