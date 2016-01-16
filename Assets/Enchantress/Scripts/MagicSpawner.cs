@@ -18,13 +18,13 @@ public class MagicSpawner : MonoBehaviour {
 	}
 
 	public void Load() {
-		OnHold ();
-
 		projectile = PoolManager.Instance.GetInstance (instanceName).GetComponent<MagicProjectile>();
 		projectile.gameObject.tag = gameObject.tag;
 		projectile.Initialize ();
 
 		projectile.Load ();
+
+		OnHold ();
 	}
 
 	public void Unload() {

@@ -152,6 +152,7 @@ public partial class YukataAction {
 	}
 
 	private void OnDamage(DamageSource src) {
+		//Debug.Log (src.name + " > " + src.gameObject.tag + " => " + gameObject.IsOppositeTo(src.gameObject));
 		CancelActions ();
 
 		BodyDown();
