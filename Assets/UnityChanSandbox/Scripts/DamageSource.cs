@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class DamageSource : MonoBehaviour {
-	public Common.Layer damageableLayer;
-
 	public event System.Action<DamageSource> OnHit;
 	public System.Func<bool> IsDamageable;
 
@@ -17,11 +15,12 @@ public class DamageSource : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		Debug.Log (gameObject + " > " + collision);
+		//Debug.Log (gameObject + " > " + collision);
 		OnCollision (collision.gameObject);
 	}
 
 	void OnTriggerEnter(Collider collider) {
+		//Debug.Log (gameObject + " > " + collider.gameObject.name);
 		OnCollision (collider.gameObject);
 	}
 
@@ -31,7 +30,6 @@ public class DamageSource : MonoBehaviour {
 		OnHit (this);
 		if (receptor != null
 			&& gameObject.IsOppositeTo (other)
-			&& other.IsLayer(damageableLayer)
 			&& IsDamageable()
 			&& receptor.IsDamageable()
 		) {

@@ -41,7 +41,7 @@ public class MagicSpawner : MonoBehaviour {
 			projectile.transform.forward = transform.forward;
 		}
 
-		projectile.target = target;
+		projectile.target = target.GetTarget();
 		projectile.Fire ();
 		projectile = null;
 	}

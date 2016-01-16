@@ -492,6 +492,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &121196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 470214}
+  m_Layer: 8
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &121378
 GameObject:
   m_ObjectHideFlags: 1
@@ -1028,6 +1043,7 @@ GameObject:
   - 143: {fileID: 14365608}
   - 114: {fileID: 11499066}
   - 114: {fileID: 11480244}
+  - 114: {fileID: 11471268}
   m_Layer: 8
   m_Name: SD_unitychan_mono
   m_TagString: Player
@@ -2628,7 +2644,7 @@ Transform:
   - {fileID: 491394}
   - {fileID: 464866}
   m_Father: {fileID: 475100}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &425926
 Transform:
   m_ObjectHideFlags: 1
@@ -2693,7 +2709,7 @@ Transform:
   m_Children:
   - {fileID: 445722}
   m_Father: {fileID: 475100}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &432322
 Transform:
   m_ObjectHideFlags: 1
@@ -2940,7 +2956,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 475100}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &445722
 Transform:
   m_ObjectHideFlags: 1
@@ -3010,7 +3026,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 475100}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &449084
 Transform:
   m_ObjectHideFlags: 1
@@ -3422,6 +3438,18 @@ Transform:
   - {fileID: 486888}
   m_Father: {fileID: 402016}
   m_RootOrder: 0
+--- !u!4 &470214
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121196}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 475100}
+  m_RootOrder: 0
 --- !u!4 &472816
 Transform:
   m_ObjectHideFlags: 1
@@ -3523,6 +3551,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 470214}
   - {fileID: 432034}
   - {fileID: 448766}
   - {fileID: 425744}
@@ -4591,6 +4620,18 @@ MonoBehaviour:
   colliders: []
   debug: 1
   threshold: 0.01
+--- !u!114 &11471268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffffa13ea259b4c169b9f668b56d9f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 470214}
 --- !u!114 &11471382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4990,7 +5031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageableLayer: 8
 --- !u!119 &11958202
 Projector:
   m_ObjectHideFlags: 1

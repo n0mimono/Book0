@@ -7,6 +7,7 @@ public class DamageReceptor : MonoBehaviour {
 
 	void Awake() {
 		OnDamage += (src) => {};
+		IsDamageable = () => true;
 	}
 
 	public void InvokeDamage(DamageSource source) {

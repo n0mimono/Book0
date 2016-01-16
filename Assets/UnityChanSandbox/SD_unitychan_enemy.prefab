@@ -1525,6 +1525,7 @@ GameObject:
   - 114: {fileID: 11421228}
   - 114: {fileID: 11431426}
   - 114: {fileID: 11499116}
+  - 114: {fileID: 11453752}
   m_Layer: 8
   m_Name: SD_unitychan_enemy
   m_TagString: Enemy
@@ -1573,6 +1574,21 @@ GameObject:
   - 114: {fileID: 11447328}
   m_Layer: 0
   m_Name: J_L_HeadRibbon_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &174762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 454024}
+  m_Layer: 8
+  m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2320,7 +2336,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 416576}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &407716
 Transform:
   m_ObjectHideFlags: 1
@@ -2516,6 +2532,7 @@ Transform:
   m_LocalPosition: {x: 6.82, y: 0, z: -7.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 454024}
   - {fileID: 424820}
   - {fileID: 436040}
   - {fileID: 424172}
@@ -2667,7 +2684,7 @@ Transform:
   - {fileID: 473650}
   - {fileID: 404266}
   m_Father: {fileID: 416576}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &424384
 Transform:
   m_ObjectHideFlags: 1
@@ -2693,7 +2710,7 @@ Transform:
   m_Children:
   - {fileID: 427342}
   m_Father: {fileID: 416576}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &425328
 Transform:
   m_ObjectHideFlags: 1
@@ -2929,7 +2946,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 416576}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &436240
 Transform:
   m_ObjectHideFlags: 1
@@ -3271,6 +3288,18 @@ Transform:
   m_Children:
   - {fileID: 411962}
   m_Father: {fileID: 476460}
+  m_RootOrder: 0
+--- !u!4 &454024
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 416576}
   m_RootOrder: 0
 --- !u!4 &454748
 Transform:
@@ -4157,6 +4186,7 @@ MonoBehaviour:
   yukataAction: {fileID: 11495504}
   walkingSpeed: 0.5
   runningSpeed: 1
+  type: 0
 --- !u!114 &11423166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4326,7 +4356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageableLayer: 8
 --- !u!114 &11431610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4523,6 +4552,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.05
+--- !u!114 &11453752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffffa13ea259b4c169b9f668b56d9f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 454024}
 --- !u!114 &11455640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4981,6 +5022,8 @@ MonoBehaviour:
   animSpeedScale: 0.5
   damageSource: {fileID: 11431426}
   damageReceptor: {fileID: 11499116}
+  target: {fileID: 0}
+  enchantress: {fileID: 0}
 --- !u!114 &11499116
 MonoBehaviour:
   m_ObjectHideFlags: 1
