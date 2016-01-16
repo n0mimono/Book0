@@ -18,16 +18,14 @@ public partial class MagicBullet : MagicProjectile {
 
 	public override void Initialize() {
 		base.Initialize ();
-		instanceName = "Detonator-Tiny";
+		instanceName = "MagicBulletExplosion";
 
 		trail.material = Material.Instantiate (trail.material);
 		trail.enabled = false;
 
 		OnExplotion = (obj) => {
-			Detonator detonator = obj.GetComponent<Detonator> ();
-			detonator.explodeOnStart = false;
-			detonator.UpdateComponents ();
-			detonator.Explode ();
+			ParticleSystem particle = obj.GetComponent<ParticleSystem>();
+			particle.Play();
 		};
 	}
 

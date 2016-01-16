@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Custom;
 
-public class EnchantControl : MonoBehaviour {
+public partial class EnchantControl : MonoBehaviour {
 	public MagicCircle circle;
 	public List<EnchantRotater> rotaters;
 	public List<MagicMagazine> magazines;
@@ -18,11 +18,6 @@ public class EnchantControl : MonoBehaviour {
 	public List<Transform> targetList;
 
 	private bool isActive;
-
-	[Button("Hold", "Hold")] public float ButtonHold;
-	[Button("LoadAll", "LoadAll")] public float ButtonLoadAll;
-	[Button("ForceFire", "Fire")] public float ButtonFire;
-	[Button("ForceHit", "Hit")] public float ButtonForceHit;
 
 	public void Initilize(string tag) {
 		gameObject.tag = tag;
@@ -86,13 +81,6 @@ public class EnchantControl : MonoBehaviour {
 		Fire (TargetMode.Single);
 	}
 
-	public void ForceHit() {
-		PoolManager.Instance.gameObject
-			.GetComponentsInChildren<MagicBullet> (false)
-			.ToList ()
-			.ForEach (b => b.Hit ());
-	}
-
 	public void SetTarget (Transform primaryTarget) {
 		this.primaryTarget = primaryTarget;
 	}
@@ -106,6 +94,22 @@ public class EnchantControl : MonoBehaviour {
 		} else {
 			return targetList.RandomOrDefault ();
 		}
+	}
+
+}
+
+public partial class EnchantControl {
+	[Button("Hold", "Hold")] public float ButtonHold;
+	[Button("LoadAll", "LoadAll")] public float ButtonLoadAll;
+	[Button("ForceFire", "Fire")] public float ButtonFire;
+	[Button("ForceHit", "Hit")] public float ButtonForceHit;
+
+	public void ForceHit() {
+		PoolManager.Instance.gameObject
+			.GetComponentsInChildren<MagicBullet> (false)
+			.ToList ()
+			.ForEach (b => b.Hit ());
+		Unload ();
 	}
 
 }
