@@ -24,6 +24,11 @@ namespace Custom {
 			trans.position = new Vector3 (pos.x, y, pos.z);
 		}
 
+		public static void AddPositionY(this Transform trans, float y) {
+			Vector3 pos = trans.position;
+			trans.position = new Vector3 (pos.x, pos.y + y, pos.z);
+		}
+
 		public static void AddEulerAngleY(this Transform trans, float y) {
 			Vector3 ang = trans.eulerAngles;
 			trans.eulerAngles = new Vector3 (ang.x, ang.y + y, ang.z);
