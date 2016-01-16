@@ -26,6 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 434258}
   - 114: {fileID: 11487080}
+  - 114: {fileID: 11438514}
   m_Layer: 8
   m_Name: MagicShieldSource
   m_TagString: Enemy
@@ -58,6 +59,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 434258}
   m_RootOrder: 0
+--- !u!114 &11438514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076b15071f9894db0be4c1279196bc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  followPosition: 1
+  followAngles: 0
+  followScales: 0
+  followActive: 0
+  positionGroundOnly: 1
 --- !u!114 &11487080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,7 +141,7 @@ ParticleSystem:
   randomSeed: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   moveWithTransform: 0
   scalingMode: 2
   InitialModule:

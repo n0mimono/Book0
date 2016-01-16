@@ -30,7 +30,7 @@ public partial class MagicFireball : MagicProjectile {
 
 	IEnumerator AutoHit() {
 		yield return new WaitForSeconds (10f);
-		Hit ();
+		Hit (transform.position);
 	}
 
 }

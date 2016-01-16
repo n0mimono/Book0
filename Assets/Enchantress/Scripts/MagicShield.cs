@@ -6,6 +6,7 @@ using Custom;
 
 public class MagicShield : MagicProjectile {
 	public DamageReceptor receptor;
+	public TransformFollower follower;
 
 	public float fadeTimeScale;
 	private List<Material> materials = null;
@@ -38,8 +39,7 @@ public class MagicShield : MagicProjectile {
 		Fade (t => t, () => {});
 	}
 
-	public override void Hit() {
-		// noop
+	public override void Hit(Vector3 pos) {
 	}
 
 	public override void Fire() {

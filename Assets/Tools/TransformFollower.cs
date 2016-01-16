@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Custom;
 
 public class TransformFollower : MonoBehaviour {
 	public Transform parent;
@@ -9,9 +10,20 @@ public class TransformFollower : MonoBehaviour {
 	public bool followScales;
 	public bool followActive;
 
+	[Header("Options")]
+	public bool positionGroundOnly;
+
 	void Update() {
+		if (parent == null) {
+			return;
+		}
+
 		if (followPosition) {
-			transform.position = parent.position;
+			if (positionGroundOnly) {
+				transform.position = parent.position.Ground(transform.position.y);
+			} else {
+				transform.position = parent.position;
+			}
 		}
 		if (followAngles) {
 			transform.eulerAngles = parent.eulerAngles;

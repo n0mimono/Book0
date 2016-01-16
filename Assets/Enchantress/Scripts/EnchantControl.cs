@@ -108,7 +108,7 @@ public partial class EnchantControl {
 		PoolManager.Instance.gameObject
 			.GetComponentsInChildren<MagicBullet> (false)
 			.ToList ()
-			.ForEach (b => b.Hit ());
+			.ForEach (b => b.Hit (b.transform.position));
 		Unload ();
 	}
 

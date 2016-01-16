@@ -45,7 +45,7 @@ public class MagicProjectile : MonoBehaviour {
 
 	protected void InitiilzeDamageSource() {
 		damageSource.OnHit += (src) => {
-			Hit();
+			Hit(src.transform.position);
 		};
 	}
 
@@ -69,7 +69,7 @@ public class MagicProjectile : MonoBehaviour {
 		Move ().While (cur.Is(Mode.Fire)).StartBy (this);
 	}
 
-	public virtual void Hit() {
+	public virtual void Hit(Vector3 pos) {
 		if (!cur.Is (Mode.None)()) {
 			Explotion ().StartBy (this);
 		}

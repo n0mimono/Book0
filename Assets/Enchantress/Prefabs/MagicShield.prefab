@@ -191,6 +191,7 @@ MonoBehaviour:
   target: {fileID: 0}
   damageSource: {fileID: 11415758}
   receptor: {fileID: 11423956}
+  follower: {fileID: 0}
   fadeTimeScale: 1
 --- !u!114 &11415758
 MonoBehaviour:
@@ -232,7 +233,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: followPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: positionGroundOnly
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194114}
