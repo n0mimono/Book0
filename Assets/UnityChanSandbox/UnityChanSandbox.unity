@@ -127,8 +127,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425156, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11453116, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 288359225}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
   m_IsPrefabParent: 0
@@ -147,7 +151,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 132719747}
     m_Modifications:
     - target: {fileID: 475100, guid: 8f742c1308399468083cbac54797f73a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -179,12 +183,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 475100, guid: 8f742c1308399468083cbac54797f73a, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a, type: 2}
       propertyPath: enchantress
       value: 
       objectReference: {fileID: 42848227}
+    - target: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a, type: 2}
+      propertyPath: guardian
+      value: 
+      objectReference: {fileID: 611010177}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f742c1308399468083cbac54797f73a, type: 2}
   m_IsPrefabParent: 0
@@ -212,7 +220,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 132719747}
   m_Layer: 0
-  m_Name: EnchantPool
+  m_Name: UnityChanCtrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,10 +236,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 288359225}
   - {fileID: 42848226}
   - {fileID: 490693207}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &194075962
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +462,7 @@ Transform:
   m_Children:
   - {fileID: 831576445}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!114 &288359220 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a,
@@ -808,31 +817,16 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
     animationDuration: 0.1
---- !u!1 &480655325 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 118278, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
-  m_PrefabInternal: {fileID: 42848225}
---- !u!114 &480655326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 480655325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 076b15071f9894db0be4c1279196bc20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 288359225}
-  followPosition: 1
-  followAngles: 0
-  followScales: 0
-  followActive: 0
-  positionGroundOnly: 0
 --- !u!4 &490693207 stripped
 Transform:
   m_PrefabParentObject: {fileID: 434258, guid: 5bf75a19ab93e4c3a87ea62ea80aa8b7, type: 2}
   m_PrefabInternal: {fileID: 942482345}
+--- !u!114 &611010177 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11487080, guid: 5bf75a19ab93e4c3a87ea62ea80aa8b7,
+    type: 2}
+  m_PrefabInternal: {fileID: 942482345}
+  m_Script: {fileID: 11500000, guid: cb16a6b7a6af44471ac4f1aa1f3b444f, type: 3}
 --- !u!1 &612391643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,14 +1238,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 434258, guid: 5bf75a19ab93e4c3a87ea62ea80aa8b7, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11438514, guid: 5bf75a19ab93e4c3a87ea62ea80aa8b7, type: 2}
-      propertyPath: parent
-      value: 
-      objectReference: {fileID: 288359225}
-    m_RemovedComponents:
-    - {fileID: 11438514, guid: 5bf75a19ab93e4c3a87ea62ea80aa8b7, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bf75a19ab93e4c3a87ea62ea80aa8b7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1076713568
@@ -1305,7 +1294,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1096520573}
   m_Layer: 0
-  m_Name: EnemyPool
+  m_Name: EnemyCtrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1325,7 +1314,7 @@ Transform:
   - {fileID: 21341957}
   - {fileID: 125735654}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1 &1157303785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,7 +1519,7 @@ Transform:
   m_Children:
   - {fileID: 827477111}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1216586686
 GameObject:
   m_ObjectHideFlags: 0

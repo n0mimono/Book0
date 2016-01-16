@@ -8,6 +8,10 @@ public class TransformTarget : MonoBehaviour {
 public static class TransformTargetExtension {
 
 	public static Transform GetTarget(this Transform trans) {
+		if (trans == null) {
+			return trans;
+		}
+
 		TransformTarget transTarget = trans.gameObject.GetComponent<TransformTarget>();
 
 		if (transTarget != null) {

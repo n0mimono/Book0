@@ -12,11 +12,11 @@ public class MagicShieldSpawner : MagicSpawner {
 		instanceName = "MagicShield";
 
 		OnHold = () => {
-			projectile.GetComponent<TransformFollower>().parent = transform;
+			//projectile.GetComponent<TransformFollower>().parent = transform;
 			particle.Play ();
 		};
 		OnRelease = () => {
-			projectile.GetComponent<TransformFollower>().parent = null;
+			//projectile.GetComponent<TransformFollower>().parent = null;
 			particle.Stop ();
 		};
 	}

@@ -129,7 +129,7 @@ public partial class YukataAction {
 
 	public void SpellFlower(LockHandler onCompleted) {
 		StartLockedAction (AnimeAction.Salute, onCompleted, true);
-		StartFlowerMagic ();
+		StartGuardianMagic ();
 	}
 
 }
@@ -199,15 +199,21 @@ public partial class YukataAction {
 		}
 	}
 
-	[Header("Enchantress")]
+	[Header("Magic")]
 	public EnchantControl enchantress;
+	public MagicShieldSpawner guardian;
 	private bool isSpelling = false;
+	private bool isGuarding = false;
 
 	private void InitilizeEnchantress() {
 		Targettting ().StartBy (this);
 
-		if (enchantress == null) return;
-		enchantress.Initilize (gameObject.tag);
+		if (enchantress != null) {
+			enchantress.Initilize (gameObject.tag);
+		}
+		if (guardian != null) {
+			guardian.Initilize (gameObject.tag);
+		}
 	}
 
 	public void StartSpell() {
@@ -239,23 +245,26 @@ public partial class YukataAction {
 		enchantress.Release ();
 	}
 
-	private void StartFlowerMagic() {
-		isSpelling = true;
+	private void StartGuardianMagic() {
+		if (isGuarding) return;
+		isGuarding = true;
 
-		FlowerMagic ().StartBy (this);		
+		GuardianMagic ().StartBy (this);		
 	}
 
-	private IEnumerator FlowerMagic() {
+	private IEnumerator GuardianMagic() {
 		yield return null;
-		enchantress.Hold();
-		yield return null;
-		enchantress.LoadAll ();
+		guardian.transform.position = transform.position;
+		guardian.Load();
 
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(2f);
 		BodyDown ();
 
-		enchantress.Fire (EnchantControl.TargetMode.Multi);
-		enchantress.Release ();
+		yield return new WaitForSeconds(10f);
+		guardian.Fire(null);
+
+	    yield return new WaitForSeconds(2f);
+		isGuarding = false;
 	}
 
 }
