@@ -11,6 +11,7 @@ public partial class Dragon : MonoBehaviour {
 
 	public Transform breathePoint;
 	public MagicCannon cannon;
+	public Transform target;
 
 	public enum State {
 		Idle     = 0,
@@ -117,10 +118,7 @@ public partial class Dragon {
 		cannon.Load ();
 		yield return new WaitForSeconds (0.5f);
 
-		GameObject enemy = gameObject.FindOppositeCharacters ().FirstOrDefault ();
-		cannon.Fire (enemy.transform);
-
-		//SetAngleSpeed (GetAngleSpeed (enemy.transform.position));
+		cannon.Fire (target);
 		yield return null;
 	}
 

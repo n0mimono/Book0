@@ -34,7 +34,10 @@ public class MagicSpawner : MonoBehaviour {
 
 	public void Fire(Transform target) {
 		OnRelease ();
-		projectile.transform.forward = transform.forward;
+
+		if (target != null) {
+			projectile.transform.forward = transform.forward;
+		}
 
 		projectile.target = target;
 		projectile.Fire ();
