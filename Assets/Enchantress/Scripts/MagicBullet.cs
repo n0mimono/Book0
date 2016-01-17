@@ -11,14 +11,16 @@ public partial class MagicBullet : MagicProjectile {
 	public float angleSpeed;
 	public Vector3 loadOffset;
 	public Vector3 loadNoise;
+	public Vector3 targetNoise;
 
 	[Header("Circle")]
 	public Vector3 circleRotateSpeed;
 	public Transform circle;
 
+	private Vector3 generatedTargetNoise = Vector3.zero;
+
 	public override void Initialize() {
 		base.Initialize ();
-		instanceName = "MagicBulletExplosion";
 
 		trail.material = Material.Instantiate (trail.material);
 		trail.enabled = false;
@@ -38,7 +40,9 @@ public partial class MagicBullet : MagicProjectile {
 	public override void Fire() {
 		base.Fire ();
 
-		transform.forward = (-TargetDirection + loadNoise.GenerateRandom() + loadOffset).normalized;
+		generatedTargetNoise = targetNoise.GenerateRandom ();
+
+		transform.forward = (-TargetDirection() + loadNoise.GenerateRandom() + loadOffset).normalized;
 		trail.enabled = true;
 
 		ForwardTarget ().While (cur.Is(Mode.Fire)).StartBy (this);
@@ -52,9 +56,13 @@ public partial class MagicBullet : MagicProjectile {
 
 	IEnumerator ForwardTarget() {
 		while (true) {
-			transform.forward = Vector3.Lerp(transform.forward, TargetDirection, angleSpeed * Time.deltaTime).normalized;
+			transform.forward = Vector3.Lerp(transform.forward, TargetDirection(), angleSpeed * Time.deltaTime).normalized;
 			yield return null;
 		}
+	}
+
+	public override Vector3 TargetDirection() {
+		return base.TargetDirection() + generatedTargetNoise;
 	}
 
 }

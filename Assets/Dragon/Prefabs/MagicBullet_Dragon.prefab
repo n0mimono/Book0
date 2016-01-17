@@ -87,7 +87,7 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1e94f8be89f94941b3f10110784d777, type: 2}
+  - {fileID: 2100000, guid: 4132eb7abeb824a96a160f71aec4761c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -138,13 +138,15 @@ MonoBehaviour:
   collide: {fileID: 13553536}
   cur:
     mode: 0
-  speed: 8
+  speed: 30
   target: {fileID: 0}
   damageSource: {fileID: 11488868}
+  instanceName: MagicBulletExplosion_Dragon
   trail: {fileID: 9650892}
-  angleSpeed: 10
-  loadOffset: {x: 0, y: 2, z: 0}
-  loadNoise: {x: 0.1, y: 0, z: 0.1}
+  angleSpeed: 3
+  loadOffset: {x: 0, y: 3, z: 0}
+  loadNoise: {x: 4, y: 1, z: 4}
+  targetNoise: {x: 0, y: 0, z: 0}
   circleRotateSpeed: {x: 120, y: 90, z: 0}
   circle: {fileID: 0}
 --- !u!114 &11488868
@@ -1674,7 +1676,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d1e94f8be89f94941b3f10110784d777, type: 2}
+  - {fileID: 2100000, guid: 0cd6dccadb1754887a39b4a955434cc1, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1714,7 +1716,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: speed
-      value: 8
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
@@ -1746,7 +1748,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: angleSpeed
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
@@ -1755,6 +1757,38 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Radius
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: instanceName
+      value: MagicBulletExplosion_Dragon
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loadNoise.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loadNoise.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loadNoise.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loadOffset.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: targetNoise.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: targetNoise.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: targetNoise.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

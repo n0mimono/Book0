@@ -8,7 +8,6 @@ public class MagicMagazine : MagicSpawner {
 	public override void Initilize(string tag) {
 		base.Initilize (tag);
 
-		instanceName = "MagicBullet";
 		OnHold = () => circle.Hold ();
 		OnRelease = () => circle.Release ();
 	}

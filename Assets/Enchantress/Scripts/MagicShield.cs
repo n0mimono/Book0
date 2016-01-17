@@ -49,7 +49,7 @@ public class MagicShield : MagicProjectile {
 	}
 
 	private void OnGuard(Vector3 srcPos) {
-		GameObject obj = PoolManager.Instance.GetInstance ("ShieldGuard");
+		GameObject obj = PoolManager.Instance.GetInstance (instanceName);
 		obj.transform.position = srcPos;
 		obj.transform.up = (srcPos - transform.position).normalized;
 

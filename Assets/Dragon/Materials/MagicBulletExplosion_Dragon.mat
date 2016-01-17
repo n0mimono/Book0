@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: DragonCircle
-  m_Shader: {fileID: 4800000, guid: fad75c0b1c0a343f6ab9fb6b3dbc05ac, type: 3}
+  m_Name: MagicBulletExplosion_Dragon
+  m_Shader: {fileID: 4800000, guid: 6779d023299cf4cc08c68086ce8ab5c2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 3000
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: e983d52141df742b0b7abbc247dd16ef, type: 3}
+          m_Texture: {fileID: 2800000, guid: c3d66a8056f9db345b1ea380aa7e815d, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -129,11 +129,23 @@ Material:
         second: 0
       data:
         first:
-          name: _Emission
-        second: -0.06
+          name: _EmissionScaleUI
+        second: 0
       data:
         first:
-          name: _Frequency
+          name: _InvFade
+        second: 1
+      data:
+        first:
+          name: _GrayRate
+        second: 0.455
+      data:
+        first:
+          name: _VertScale
+        second: 2
+      data:
+        first:
+          name: _VertShrink
         second: 1
     m_Colors:
       data:
@@ -143,4 +155,12 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 0.5661765, b: 0.5661765, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: 1, g: 0.5147059, b: 0.5147059, a: 1}
+      data:
+        first:
+          name: _EmissionColorUI
+        second: {r: 1, g: 1, b: 1, a: 1}

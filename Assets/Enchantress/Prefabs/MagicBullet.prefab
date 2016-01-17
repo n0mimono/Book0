@@ -135,18 +135,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675fc576e37b94682b248cd3e47b40a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trail: {fileID: 9650892}
   collide: {fileID: 13553536}
   cur:
     mode: 0
   speed: 8
+  target: {fileID: 0}
+  damageSource: {fileID: 11488868}
+  instanceName: MagicBulletExplosion
+  trail: {fileID: 9650892}
   angleSpeed: 10
   loadOffset: {x: 0, y: 2, z: 0}
   loadNoise: {x: 0.1, y: 0, z: 0.1}
   circleRotateSpeed: {x: 120, y: 90, z: 0}
   circle: {fileID: 0}
-  target: {fileID: 0}
-  damageSource: {fileID: 11488868}
 --- !u!114 &11488868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,7 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageableLayer: 8
 --- !u!135 &13553536
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1756,6 +1756,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Radius
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: instanceName
+      value: MagicBulletExplosion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

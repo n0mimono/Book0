@@ -123,6 +123,7 @@ MonoBehaviour:
   speed: 50
   target: {fileID: 0}
   damageSource: {fileID: 11422704}
+  instanceName: FireballExplosion
   particleSystems:
   - {fileID: 19898282}
   - {fileID: 19849536}
@@ -137,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageableLayer: 8
 --- !u!135 &13594054
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -3080,6 +3080,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: isUsedInPool
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: instanceName
+      value: FireballExplosion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -1387,6 +1387,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11458958, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
+      propertyPath: instanceName
+      value: MagicBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472114, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
+      propertyPath: instanceName
+      value: MagicBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454072, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
+      propertyPath: instanceName
+      value: MagicBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493212, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
+      propertyPath: instanceName
+      value: MagicBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419422, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
+      propertyPath: instanceName
+      value: MagicBullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f094a03c816774dcc8d706158e91c6dd, type: 2}
   m_IsPrefabParent: 0

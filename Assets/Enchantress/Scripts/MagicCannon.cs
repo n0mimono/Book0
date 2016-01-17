@@ -11,7 +11,6 @@ public class MagicCannon : MagicSpawner {
 	public override void Initilize(string tag) {
 		base.Initilize (tag);
 
-		instanceName = "Fireball2";
 		OnHold = () => {
 			gatherBubbles.Play ();
 			circle.Hold();

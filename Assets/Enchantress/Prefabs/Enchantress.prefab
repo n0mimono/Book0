@@ -611,6 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
+  instanceName: MagicBullet
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -685,6 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
+  instanceName: MagicBullet
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -703,6 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
+  instanceName: MagicBullet
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -747,6 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
+  instanceName: MagicBullet
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -778,6 +782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
+  instanceName: MagicBullet
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -805,10 +810,12 @@ MonoBehaviour:
   - {fileID: 11458958}
   primaryTarget: {fileID: 0}
   targetList: []
+  ButtonInitPlayer: 0
+  ButtonInitEnemy: 0
   ButtonHold: 0
   ButtonLoadAll: 0
-  ButtonFire: 0
-  ButtonForceHit: 0
+  ButtonFireSingle: 0
+  ButtonFireMulti: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -9,8 +9,6 @@ public class MagicShieldSpawner : MagicSpawner {
 	public override void Initilize(string tag) {
 		base.Initilize (tag);
 
-		instanceName = "MagicShield";
-
 		OnHold = () => {
 			//projectile.GetComponent<TransformFollower>().parent = transform;
 			particle.Play ();

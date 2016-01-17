@@ -6,10 +6,10 @@ using Custom;
 
 public class MagicSpawner : MonoBehaviour {
 	public MagicProjectile projectile;
+	public string instanceName;
 
 	public bool IsLoaded { get { return projectile != null; } }
 
-	protected string instanceName;
 	protected Action OnHold = () => {};
 	protected Action OnRelease = () => {};
 
@@ -18,7 +18,6 @@ public class MagicSpawner : MonoBehaviour {
 	}
 
 	public void Load() {
-		
 		projectile = PoolManager.Instance.GetInstance (instanceName).GetComponent<MagicProjectile>();
 		projectile.gameObject.SetTag(gameObject.tag, true);
 		projectile.Initialize ();

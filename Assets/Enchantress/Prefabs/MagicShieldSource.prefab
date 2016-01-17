@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
+  instanceName: MagicShield
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0

@@ -29,18 +29,12 @@ public class MagicProjectile : MonoBehaviour {
 
 	[Header("Targert")]
 	public Transform target;
-	public Vector3 TargetDirection { get {
-			if (target == null) {
-				return transform.forward;
-			} else {
-				return (target.position - transform.position).normalized;
-			}
-		} }
 
 	[Header("Damage Source")]
 	public DamageSource damageSource;
 
-	protected string instanceName;
+	[Header("On Hit")]
+	public string instanceName;
 	protected Action<GameObject> OnExplotion = (obj) => {};
 
 	protected void InitiilzeDamageSource() {
@@ -62,7 +56,7 @@ public class MagicProjectile : MonoBehaviour {
 	}
 
 	public virtual void Fire() {
-		transform.forward = TargetDirection;
+		transform.forward = TargetDirection();
 		collide.enabled = true;
 
 		cur.mode = Mode.Fire;
@@ -98,4 +92,13 @@ public class MagicProjectile : MonoBehaviour {
 			yield return null;
 		}
 	}
+
+	public virtual Vector3 TargetDirection() {
+		if (target == null) {
+			return transform.forward;
+		} else {
+			return (target.position - transform.position).normalized;
+		}
+	}
+
 }
