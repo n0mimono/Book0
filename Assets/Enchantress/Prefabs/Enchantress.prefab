@@ -795,9 +795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57dce7cba5760491d81fc68798dac5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: {fileID: 11468628}
-  rotaters:
-  - {fileID: 11419178}
+  circles:
+  - {fileID: 11468628}
   magazines:
   - {fileID: 11419422}
   - {fileID: 11493212}

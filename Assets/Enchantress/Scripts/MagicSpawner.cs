@@ -18,6 +18,7 @@ public class MagicSpawner : MonoBehaviour {
 	}
 
 	public void Load() {
+		
 		projectile = PoolManager.Instance.GetInstance (instanceName).GetComponent<MagicProjectile>();
 		projectile.gameObject.SetTag(gameObject.tag, true);
 		projectile.Initialize ();

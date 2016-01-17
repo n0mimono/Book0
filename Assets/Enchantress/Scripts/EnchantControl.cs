@@ -5,8 +5,7 @@ using System.Linq;
 using Custom;
 
 public partial class EnchantControl : MonoBehaviour {
-	public MagicCircle circle;
-	public List<EnchantRotater> rotaters;
+	public List<MagicCircle> circles;
 	public List<MagicMagazine> magazines;
 
 	public enum TargetMode {
@@ -27,13 +26,13 @@ public partial class EnchantControl : MonoBehaviour {
 	public void Hold() {
 		isActive = true;
 
-		circle.Hold ();
+		circles.ForEach (c => c.Hold ());
 	}
 
 	public void Release() {
 		if (!isActive) return;
 
-		circle.Release ();
+		circles.ForEach (c => c.Release ());
 		Unload ();
 
 		isActive = false;
@@ -77,10 +76,6 @@ public partial class EnchantControl : MonoBehaviour {
 			.ForEach (m => m.Fire (GetTarget(mode)));
 	}
 
-	public void ForceFire() {
-		Fire (TargetMode.Single);
-	}
-
 	public void SetTarget (Transform primaryTarget) {
 		this.primaryTarget = primaryTarget;
 	}
@@ -99,10 +94,18 @@ public partial class EnchantControl : MonoBehaviour {
 }
 
 public partial class EnchantControl {
+	[Button("Initilize", "Init As Player", "Player")] public float ButtonInitPlayer;
+	[Button("Initilize", "Init As Enemy", "Enemy")] public float ButtonInitEnemy;
+
 	[Button("Hold", "Hold")] public float ButtonHold;
 	[Button("LoadAll", "LoadAll")] public float ButtonLoadAll;
-	[Button("ForceFire", "Fire")] public float ButtonFire;
-	[Button("ForceHit", "Hit")] public float ButtonForceHit;
+
+	[Button("Fire", "Fire Single", TargetMode.Single)] public float ButtonFireSingle;
+	[Button("Fire", "Fire Multi", TargetMode.Multi)] public float ButtonFireMulti;
+
+	public void ForceFire() {
+		Fire (TargetMode.Single);
+	}
 
 	public void ForceHit() {
 		PoolManager.Instance.gameObject
