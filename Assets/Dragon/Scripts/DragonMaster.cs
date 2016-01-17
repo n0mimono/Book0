@@ -12,6 +12,7 @@ public partial class DragonMaster : MonoBehaviour {
 	public float tgtAngleSpeed;
 
 	public bool isPlayOnStart;
+	public bool isIdlingOnly;
 
 	public enum State {
 		None = 0,
@@ -66,8 +67,11 @@ public partial class DragonMaster {
 		};
 		while (true) {
 			if (state == State.None) {
-				procs.RandomOrDefault () ();
-				//procs.FirstOrDefault () ();
+				if (isIdlingOnly) {
+					procs.FirstOrDefault () ();
+				} else {
+					procs.RandomOrDefault () ();
+				}
 			}
 
 			yield return new WaitForSeconds (1f);
@@ -85,7 +89,10 @@ public partial class DragonMaster {
 	}
 
 	public void Move() {
-		GoTo (dragonChairs.RandomOrDefault ());
+		Transform nearest = dragonChairs.WhichMin (c => Vector3.Distance (transform.position, c.position));
+		Transform next = dragonChairs.Where (c => c != nearest).RandomOrDefault ();
+
+		GoTo (next);
 	}
 
 	public void GoTo(Transform chair) {

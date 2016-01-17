@@ -145,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &246993217
 Transform:
   m_ObjectHideFlags: 0
@@ -198,6 +198,7 @@ MonoBehaviour:
   focusCenter: {fileID: 1270619027}
   tgtAngleSpeed: 0
   isPlayOnStart: 1
+  isIdlingOnly: 0
   state: 0
   ButtonIdle: 0
   ButtonFlyIdle: 0
