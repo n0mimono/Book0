@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Cutin
+  m_Shader: {fileID: 4800000, guid: 96063661dcbb24da58d97f133d1d4a58, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BackTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 10e2cc0108cf840ca9b6060d474276ae, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MaskTex1
+        second:
+          m_Texture: {fileID: 2800000, guid: e18bb9f6c6ee549f1a3899bc5c336b41, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MaskTex2
+        second:
+          m_Texture: {fileID: 2800000, guid: aea9ce2b20faf4ca3b7bb7af482ae35e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BackTex0
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BackTex1
+        second:
+          m_Texture: {fileID: 2800000, guid: 0c13bdfc1ad5def4aa6650ca8a1568e5, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BackTex2
+        second:
+          m_Texture: {fileID: 2800000, guid: 44c03eb9b0d2ef34b9e7a60eec7f1b1d, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _AnimTime
+        second: 3
+      data:
+        first:
+          name: _MainScale
+        second: 1
+      data:
+        first:
+          name: _MainWidthScale
+        second: 0.56
+      data:
+        first:
+          name: _BackLerp1
+        second: 0.5
+      data:
+        first:
+          name: _BackLerp2
+        second: 0.5
+    m_Colors:
+      data:
+        first:
+          name: _BackColor1
+        second: {r: 0.12002597, g: 0.7335822, b: 0.8161765, a: 1}
+      data:
+        first:
+          name: _BackColor2
+        second: {r: 1, g: 0.88235295, b: 0.5, a: 1}
+      data:
+        first:
+          name: _BackColor0
+        second: {r: 1, g: 1, b: 1, a: 0.5019608}
