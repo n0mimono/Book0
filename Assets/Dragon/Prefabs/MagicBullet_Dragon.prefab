@@ -104,8 +104,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: 3
-  m_StartWidth: 0.1
-  m_EndWidth: 0.1
+  m_StartWidth: 0.5
+  m_EndWidth: 0.4
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -146,7 +146,7 @@ MonoBehaviour:
   angleSpeed: 3
   loadOffset: {x: 0, y: 3, z: 0}
   loadNoise: {x: 4, y: 1, z: 4}
-  targetNoise: {x: 0, y: 0, z: 0}
+  targetNoise: {x: 0.2, y: 0.1, z: 0.2}
   circleRotateSpeed: {x: 120, y: 90, z: 0}
   circle: {fileID: 0}
 --- !u!114 &11488868
@@ -1780,15 +1780,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: targetNoise.x
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: targetNoise.z
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: targetNoise.y
-      value: 0
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_StartWidth
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_EndWidth
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
