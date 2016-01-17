@@ -1052,7 +1052,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1352085302}
   m_Layer: 0
-  m_Name: Dummy01
+  m_Name: Dummy01_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1307,6 +1307,9 @@ MonoBehaviour:
   - name: Custom
     enabled: 1
     path: Assets/Custom/Custom.unity
+  - name: Cutin
+    enabled: 1
+    path: Assets/Cutin/Cutin.unity
   - name: Dragon_mono
     enabled: 1
     path: Assets/Dragon/Dragon_mono.unity
