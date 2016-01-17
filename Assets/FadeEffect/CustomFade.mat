@@ -38,12 +38,12 @@ Material:
       data:
         first:
           name: _Color
+        second: {r: 0.4705882, g: 0.4705882, b: 0.4705882, a: 1}
+      data:
+        first:
+          name: _TintColor
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _Tint
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _TintColor
         second: {r: 1, g: 1, b: 1, a: 1}
