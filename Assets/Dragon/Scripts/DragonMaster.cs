@@ -66,6 +66,8 @@ public partial class DragonMaster {
 			Fire
 		};
 		while (true) {
+			yield return new WaitForSeconds (1f);
+
 			if (state == State.None) {
 				if (isIdlingOnly) {
 					procs.FirstOrDefault () ();
@@ -73,8 +75,6 @@ public partial class DragonMaster {
 					procs.RandomOrDefault () ();
 				}
 			}
-
-			yield return new WaitForSeconds (1f);
 		}
 	}
 
