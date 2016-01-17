@@ -6,7 +6,7 @@ using Custom;
 
 public partial class EnchantControl : MonoBehaviour {
 	public List<MagicCircle> circles;
-	public List<MagicMagazine> magazines;
+	public List<MagicSpawner> magazines;
 
 	public enum TargetMode {
 		Single,
@@ -41,7 +41,7 @@ public partial class EnchantControl : MonoBehaviour {
 	public void Load() {
 		if (!isActive) return;
 
-		MagicMagazine magazine = magazines
+		MagicSpawner magazine = magazines
 			.Where (m => !m.IsLoaded).FirstOrDefault ();
 
 		if (magazine != null) {
