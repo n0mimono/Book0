@@ -7,17 +7,22 @@ using Custom;
 public class MagicSpawner : MonoBehaviour {
 	public MagicProjectile projectile;
 	public string instanceName;
+	public Vector3 positionNoise;
 
 	public bool IsLoaded { get { return projectile != null; } }
 
 	protected Action OnHold = () => {};
 	protected Action OnRelease = () => {};
 
+	private Vector3 generatedPositionNoise;
+
 	public virtual void Initilize(string tag) {
 		gameObject.SetTag (tag, true);
 	}
 
 	public void Load() {
+		generatedPositionNoise = positionNoise.GenerateRandom ();
+
 		projectile = PoolManager.Instance.GetInstance (instanceName).GetComponent<MagicProjectile>();
 		projectile.gameObject.SetTag(gameObject.tag, true);
 		projectile.Initialize ();
@@ -46,7 +51,7 @@ public class MagicSpawner : MonoBehaviour {
 
 	void Update() {
 		if (projectile != null) {
-			projectile.transform.position = transform.position;
+			projectile.transform.position = transform.position + generatedPositionNoise;
 		}
 	}
 

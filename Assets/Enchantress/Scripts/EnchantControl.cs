@@ -65,7 +65,7 @@ public partial class EnchantControl : MonoBehaviour {
 			yield return new WaitForSeconds (interval);
 			Load ();
 		}
-	}	
+	}
 
 	public void Unload() {
 		if (!isActive) return;
@@ -83,6 +83,19 @@ public partial class EnchantControl : MonoBehaviour {
 			.Where (m => m.IsLoaded)
 			.ToList ()
 			.ForEach (m => m.Fire (GetTarget(mode)));
+	}
+
+	public void RandomLoadAndFire(TargetMode mode) {
+		if (!isActive) return;
+
+		MagicSpawner magazine = magazines
+			.Where (m => !m.IsLoaded).RandomOrDefault ();
+		if (magazine == null) {
+			return;
+		}
+
+		magazine.Load ();
+		magazine.Fire (GetTarget (mode));
 	}
 
 	public void SetTarget (Transform primaryTarget) {

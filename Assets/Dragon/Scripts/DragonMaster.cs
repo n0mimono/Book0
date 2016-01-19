@@ -73,10 +73,10 @@ public partial class DragonMaster {
 			Move,
 			Fire,
 			SpellBullet,
+			MeteorSwarm
 		};
 		while (true) {
 			yield return new WaitForSeconds (1f);
-
 			if (state == State.None) {
 				if (isIdlingOnly) {
 					procs.FirstOrDefault () ();
@@ -238,13 +238,36 @@ public partial class DragonMaster {
 		SetDragonState (Dragon.State.FlyIdle);
 		while (!dragon.Is(Dragon.State.FlyIdle)) yield return null;
 
-		// なにかやる
+		meteorSwarm.Hold ();
+		yield return new WaitForSeconds (1f);
+
+		yield return StartCoroutine (SubProcRoar ());
+		yield return new WaitForSeconds (1.5f);
+
+		bool keep = true;
+		DragonMeteor ().While (() => keep).StartBy (this);
+		yield return new WaitForSeconds (10f);
+		keep = false;
+
+		yield return StartCoroutine (SubProcRoar ());
+		yield return new WaitForSeconds (1.5f);
+
+		meteorSwarm.Release ();
+		yield return new WaitForSeconds (2f);
 
 		yield return null;
 		SetDragonState (Dragon.State.Idle);
 
 		state = State.None;
 	}
+
+	private IEnumerator DragonMeteor() {
+		while (true) {
+			meteorSwarm.RandomLoadAndFire (EnchantControl.TargetMode.Single);
+			yield return new WaitForSeconds (0.2f);
+		}
+	}
+
 }
 
 public partial class DragonMaster {
