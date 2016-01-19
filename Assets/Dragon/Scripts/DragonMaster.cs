@@ -255,16 +255,16 @@ public partial class DragonMaster {
 		meteorSwarm.Release ();
 		yield return new WaitForSeconds (2f);
 
-		yield return null;
-		SetDragonState (Dragon.State.Idle);
-
 		state = State.None;
 	}
 
 	private IEnumerator DragonMeteor() {
 		while (true) {
-			meteorSwarm.RandomLoadAndFire (EnchantControl.TargetMode.Single);
-			yield return new WaitForSeconds (0.2f);
+			meteorSwarm.RandomLoad ();
+			yield return null;
+
+			meteorSwarm.Fire (EnchantControl.TargetMode.Single);
+			yield return new WaitForSeconds (0.1f);
 		}
 	}
 
