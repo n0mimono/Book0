@@ -7,6 +7,9 @@ using System;
 
 public partial class DragonMaster : MonoBehaviour {
 	public Dragon dragon;
+	public EnchantControl spellBullet;
+	public EnchantControl meteorSwarm;
+
 	public List<Transform> dragonChairs;
 	public Transform focusCenter;
 	public float tgtAngleSpeed;
@@ -15,10 +18,12 @@ public partial class DragonMaster : MonoBehaviour {
 	public bool isIdlingOnly;
 
 	public enum State {
-		None = 0,
-		Idle = 1,
-		Move = 2,
-		Fire = 3,
+		None  = 0,
+		Idle  = 1,
+		Move  = 2,
+		Fire  = 3,
+		Spell = 4,
+		Meter = 5,
 	}
 	public State state;
 
@@ -26,6 +31,9 @@ public partial class DragonMaster : MonoBehaviour {
 		state = State.None;
 
 		if (isPlayOnStart) {
+			spellBullet.Do (e => e.Initilize (gameObject.tag));
+			meteorSwarm.Do (e => e.Initilize (gameObject.tag));
+
 			ChooseProc ().StartBy (this);
 		}
 	}
@@ -63,7 +71,8 @@ public partial class DragonMaster {
 		List<Action> procs = new List<Action> () {
 			() => ProcIdle().StartBy(this),
 			Move,
-			Fire
+			Fire,
+			SpellBullet,
 		};
 		while (true) {
 			yield return new WaitForSeconds (1f);
@@ -168,6 +177,74 @@ public partial class DragonMaster {
 		yield return new WaitForSeconds (3f);
 	}
 
+	public void SpellBullet() {
+		if (spellBullet == null) return;
+
+		GameObject enemy = gameObject.FindOppositeCharacters ().FirstOrDefault ();
+		ProcSpellBullet (enemy.transform).StartBy (this);
+	}
+
+	private IEnumerator ProcSpellBullet(Transform target) {
+		state = State.Fire;
+
+		SetDragonState (Dragon.State.Idle);
+		while (!dragon.Is(Dragon.State.Idle)) yield return null;
+
+		SetDragonState (Dragon.State.FlyIdle);
+		while (!dragon.Is(Dragon.State.FlyIdle)) yield return null;
+
+		// set position and angles
+		Transform draTrans = dragon.transform;
+		Vector3 basePos = draTrans.position.Ground();
+		Vector3 baseDir = draTrans.forward.Ground ().normalized;
+		Vector3 spellPos = spellBullet.transform.position;
+		spellBullet.transform.position = (basePos + baseDir * spellPos.z).Ground (spellPos.y);
+		spellBullet.transform.SetEulerAngleY (draTrans.eulerAngles.y);
+		yield return null;
+
+		spellBullet.Hold ();
+		yield return new WaitForSeconds (1f);
+
+		yield return StartCoroutine (spellBullet.LoadSequential (0.1f));
+		yield return new WaitForSeconds (1f);
+
+		yield return StartCoroutine (SubProcRoar ());
+		yield return new WaitForSeconds (1.5f);
+		spellBullet.SetTarget (target);
+		spellBullet.Fire (EnchantControl.TargetMode.Single);
+
+		yield return new WaitForSeconds (3f);
+		spellBullet.Release ();
+		yield return new WaitForSeconds (2f);
+
+		yield return null;
+		SetDragonState (Dragon.State.Idle);
+
+		state = State.None;
+	}
+
+	public void MeteorSwarm() {
+		if (meteorSwarm == null) return;
+
+		ProcMeteorSwarm ().StartBy (this);
+	}
+
+	private IEnumerator ProcMeteorSwarm() {
+		state = State.Fire;
+
+		SetDragonState (Dragon.State.Idle);
+		while (!dragon.Is(Dragon.State.Idle)) yield return null;
+
+		SetDragonState (Dragon.State.FlyIdle);
+		while (!dragon.Is(Dragon.State.FlyIdle)) yield return null;
+
+		// なにかやる
+
+		yield return null;
+		SetDragonState (Dragon.State.Idle);
+
+		state = State.None;
+	}
 }
 
 public partial class DragonMaster {
@@ -185,6 +262,8 @@ public partial class DragonMaster {
 
 	[Button("Move", "Move")] public float ButtonMove;
 	[Button("Fire", "Fire")] public float ButtonFire;
+	[Button("SpellBullet", "Spell Bullet")] public float ButtonSpellBullet;
+	[Button("MeteorSwarm", "Meteor Swarm")] public float ButtonMeteorSwarm;
 
 	public void StartFire() {
 		GameObject enemy = gameObject.FindOppositeCharacters ().FirstOrDefault ();

@@ -8,6 +8,12 @@ using System;
 namespace Custom {
 	public static class Utility {
 
+		public static void Do<T>(this T src, Action<T> action) {
+			if (src != null) {
+				action (src);
+			}
+		}
+
 		public static void SetTag(this GameObject obj, string tag, bool isRecursive = true) {
 			if (isRecursive) {
 				obj.GetComponentsInChildren<Transform> ()
@@ -28,6 +34,11 @@ namespace Custom {
 		public static void SetEulerAngleX(this Transform trans, float x) {
 			Vector3 ang = trans.eulerAngles;
 			trans.eulerAngles = new Vector3 (x, ang.y, ang.z);
+		}
+
+		public static void SetEulerAngleY(this Transform trans, float y) {
+			Vector3 ang = trans.eulerAngles;
+			trans.eulerAngles = new Vector3 (ang.x, y, ang.z);
 		}
 
 		public static void SetPositionY(this Transform trans, float y) {

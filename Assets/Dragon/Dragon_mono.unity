@@ -236,7 +236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &246993217
 Transform:
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ Transform:
   - {fileID: 47352884}
   - {fileID: 738234981}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &283190776
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragon: {fileID: 1725607981}
+  spellBullet: {fileID: 2130717797}
+  meteorSwarm: {fileID: 994728363}
   dragonChairs:
   - {fileID: 813184002}
   - {fileID: 1103306199}
@@ -303,6 +305,8 @@ MonoBehaviour:
   ButtonGoTo4: 0
   ButtonMove: 0
   ButtonFire: 0
+  ButtonSpellBullet: 0
+  ButtonMeteorSwarm: 0
   ButtonRoar: 0
 --- !u!4 &283190778
 Transform:
@@ -757,6 +761,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 362768643}
   m_RootOrder: 0
+--- !u!114 &994728363 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11429032, guid: 877bd69819b50430190b6db2d0d2b153,
+    type: 2}
+  m_PrefabInternal: {fileID: 1688022292}
+  m_Script: {fileID: 11500000, guid: 57dce7cba5760491d81fc68798dac5fa, type: 3}
 --- !u!1 &1004780010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,3 +2037,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c0b138c17b504dfd9e20cbd166bf9be, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2130717797 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11422870, guid: 6c0b138c17b504dfd9e20cbd166bf9be,
+    type: 2}
+  m_PrefabInternal: {fileID: 2124414052}
+  m_Script: {fileID: 11500000, guid: 57dce7cba5760491d81fc68798dac5fa, type: 3}

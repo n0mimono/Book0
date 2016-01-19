@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Custom;
+using System;
 
 public partial class EnchantControl : MonoBehaviour {
 	public List<MagicCircle> circles;
@@ -50,13 +51,21 @@ public partial class EnchantControl : MonoBehaviour {
 	}
 
 	public void LoadAll() {
-		if (!isActive) return;
+		if (!isActive)
+			return;
 
 		magazines
 			.Where (m => !m.IsLoaded)
 			.ToList ()
 			.ForEach (m => m.Load ());
 	}
+
+	public IEnumerator LoadSequential(float interval) {
+		while (magazines.Where (m => !m.IsLoaded).Any ()) {
+			yield return new WaitForSeconds (interval);
+			Load ();
+		}
+	}	
 
 	public void Unload() {
 		if (!isActive) return;
