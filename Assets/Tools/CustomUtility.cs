@@ -129,6 +129,24 @@ namespace Custom {
 			else return src.ElementAt((int)(UnityEngine.Random.value * count));
 		}
 
+		public static T NextOrDefault<T>(this IEnumerable<T> src, Func<T,bool> predicate) {
+			bool hasNext = false;
+
+			foreach (var s in src) {
+				if (hasNext) {
+					return s;
+				} else {
+					if (predicate(s)) {
+						hasNext = true;
+						continue;
+					}
+				}
+			}
+
+			return src.FirstOrDefault ();
+		}
+
+
 		public static TSource WhichMin<TSource, TResult>(this IEnumerable<TSource> srcs, Func<TSource, TResult> selector) where TResult: IComparable {
 			IEnumerator<TSource> iter = srcs.GetEnumerator();
 			iter.MoveNext();

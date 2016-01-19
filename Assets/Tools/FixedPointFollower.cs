@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Custom;
 
 public class FixedPointFollower : MonoBehaviour {
+	public List<Transform> targetList;
 	public Transform target;
 	public Transform actualTarget;
 
 	public float lerpSpeed;
 
 	void Start() {
-		actualTarget = target.GetTarget ();
+		Next ();
 	}
 
 	void Update() {
@@ -18,4 +21,10 @@ public class FixedPointFollower : MonoBehaviour {
 		}
 	}
 
+	public void Next() {
+		target = targetList.NextOrDefault (t => t == target);
+		actualTarget = target.GetTarget ();
+	}
+
+	[Button("Next", "Next")] public int ButtonNext;
 }
