@@ -77,7 +77,7 @@
         half t3 = saturate(3 - t);
 
         half muvx = (i.uv.x - 0.5) / _MainWidthScale + 0.5;
-        muvx += t2 * 0.02;
+        muvx += t * 0.02;
         fixed2 uv_main = fixed2(muvx, i.uv.y);
 
         fixed4 c = tex2D(_MainTex, uv_main) * i.color;

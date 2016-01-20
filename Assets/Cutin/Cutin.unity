@@ -704,7 +704,7 @@ MonoBehaviour:
   image: {fileID: 863026923}
   enterTime: 0.3
   inTime: 1
-  exitTime: 0.1
+  exitTime: 0.2
   ButtonStartAnim: 0
   ButtonStartAnimSlow: 0
 --- !u!1 &1082233737
