@@ -1052,7 +1052,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1352085302}
   m_Layer: 0
-  m_Name: Dummy01_a
+  m_Name: Dummy01_ab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1322,6 +1322,9 @@ MonoBehaviour:
   - name: GUI
     enabled: 1
     path: Assets/GUI/GUI.unity
+  - name: Lerp
+    enabled: 1
+    path: Assets/Lerp/Lerp.unity
   - name: PostEffect
     enabled: 1
     path: Assets/PostEffect/PostEffect.unity
