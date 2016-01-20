@@ -1,17 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Custom;
 
 public class ShakePoint : MonoBehaviour {
+	public List<Transform> targetList;
+	public Transform target;
+	public Transform actualTarget;
+
 	public Shaker shaker;
 
-	public Vector3 position;
-
 	void Start() {
-		position = transform.position;
+		Next ();
 	}
 
 	void Update() {
-		transform.position = position + shaker.offset;
+		if (actualTarget != null) {
+			transform.position = actualTarget.position + shaker.offset;
+		}
 	}
 
+	public void Next() {
+		target = targetList.NextOrDefault (t => t == target);
+		actualTarget = target.GetTarget ();
+	}
+
+	[Button("Next", "Next")] public int ButtonNext;
 }
