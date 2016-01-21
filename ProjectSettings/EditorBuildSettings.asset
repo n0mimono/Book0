@@ -37,3 +37,9 @@ EditorBuildSettings:
     path: Assets/Trailer/Trailer.unity
   - enabled: 1
     path: Assets/UnityChanSandbox/UnityChanSandbox.unity
+  - enabled: 1
+    path: Assets/UnityChanSandbox/UnityChanSandbox_00_Entrance.unity
+  - enabled: 1
+    path: Assets/UnityChanSandbox/UnityChanSandbox_01_Blacks.unity
+  - enabled: 1
+    path: Assets/UnityChanSandbox/UnityChanSandbox_02_Dragon.unity

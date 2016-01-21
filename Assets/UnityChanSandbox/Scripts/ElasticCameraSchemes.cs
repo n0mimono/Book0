@@ -35,6 +35,7 @@ public partial class ElasticCameraOperator {
 		public float height;
 		public float back;
 		public float forward;
+		public float heightOffset;
 	}
 	[Header("Forwarding Mode Details")]
 	public ForwardingParams forwardingParams;
@@ -43,12 +44,13 @@ public partial class ElasticCameraOperator {
 		float height = forwardingParams.height;
 		float back = forwardingParams.back;
 		float forward = forwardingParams.forward;
+		float heightOffset = forwardingParams.heightOffset;
 		cur.lerpSpeed = cur.scheme.lerpSpeed;
 
 		Vector3 pos = Player.trans.position + Player.trans.forward * back;
 		opTrans.position = pos.Ground (height);
 
-		Vector3 fwd = Player.trans.position + Player.trans.forward * forward;
+		Vector3 fwd = Player.trans.position + Player.trans.forward * forward + Vector3.up * heightOffset;
 		opTrans.LookAt (fwd);
 	}
 		
@@ -84,6 +86,7 @@ public partial class ElasticCameraOperator {
 		public float distScale;
 		public float distPower;
 		public float minDist;
+		public float heightOffset;
 	}
 	[Header("Multi-Targeting Mode Details")]
 	public MultiTargetingParams mTargettingParams;
@@ -93,6 +96,7 @@ public partial class ElasticCameraOperator {
 		float distScale = mTargettingParams.distScale;
 		float distPower = mTargettingParams.distPower;
 		float minDist = mTargettingParams.minDist;
+		float heightOffset = mTargettingParams.heightOffset;
 		cur.lerpSpeed = cur.scheme.lerpSpeed;
 
 		int n = targets.Count;
@@ -100,7 +104,7 @@ public partial class ElasticCameraOperator {
 		float range = targets.Select (t => t.trans.position).Aggregate (0f, (m, p) => m += Vector3.Distance(p, center));
 		float dist = Mathf.Max(Mathf.Pow(range, distPower) * distScale, minDist);
 
-		opTrans.LookAt (center);
+		opTrans.LookAt (center + Vector3.up * heightOffset);
 		Vector3 pos = center - opTrans.forward * dist;
 		opTrans.position = pos.Ground(height);
 	}
