@@ -185,10 +185,12 @@ public partial class YukataAction {
 	private IEnumerator Targettting() {
 		yield return null;
 
-		List<Transform> targetList = gameObject.FindOppositeCharacters ().Select (g => g.transform).ToList ();
-		SetTargetList (targetList);
 
 		while (true) {
+			List<Transform> targetList = gameObject.FindOppositeCharacters ().Select (g => g.transform).ToList ();
+			SetTargetList (targetList);
+			yield return new WaitForSeconds(1f);
+
 			Transform front = transform.WhichInFront (targetList);
 
 			if (front != null) {
