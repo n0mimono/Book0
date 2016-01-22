@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Linq;
 using Custom;
-using DigitalRuby.PyroParticles;
 
 public class MagicCannon : MagicSpawner {
 	public ParticleSystem gatherBubbles;

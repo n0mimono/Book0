@@ -40,16 +40,19 @@ public class FieldManager : MonoBehaviour {
 	}
 
 	public void LoadField(int index) {
+		ProcLoadField (index).StartBy (this);
+	}
+
+	private IEnumerator ProcLoadField(int index) {
+		yield return null;
+
 		if (isFieldLoaded) {
 			SceneManager.UnloadScene (curSpecScenePath);
 		}
 		isFieldLoaded = true;
+		yield return null;
 
 		curSpecScenePath = specScenes [index];
-		ProcLoadField ().StartBy (this);
-	}
-
-	private IEnumerator ProcLoadField() {
 		yield return SceneManager.LoadSceneAsync (curSpecScenePath, LoadSceneMode.Additive);
 	}
 

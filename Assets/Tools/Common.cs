@@ -47,7 +47,7 @@ public static class Common {
 		Vector3 pos = trans.position;
 		Vector3 bck = trans.forward * -1f;
 
-		if (transList.Any ()) {
+		if (transList.Where(t => t != null).Any ()) {
 			return transList.WhichMin (t => Vector3.Dot ((t.position - pos).normalized, bck));
 		} else {
 			return null;
