@@ -9,7 +9,9 @@ using UnityEngine.SceneManagement;
 public class FieldManager : MonoBehaviour {
 	public List<string> commonScenes;
 	public List<string> specScenes;
+
 	public FadePanelManager fadeMan;
+	public List<FieldWarpTrigger> warps;
 
 	public bool startOnStart;
 
@@ -30,6 +32,8 @@ public class FieldManager : MonoBehaviour {
 	}
 
 	public void Initilize() {
+		warps.ForEach (w => w.OnLoad = LoadField);
+
 		ProcInit ().OnCompleted (() => isReady = false).StartBy (this);
 	}
 
@@ -47,6 +51,7 @@ public class FieldManager : MonoBehaviour {
 
 	private IEnumerator ProcLoadField(int index) {
 		yield return null;
+		Time.timeScale = 0f; // trial
 		yield return fadeMan.FadeIn ();
 		yield return null;
 
@@ -60,6 +65,7 @@ public class FieldManager : MonoBehaviour {
 		yield return SceneManager.LoadSceneAsync (curSpecScenePath, LoadSceneMode.Additive);
 		yield return null;
 		yield return fadeMan.FadeOut ();
+		Time.timeScale = 1f; // trial
 	}
 
 }

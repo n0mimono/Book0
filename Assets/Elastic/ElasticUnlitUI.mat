@@ -93,6 +93,14 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Emission
+        second: 0
+      data:
+        first:
+          name: _Frequency
+        second: 1
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
@@ -129,16 +137,8 @@ Material:
         second: 0
       data:
         first:
-          name: _Emission
-        second: 0
-      data:
-        first:
           name: _Alpha
         second: 0
-      data:
-        first:
-          name: _Frequency
-        second: 1
       data:
         first:
           name: _StretchStrength

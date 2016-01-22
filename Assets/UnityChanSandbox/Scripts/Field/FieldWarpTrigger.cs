@@ -8,6 +8,8 @@ public class FieldWarpTrigger : MonoBehaviour {
 	public Vector3 toWarp;
 	public int loadIndex;
 
+	public System.Action<int> OnLoad;
+
 	private bool isReady;
 
 	void Start() {
@@ -21,10 +23,7 @@ public class FieldWarpTrigger : MonoBehaviour {
 		isReady = false;
 
 		src.transform.position = toWarp;
-
-		// todo: we hope more smart solution.
-		GameObject.FindObjectOfType<FieldManager>().LoadField(loadIndex);
-
+		OnLoad (loadIndex);
 		DelaydReady ().StartBy (this);
 
 		// wtf: this method shall be operated by last.
