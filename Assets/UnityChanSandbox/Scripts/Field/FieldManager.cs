@@ -13,7 +13,8 @@ public class FieldManager : MonoBehaviour {
 
 	public bool startOnStart;
 
-	private bool isReady;
+	public bool isReady;
+
 	private bool isFieldLoaded;
 	private string curSpecScenePath;
 

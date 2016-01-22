@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11426020}
   m_Layer: 0
   m_Name: MagicMagazine6
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 11499030}
   m_Layer: 0
   m_Name: MagicMagazine0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   - 114: {fileID: 11484912}
   m_Layer: 0
   m_Name: MagicMagazine2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,7 +167,7 @@ GameObject:
   - 114: {fileID: 11492434}
   m_Layer: 0
   m_Name: MagicMagazine4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,7 +235,7 @@ GameObject:
   - 114: {fileID: 11494628}
   m_Layer: 0
   m_Name: MagicMagazine1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,7 +269,7 @@ GameObject:
   - 114: {fileID: 11489074}
   m_Layer: 0
   m_Name: MagicMagazine2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,7 +285,7 @@ GameObject:
   - 114: {fileID: 11485298}
   m_Layer: 0
   m_Name: MagicMagazine3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,7 +301,7 @@ GameObject:
   - 114: {fileID: 11487694}
   m_Layer: 0
   m_Name: MagicMagazine3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -317,7 +317,7 @@ GameObject:
   - 114: {fileID: 11451118}
   m_Layer: 0
   m_Name: MagicMagazine2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,7 @@ GameObject:
   - 114: {fileID: 11488920}
   m_Layer: 0
   m_Name: MagicMagazine5
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,7 +349,7 @@ GameObject:
   - 114: {fileID: 11423896}
   m_Layer: 0
   m_Name: MagicMagazine5
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +383,7 @@ GameObject:
   - 114: {fileID: 11487324}
   m_Layer: 0
   m_Name: MagicMagazine5
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,7 +399,7 @@ GameObject:
   - 114: {fileID: 11486118}
   m_Layer: 0
   m_Name: MagicMagazine5
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -433,7 +433,7 @@ GameObject:
   - 114: {fileID: 11446556}
   m_Layer: 0
   m_Name: MagicMagazine1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -503,7 +503,7 @@ GameObject:
   - 114: {fileID: 11443850}
   m_Layer: 0
   m_Name: MagicMagazine1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -519,7 +519,7 @@ GameObject:
   - 114: {fileID: 11413980}
   m_Layer: 0
   m_Name: MagicMagazine0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,7 +535,7 @@ GameObject:
   - 114: {fileID: 11458082}
   m_Layer: 0
   m_Name: MagicMagazine2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -551,7 +551,7 @@ GameObject:
   - 114: {fileID: 11416644}
   m_Layer: 0
   m_Name: MagicMagazine4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -603,7 +603,7 @@ GameObject:
   - 114: {fileID: 11457424}
   m_Layer: 0
   m_Name: MagicMagazine3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -653,7 +653,7 @@ GameObject:
   - 114: {fileID: 11491992}
   m_Layer: 0
   m_Name: MagicMagazine6
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -669,7 +669,7 @@ GameObject:
   - 114: {fileID: 11401724}
   m_Layer: 0
   m_Name: MagicMagazine6
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -739,7 +739,7 @@ GameObject:
   - 114: {fileID: 11439544}
   m_Layer: 0
   m_Name: MagicMagazine6
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -845,7 +845,7 @@ GameObject:
   - 114: {fileID: 11496532}
   m_Layer: 0
   m_Name: MagicMagazine4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -861,7 +861,7 @@ GameObject:
   - 114: {fileID: 11437608}
   m_Layer: 0
   m_Name: MagicMagazine1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -877,7 +877,7 @@ GameObject:
   - 114: {fileID: 11448592}
   m_Layer: 0
   m_Name: MagicMagazine0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -893,7 +893,7 @@ GameObject:
   - 114: {fileID: 11468744}
   m_Layer: 0
   m_Name: MagicMagazine3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -963,7 +963,7 @@ GameObject:
   - 114: {fileID: 11431988}
   m_Layer: 0
   m_Name: MagicMagazine4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -979,7 +979,7 @@ GameObject:
   - 114: {fileID: 11408340}
   m_Layer: 0
   m_Name: MagicMagazine0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3020,6 +3020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3116,6 +3117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3135,6 +3137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3154,6 +3157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3293,6 +3297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3312,6 +3317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3344,6 +3350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3402,6 +3409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3434,6 +3442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3466,6 +3475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3485,6 +3495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3504,6 +3515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3536,6 +3548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3581,6 +3594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3613,6 +3627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3632,6 +3647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3729,6 +3745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3748,6 +3765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3767,6 +3785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3786,6 +3805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3805,6 +3825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3824,6 +3845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3843,6 +3865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3862,6 +3885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3894,6 +3918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3952,6 +3977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3971,6 +3997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -4003,6 +4030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   instanceName: MagicBullet_Dragon
+  positionNoise: {x: 0, y: 0, z: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0

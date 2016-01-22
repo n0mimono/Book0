@@ -151,14 +151,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 435530, guid: 6c0b138c17b504dfd9e20cbd166bf9be, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 435530, guid: 6c0b138c17b504dfd9e20cbd166bf9be, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c0b138c17b504dfd9e20cbd166bf9be, type: 2}
   m_IsPrefabParent: 0
@@ -499,7 +491,7 @@ GameObject:
   - 114: {fileID: 1677886711}
   m_Layer: 0
   m_Name: DragonControl
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
