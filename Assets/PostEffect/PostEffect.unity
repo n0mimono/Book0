@@ -26949,6 +26949,8 @@ MonoBehaviour:
     isEnabled: 0
   - material: {fileID: 2100000, guid: ef13f3d29596141ffa0ba43c89dcec01, type: 2}
     isEnabled: 1
+  - material: {fileID: 2100000, guid: 7a6f80096cebe439f9eeb8bf6ce06e12, type: 2}
+    isEnabled: 0
 --- !u!1 &1508672682
 GameObject:
   m_ObjectHideFlags: 0

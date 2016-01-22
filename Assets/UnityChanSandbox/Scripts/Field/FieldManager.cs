@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class FieldManager : MonoBehaviour {
 	public List<string> commonScenes;
 	public List<string> specScenes;
+	public FadePanelManager fadeMan;
 
 	public bool startOnStart;
 
@@ -45,6 +46,8 @@ public class FieldManager : MonoBehaviour {
 
 	private IEnumerator ProcLoadField(int index) {
 		yield return null;
+		yield return fadeMan.FadeIn ();
+		yield return null;
 
 		if (isFieldLoaded) {
 			SceneManager.UnloadScene (curSpecScenePath);
@@ -54,6 +57,8 @@ public class FieldManager : MonoBehaviour {
 
 		curSpecScenePath = specScenes [index];
 		yield return SceneManager.LoadSceneAsync (curSpecScenePath, LoadSceneMode.Additive);
+		yield return null;
+		yield return fadeMan.FadeOut ();
 	}
 
 }
