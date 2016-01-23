@@ -5,8 +5,11 @@ using System.Linq;
 using Custom;
 
 public partial class YukataChan : MonoBehaviour {
-
+	[Header("Yukata Android")]
 	public YukataAction yukataAction;
+	protected Transform myTrans;
+	
+	[Header("Yukata-Chan")]
 	public float walkingSpeed;
 	public float runningSpeed;
 
@@ -16,8 +19,6 @@ public partial class YukataChan : MonoBehaviour {
 	}
 	public Type type;
 	public bool Is(Type type) { return this.type == type; }
-
-	private Transform myTrans;
 
 	public enum State {
 		Noop,

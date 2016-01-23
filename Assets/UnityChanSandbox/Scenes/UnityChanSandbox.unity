@@ -2409,9 +2409,10 @@ GameObject:
   - 92: {fileID: 1892226356}
   - 124: {fileID: 1892226355}
   - 81: {fileID: 1892226354}
+  - 114: {fileID: 1892226361}
+  - 114: {fileID: 1892226362}
   - 114: {fileID: 1892226360}
   - 114: {fileID: 1892226359}
-  - 114: {fileID: 1892226361}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2495,6 +2496,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1892226353}
   m_Enabled: 0
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc6bde01469c7b4badee5362f191d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downsample: 1
+  blurSize: 0
+  blurIterations: 1
+  blurType: 0
+  blurShader: {fileID: 4800000, guid: f9d5fa183cd6b45eeb1491f74863cd91, type: 3}
+--- !u!114 &1892226360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1892226353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -2504,7 +2521,23 @@ MonoBehaviour:
   blurIterations: 1
   blurType: 0
   fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
---- !u!114 &1892226360
+--- !u!114 &1892226361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1892226353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efc80275e77647828ac028f22c424d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.05
+  damp: 0.04
+  keepTime: 0.2
+  offset: {x: 0, y: 0, z: 0}
+  ButtonStartShake: 0
+--- !u!114 &1892226362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2586,19 +2619,3 @@ MonoBehaviour:
     m_RotationOrder: 4
   _ditherMode: 0
   shader: {fileID: 4800000, guid: dc9775b65c52747e69fc4c854c00d696, type: 3}
---- !u!114 &1892226361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1892226353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4efc80275e77647828ac028f22c424d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 0.05
-  damp: 0.04
-  keepTime: 0.2
-  offset: {x: 0, y: 0, z: 0}
-  ButtonStartShake: 0
