@@ -50,6 +50,7 @@ public partial class Dragon : MonoBehaviour {
 		Rotate ().StartBy (this);
 
 		InitilizeSpell ();
+		InitilizeDamagers ();
 	}
 
 	public void SetState(State state) {
@@ -138,6 +139,19 @@ public partial class Dragon {
 	public void StopBreathe() {
 		isBreathing = false;
 		animator.SetInteger ("Head", (int)HeadState.None);
+	}
+
+}
+
+public partial class Dragon {
+	[Header("Damage Control")]
+	public DamageReceptor damageReceptor;
+
+	private void InitilizeDamagers() {
+		damageReceptor.OnDamage += OnDamage;
+	}
+
+	private void OnDamage(DamageSource src) {
 	}
 
 }
