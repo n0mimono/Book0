@@ -53,8 +53,8 @@ public class FieldManager : MonoBehaviour {
 		yield return null;
 		Time.timeScale = 0f; // trial
 		yield return fadeMan.FadeIn ();
-		yield return null;
 
+		yield return null;
 		if (isFieldLoaded) {
 			SceneManager.UnloadScene (curSpecScenePath);
 		}
@@ -63,7 +63,9 @@ public class FieldManager : MonoBehaviour {
 
 		curSpecScenePath = specScenes [index];
 		yield return SceneManager.LoadSceneAsync (curSpecScenePath, LoadSceneMode.Additive);
+		SceneManager.SetActiveScene (SceneManager.GetSceneByName (curSpecScenePath));
 		yield return null;
+
 		yield return fadeMan.FadeOut ();
 		Time.timeScale = 1f; // trial
 	}
