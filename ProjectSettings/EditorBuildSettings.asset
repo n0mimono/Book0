@@ -43,3 +43,5 @@ EditorBuildSettings:
     path: Assets/UnityChanSandbox/Scenes/UnityChanSandbox_01_Blacks.unity
   - enabled: 1
     path: Assets/UnityChanSandbox/Scenes/UnityChanSandbox_02_Dragon.unity
+  - enabled: 1
+    path: Assets/UnityChanSandbox/Scenes/UnityChanSandbox_03_PixieRoad.unity

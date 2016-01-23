@@ -59,6 +59,12 @@ public partial class YukataAction : Creature {
 	}
 
 	void Update() {
+		// suiside check
+		if (IsAlive && transform.position.y < -40f) {
+			ForceSetHp (1);
+			OnDamage (damageSource);
+		}
+
 		UpdateVelocity ();
 	}
 

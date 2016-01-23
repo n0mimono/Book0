@@ -94,6 +94,7 @@ public partial class YukataManager {
 	private IEnumerator ReturnEntrance() {
 		yield return new WaitForSeconds (3f);
 		FieldManager.Instance.LoadField (0, true);
+		yukataAction.transform.position = Vector3.zero;
 
 		yield return null;
 		yukataAction.Revive ();

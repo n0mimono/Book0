@@ -69,4 +69,7 @@ public partial class Creature {
 		HpChangeHander.Invoke (HpRate);
 	}
 
+	public void ForceSetHp(int point) {
+		curBS.hitPoint = point;
+	}
 }

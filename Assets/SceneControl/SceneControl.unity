@@ -1053,7 +1053,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1352085302}
   m_Layer: 0
-  m_Name: Dummy01
+  m_Name: Dummy01_ab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1343,16 +1343,19 @@ MonoBehaviour:
     path: Assets/Trailer/Trailer.unity
   - name: UnityChanSandbox
     enabled: 1
-    path: Assets/UnityChanSandbox/UnityChanSandbox.unity
+    path: Assets/UnityChanSandbox/Scenes/UnityChanSandbox.unity
   - name: UnityChanSandbox_00_Entrance
     enabled: 1
-    path: Assets/UnityChanSandbox/UnityChanSandbox_00_Entrance.unity
+    path: Assets/UnityChanSandbox/Scenes/UnityChanSandbox_00_Entrance.unity
   - name: UnityChanSandbox_01_Blacks
     enabled: 1
-    path: Assets/UnityChanSandbox/UnityChanSandbox_01_Blacks.unity
+    path: Assets/UnityChanSandbox/Scenes/UnityChanSandbox_01_Blacks.unity
   - name: UnityChanSandbox_02_Dragon
     enabled: 1
-    path: Assets/UnityChanSandbox/UnityChanSandbox_02_Dragon.unity
+    path: Assets/UnityChanSandbox/Scenes/UnityChanSandbox_02_Dragon.unity
+  - name: UnityChanSandbox_03_PixieRoad
+    enabled: 1
+    path: Assets/UnityChanSandbox/Scenes/UnityChanSandbox_03_PixieRoad.unity
   ButtonUpdateBuiltScenes: 0
 --- !u!1 &1739060145
 GameObject:
