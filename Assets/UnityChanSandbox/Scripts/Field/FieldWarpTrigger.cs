@@ -14,6 +14,7 @@ public class FieldWarpTrigger : MonoBehaviour {
 
 	void Start() {
 		isReady = true;
+		GetComponent<Renderer> ().enabled = true;
 
 		receptor.OnDamage += OnDamage;
 	}
@@ -23,18 +24,18 @@ public class FieldWarpTrigger : MonoBehaviour {
 		isReady = false;
 
 		src.transform.position = toWarp;
-		OnLoad (loadIndex);
-		DelaydReady ().StartBy (this);
-
-		// wtf: this method shall be operated by last.
-		GetComponent<MeshExploder>().Explode();
-		GetComponent<Renderer> ().enabled = false;
+		WarpField ().StartBy (this);
 	}
 
-	private IEnumerator DelaydReady() {
-		yield return new WaitForSeconds (5f);
-		isReady = true;
-		GetComponent<Renderer> ().enabled = true;
+	private IEnumerator WarpField() {
+		GetComponent<MeshExploder>().Explode();
+		yield return null;
+
+		GetComponent<Renderer> ().enabled = false;
+		yield return new WaitForSeconds (0.5f);
+
+		yield return null;
+		FieldManager.Instance.LoadField (loadIndex, true);
 	}
 
 }

@@ -6,14 +6,14 @@ using System;
 using Custom;
 using UnityEngine.SceneManagement;
 
-public class FieldManager : MonoBehaviour {
+public class FieldManager : SingletonMonoBehaviorWithoutCreate<FieldManager> {
 	public List<string> commonScenes;
 	public List<string> specScenes;
 
 	public FadePanelManager fadeMan;
-	public List<FieldWarpTrigger> warps;
 
 	public bool startOnStart;
+	public bool load0OnInit;
 
 	public bool isReady;
 
@@ -32,8 +32,6 @@ public class FieldManager : MonoBehaviour {
 	}
 
 	public void Initilize() {
-		warps.ForEach (w => w.OnLoad = LoadField);
-
 		ProcInit ().OnCompleted (() => isReady = false).StartBy (this);
 	}
 
@@ -42,18 +40,32 @@ public class FieldManager : MonoBehaviour {
 			yield return SceneManager.LoadSceneAsync (scenePath, LoadSceneMode.Additive);
 			yield return null;
 		}
+		if (load0OnInit) {
+			yield return StartCoroutine (ProcLoadField (0));
+		}
+
 		isReady = true;
 	}
 
-	public void LoadField(int index) {
-		ProcLoadField (index).StartBy (this);
+	public void LoadField(int index, bool withFade) {
+		if (withFade) {
+			ProcLoadFieldWithFade (index).StartBy (this);
+		} else {
+			ProcLoadField (index).StartBy (this);
+		}
+	}
+
+	private IEnumerator ProcLoadFieldWithFade(int index) {
+		Time.timeScale = 0f;
+		yield return fadeMan.FadeIn ();
+
+		yield return StartCoroutine (ProcLoadField (index));
+
+		yield return fadeMan.FadeOut ();
+		Time.timeScale = 1f;
 	}
 
 	private IEnumerator ProcLoadField(int index) {
-		yield return null;
-		Time.timeScale = 0f; // trial
-		yield return fadeMan.FadeIn ();
-
 		yield return null;
 		if (isFieldLoaded) {
 			SceneManager.UnloadScene (curSpecScenePath);
@@ -65,9 +77,6 @@ public class FieldManager : MonoBehaviour {
 		yield return SceneManager.LoadSceneAsync (curSpecScenePath, LoadSceneMode.Additive);
 		SceneManager.SetActiveScene (SceneManager.GetSceneByName (curSpecScenePath));
 		yield return null;
-
-		yield return fadeMan.FadeOut ();
-		Time.timeScale = 1f; // trial
 	}
-
+		
 }

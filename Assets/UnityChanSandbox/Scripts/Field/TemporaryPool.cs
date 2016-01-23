@@ -1,21 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Custom;
 
-public class TemporaryPool : MonoBehaviour {
-	private static TemporaryPool instance;
-	public static TemporaryPool Instance {
-		get {
-			if (instance == null) {
-				instance = GameObject.FindObjectOfType<TemporaryPool> ();
-				if (instance == null) {
-					GameObject obj = new GameObject (typeof(TemporaryPool).ToString ());
-					instance = obj.AddComponent<TemporaryPool> ();
-				}
-			}
-			return instance;
-		}
-	}
-
+public class TemporaryPool : SingletonMonoBehaviorDestroyable<TemporaryPool> {
 	public void Add(Transform trans) {
 		trans.SetParent (transform);
 	}
