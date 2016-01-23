@@ -41,6 +41,7 @@ public static class AnimatorExtension {
 	}
 
 	public static void SetFace(this Animator animator, int id) {
+		//Debug.Log ("id: " + id);
 		animator.SetInteger ("FaceType", id);
 	}
 

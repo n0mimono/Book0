@@ -27,6 +27,7 @@ public partial class YukataAction : Creature {
 		Jump    = 2,
 		Dive    = 3,
 		Damaged = 4,
+		Dead    = 9,
 	}
 	private AnimeAction inAction;
 	public AnimeAction InAction { get { return inAction; } }
@@ -161,6 +162,11 @@ public partial class YukataAction {
 
 	private void CancelActions() {
 		if (enchantress != null) StopSpell();
+	}
+
+	protected override void OnDead() {
+		base.OnDead ();
+
 	}
 
 }

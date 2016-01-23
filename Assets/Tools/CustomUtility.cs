@@ -14,6 +14,10 @@ namespace Custom {
 			}
 		}
 
+		public static int ToInt(this object obj) {
+			return (int)obj;
+		}
+
 		public static void SetTag(this GameObject obj, string tag, bool isRecursive = true) {
 			if (isRecursive) {
 				obj.GetComponentsInChildren<Transform> ()
@@ -22,6 +26,17 @@ namespace Custom {
 					.ForEach (g => g.tag = tag);
 			} else {
 				obj.tag = tag;
+			}
+		}
+
+		public static void SetLayer(this GameObject obj, int layer, bool isRecursive = true) {
+			if (isRecursive) {
+				obj.GetComponentsInChildren<Transform> ()
+					.Select (t => t.gameObject)
+					.ToList ()
+					.ForEach (g => g.layer = layer);
+			} else {
+				obj.layer = layer;
 			}
 		}
 

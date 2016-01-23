@@ -1953,7 +1953,7 @@ MonoBehaviour:
   fadeMan: {fileID: 1632636039}
   startOnStart: 1
   loadOnInit: 1
-  loadIndexOnInit: 1
+  loadIndexOnInit: 0
   isReady: 0
 --- !u!1 &1632747470
 GameObject:

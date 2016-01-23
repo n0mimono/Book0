@@ -8,7 +8,8 @@ public static class Common {
 
 	public enum Layer {
 		Character = 8,
-		Spell = 9,
+		Spell     = 9,
+		Dead      = 11,
 	}
 	public const string PlayerTag = "Player";
 	public const string EnemyTag = "Enemy";

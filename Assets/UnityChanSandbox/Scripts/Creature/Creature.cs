@@ -62,6 +62,7 @@ public partial class Creature {
 	}
 
 	protected virtual void OnDead() {
+		gameObject.SetLayer (Common.Layer.Dead.ToInt(), true);
 	}
 
 }
