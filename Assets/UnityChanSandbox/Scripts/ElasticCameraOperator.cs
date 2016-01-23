@@ -15,7 +15,8 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 		PlayerTargeting  =  2,
 		MultiTargeting   =  3,
 		Magi             = 11,
-		Salute           = 13
+		Salute           = 13,
+		Dead             = 15,
 	}
 
 	[System.Serializable]
@@ -64,6 +65,7 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 		GetScheme (Mode.MultiTargeting).routiner = () => UpdateRoutine(MultiTargettingUpdate);
 		GetScheme (Mode.Magi).routiner = () => TemporaryRoutine(Magi);
 		GetScheme (Mode.Salute).routiner = () => TemporaryRoutine(Salute);
+		GetScheme (Mode.Dead).routiner = () => TemporaryRoutine(Dead);
 	}
 
 	public Scheme GetScheme(Mode mode) {

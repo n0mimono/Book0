@@ -3757,6 +3757,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae1d772e9bde4a41946d2d4142f53d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iniBS:
+    hitPoint: 1000
+  curBS:
+    hitPoint: 0
+  damageSource: {fileID: 0}
+  damageReceptor: {fileID: 11412004}
   ctrlTrans: {fileID: 0}
   myTrans: {fileID: 446034}
   animator: {fileID: 9558410}
@@ -3782,7 +3788,6 @@ MonoBehaviour:
     pos: {x: 0, y: 0, z: 0}
     fwd: {x: 0, y: 0, z: 0}
   maxAngleSpeed: 30
-  damageReceptor: {fileID: 11412004}
 --- !u!119 &11933930
 Projector:
   m_ObjectHideFlags: 1
@@ -6360,7 +6365,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: iniBS.hitPoint
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193964}

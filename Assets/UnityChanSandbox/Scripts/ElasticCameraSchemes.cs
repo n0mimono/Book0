@@ -73,7 +73,7 @@ public partial class ElasticCameraOperator {
 		float back = pTargettingParams.back;
 		cur.lerpSpeed = cur.scheme.lerpSpeed;
 
-		Vector3 pos = Player.trans.position + transform.forward * back;
+		Vector3 pos = Player.trans.position + opTrans.forward * back;
 		opTrans.position = pos.Ground (height);
 	}
 }
@@ -119,21 +119,21 @@ public partial class ElasticCameraOperator {
 		Transform player = targets.Where (t => t.isPlayer).Select (t => t.trans).FirstOrDefault ();
 		Transform enemy = targets.Where (t => t.isEnemy).Select (t => t.trans).FirstOrDefault ();
 
-		transform.LookAt (player.position + Vector3.up * 1f);
-		transform.position = player.position - transform.forward * 2f;
-		transform.SetPositionY (1.5f);
+		opTrans.LookAt (player.position + Vector3.up * 1f);
+		opTrans.position = player.position - opTrans.forward * 2f;
+		opTrans.SetPositionY (1.5f);
 
 		for (float time = 0f; time < 2f; time += Time.deltaTime) yield return null;
 		yield return null;
 
-		transform.LookAt (enemy.position + Vector3.up * 1f);
+		opTrans.LookAt (enemy.position + Vector3.up * 1f);
 		for (float time = 0f; time < 5f; time += Time.deltaTime) {
-			transform.AddEulerAngleY (Time.deltaTime * 15f);
-			transform.position = enemy.position - transform.forward * (4f + time * 1.5f);
+			opTrans.AddEulerAngleY (Time.deltaTime * 15f);
+			opTrans.position = enemy.position - opTrans.forward * (4f + time * 1.5f);
 			yield return null;
 		}
 
-		transform.LookAt (enemy.position + Vector3.up * 7f);
+		opTrans.LookAt (enemy.position + Vector3.up * 7f);
 		for (float time = 0f; time < 5f; time += Time.deltaTime) yield return null;
 	}
 
@@ -146,12 +146,35 @@ public partial class ElasticCameraOperator {
 
 		Transform player = targets.Where (t => t.isPlayer).Select (t => t.trans).FirstOrDefault ();
 
-		transform.position = player.position + player.forward * 2f;
-		transform.SetPositionY (1f);
-		transform.LookAt (player.position + Vector3.up * 1f);
+		opTrans.position = player.position + player.forward * 2f;
+		opTrans.SetPositionY (1f);
+		opTrans.LookAt (player.position + Vector3.up * 1f);
 
 		for (float time = 0f; time < 3f; time += Time.deltaTime) yield return null;
 		yield return null;
+	}
+
+}
+
+public partial class ElasticCameraOperator {
+
+	private IEnumerator Dead() {
+		Vector3 angs = opTrans.eulerAngles;
+		cur.lerpSpeed = cur.scheme.lerpSpeed;
+
+		Transform player = targets.Where (t => t.isPlayer).Select (t => t.trans).FirstOrDefault ();
+
+		for (float time = 0f; time < 3f; time += Time.deltaTime) {
+			Quaternion qy = Quaternion.AngleAxis (time * 10f, Vector3.up);
+
+			opTrans.position = player.position.Ground(4f) + qy * player.forward * 1f;
+			opTrans.LookAt (player.position);
+
+			yield return null;
+		}
+
+		yield return null;
+		opTrans.eulerAngles = angs;
 	}
 
 }

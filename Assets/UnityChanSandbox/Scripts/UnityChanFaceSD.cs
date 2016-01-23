@@ -8,7 +8,6 @@ public class UnityChanFaceSD : StateMachineBehaviour {
 		Salute  = 01,
 		Running = 02,
 		Damage  = 03,
-		Dead    = 09,
 		Idle    = 10,
 	}
 
@@ -22,8 +21,6 @@ public class UnityChanFaceSD : StateMachineBehaviour {
 			animator.SetFace ((int)FaceType.Damage);
 		} else if (stateInfo.IsFullName ("Face.Damage")) { // damage out
 			animator.SetFace ((int)FaceType.Loop);
-		} else if (stateInfo.IsFullName ("Base.Lock Action.Dead")) { // dead in
-			animator.SetFace ((int)FaceType.Dead);
 		} if (stateInfo.IsFullName ("Face.Random")) { // idle
 			int id = (int)FaceType.Idle + (int)(Random.value * 4f) + 1;
 			animator.SetFace (id);

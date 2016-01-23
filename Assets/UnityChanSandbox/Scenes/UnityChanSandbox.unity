@@ -191,7 +191,7 @@ Prefab:
       objectReference: {fileID: 611010177}
     - target: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a, type: 2}
       propertyPath: iniBS.hitPoint
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f742c1308399468083cbac54797f73a, type: 2}
@@ -578,6 +578,10 @@ MonoBehaviour:
     button: {fileID: 1323346482}
     isDummy: 0
   - mode: 13
+    isBaseButton: 0
+    button: {fileID: 0}
+    isDummy: 1
+  - mode: 15
     isBaseButton: 0
     button: {fileID: 0}
     isDummy: 1
@@ -1953,7 +1957,7 @@ MonoBehaviour:
   fadeMan: {fileID: 1632636039}
   startOnStart: 1
   loadOnInit: 1
-  loadIndexOnInit: 0
+  loadIndexOnInit: 1
   isReady: 0
 --- !u!1 &1632747470
 GameObject:
@@ -2139,6 +2143,8 @@ MonoBehaviour:
     lerpSpeed: 2
   - mode: 13
     lerpSpeed: 5
+  - mode: 15
+    lerpSpeed: 4
   targets:
   - trans: {fileID: 288359225}
     isPlayer: 1
@@ -2344,7 +2350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0.803
+  threshold: 0.614
   intensity: 1.09
   blurSize: 2.92
   blurIterations: 1

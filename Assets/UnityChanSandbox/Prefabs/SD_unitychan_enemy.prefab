@@ -5013,6 +5013,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eb55cecbb2d4acd95c1c98d3f0d322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iniBS:
+    hitPoint: 100
+  curBS:
+    hitPoint: 0
+  damageSource: {fileID: 11431426}
+  damageReceptor: {fileID: 11499116}
   characterControl: {fileID: 14328860}
   animator: {fileID: 9546448}
   maxSpeed: 2
@@ -5020,8 +5026,6 @@ MonoBehaviour:
   acceleration: 2
   charSpeedScale: 2
   animSpeedScale: 0.5
-  damageSource: {fileID: 11431426}
-  damageReceptor: {fileID: 11499116}
   target: {fileID: 0}
   enchantress: {fileID: 0}
   guardian: {fileID: 0}

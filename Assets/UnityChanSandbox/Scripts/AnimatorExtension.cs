@@ -45,6 +45,10 @@ public static class AnimatorExtension {
 		animator.SetInteger ("FaceType", id);
 	}
 
+	public static void SetAlive(this Animator animator, bool isAlive) {
+		animator.SetBool ("IsAlive", isAlive);
+	}
+
 	public static bool IsFullName(this AnimatorStateInfo stateInfo, string fullpath) {
 		return stateInfo.fullPathHash == Animator.StringToHash (fullpath);
 	}

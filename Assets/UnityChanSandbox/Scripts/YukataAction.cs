@@ -27,7 +27,6 @@ public partial class YukataAction : Creature {
 		Jump    = 2,
 		Dive    = 3,
 		Damaged = 4,
-		Dead    = 9,
 	}
 	private AnimeAction inAction;
 	public AnimeAction InAction { get { return inAction; } }
@@ -152,6 +151,9 @@ public partial class YukataAction {
 
 	protected override void OnDamage(DamageSource src) {
 		base.OnDamage (src);
+		if (!IsAlive) {
+			Kill ();
+		}
 
 		//Debug.Log (src.name + " > " + src.gameObject.tag + " => " + gameObject.IsOppositeTo(src.gameObject));
 		CancelActions ();
@@ -164,9 +166,13 @@ public partial class YukataAction {
 		if (enchantress != null) StopSpell();
 	}
 
-	protected override void OnDead() {
-		base.OnDead ();
+	public void Kill() {
+		animator.SetAlive (false);
+	}
 
+	public void Revive() {
+		InitilizeBattleStatus ();
+		animator.SetAlive (true);
 	}
 
 }

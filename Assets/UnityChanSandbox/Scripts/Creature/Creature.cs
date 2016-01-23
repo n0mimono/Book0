@@ -40,7 +40,7 @@ public partial class Creature {
 		}
 	}
 
-	private void InitilizeBattleStatus() {
+	protected void InitilizeBattleStatus() {
 		curBS = iniBS;
 	}
 
@@ -51,18 +51,13 @@ public partial class Creature {
 	public event Action DeadHandler;
 
 	protected virtual void InitializeDamageControl() {
-		DeadHandler += OnDead;
+		DeadHandler += () => {};
 
 		damageReceptor.OnDamage += OnDamage;
 	}
 
 	protected virtual void OnDamage(DamageSource src) {
 		DecreaseHitPoint (1);
-
-	}
-
-	protected virtual void OnDead() {
-		gameObject.SetLayer (Common.Layer.Dead.ToInt(), true);
 	}
 
 }

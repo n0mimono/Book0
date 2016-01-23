@@ -27,6 +27,7 @@ public partial class YukataManager : MonoBehaviour {
 		yukataAction.InLockAction += LockAction;
 		yukataAction.OutLockAction += UnlockAction;
 		yukataAction.OnSetTarget = cameraOperator.SetEnemyTarget;
+		yukataAction.DeadHandler += OnGameOver;
 
 		yield return null;
 
@@ -74,5 +75,22 @@ public partial class YukataManager : MonoBehaviour {
 
 	private void OnCameraChanged(ElasticCameraOperator.Mode mode, bool isBase) {
 		cameraOperator.SetMode (mode, isBase);
+	}
+}
+
+public partial class YukataManager {
+
+	private void OnGameOver() {
+		uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Dead);
+
+		ReturnEntrance ().StartBy(this);
+	}
+
+	private IEnumerator ReturnEntrance() {
+		yield return new WaitForSeconds (3f);
+		FieldManager.Instance.LoadField (0, true);
+
+		yield return null;
+		yukataAction.Revive ();
 	}
 }
