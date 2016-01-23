@@ -13,7 +13,9 @@ public class FieldManager : SingletonMonoBehaviorWithoutCreate<FieldManager> {
 	public FadePanelManager fadeMan;
 
 	public bool startOnStart;
-	public bool load0OnInit;
+
+	public bool loadOnInit;
+	public int loadIndexOnInit;
 
 	public bool isReady;
 
@@ -40,8 +42,8 @@ public class FieldManager : SingletonMonoBehaviorWithoutCreate<FieldManager> {
 			yield return SceneManager.LoadSceneAsync (scenePath, LoadSceneMode.Additive);
 			yield return null;
 		}
-		if (load0OnInit) {
-			yield return StartCoroutine (ProcLoadField (0));
+		if (loadOnInit) {
+			yield return StartCoroutine (ProcLoadField (loadIndexOnInit));
 		}
 		yield return fadeMan.FadeOut ();
 

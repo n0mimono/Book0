@@ -28,8 +28,7 @@ public partial class Creature {
 
 	[Header("Status Control")]
 	public BattleStatus iniBS;
-	private BattleStatus curBS;
-	public BattleStatus CurBS { get { return curBS; } }
+	public BattleStatus curBS;
 
 	public bool IsAlive { get { return curBS.hitPoint > 0; } }
 	private void DecreaseHitPoint(int point) {

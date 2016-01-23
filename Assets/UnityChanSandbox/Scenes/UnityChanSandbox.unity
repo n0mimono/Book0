@@ -189,6 +189,10 @@ Prefab:
       propertyPath: guardian
       value: 
       objectReference: {fileID: 611010177}
+    - target: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a, type: 2}
+      propertyPath: iniBS.hitPoint
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f742c1308399468083cbac54797f73a, type: 2}
   m_IsPrefabParent: 0
@@ -1948,7 +1952,8 @@ MonoBehaviour:
   - UnityChanSandbox_02_Dragon
   fadeMan: {fileID: 1632636039}
   startOnStart: 1
-  load0OnInit: 1
+  loadOnInit: 1
+  loadIndexOnInit: 1
   isReady: 0
 --- !u!1 &1632747470
 GameObject:
