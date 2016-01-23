@@ -43,6 +43,7 @@ public class FieldManager : SingletonMonoBehaviorWithoutCreate<FieldManager> {
 		if (load0OnInit) {
 			yield return StartCoroutine (ProcLoadField (0));
 		}
+		yield return fadeMan.FadeOut ();
 
 		isReady = true;
 	}

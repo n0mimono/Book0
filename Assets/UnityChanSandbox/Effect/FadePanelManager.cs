@@ -4,12 +4,7 @@ using UnityEngine.UI;
 
 public class FadePanelManager : MonoBehaviour {
 	public Image fadeImage;
-
-	private bool isFading;
-
-	void Awake() {
-		isFading = false;
-	}
+	public bool isFading;
 
 	void Update() {
 		fadeImage.enabled = isFading;
