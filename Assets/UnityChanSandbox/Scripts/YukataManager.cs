@@ -6,7 +6,9 @@ public partial class YukataManager : MonoBehaviour {
 
 	public ElasticCameraOperator cameraOperator;
 	public ElasticTouch elasticTouch;
+
 	public UICameraControl uiCameraControl;
+	public UIHpGaugeYukata uiHpGauge;
 
 	public YukataAction yukataAction;
 	public Transform    cameraTrans;
@@ -32,6 +34,9 @@ public partial class YukataManager : MonoBehaviour {
 		yield return null;
 
 		uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.PlayerTargeting);
+
+		yukataAction.HpChangeHander += uiHpGauge.SetHPRate;
+		yukataAction.ForceHpUpdate (); // initialization
 	}
 
 	private void OnTouchUpdate(Vector2 touchDir) {

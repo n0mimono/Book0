@@ -12,9 +12,9 @@ public partial class Creature : MonoBehaviour {
 	}
 
 	protected virtual void Initialize() {
-		InitilizeBattleStatus ();
-
 		InitializeDamageControl ();
+
+		InitilizeBattleStatus ();
 	}
 
 }
@@ -29,6 +29,7 @@ public partial class Creature {
 	[Header("Status Control")]
 	public BattleStatus iniBS;
 	public BattleStatus curBS;
+	public float HpRate { get { return (float)curBS.hitPoint / (float)iniBS.hitPoint; } }
 
 	public bool IsAlive { get { return curBS.hitPoint > 0; } }
 	private void DecreaseHitPoint(int point) {
@@ -37,11 +38,13 @@ public partial class Creature {
 			if (curBS.hitPoint == 0) {
 				DeadHandler.Invoke ();
 			}
+			HpChangeHander (HpRate);
 		}
 	}
 
 	protected void InitilizeBattleStatus() {
 		curBS = iniBS;
+		HpChangeHander (HpRate);
 	}
 
 	[Header("Damage Control")]
@@ -49,15 +52,21 @@ public partial class Creature {
 	public DamageReceptor damageReceptor;
 
 	public event Action DeadHandler;
+	public event Action<float> HpChangeHander;
 
 	protected virtual void InitializeDamageControl() {
 		DeadHandler += () => {};
+		HpChangeHander += (rate) => {};
 
 		damageReceptor.OnDamage += OnDamage;
 	}
 
 	protected virtual void OnDamage(DamageSource src) {
 		DecreaseHitPoint (1);
+	}
+
+	public void ForceHpUpdate() {
+		HpChangeHander.Invoke (HpRate);
 	}
 
 }

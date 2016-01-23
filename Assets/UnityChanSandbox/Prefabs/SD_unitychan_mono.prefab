@@ -4988,7 +4988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iniBS:
-    hitPoint: 10
+    hitPoint: 5
   curBS:
     hitPoint: 0
   damageSource: {fileID: 11499066}
