@@ -1198,21 +1198,21 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105269284}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!92 &1105269287
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105269284}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1105269288
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105269284}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1105269289
 Camera:
   m_ObjectHideFlags: 0
