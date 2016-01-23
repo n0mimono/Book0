@@ -20,7 +20,7 @@ namespace Custom {
 		}
 	}
 
-	public class SingletonMonoBehaviorDestroyable<T> : MonoBehaviour where T : MonoBehaviour{
+	public class SingletonMonoBehaviorDestroyable<T> : MonoBehaviour where T : MonoBehaviour {
 		private static T instance;
 		public static T Instance {
 			get {
@@ -34,9 +34,13 @@ namespace Custom {
 				return instance;
 			}
 		}
+
+		void OnDestroy() {
+			instance = null;
+		}
 	}
 
-	public class SingletonMonoBehaviorWithoutCreate<T> : MonoBehaviour where T : MonoBehaviour{
+	public class SingletonMonoBehaviorWithoutCreate<T> : MonoBehaviour where T : MonoBehaviour {
 		private static T instance;
 		public static T Instance {
 			get {
@@ -45,6 +49,10 @@ namespace Custom {
 				}
 				return instance;
 			}
+		}
+
+		void OnDestroy() {
+			instance = null;
 		}
 	}
 }

@@ -98,7 +98,6 @@ public partial class Dragon : MonoBehaviour {
 }
 
 public partial class Dragon {
-	public UnityEvent OnRoar;
 
 	public enum HeadState {
 		None    = 0,
@@ -111,8 +110,8 @@ public partial class Dragon {
 	}
 
 	public void StartSpell() {
-		if (OnRoar != null) {
-			OnRoar.Invoke ();
+		if (Shaker.Instance != null) {
+			Shaker.Instance.StartShake ();
 		}
 
 		if (isBreathing) {

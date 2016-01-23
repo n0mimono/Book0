@@ -76,7 +76,7 @@ public partial class ElasticCameraOperator : MonoBehaviour {
 
 		Transform camTrans = Camera.main.transform;
 		camTrans.eulerAngles = Custom.Utility.AngleLerp (camTrans.eulerAngles, ang, cur.lerpSpeed * Time.deltaTime);
-		camTrans.position = Vector3.Lerp(camTrans.position, pos, cur.lerpSpeed * Time.deltaTime);
+		camTrans.position = Vector3.Lerp(camTrans.position, pos, cur.lerpSpeed * Time.deltaTime) + Shaker.Instance.offset;
 	}
 
 	void StartLateCoroutine(IEnumerator routine) {

@@ -2,7 +2,7 @@
 using System.Collections;
 using Custom;
 
-public class Shaker : MonoBehaviour {
+public class Shaker : SingletonMonoBehaviorWithoutCreate<Shaker> {
 
 	public float amplitude;
 	public float damp;
@@ -10,10 +10,17 @@ public class Shaker : MonoBehaviour {
 
 	public Vector3 offset;
 
+	private bool isShaking;
+
 	[Button("StartShake", "Start Shake")] public float ButtonStartShake;
 
 	public void StartShake() {
-		ProcShake ().StartBy (this);
+		if (isShaking) return;
+
+		isShaking = true;
+		ProcShake ()
+			.OnCompleted (() => isShaking = false)
+			.StartBy (this);
 	}
 
 	private IEnumerator ProcShake() {

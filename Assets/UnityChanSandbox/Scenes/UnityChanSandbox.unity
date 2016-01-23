@@ -2251,6 +2251,7 @@ GameObject:
   - 81: {fileID: 1892226354}
   - 114: {fileID: 1892226360}
   - 114: {fileID: 1892226359}
+  - 114: {fileID: 1892226361}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2425,3 +2426,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   _ditherMode: 0
   shader: {fileID: 4800000, guid: dc9775b65c52747e69fc4c854c00d696, type: 3}
+--- !u!114 &1892226361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1892226353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efc80275e77647828ac028f22c424d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.05
+  damp: 0.04
+  keepTime: 0.2
+  offset: {x: 0, y: 0, z: 0}
+  ButtonStartShake: 0
