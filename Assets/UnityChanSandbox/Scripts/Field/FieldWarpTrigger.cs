@@ -27,12 +27,14 @@ public class FieldWarpTrigger : MonoBehaviour {
 		DelaydReady ().StartBy (this);
 
 		// wtf: this method shall be operated by last.
-		GetComponent<MeshExplosionTrigger>().Explosion();
+		GetComponent<MeshExploder>().Explode();
+		GetComponent<Renderer> ().enabled = false;
 	}
 
 	private IEnumerator DelaydReady() {
-		yield return new WaitForSeconds (3f);
+		yield return new WaitForSeconds (5f);
 		isReady = true;
+		GetComponent<Renderer> ().enabled = true;
 	}
 
 }

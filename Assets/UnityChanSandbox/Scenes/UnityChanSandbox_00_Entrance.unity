@@ -370,7 +370,6 @@ GameObject:
   - 114: {fileID: 687991047}
   - 114: {fileID: 687991046}
   - 114: {fileID: 687991049}
-  - 114: {fileID: 687991048}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Enemy
@@ -458,17 +457,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a34d3420aee554e3d9036badfc168710, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &687991048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 687991041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d58a5a24c20540158e6420bb5ec8be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &687991049
@@ -1234,7 +1222,6 @@ GameObject:
   - 114: {fileID: 1480185992}
   - 114: {fileID: 1480185991}
   - 114: {fileID: 1480185990}
-  - 114: {fileID: 1480185989}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Enemy
@@ -1254,17 +1241,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1812082482}
   m_RootOrder: 0
---- !u!114 &1480185989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1480185987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d58a5a24c20540158e6420bb5ec8be6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1480185990
 MonoBehaviour:
   m_ObjectHideFlags: 0
