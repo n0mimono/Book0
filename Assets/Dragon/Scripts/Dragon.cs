@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Events;
 
-public partial class Dragon : MonoBehaviour {
+public partial class Dragon : Creature {
+	[Header("Dragon")]
 	public Transform ctrlTrans;
 	public Transform myTrans;
 	public Animator animator;
@@ -33,11 +34,9 @@ public partial class Dragon : MonoBehaviour {
 	public float maxAngleSpeed;
 	private float angleSpeed;
 
-	void Start() {
-		Initilize ();
-	}
+	protected override void Initialize() {
+		base.Initialize ();
 
-	private void Initilize() {
 		SetState (State.Idle);
 
 		animator.GetBehaviours<DragonStateMachine> ().ToList ()
@@ -50,7 +49,6 @@ public partial class Dragon : MonoBehaviour {
 		Rotate ().StartBy (this);
 
 		InitilizeSpell ();
-		InitilizeDamagers ();
 	}
 
 	public void SetState(State state) {
@@ -144,14 +142,15 @@ public partial class Dragon {
 }
 
 public partial class Dragon {
-	[Header("Damage Control")]
-	public DamageReceptor damageReceptor;
+	
+	protected override void InitializeDamageControl() {
+		base.InitializeDamageControl ();
 
-	private void InitilizeDamagers() {
-		damageReceptor.OnDamage += OnDamage;
 	}
 
-	private void OnDamage(DamageSource src) {
+	protected override void OnDamage(DamageSource src) {
+		base.OnDamage (src);
+
 	}
 
 }

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Custom;
 
-public partial class YukataAction : MonoBehaviour {
+public partial class YukataAction : Creature {
+	[Header("Yukata Action")]
 	public CharacterController characterControl;
 	public Animator animator;
 
@@ -35,10 +36,10 @@ public partial class YukataAction : MonoBehaviour {
 	public event LockHandler InLockAction;
 	public event LockHandler OutLockAction;
 
-	void Start() {
-		InitilizeActions ();
+	protected override void Initialize() {
+		base.Initialize ();
 
-		InitilizeDamagers ();
+		InitilizeActions ();
 		InitilizeEnchantress ();
 	}
 
@@ -136,14 +137,11 @@ public partial class YukataAction {
 
 public partial class YukataAction {
 	
-	[Header("Damage Control")]
-	public DamageSource damageSource;
-	public DamageReceptor damageReceptor;
+	protected override void InitializeDamageControl() {
+		base.InitializeDamageControl ();
 
-	private void InitilizeDamagers() {
 		damageSource.IsDamageable = () => Is (AnimeAction.Dive);
 		damageReceptor.IsDamageable = () => !Is (AnimeAction.Damaged);
-		damageReceptor.OnDamage += OnDamage;
 	}
 
 	private void BodyDown() {
@@ -151,7 +149,9 @@ public partial class YukataAction {
 		StartLockedAction (AnimeAction.Damaged, onCompleted, true);
 	}
 
-	private void OnDamage(DamageSource src) {
+	protected override void OnDamage(DamageSource src) {
+		base.OnDamage (src);
+
 		//Debug.Log (src.name + " > " + src.gameObject.tag + " => " + gameObject.IsOppositeTo(src.gameObject));
 		CancelActions ();
 
@@ -163,6 +163,9 @@ public partial class YukataAction {
 		if (enchantress != null) StopSpell();
 	}
 
+}
+
+public partial class YukataAction {
 	[Header("Targetting")]
 	public Transform target;
 	public System.Action<Transform> OnSetTarget = (tgt) => {};
