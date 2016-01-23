@@ -28,6 +28,7 @@ public class UIScrollPanel : MonoBehaviour {
 		RectTransform trans = item.GetComponent<RectTransform> ();
 		trans.SetParent (contentRoot);
 		trans.gameObject.SetActive (true);
+		trans.localScale = Vector3.one;
 		trans.anchoredPosition = new Vector3 (0f, -height * items.Count, 0f);
 
 		items.Add (item);
