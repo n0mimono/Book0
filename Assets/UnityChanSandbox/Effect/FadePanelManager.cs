@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class FadePanelManager : MonoBehaviour {
 	public Image fadeImage;
-	public const float FixedFrameRate = 30f;
 
 	private bool isFading;
 
@@ -25,7 +24,7 @@ public class FadePanelManager : MonoBehaviour {
 
 		float t = 0f;
 		return new WaitWhile (() => {
-			t += 1f / FixedFrameRate;
+			t += 1f / TimeManager.FrameRate;
 			SetAlpha (t);
 			return t <= 1f;
 		});
@@ -34,7 +33,7 @@ public class FadePanelManager : MonoBehaviour {
 	public CustomYieldInstruction FadeOut() {
 		float t = 1f;
 		return new WaitWhile (() => {
-			t -= 1f / FixedFrameRate;
+			t -= 1f / TimeManager.FrameRate;
 			SetAlpha(t);
 			isFading = t >= 0f;
 			return isFading;
