@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: MagicRing
-  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: c4ee3223668f743358425c5a54407a0a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: 3000
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 7fa27da625fac8a46b72ac5c244d992f, type: 3}
+          m_Texture: {fileID: 2800000, guid: 727fe61abaf1748a08ab4bafd7884db5, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -131,6 +131,14 @@ Material:
         first:
           name: _InvFade
         second: 1
+      data:
+        first:
+          name: _Alpha
+        second: 0.2
+      data:
+        first:
+          name: _RingExtend
+        second: 0.6
     m_Colors:
       data:
         first:
@@ -143,4 +151,4 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.078431375}
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.23529412}

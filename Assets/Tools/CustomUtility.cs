@@ -140,6 +140,11 @@ namespace Custom {
 			return new Color (vec.x, vec.y, vec.z, alpha);
 		}
 
+		public static void SetEmission(this ParticleSystem particle, bool isEnabled) {
+			ParticleSystem.EmissionModule emission = particle.emission;
+			emission.enabled = isEnabled;
+		}
+
 		public static float Similarity(this Vector3 a, Vector3 b) {
 			return Vector3.Dot (a.normalized, b.normalized);
 		}
