@@ -34,6 +34,7 @@ public partial class MagicBullet : MagicProjectile {
 	public override void Load() {
 		base.Load ();
 
+		trail.Clear ();
 		trail.enabled = false;
 	}
 
