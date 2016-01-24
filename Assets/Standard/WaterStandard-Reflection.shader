@@ -15,6 +15,7 @@
     [KeywordEnum(BRDF1, BRDF2, BRDF3)] _PBS_QUALITY("PBR Quality", Float) = 0
 
     _ReflDistort ("Reflection Distortion", Float) = 0
+    _ReflDistortOffset ("Reflection Distortion Offset", Float) = 0
     [HideInInspector] _ReflectionTex ("Reflection Tex", 2D) = "white" {}
   }
   SubShader {
@@ -50,6 +51,7 @@
     uniform half _Mip;
 
     uniform half _ReflDistort;
+    uniform half _ReflDistortOffset;
     uniform sampler2D _ReflectionTex;
 
     struct v2f {
@@ -106,7 +108,7 @@
       gi.indirect.diffuse  = half3(1,1,1);
 
       // main albedo
-      i.refl.xz -= bump * _ReflDistort;
+      i.refl.xz -= bump * _ReflDistort + _ReflDistortOffset;
       half4 refl = tex2Dproj(_ReflectionTex, UNITY_PROJ_COORD(i.refl));
       half3 albedo = refl * tex2D(_MainTex, i.uv + bump * _ReflDistort) * _Color;
 

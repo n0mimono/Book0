@@ -8,6 +8,7 @@ public class Petrifier : MonoBehaviour {
 	public Material material;
 	public List<Behaviour> exceptions;
 	public float time;
+	public bool petrifyOnStart;
 
 	private List<Material> materials;
 	private bool isPetrified;
@@ -35,6 +36,9 @@ public class Petrifier : MonoBehaviour {
 			ren.gameObject.AddComponent<MeshExploder> ();
 		}
 
+		if (petrifyOnStart) {
+			Petrify ();
+		}
 	}
 
 	public void Petrify() {

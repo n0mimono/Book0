@@ -10,6 +10,8 @@ public static class Common {
 		Character = 8,
 		Spell     = 9,
 		Dead      = 11,
+		RealOnly  = 13,
+		GlassOnly = 14,
 	}
 	public const string PlayerTag = "Player";
 	public const string EnemyTag = "Enemy";
