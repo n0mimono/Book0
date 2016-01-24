@@ -633,8 +633,9 @@ GameObject:
   - 114: {fileID: 11447576}
   - 114: {fileID: 11477534}
   - 114: {fileID: 11438496}
+  - 114: {fileID: 11451010}
   m_Layer: 8
-  m_Name: SD_unitychan_high
+  m_Name: SD_unitychan_specter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4670,6 +4671,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11451010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891c94e0f7a15494da2fb35d2edb17fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yukataAction: {fileID: 11422312}
+  turnSpeed: 2
 --- !u!114 &11452510
 MonoBehaviour:
   m_ObjectHideFlags: 1

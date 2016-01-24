@@ -20,10 +20,10 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.8033629, g: 0.84499925, b: 0.9338235, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.5
   m_AmbientMode: 0
   m_SkyboxMaterial: {fileID: 2100000, guid: 844148e586bae4f9c8dc4f01ebb3eaea, type: 2}
   m_HaloStrength: 0.5
@@ -161,6 +161,118 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 21945212}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &50012190
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1272084160}
+    m_Modifications:
+    - target: {fileID: 425156, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425156, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 425156, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 290
+      objectReference: {fileID: 0}
+    - target: {fileID: 425156, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.34202018
+      objectReference: {fileID: 0}
+    - target: {fileID: 425156, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425156, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425156, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9396926
+      objectReference: {fileID: 0}
+    - target: {fileID: 425156, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419422, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454072, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458958, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472114, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493212, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454398, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494606, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11414664, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489540, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485150, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407258, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412138, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11414468, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430462, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467228, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+      propertyPath: instanceName
+      value: MagicBulletClassic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &50012191 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 425156, guid: 4a887ab68a0bc40498f4df34921ca32c, type: 2}
+  m_PrefabInternal: {fileID: 50012190}
+--- !u!114 &117289804 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11497634, guid: 4a887ab68a0bc40498f4df34921ca32c,
+    type: 2}
+  m_PrefabInternal: {fileID: 50012190}
+  m_Script: {fileID: 11500000, guid: 57dce7cba5760491d81fc68798dac5fa, type: 3}
 --- !u!1 &293696872
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +566,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 127916, guid: 5012551baae504f80904e41aae8017ba, type: 2}
+      propertyPath: m_Name
+      value: SD_unitychan_specter
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422312, guid: 5012551baae504f80904e41aae8017ba, type: 2}
+      propertyPath: enchantress
+      value: 
+      objectReference: {fileID: 117289804}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5012551baae504f80904e41aae8017ba, type: 2}
   m_IsPrefabParent: 0
@@ -996,29 +1116,6 @@ Transform:
   - {fileID: 582959792}
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!1 &1130670517 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 127916, guid: 5012551baae504f80904e41aae8017ba, type: 2}
-  m_PrefabInternal: {fileID: 517379056}
---- !u!114 &1130670518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1130670517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 891c94e0f7a15494da2fb35d2edb17fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yukataAction: {fileID: 1130670522}
-  turnSpeed: 2
---- !u!114 &1130670522 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11422312, guid: 5012551baae504f80904e41aae8017ba,
-    type: 2}
-  m_PrefabInternal: {fileID: 517379056}
-  m_Script: {fileID: 11500000, guid: a1eb55cecbb2d4acd95c1c98d3f0d322, type: 3}
 --- !u!1 &1143555442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,6 +1227,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1240658574}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1272084159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1272084160}
+  m_Layer: 0
+  m_Name: EnemyMagic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1272084160
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1272084159}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 50012191}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1001 &1292272438
 Prefab:
   m_ObjectHideFlags: 0
@@ -1349,7 +1474,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: e04b8e3924b464451b2a2bae0308a30e, type: 2}
+  - {fileID: 2100000, guid: 7e313e0e7b25e465aa06efd20faff3fc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

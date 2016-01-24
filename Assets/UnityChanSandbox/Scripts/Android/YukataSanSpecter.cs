@@ -12,6 +12,8 @@ public class YukataSanSpecter : MonoBehaviour {
 	[Header("Yukata-Chan")]
 	public float turnSpeed;
 
+	private bool isChecking;
+
 	void Start() {
 		myTrans = yukataAction.transform;
 
@@ -26,12 +28,6 @@ public class YukataSanSpecter : MonoBehaviour {
 	}
 
 	private IEnumerator Daruma() {
-		Vector3 fwd = myTrans.forward;
-
-		yield return new ActionWithTime ((t, dt) =>
-			myTrans.AddEulerAngleY(180f * turnSpeed * dt), turnSpeed);
-		myTrans.forward = -1f * fwd;
-
 		yield return new WaitForSeconds (0.5f);
 		yield return new WaitForSeconds (0.5f);
 		yield return new WaitForSeconds (0.5f);
@@ -43,11 +39,7 @@ public class YukataSanSpecter : MonoBehaviour {
 		yield return new WaitForSeconds (0.5f);
 		yield return new WaitForSeconds (0.5f);
 
-		yield return new ActionWithTime ((t, dt) =>
-			myTrans.AddEulerAngleY(180f * turnSpeed * dt), turnSpeed);
-		myTrans.forward = fwd;
-
-		yield return CheckTarget ().WhileInCount (3f);
+		yield return new WaitForSeconds (3f);
 
 		yield return null;
 	}
@@ -55,20 +47,14 @@ public class YukataSanSpecter : MonoBehaviour {
 	private IEnumerator CheckTarget() {
 		Transform target = gameObject.FindOppositeCharacters ().RandomOrDefault().transform;
 
+		Vector3 curPos = target.position;
+
 		while (true) {
-			Vector3 src = myTrans.position + 3f * myTrans.forward;
-			Vector3 dst = target.position;
-			myTrans.LookAt (dst.Ground (src.y));
+			Vector3 prevPos = curPos;
+			curPos = target.position;
+			myTrans.LookAt (curPos);
 
-			RaycastHit hit;
-			if (Physics.Linecast (src, dst, out hit)) {
-				GameObject obj = hit.collider.gameObject;
-				//Debug.Log (obj);
-
-				if (obj.IsLayer(Common.Layer.Character) && obj.IsPlayerTag()) {
-					OnPlayerFound(target);
-				}
-			}
+			float spd = Vector3.Distance (prevPos, curPos) / Time.deltaTime;
 
 			yield return null;
 		}

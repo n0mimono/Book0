@@ -954,7 +954,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452584, guid: 79b73f2dc15974c609c021399aec9535, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79b73f2dc15974c609c021399aec9535, type: 2}
@@ -2103,8 +2103,8 @@ MonoBehaviour:
   - UnityChanSandbox_03_PixieRoad
   fadeMan: {fileID: 1632636039}
   startOnStart: 1
-  loadOnInit: 1
-  loadIndexOnInit: 0
+  loadOnInit: 0
+  loadIndexOnInit: 3
   isReady: 0
 --- !u!1 &1632747470
 GameObject:
