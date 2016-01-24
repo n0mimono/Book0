@@ -139,13 +139,13 @@ public partial class ElasticCameraOperator {
 
 		for (float time = 0f; time < 4f; time += Time.deltaTime) {
 			opTrans.AddEulerAngleY (Time.deltaTime * -10f);
-			opTrans.LookAt (enemy.position + Vector3.up * (7f - time * 0.5f));
+			opTrans.LookAt (enemy.position + Vector3.up * (9f - time * 2f));
 			opTrans.position += Vector3.up * Time.deltaTime;
 			yield return null;
 		}	
 		for (float time = 0f; time < 5f; time += Time.deltaTime) {
-			opTrans.AddEulerAngleY (Time.deltaTime * -15f);
-			opTrans.LookAt (enemy.position + Vector3.up * (7f - time * 2f));
+			opTrans.AddEulerAngleY (Time.deltaTime * -3f);
+			opTrans.LookAt (enemy.position + Vector3.up * (1f - time * 0.1f));
 			opTrans.position += Vector3.up * Time.deltaTime * 3f;
 			yield return null;
 		}	
