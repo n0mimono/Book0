@@ -139,6 +139,10 @@ public partial class YukataAction {
 		StartGuardianMagic ();
 	}
 
+	public void SpellAngel(LockHandler onCompleted) {
+		StartLockedAction (AnimeAction.Salute, onCompleted, true);
+		StartAngelMagic ();
+	}
 }
 
 public partial class YukataAction {
@@ -223,6 +227,7 @@ public partial class YukataAction {
 	[Header("Magic")]
 	public EnchantControl enchantress;
 	public MagicShieldSpawner guardian;
+	public MagicMagazine angelMagazine;
 	private bool isSpelling = false;
 	private bool isGuarding = false;
 
@@ -286,6 +291,19 @@ public partial class YukataAction {
 
 	    yield return new WaitForSeconds(2f);
 		isGuarding = false;
+	}
+
+	private void StartAngelMagic() {
+		AngelMagic ().StartBy (this);
+	}
+
+	private IEnumerator AngelMagic() {
+		yield return new WaitForSeconds (4f);
+		angelMagazine.Initilize (gameObject.tag);
+		yield return null;
+		angelMagazine.Load ();
+		yield return null;
+		angelMagazine.Fire (target);
 	}
 
 }

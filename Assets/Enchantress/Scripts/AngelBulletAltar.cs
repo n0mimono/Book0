@@ -5,6 +5,9 @@ using System.Linq;
 using Custom;
 
 public class AngelBulletAltar : MonoBehaviour {
+	public Transform target;
+	public System.Action OnProcCompleted; 
+
 	public List<MagicCircle> circles;
 	public List<ParticleSystem> particles;
 	public List<MagicMagazine> magazines;
@@ -47,17 +50,19 @@ public class AngelBulletAltar : MonoBehaviour {
 	}
 
 	void Start() {
-		StartProc ();
+		particles.ForEach (p => p.SetEmission (false));
+		bulletive.main.gameObject.SetActive (false);
+		bulletive2.main.gameObject.SetActive (false);
 	}
 
 	public void StartProc() {
+		TraceTarget ().StartBy (this);
 		Proc ().StartBy (this);
 	}
 
 	private IEnumerator Proc() {
 		particles.ForEach (p => p.SetEmission (true));
-		bulletive.main.gameObject.SetActive (false);
-		bulletive2.main.gameObject.SetActive (false);
+		yield return null;
 
 		circles [0].Hold ();
 		yield return new WaitForSeconds(1f);
@@ -77,13 +82,33 @@ public class AngelBulletAltar : MonoBehaviour {
 		bulletive2.UpdateOnce ().StartBy (this);
 		yield return new WaitForSeconds(1f);
 		circles [7].Hold ();
+		StartCoroutine (LoadMagazines ());
 		yield return new WaitForSeconds(1f);
 		circles [8].Hold ();
 		circles [9].Hold ();
 
-		yield return new WaitForSeconds(10f);
-		bulletive.main.gameObject.SetActive (false);
-		bulletive2.main.gameObject.SetActive (false);
+		yield return new WaitForSeconds(2);
+		magazines.ForEach (m => m.Fire (target));
+		circles.ForEach (c => c.Release ());
+		particles.ForEach (p => p.SetEmission (false));
+
+		yield return new WaitForSeconds(5f);
+		OnProcCompleted ();
+	}
+
+	private IEnumerator LoadMagazines() {
+		foreach (MagicMagazine magazine in magazines) {
+			magazine.Initilize (gameObject.tag);
+			magazine.Load ();
+			yield return null;
+		}
+	}
+
+	private IEnumerator TraceTarget() {
+		while (true) {
+			transform.position = target.position;
+			yield return null;
+		}
 	}
 
 	public void Release() {

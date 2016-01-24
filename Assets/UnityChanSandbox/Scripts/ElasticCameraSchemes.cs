@@ -114,27 +114,44 @@ public partial class ElasticCameraOperator {
 public partial class ElasticCameraOperator {
 
 	private IEnumerator Magi() {
+		Vector3 angs = opTrans.eulerAngles;
 		cur.lerpSpeed = cur.scheme.lerpSpeed;
 
 		Transform player = targets.Where (t => t.isPlayer).Select (t => t.trans).FirstOrDefault ();
 		Transform enemy = targets.Where (t => t.isEnemy).Select (t => t.trans).FirstOrDefault ();
 
-		opTrans.LookAt (player.position + Vector3.up * 1f);
-		opTrans.position = player.position - opTrans.forward * 2f;
-		opTrans.SetPositionY (1.5f);
+		for (float time = 0f; time < 1f; time += Time.deltaTime) yield return null;
+		yield return null;
 
-		for (float time = 0f; time < 2f; time += Time.deltaTime) yield return null;
+		opTrans.position = player.position - opTrans.forward * 2f;
+		opTrans.SetPositionY (2f);
+		opTrans.LookAt (player.position + Vector3.up * 1f);
+
+		for (float time = 0f; time < 1.5f; time += Time.deltaTime) yield return null;
 		yield return null;
 
 		opTrans.LookAt (enemy.position + Vector3.up * 1f);
-		for (float time = 0f; time < 5f; time += Time.deltaTime) {
+		for (float time = 0f; time < 4f; time += Time.deltaTime) {
 			opTrans.AddEulerAngleY (Time.deltaTime * 15f);
 			opTrans.position = enemy.position - opTrans.forward * (4f + time * 1.5f);
 			yield return null;
 		}
 
-		opTrans.LookAt (enemy.position + Vector3.up * 7f);
-		for (float time = 0f; time < 5f; time += Time.deltaTime) yield return null;
+		for (float time = 0f; time < 4f; time += Time.deltaTime) {
+			opTrans.AddEulerAngleY (Time.deltaTime * -10f);
+			opTrans.LookAt (enemy.position + Vector3.up * (7f - time * 0.5f));
+			opTrans.position += Vector3.up * Time.deltaTime;
+			yield return null;
+		}	
+		for (float time = 0f; time < 5f; time += Time.deltaTime) {
+			opTrans.AddEulerAngleY (Time.deltaTime * -15f);
+			opTrans.LookAt (enemy.position + Vector3.up * (7f - time * 2f));
+			opTrans.position += Vector3.up * Time.deltaTime * 3f;
+			yield return null;
+		}	
+
+		yield return null;
+		opTrans.eulerAngles = angs;
 	}
 
 }

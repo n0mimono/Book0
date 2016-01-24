@@ -8,6 +8,7 @@ public class MagicSpawner : MonoBehaviour {
 	public MagicProjectile projectile;
 	public string instanceName;
 	public Vector3 positionNoise;
+	public bool getRawTarget;
 
 	public bool IsLoaded { get { return projectile != null; } }
 
@@ -44,7 +45,7 @@ public class MagicSpawner : MonoBehaviour {
 
 		projectile.transform.forward = transform.forward;
 
-		projectile.target = target.GetTarget();
+		projectile.target = getRawTarget ? target : target.GetTarget();
 		projectile.Fire ();
 		projectile = null;
 	}

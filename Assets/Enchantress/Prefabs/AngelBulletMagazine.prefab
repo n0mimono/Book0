@@ -106,6 +106,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: AngelBullet
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 1
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
