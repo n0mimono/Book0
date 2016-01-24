@@ -55,4 +55,40 @@ namespace Custom {
 			instance = null;
 		}
 	}
+
+	public class CustomMonoBehavior : MonoBehaviour {
+		private Transform transCache;
+		public Transform myTrans {
+			get {
+				if (transCache == null) {
+					transCache = transform;
+				}
+				return transCache;
+			}
+			set {
+				transCache = value;
+			}
+		}
+		public Vector3 myPosition { get { return myTrans.position; } }
+		public Vector3 myAngls    { get { return myTrans.eulerAngles; } }
+		public Vector3 myScale    { get { return myTrans.localScale; } }
+		public Vector3 myForward  { get { return myTrans.forward; } }
+
+		private IEnumerator exclusiveCoroutine;
+		public void StartCoroutineExclusive(IEnumerator routine) {
+			if (exclusiveCoroutine != null) {
+				StopCoroutine (exclusiveCoroutine);
+			}
+
+			exclusiveCoroutine = routine;
+			StartCoroutine (exclusiveCoroutine);
+		}
+	}
+
+	public static class CustomMonoBehaviorExtension {
+		public static void StartExclusiveBy(this IEnumerator enumerator, CustomMonoBehavior behav) {
+			behav.StartCoroutineExclusive (enumerator);
+		}
+	}
+
 }

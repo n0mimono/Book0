@@ -14,8 +14,18 @@ namespace Custom {
 			}
 		}
 
+		public static void ThenDo(this bool isTrue, Action action) {
+			if (isTrue) {
+				action ();
+			}
+		}
+
 		public static int ToInt(this object obj) {
 			return (int)obj;
+		}
+
+		public static float RandomFiltered(this float value, float prop) {
+			return UnityEngine.Random.value < prop ? value : 0f;
 		}
 
 		public static void SetTag(this GameObject obj, string tag, bool isRecursive = true) {

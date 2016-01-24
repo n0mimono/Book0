@@ -4683,7 +4683,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yukataAction: {fileID: 11422312}
+  target: {fileID: 0}
   turnSpeed: 2
+  foundSpeed: 0.5
+  gauge: {fileID: 0}
+  isAttacking: 0
 --- !u!114 &11452510
 MonoBehaviour:
   m_ObjectHideFlags: 1
