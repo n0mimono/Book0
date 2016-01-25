@@ -10,21 +10,18 @@ public class Shaker : SingletonMonoBehaviorWithoutCreate<Shaker> {
 
 	public Vector3 offset;
 
-	private bool isShaking;
-
-	[Button("StartShake", "Start Shake")] public float ButtonStartShake;
+	private IEnumerator shake;
+	private float tmpAmplitude;
 
 	public void StartShake() {
-		if (isShaking) return;
+		shake.Do (s => StopCoroutine (s));
 
-		isShaking = true;
-		ProcShake ()
-			.OnCompleted (() => isShaking = false)
-			.StartBy (this);
+		shake = ProcShake ();
+		StartCoroutine (shake);
 	}
 
 	private IEnumerator ProcShake() {
-		float tmpAmplitude = amplitude;
+		tmpAmplitude = amplitude;
 
 		float time = 0f;
 		while (tmpAmplitude > 0f) {
@@ -37,6 +34,7 @@ public class Shaker : SingletonMonoBehaviorWithoutCreate<Shaker> {
 			yield return null;
 		}
 
+		tmpAmplitude = 0f;
 		offset = Vector3.zero;
 	}
 }

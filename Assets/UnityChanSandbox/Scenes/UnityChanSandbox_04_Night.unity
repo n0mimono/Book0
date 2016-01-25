@@ -14,18 +14,18 @@ SceneSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_Fog: 1
-  m_FogColor: {r: 0.4595588, g: 0.6066176, b: 0.625, a: 1}
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.02
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 2100000, guid: 0336a18c6928949acba94852bf6623ae, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d07d2172e76d3fa429e80a14d2ae3616, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -66,7 +66,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000001, guid: e2cc5eec5466f4586a3d3f9a4e75c307,
+  m_LightingDataAsset: {fileID: 112000001, guid: f2346ebb9aeba418680e07d6c6eb2689,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -717,8 +717,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 866878735}
-  m_LocalRotation: {x: 0.010523886, y: 0.98421925, z: -0.16274586, w: 0.068669885}
-  m_LocalPosition: {x: -11.898371, y: 13.4360485, z: 25.529758}
+  m_LocalRotation: {x: -0.30954623, y: -0.1864774, z: 0.06261891, w: -0.93031514}
+  m_LocalPosition: {x: -23.98722, y: 39.773476, z: -78.45647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 360401029}

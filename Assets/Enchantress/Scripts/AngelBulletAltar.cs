@@ -92,6 +92,9 @@ public class AngelBulletAltar : MonoBehaviour {
 		circles.ForEach (c => c.Release ());
 		particles.ForEach (p => p.SetEmission (false));
 
+		yield return new WaitForSeconds(0.5f);
+		Shaker.Instance.Do (s => s.StartShake ()); // tmp solution
+
 		yield return new WaitForSeconds(5f);
 		OnProcCompleted ();
 	}

@@ -2572,8 +2572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0.614
-  intensity: 1.09
+  threshold: 0.546
+  intensity: 0.35
   blurSize: 2.92
   blurIterations: 1
   blurType: 0
@@ -2593,7 +2593,6 @@ MonoBehaviour:
   damp: 0.04
   keepTime: 0.2
   offset: {x: 0, y: 0, z: 0}
-  ButtonStartShake: 0
 --- !u!114 &1892226362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2605,11 +2604,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10593b7d510b64560a297a8af1356dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorTemp: 0.1
+  _colorTemp: 0
   _colorTint: 0
   _toneMapping: 0
   _exposure: 1
-  _saturation: 0.824
+  _saturation: 0.788
   _rCurve:
     serializedVersion: 2
     m_Curve:
