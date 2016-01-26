@@ -2470,7 +2470,6 @@ GameObject:
   - 114: {fileID: 1892226361}
   - 114: {fileID: 1892226362}
   - 114: {fileID: 1892226360}
-  - 114: {fileID: 1892226359}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2539,29 +2538,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1892226353}
-  m_LocalRotation: {x: 0.06312451, y: 0.8396278, z: -0.10032531, w: 0.5300711}
+  m_LocalRotation: {x: 0.06312417, y: 0.8396279, z: -0.1003258, w: 0.53007084}
   m_LocalPosition: {x: -1.7873749, y: 1.763552, z: 1.4823194}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1105269285}
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!114 &1892226359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1892226353}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc6bde01469c7b4badee5362f191d96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  downsample: 1
-  blurSize: 0
-  blurIterations: 1
-  blurType: 0
-  blurShader: {fileID: 4800000, guid: f9d5fa183cd6b45eeb1491f74863cd91, type: 3}
 --- !u!114 &1892226360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2570,15 +2553,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1892226353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Script: {fileID: 11500000, guid: 6363bba448bf64e60a763433f9ddf81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0.546
-  intensity: 0.35
-  blurSize: 2.92
-  blurIterations: 1
-  blurType: 0
-  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
+  _exposure: 0
+  _radius: 5
+  _intensity: 0.585
+  _antiFlicker: 0
+  _shader: {fileID: 4800000, guid: 5a711a01011934ebcb58ef5ad52159d6, type: 3}
 --- !u!114 &1892226361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,7 +2591,7 @@ MonoBehaviour:
   _colorTint: 0
   _toneMapping: 0
   _exposure: 1
-  _saturation: 0.788
+  _saturation: 0.662
   _rCurve:
     serializedVersion: 2
     m_Curve:
