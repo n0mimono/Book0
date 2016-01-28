@@ -21,6 +21,15 @@ public partial class YukataManager : MonoBehaviour {
 	public float speedScale;
 
 	IEnumerator Start() {
+		bool isReady = false;
+		uiInputControl.OnCharacterSelected += (index) => {
+			yukataIndex = index;
+			isReady = true;
+		};
+		yield return new WaitUntil (() => isReady);
+
+		FieldManager.Instance.Initilize ();
+
 		yukataList.ForEach (y => y.gameObject.SetActive (false));
 		yukataList [yukataIndex].gameObject.SetActive(true);
 		yukataAction = yukataList [yukataIndex].action;
