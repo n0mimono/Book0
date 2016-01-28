@@ -26,6 +26,17 @@ public partial class ElasticCameraOperator {
 		}
 		enemy.trans = target;
 	}
+
+	public void SetPlayerTarget(Transform target) {
+		Target player = targets.Where (t => t.isPlayer).FirstOrDefault ();
+		if (player == null) {
+			player = new Target ();
+			player.isPlayer = true;
+			targets.Add (player);
+		}
+		player.trans = target;
+	}
+
 }
 
 public partial class ElasticCameraOperator {

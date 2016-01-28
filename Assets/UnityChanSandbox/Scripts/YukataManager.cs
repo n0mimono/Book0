@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Custom;
 
 public partial class YukataManager : MonoBehaviour {
+	public List<YukataActionMaster> yukataList;
+	public int yukataIndex;
 
 	public ElasticCameraOperator cameraOperator;
 	public ElasticTouch elasticTouch;
 
 	public UICameraControl uiCameraControl;
+	public UIInputControl  uiInputControl;
 	public UIHpGaugeYukata uiHpGauge;
 
 	public YukataAction yukataAction;
@@ -16,6 +21,10 @@ public partial class YukataManager : MonoBehaviour {
 	public float speedScale;
 
 	IEnumerator Start() {
+		yukataList.ForEach (y => y.gameObject.SetActive (false));
+		yukataList [yukataIndex].gameObject.SetActive(true);
+		yukataAction = yukataList [yukataIndex].action;
+
 		elasticTouch.handler.OnUpdate += OnTouchUpdate;
 		elasticTouch.handler.OnChain += OnChainAction;
 		elasticTouch.handler.OnHold += OnHoldction;
@@ -31,6 +40,7 @@ public partial class YukataManager : MonoBehaviour {
 		yukataAction.OnSetTarget = cameraOperator.SetEnemyTarget;
 		yukataAction.DeadHandler += OnGameOver;
 
+		cameraOperator.SetPlayerTarget (yukataAction.transform);
 		yield return null;
 
 		uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.PlayerTargeting);
