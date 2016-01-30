@@ -273,12 +273,13 @@ public partial class YukataAction {
 
 	private void StartGuardianMagic() {
 		if (isGuarding) return;
-		isGuarding = true;
 
 		GuardianMagic ().StartBy (this);		
 	}
 
 	private IEnumerator GuardianMagic() {
+		isGuarding = true;
+
 		yield return null;
 		guardian.transform.position = transform.position;
 		guardian.Load();
@@ -299,6 +300,7 @@ public partial class YukataAction {
 
 	private IEnumerator AngelMagic() {
 		yield return new WaitForSeconds (2f);
+
 		angelMagazine.Initilize (gameObject.tag);
 		yield return null;
 		angelMagazine.Load ();

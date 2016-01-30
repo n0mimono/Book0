@@ -43,6 +43,7 @@ public class MagicSpawner : MonoBehaviour {
 	public void Fire(Transform target) {
 		OnRelease ();
 
+		if (projectile == null) return;
 		projectile.transform.forward = transform.forward;
 
 		projectile.target = getRawTarget ? target : target.GetTarget();
