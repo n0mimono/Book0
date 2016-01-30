@@ -16,9 +16,10 @@ public partial class Dragon : Creature {
 	public Transform target;
 
 	public enum State {
-		Idle     = 0,
-		FlyIdle  = 1,
-		Fly      = 2,
+		Idle     =  0,
+		FlyIdle  =  1,
+		Fly      =  2,
+		Dead     = 20,
 	}
 
 	[System.Serializable]
@@ -101,6 +102,7 @@ public partial class Dragon {
 	public enum HeadState {
 		None    = 0,
 		Breathe = 1,
+		Dead    = 20,
 	}
 	private bool isBreathing;
 
@@ -142,15 +144,21 @@ public partial class Dragon {
 }
 
 public partial class Dragon {
-	
+
+
 	protected override void InitializeDamageControl() {
 		base.InitializeDamageControl ();
 
+		DeadHandler += OnDead;
 	}
 
 	protected override void OnDamage(DamageSource src) {
 		base.OnDamage (src);
+	}
 
+	private void OnDead() {
+		cur = schemes.Where (s => s.state == State.Dead).FirstOrDefault ();
+		animator.SetTrigger ("Kill");
 	}
 
 }

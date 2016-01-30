@@ -3771,11 +3771,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iniBS:
-    hitPoint: 1000
+    hitPoint: 200
   curBS:
     hitPoint: 0
   damageSource: {fileID: 0}
   damageReceptor: {fileID: 11412004}
+  ButtonSuicide: 0
   ctrlTrans: {fileID: 0}
   myTrans: {fileID: 446034}
   animator: {fileID: 9558410}
@@ -3794,6 +3795,10 @@ MonoBehaviour:
   - state: 2
     path: Base Layer.Fly
     pos: {x: 0, y: 6, z: 0}
+    fwd: {x: 0, y: 0, z: 0}
+  - state: 20
+    path: Base Layer.Death
+    pos: {x: 0, y: 0, z: 0}
     fwd: {x: 0, y: 0, z: 0}
   cur:
     state: 0

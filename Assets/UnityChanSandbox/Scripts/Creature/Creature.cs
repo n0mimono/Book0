@@ -72,4 +72,10 @@ public partial class Creature {
 	public void ForceSetHp(int point) {
 		curBS.hitPoint = point;
 	}
+
+	public void ForceDamage(int point) {
+		DecreaseHitPoint (point);
+	}
+
+	[Button("ForceDamage", "Suicide", 100000)] public int ButtonSuicide;
 }

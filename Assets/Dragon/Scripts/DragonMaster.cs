@@ -36,6 +36,8 @@ public partial class DragonMaster : MonoBehaviour {
 
 			ChooseProc ().StartBy (this);
 		}
+
+		dragon.DeadHandler += () => enabled = false;
 	}
 
 	void Update() {
