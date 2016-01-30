@@ -4600,7 +4600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980b02bc403074476b393ca7c24049d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: {fileID: 1813644020}
+  action: {fileID: 1803373782}
 --- !u!1 &1784386846
 GameObject:
   m_ObjectHideFlags: 0
@@ -4633,13 +4633,13 @@ MonoBehaviour:
   - {fileID: 1759591515}
   - {fileID: 468652280}
   - {fileID: 360527709}
-  yukataIndex: 1
+  yukataIndex: 0
   cameraOperator: {fileID: 1802821560}
   elasticTouch: {fileID: 130036058}
   uiCameraControl: {fileID: 366954477}
   uiInputControl: {fileID: 152500996}
   uiHpGauge: {fileID: 1362129018}
-  yukataAction: {fileID: 1803373782}
+  yukataAction: {fileID: 0}
   cameraTrans: {fileID: 1892226358}
   speedScale: 0.01
 --- !u!4 &1784386848
