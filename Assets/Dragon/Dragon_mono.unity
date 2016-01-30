@@ -2212,7 +2212,6 @@ MonoBehaviour:
   damp: 0.04
   keepTime: 0.2
   offset: {x: 0, y: 0, z: 0}
-  ButtonStartShake: 0
 --- !u!114 &1913872454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2340,6 +2339,21 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb3a2662b355143c385719dd6a5267a4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2037535970 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 193964, guid: cb3a2662b355143c385719dd6a5267a4, type: 2}
+  m_PrefabInternal: {fileID: 2037535969}
+--- !u!114 &2037535971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2037535970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a34d3420aee554e3d9036badfc168710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2099503997
 GameObject:
   m_ObjectHideFlags: 0
