@@ -20,6 +20,17 @@ namespace Custom {
 			}
 		}
 
+		public static TR Do<T,TR>(this T src, Func<T,TR> func) {
+			if (src != null) {
+				return func (src);
+			}
+			return default(TR);
+		}
+
+		public static void Tell<T>(this Component src, Action<T> action) {
+			src.Do (s => s.GetComponent<T> ().Do (action));
+		}
+
 		public static int ToInt(this object obj) {
 			return (int)obj;
 		}

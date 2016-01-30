@@ -57,6 +57,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 481340}
+  - 114: {fileID: 11406874}
   m_Layer: 0
   m_Name: BubbleOrigin (1)
   m_TagString: Untagged
@@ -155,6 +156,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 473824}
   - 96: {fileID: 9631812}
+  - 114: {fileID: 11436682}
   m_Layer: 9
   m_Name: MagicBulletOne
   m_TagString: Player
@@ -518,6 +520,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 492198}
   - 96: {fileID: 9616434}
+  - 114: {fileID: 11458810}
   m_Layer: 9
   m_Name: MagicBulletOne
   m_TagString: Player
@@ -617,6 +620,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 425426}
   - 96: {fileID: 9640580}
+  - 114: {fileID: 11499968}
   m_Layer: 9
   m_Name: MagicBulletOne
   m_TagString: Player
@@ -938,6 +942,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458400}
   - 96: {fileID: 9640310}
+  - 114: {fileID: 11427866}
   m_Layer: 9
   m_Name: MagicBulletOne
   m_TagString: Player
@@ -969,6 +974,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 449608}
   - 96: {fileID: 9676810}
+  - 114: {fileID: 11461216}
   m_Layer: 9
   m_Name: MagicBulletOne
   m_TagString: Player
@@ -1032,6 +1038,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 401434}
   - 96: {fileID: 9676590}
+  - 114: {fileID: 11400424}
   m_Layer: 9
   m_Name: MagicBulletOne
   m_TagString: Player
@@ -1112,6 +1119,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 436678}
   - 96: {fileID: 9658588}
+  - 114: {fileID: 11479494}
   m_Layer: 9
   m_Name: MagicBulletOne
   m_TagString: Player
@@ -1128,6 +1136,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427382}
   - 96: {fileID: 9670952}
+  - 114: {fileID: 11411024}
   m_Layer: 9
   m_Name: MagicBulletOne
   m_TagString: Player
@@ -1390,6 +1399,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 460218}
+  - 114: {fileID: 11462550}
   m_Layer: 0
   m_Name: BubbleOrigin (2)
   m_TagString: Untagged
@@ -1569,6 +1579,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 450282}
   - 96: {fileID: 9681600}
+  - 114: {fileID: 11479898}
   m_Layer: 9
   m_Name: MagicBulletOne
   m_TagString: Player
@@ -1716,6 +1727,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 437628}
   - 96: {fileID: 9606532}
+  - 114: {fileID: 11411580}
   m_Layer: 9
   m_Name: MagicBulletOne
   m_TagString: Player
@@ -4556,12 +4568,28 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
   ButtonFireNone: 0
   ButtonUnload: 0
   circle: {fileID: 11443092}
+--- !u!114 &11400424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
 --- !u!114 &11401504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4612,6 +4640,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 1
   timeScale: 1
+--- !u!114 &11406874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
 --- !u!114 &11407028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4639,12 +4682,28 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
   ButtonFireNone: 0
   ButtonUnload: 0
   circle: {fileID: 11491354}
+--- !u!114 &11411024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
 --- !u!114 &11411208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4658,6 +4717,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 1
   timeScale: 1
+--- !u!114 &11411580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
 --- !u!114 &11412610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4697,6 +4771,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -4743,6 +4818,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -4841,6 +4917,21 @@ MonoBehaviour:
     time: 20
   ButtonStartProc: 0
   ButtonRelease: 0
+--- !u!114 &11427866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
 --- !u!114 &11434150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4855,6 +4946,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -4875,12 +4967,28 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
   ButtonFireNone: 0
   ButtonUnload: 0
   circle: {fileID: 11438842}
+--- !u!114 &11436682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
 --- !u!114 &11438842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4940,6 +5048,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -4998,6 +5107,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -5018,6 +5128,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -5063,6 +5174,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -5107,6 +5219,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 1
   timeScale: 1
+--- !u!114 &11458810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
+--- !u!114 &11461216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
 --- !u!114 &11461392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5121,12 +5263,28 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
   ButtonFireNone: 0
   ButtonUnload: 0
   circle: {fileID: 11411208}
+--- !u!114 &11462550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
 --- !u!114 &11463918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5141,6 +5299,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -5197,6 +5356,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -5217,6 +5377,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -5273,6 +5434,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speeds: {x: 0, y: 20, z: 0}
+--- !u!114 &11479494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
+--- !u!114 &11479898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
 --- !u!114 &11485840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5300,6 +5491,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   instanceName: MagicBulletAngel
   positionNoise: {x: 0, y: 0, z: 0}
+  getRawTarget: 0
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -5384,6 +5576,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 0.2
   timeScale: 1
+--- !u!114 &11499968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796b3f7e994644f64b8772ab0e0452f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: 0, y: 0, z: 0}
+  initLoalPosition: {x: 0, y: 0, z: 0}
+  initAngles: {x: 0, y: 0, z: 0}
+  initLocalAngles: {x: 0, y: 0, z: 0}
 --- !u!135 &13580788
 SphereCollider:
   m_ObjectHideFlags: 1

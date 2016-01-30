@@ -21,6 +21,9 @@ public class AngelBulletAltar : MonoBehaviour {
 		public Vector3 subMoveSpeed;
 		public float time;
 
+		public void Initilize() {
+		}
+
 		public IEnumerator Update() {
 			while (true) {
 				main.localPosition += moveSpeed * Time.deltaTime;
@@ -30,6 +33,10 @@ public class AngelBulletAltar : MonoBehaviour {
 			}
 		}
 		public IEnumerator UpdateOnce() {
+			main.Tell<MemorableTransform> (m => m.InitilizeLocal ());
+			subs.ForEach(s => s.Tell<MemorableTransform>(m => m.InitilizeLocal ()));
+			subs.ForEach(s => s.Tell<TrailRenderer> (t => t.Clear ()));
+
 			return Update().WhileInCount(time);
 		}
 	}
