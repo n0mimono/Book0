@@ -122,7 +122,7 @@ public partial class ElasticCameraOperator {
 
 }
 
-public partial class ElasticCameraOperator {
+public partial class ElasticCameraOperator : IPhotoRceivable {
 
 	[Header("Magi")]
 	public Transform photoPoint;
@@ -131,25 +131,6 @@ public partial class ElasticCameraOperator {
 		Vector3 angs = opTrans.eulerAngles;
 		cur.lerpSpeed = cur.scheme.lerpSpeed;
 
-		Transform player = targets.Where (t => t.isPlayer).Select (t => t.trans).FirstOrDefault ();
-
-		for (float time = 0f; time < 1f; time += Time.deltaTime) yield return null;
-		yield return null;
-
-		opTrans.position = player.position - opTrans.forward * 2f;
-		opTrans.SetPositionY (2f);
-		opTrans.LookAt (player.position + Vector3.up * 1f);
-
-		for (float time = 0f; time < 1.5f; time += Time.deltaTime) yield return null;
-		yield return null;
-
-		// wait
-		while (photoPoint == null) {
-			photoPoint = Common.PhotoPoint ();
-			yield return null;
-		}
-
-		// playing
 		while (photoPoint.gameObject.activeInHierarchy) {
 			opTrans.SetFrom (photoPoint);
 			yield return null;
@@ -158,6 +139,11 @@ public partial class ElasticCameraOperator {
 
 		yield return null;
 		opTrans.eulerAngles = angs;
+	}
+
+	public void OnRecieve(Transform target) {
+		SetMode (Mode.Magi);
+		photoPoint = target;
 	}
 
 }

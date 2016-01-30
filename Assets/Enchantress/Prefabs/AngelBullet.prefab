@@ -1580,6 +1580,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477420}
+  - 114: {fileID: 11406708}
   m_Layer: 9
   m_Name: Point
   m_TagString: PhotoPoint
@@ -4822,6 +4823,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 1
   timeScale: 1
+--- !u!114 &11406708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2abd1a1f1e84c85b1cee91d85f34a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11406874
 MonoBehaviour:
   m_ObjectHideFlags: 1

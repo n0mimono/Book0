@@ -44,6 +44,8 @@ public partial class YukataManager : MonoBehaviour {
 		uiCameraControl.OnCameraForwardUpdate = cameraOperator.ForwardUpdateImmediate;
 		cameraOperator.OnModeChanged += uiCameraControl.UpdateCameraButtons;
 
+		uiInputControl.OnControlEvent += OnControl;
+
 		yukataAction.InLockAction += LockAction;
 		yukataAction.OutLockAction += UnlockAction;
 		yukataAction.OnSetTarget = cameraOperator.SetEnemyTarget;
@@ -75,10 +77,6 @@ public partial class YukataManager : MonoBehaviour {
 			yukataAction.StopSpell ();
 		} else if (count == 1) {
 			yukataAction.StartSpell ();
-		} else if (count == 2) {
-			yukataAction.StopSpell ();
-			yukataAction.SpellAngel ((act) => {});
-			uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Magi);
 		}
 	}
 
@@ -104,6 +102,11 @@ public partial class YukataManager : MonoBehaviour {
 	private void OnCameraChanged(ElasticCameraOperator.Mode mode, bool isBase) {
 		cameraOperator.SetMode (mode, isBase);
 	}
+
+	private void OnControl(int index) {
+		yukataAction.SpellAngel ((act) => {});
+	}
+
 }
 
 public partial class YukataManager {
@@ -122,4 +125,5 @@ public partial class YukataManager {
 		yield return null;
 		yukataAction.Revive ();
 	}
+
 }

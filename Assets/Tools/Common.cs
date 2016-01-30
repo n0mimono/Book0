@@ -62,4 +62,8 @@ public static class Common {
 		return obj != null ? obj.transform : null;
 	}
 
+	public static GameObject PhotoReceiver() {
+		return GameObject.FindGameObjectsWithTag ("PhotoReceiver").LastOrDefault ();
+	}
+
 }
