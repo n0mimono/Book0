@@ -57,4 +57,9 @@ public static class Common {
 		}
 	}
 
+	public static Transform PhotoPoint() {
+		GameObject obj = GameObject.FindGameObjectsWithTag ("PhotoPoint").LastOrDefault ();
+		return obj != null ? obj.transform : null;
+	}
+
 }

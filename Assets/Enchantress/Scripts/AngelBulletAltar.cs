@@ -5,6 +5,8 @@ using System.Linq;
 using Custom;
 
 public class AngelBulletAltar : MonoBehaviour {
+	public GameObject photographer;
+
 	public Transform target;
 	public System.Action OnProcCompleted; 
 
@@ -68,6 +70,8 @@ public class AngelBulletAltar : MonoBehaviour {
 	}
 
 	private IEnumerator Proc() {
+		photographer.SetActive (true);
+
 		particles.ForEach (p => p.SetEmission (true));
 		yield return null;
 
@@ -103,6 +107,7 @@ public class AngelBulletAltar : MonoBehaviour {
 		Shaker.Instance.Do (s => s.StartShake ()); // tmp solution
 
 		yield return new WaitForSeconds(5f);
+
 		OnProcCompleted ();
 	}
 

@@ -37,6 +37,19 @@ public class MagicProjectile : MonoBehaviour {
 	public string instanceName;
 	protected Action<GameObject> OnExplotion = (obj) => {};
 
+	[Header("Debug")]
+	public bool fireOnStart;
+
+	IEnumerator Start() {
+		if (fireOnStart) {
+			Initialize ();
+			yield return null;
+			Load ();
+			yield return null;
+			Fire ();
+		}
+	}
+
 	protected void InitiilzeDamageSource() {
 		damageSource.OnHit += (src) => {
 			Hit(src.transform.position);
@@ -100,5 +113,6 @@ public class MagicProjectile : MonoBehaviour {
 			return (target.position - transform.position).normalized;
 		}
 	}
+
 
 }

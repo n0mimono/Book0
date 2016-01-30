@@ -92,6 +92,11 @@ namespace Custom {
 			trans.eulerAngles = new Vector3 (ang.x, ang.y + y, ang.z);
 		}
 
+		public static void SetFrom(this Transform trans, Transform target) {
+			trans.position = target.position;
+			trans.eulerAngles = target.eulerAngles;
+		}
+
 		public static Vector3 Ground(this Vector3 pos, float height) {
 			return new Vector3 (pos.x, height, pos.z);
 		}

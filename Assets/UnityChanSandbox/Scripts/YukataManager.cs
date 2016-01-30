@@ -75,7 +75,7 @@ public partial class YukataManager : MonoBehaviour {
 			yukataAction.StopSpell ();
 		} else if (count == 1) {
 			yukataAction.StartSpell ();
-		} else if (count == 15) {
+		} else if (count == 2) {
 			yukataAction.StopSpell ();
 			yukataAction.SpellAngel ((act) => {});
 			uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Magi);

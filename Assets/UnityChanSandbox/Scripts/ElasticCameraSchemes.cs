@@ -124,12 +124,14 @@ public partial class ElasticCameraOperator {
 
 public partial class ElasticCameraOperator {
 
+	[Header("Magi")]
+	public Transform photoPoint;
+
 	private IEnumerator Magi() {
 		Vector3 angs = opTrans.eulerAngles;
 		cur.lerpSpeed = cur.scheme.lerpSpeed;
 
 		Transform player = targets.Where (t => t.isPlayer).Select (t => t.trans).FirstOrDefault ();
-		Transform enemy = targets.Where (t => t.isEnemy).Select (t => t.trans).FirstOrDefault ();
 
 		for (float time = 0f; time < 1f; time += Time.deltaTime) yield return null;
 		yield return null;
@@ -141,25 +143,18 @@ public partial class ElasticCameraOperator {
 		for (float time = 0f; time < 1.5f; time += Time.deltaTime) yield return null;
 		yield return null;
 
-		opTrans.LookAt (enemy.position + Vector3.up * 1f);
-		for (float time = 0f; time < 4f; time += Time.deltaTime) {
-			opTrans.AddEulerAngleY (Time.deltaTime * 15f);
-			opTrans.position = enemy.position - opTrans.forward * (4f + time * 1.5f);
+		// wait
+		while (photoPoint == null) {
+			photoPoint = Common.PhotoPoint ();
 			yield return null;
 		}
 
-		for (float time = 0f; time < 4f; time += Time.deltaTime) {
-			opTrans.AddEulerAngleY (Time.deltaTime * -10f);
-			opTrans.LookAt (enemy.position + Vector3.up * (9f - time * 2f));
-			opTrans.position += Vector3.up * Time.deltaTime;
+		// playing
+		while (photoPoint.gameObject.activeInHierarchy) {
+			opTrans.SetFrom (photoPoint);
 			yield return null;
-		}	
-		for (float time = 0f; time < 5f; time += Time.deltaTime) {
-			opTrans.AddEulerAngleY (Time.deltaTime * -3f);
-			opTrans.LookAt (enemy.position + Vector3.up * (1f - time * 0.1f));
-			opTrans.position += Vector3.up * Time.deltaTime * 3f;
-			yield return null;
-		}	
+		}
+		photoPoint = null;
 
 		yield return null;
 		opTrans.eulerAngles = angs;

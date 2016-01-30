@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UICamera
   - Enemy
+  - PhotoPoint
   layers:
   - Default
   - TransparentFX
