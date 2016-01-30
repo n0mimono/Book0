@@ -2290,6 +2290,7 @@ MonoBehaviour:
     hitPoint: 0
   damageSource: {fileID: 0}
   damageReceptor: {fileID: 299315628}
+  ButtonSuicide: 0
   ctrlTrans: {fileID: 0}
   myTrans: {fileID: 299315634}
   animator: {fileID: 299315633}

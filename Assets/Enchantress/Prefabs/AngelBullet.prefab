@@ -5228,7 +5228,7 @@ MonoBehaviour:
   target: {fileID: 0}
   damageSource: {fileID: 11421000}
   instanceName: 
-  fireOnStart: 0
+  fireOnStart: 1
   altar: {fileID: 11421904}
 --- !u!114 &11442526
 MonoBehaviour:

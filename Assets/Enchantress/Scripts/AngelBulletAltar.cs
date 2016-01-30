@@ -106,7 +106,15 @@ public class AngelBulletAltar : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 		Shaker.Instance.Do (s => s.StartShake ()); // tmp solution
 
-		yield return new WaitForSeconds(5f);
+		for (int i = 0; i < 15; i++) { // 1 sec
+			MagicMagazine magazine = magazines.RandomOrDefault();
+			magazine.Load ();
+			yield return null;
+			magazine.Fire (target);
+			yield return null;
+		}
+
+		yield return new WaitForSeconds(4);
 
 		OnProcCompleted ();
 	}

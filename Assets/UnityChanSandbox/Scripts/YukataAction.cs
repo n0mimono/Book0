@@ -298,7 +298,7 @@ public partial class YukataAction {
 	}
 
 	private IEnumerator AngelMagic() {
-		yield return new WaitForSeconds (4f);
+		yield return new WaitForSeconds (2f);
 		angelMagazine.Initilize (gameObject.tag);
 		yield return null;
 		angelMagazine.Load ();
