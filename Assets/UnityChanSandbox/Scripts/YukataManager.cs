@@ -68,7 +68,7 @@ public partial class YukataManager : MonoBehaviour {
 	private void OnChainAction(int count) {
 		if (count >= 3) {
 			yukataAction.SpellFlower ((act) => {});
-			uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Salute);
+			//uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Salute);
 		}
 	}
 

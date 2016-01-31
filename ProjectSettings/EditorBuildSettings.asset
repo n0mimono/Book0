@@ -18,6 +18,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Dragon/Dragon_mono.unity
   - enabled: 1
+    path: Assets/Dragon/DragonFactory.unity
+  - enabled: 1
     path: Assets/Elastic/Elastic.unity
   - enabled: 1
     path: Assets/Enchantress/Enchantress.unity

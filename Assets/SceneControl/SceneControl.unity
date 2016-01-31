@@ -42,7 +42,7 @@ LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
   m_GIWorkflowMode: 0
-  m_LightmapsMode: 1
+  m_LightmapsMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -1053,7 +1053,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1352085302}
   m_Layer: 0
-  m_Name: Dummy01_abc
+  m_Name: Dummy01_abcd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1314,6 +1314,9 @@ MonoBehaviour:
   - name: Dragon_mono
     enabled: 1
     path: Assets/Dragon/Dragon_mono.unity
+  - name: DragonFactory
+    enabled: 1
+    path: Assets/Dragon/DragonFactory.unity
   - name: Elastic
     enabled: 1
     path: Assets/Elastic/Elastic.unity
