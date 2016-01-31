@@ -8,8 +8,10 @@ public class MagicMagazine : MagicSpawner {
 	public override void Initilize(string tag) {
 		base.Initilize (tag);
 
-		OnHold = () => circle.Hold ();
-		OnRelease = () => circle.Release ();
+		if (circle != null) {
+			OnHold = () => circle.Hold ();
+			OnRelease = () => circle.Release ();
+		}
 	}
 }
 		

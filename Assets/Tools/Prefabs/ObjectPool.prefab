@@ -54,6 +54,7 @@ MonoBehaviour:
   - {fileID: 144236, guid: 20bd992822e9043709facaec6fa07864, type: 2}
   - {fileID: 107380, guid: 35d1f649886e248fca672c70c626083a, type: 2}
   - {fileID: 135564, guid: 0fc4d32d1ece04f5789e10669e8ec230, type: 2}
+  - {fileID: 102152, guid: aab28117c9e5a4489bd11aeb6e49e344, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -63,7 +64,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: prefabs.Array.size
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: prefabs.Array.data[3]
@@ -113,6 +114,10 @@ Prefab:
       propertyPath: prefabs.Array.data[1]
       value: 
       objectReference: {fileID: 181822, guid: 0036c610ec7c74084bf1ede077a263e2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: prefabs.Array.data[14]
+      value: 
+      objectReference: {fileID: 102152, guid: aab28117c9e5a4489bd11aeb6e49e344, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114798}

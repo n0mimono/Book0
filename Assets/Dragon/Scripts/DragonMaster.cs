@@ -30,10 +30,10 @@ public partial class DragonMaster : MonoBehaviour {
 	void Start() {
 		state = State.None;
 
-		if (isPlayOnStart) {
-			spellBullet.Do (e => e.Initilize (gameObject.tag));
-			meteorSwarm.Do (e => e.Initilize (gameObject.tag));
+		spellBullet.Do (e => e.Initilize (gameObject.tag));
+		meteorSwarm.Do (e => e.Initilize (gameObject.tag));
 
+		if (isPlayOnStart) {
 			ChooseProc ().StartBy (this);
 		}
 
@@ -241,33 +241,24 @@ public partial class DragonMaster {
 		while (!dragon.Is(Dragon.State.FlyIdle)) yield return null;
 
 		meteorSwarm.Hold ();
+		yield return null;
+		meteorSwarm.LoadAll ();
 		yield return new WaitForSeconds (1f);
 
 		yield return StartCoroutine (SubProcRoar ());
 		yield return new WaitForSeconds (1.5f);
 
-		bool keep = true;
-		DragonMeteor ().While (() => keep).StartBy (this);
-		yield return new WaitForSeconds (10f);
-		keep = false;
+		meteorSwarm.Fire (EnchantControl.TargetMode.Single);
+		yield return null;
+		meteorSwarm.Release ();
+		yield return new WaitForSeconds (6f);
 
 		yield return StartCoroutine (SubProcRoar ());
-		yield return new WaitForSeconds (1.5f);
+		yield return new WaitForSeconds (6f);
 
-		meteorSwarm.Release ();
-		yield return new WaitForSeconds (2f);
+		yield return new WaitForSeconds (3.5f);
 
 		state = State.None;
-	}
-
-	private IEnumerator DragonMeteor() {
-		while (true) {
-			meteorSwarm.RandomLoad ();
-			yield return null;
-
-			meteorSwarm.Fire (EnchantControl.TargetMode.Single);
-			yield return new WaitForSeconds (0.1f);
-		}
 	}
 
 }
