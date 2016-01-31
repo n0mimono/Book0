@@ -322,7 +322,7 @@ MonoBehaviour:
   - {fileID: 296264713}
   focusCenter: {fileID: 1270619027}
   tgtAngleSpeed: 0
-  isPlayOnStart: 0
+  isPlayOnStart: 1
   isIdlingOnly: 0
   state: 0
   ButtonIdle: 0
