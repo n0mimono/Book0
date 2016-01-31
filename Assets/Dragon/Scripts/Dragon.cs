@@ -157,6 +157,7 @@ public partial class Dragon {
 	}
 
 	private void OnDead() {
+
 		cur = schemes.Where (s => s.state == State.Dead).FirstOrDefault ();
 		animator.SetTrigger ("Kill");
 	}
