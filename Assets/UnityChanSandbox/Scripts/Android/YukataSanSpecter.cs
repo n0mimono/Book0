@@ -20,6 +20,7 @@ public class YukataSanSpecter : CustomMonoBehavior {
 	private bool IsFound { get { return targetSpeed > foundSpeed; } }
 
 	IEnumerator Start() {
+		yukataAction.DeadHandler += () => enabled = false;
 		yield return new WaitWhile (() => yukataAction.target == null);
 		target = yukataAction.target;
 

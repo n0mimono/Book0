@@ -14,7 +14,20 @@ public class Petrifier : MonoBehaviour {
 	private bool isPetrified;
 	private List<Behaviour> behavs;
 
+	private bool isInitilized = false;
+
 	void Start() {
+		Initilize ();
+
+		if (petrifyOnStart) {
+			Petrify ();
+		}
+	}
+
+	public void Initilize() {
+		if (isInitilized) return;
+		isInitilized = true;
+
 		materials = new List<Material> ();
 
 		foreach (Renderer ren in GetComponentsInChildren<Renderer> ()) {
@@ -34,10 +47,6 @@ public class Petrifier : MonoBehaviour {
 
 		foreach (SkinnedMeshRenderer ren in GetComponentsInChildren<SkinnedMeshRenderer> ()) {
 			ren.gameObject.AddComponent<MeshExploder> ();
-		}
-
-		if (petrifyOnStart) {
-			Petrify ();
 		}
 	}
 
@@ -70,6 +79,13 @@ public class Petrifier : MonoBehaviour {
 		isPetrified = false;
 
 		LerpMaterialRestore (time).StartBy (this);
+	}
+
+	public void RestoreImmediate() {
+		if (!isPetrified) return;
+		isPetrified = false;
+
+		LerpMaterialRestore (0.01f).StartBy (this);
 	}
 
 	private IEnumerator LerpMaterialRestore(float time) {

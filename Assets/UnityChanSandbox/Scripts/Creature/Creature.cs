@@ -44,7 +44,9 @@ public partial class Creature {
 
 	protected void InitilizeBattleStatus() {
 		curBS = iniBS;
-		HpChangeHander (HpRate);
+		if (HpChangeHander != null) {
+			HpChangeHander (HpRate);
+		}
 	}
 
 	[Header("Damage Control")]

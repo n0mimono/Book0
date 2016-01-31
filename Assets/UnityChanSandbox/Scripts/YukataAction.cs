@@ -185,6 +185,17 @@ public partial class YukataAction {
 		animator.SetAlive (true);
 	}
 
+	public void SpawningRevive() {
+		Revive ();
+
+		// force unlock
+		SetWalkable (true);
+		inAction = AnimeAction.None;
+
+		// targetting restart
+		InitilizeEnchantress();
+	}
+
 }
 
 public partial class YukataAction {
@@ -209,7 +220,6 @@ public partial class YukataAction {
 
 	private IEnumerator Targettting() {
 		yield return null;
-
 
 		while (true) {
 			List<Transform> targetList = gameObject.FindOppositeCharacters ().Select (g => g.transform).ToList ();
@@ -308,4 +318,6 @@ public partial class YukataAction {
 		angelMagazine.Fire (target);
 	}
 
+
+	[Button("Revive", "Revive")] public int ButtonRevive;
 }

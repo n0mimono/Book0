@@ -12,6 +12,7 @@ public partial class YukataChan : MonoBehaviour {
 	[Header("Yukata-Chan")]
 	public float walkingSpeed;
 	public float runningSpeed;
+	public SkinMeshExploder exploder;
 
 	public enum Type {
 		Walker,
@@ -44,19 +45,25 @@ public partial class YukataChan : MonoBehaviour {
 	private Status cur = new Status();
 
 	void Start() {
-		cur.isUpdateCommon = true;
-
 		// event initilize
 		myTrans = yukataAction.transform;
 		yukataAction.InLockAction += InLockInterrupt;
 		yukataAction.OutLockAction += OutLockInterrupt;
+		yukataAction.DeadHandler += OnDead;
 
 		// others
 		CreateAim ();
+	}
+
+	void OnEnable() {
+		cur.isUpdateCommon = true;
 
 		// start update
 		UpdateCommon ().When (() => cur.isUpdateCommon).StartBy (this);
 		NextState (State.Search);
+
+		// force revive
+		yukataAction.SpawningRevive();
 	}
 
 	private void InLockInterrupt(YukataAction.AnimeAction act) {
@@ -84,6 +91,8 @@ public partial class YukataChan : MonoBehaviour {
 	}
 
 	private IEnumerator UpdateCommon() {
+		yield return null;
+
 		while (true) {
 			Vector3 tgtDir = (cur.aimTrans.position - myTrans.position).normalized;
 
@@ -108,6 +117,15 @@ public partial class YukataChan : MonoBehaviour {
 		return Vector3.Distance(myTrans.position, cur.aimTrans.position) < distance;
 	}
 
+}
+
+public partial class YukataChan {
+	
+	public void OnDead() {
+		exploder.Explosion ();
+	}
+
+	[Button("OnDead", "Force Kill")] public int ButtonKill;
 }
 
 public partial class YukataChan {
