@@ -204,7 +204,9 @@ namespace Custom {
 		}
 
 		public static void StartBy(this IEnumerator enumerator, MonoBehaviour behav) {
-			behav.StartCoroutine (enumerator);
+			if (behav.gameObject.activeInHierarchy) {
+				behav.StartCoroutine (enumerator);
+			}
 		}
 
 		public static Task Continue(this IEnumerator enumerator, IEnumerator routine) {

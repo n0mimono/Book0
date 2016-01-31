@@ -4347,6 +4347,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 508261753cbbd4493b10da3a43602a39, type: 2}
   delayWeight: 3
   isKeepFace: 1
+  isGUI: 1
 --- !u!114 &11422784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4468,6 +4469,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWindActive: 0
+  threshold: 0.5
+  interval: 5
+  windPower: 1
+  gravity: 0.98
+  isGUI: 1
 --- !u!114 &11440196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4798,6 +4804,7 @@ MonoBehaviour:
   _random: 0
   _threshold: 0.5
   _interval: 10
+  isGUI: 1
 --- !u!114 &11483812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4993,6 +5000,7 @@ MonoBehaviour:
     hitPoint: 0
   damageSource: {fileID: 11499066}
   damageReceptor: {fileID: 11480244}
+  ButtonSuicide: 0
   characterControl: {fileID: 14365608}
   animator: {fileID: 9541692}
   maxSpeed: 2
@@ -5003,6 +5011,7 @@ MonoBehaviour:
   target: {fileID: 0}
   enchantress: {fileID: 0}
   guardian: {fileID: 0}
+  angelMagazine: {fileID: 0}
 --- !u!114 &11497228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5036,6 +5045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePoint: 1
+  isBreaker: 1
 --- !u!119 &11958202
 Projector:
   m_ObjectHideFlags: 1
@@ -5425,6 +5436,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: iniBS.hitPoint
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: isBreaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: basePoint
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

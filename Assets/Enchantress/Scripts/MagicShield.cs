@@ -5,21 +5,25 @@ using System.Linq;
 using Custom;
 
 public class MagicShield : MagicProjectile {
+
+	[Header("Shield")]
 	public DamageReceptor receptor;
 	public TransformFollower follower;
 
 	public float fadeTimeScale;
 	private List<Material> materials = null;
 
+	public MeshExploder exploder;
+	private bool isFading = false;
+
 	void Awake() {
 		receptor.OnDamage += (src) => {
+			if (src.isBreaker) {
+				OnBreak();
+			}
+
 			OnGuard(src.transform.position);
 		};
-	}
-
-	public override void Initialize() {
-		base.Initialize ();
-		collide.enabled = false;
 
 		if (materials == null) {
 			materials = new List<Material> ();
@@ -29,6 +33,12 @@ public class MagicShield : MagicProjectile {
 				materials.Add(mat);
 			});
 		}
+	}
+
+	public override void Initialize() {
+		base.Initialize ();
+		collide.enabled = false;
+
 		SetAlpha (0f);
 	}
 
@@ -58,12 +68,16 @@ public class MagicShield : MagicProjectile {
 	}
 
 	private void Fade(System.Func<float,float> timeToValue, System.Action onCompleted) {
+		if (isFading) return;
+		isFading = true;
+
 		float time = 0f;
 		new Noop ()
 			.OnUpdate (() => time += Time.deltaTime * fadeTimeScale)
 			.OnUpdate (() => SetAlpha (timeToValue (time)))
 			.While (() => 0f <= time && time <= 1f)
 			.OnCompleted (() => SetAlpha (timeToValue (time)))
+			.OnCompleted (() => isFading = false)
 			.OnCompleted (() => onCompleted ())
 			.StartBy (this);
 	}
@@ -76,4 +90,16 @@ public class MagicShield : MagicProjectile {
 		}
 
 	}
+
+	private void OnBreak() {
+		ProcBreak ().StartBy (this);
+	}
+
+	private IEnumerator ProcBreak() {
+		exploder.Explode();
+		yield return null;
+		Fire ();
+	}
+
+	[Button("OnBreak", "OnBreak")] public int ButtonBreak;
 }

@@ -12,9 +12,10 @@ GameObject:
   - 135: {fileID: 13599260}
   - 23: {fileID: 2317448}
   - 114: {fileID: 11423956}
+  - 114: {fileID: 11480686}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Enemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +50,7 @@ GameObject:
   - 114: {fileID: 11400158}
   m_Layer: 9
   m_Name: MagicShield
-  m_TagString: Enemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 420336}
@@ -191,9 +192,14 @@ MonoBehaviour:
   target: {fileID: 0}
   damageSource: {fileID: 11415758}
   instanceName: ShieldGuard
+  shakeOnFire: 0
+  shakeOnHit: 0
+  fireOnStart: 0
   receptor: {fileID: 11423956}
   follower: {fileID: 0}
   fadeTimeScale: 1
+  exploder: {fileID: 11480686}
+  ButtonBreak: 0
 --- !u!114 &11415758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePoint: 0
+  isBreaker: 0
 --- !u!114 &11423956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,6 +224,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34d3420aee554e3d9036badfc168710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11480686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 1
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!135 &13599260
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -322,7 +322,7 @@ MonoBehaviour:
   - {fileID: 296264713}
   focusCenter: {fileID: 1270619027}
   tgtAngleSpeed: 0
-  isPlayOnStart: 0
+  isPlayOnStart: 1
   isIdlingOnly: 0
   state: 0
   ButtonIdle: 0
@@ -788,6 +788,10 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 11400158, guid: 9e634d65a1b5d43ffa240df47bb25db1, type: 2}
+      propertyPath: exploder
+      value: 
+      objectReference: {fileID: 1865250750}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e634d65a1b5d43ffa240df47bb25db1, type: 2}
   m_IsPrefabParent: 0
@@ -2068,6 +2072,34 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 446034, guid: cb3a2662b355143c385719dd6a5267a4, type: 2}
   m_PrefabInternal: {fileID: 2037535969}
+--- !u!1 &1865250748 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 124860, guid: 9e634d65a1b5d43ffa240df47bb25db1, type: 2}
+  m_PrefabInternal: {fileID: 745653986}
+--- !u!114 &1865250750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1865250748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd71dcb0056342b08cb3e8851fac00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  minSpeed: 1
+  maxSpeed: 5
+  minRotationSpeed: 90
+  maxRotationSpeed: 360
+  fadeWaitTime: 0.5
+  fadeTime: 2
+  useGravity: 1
+  colliderThickness: 0.125
+  useNormals: 0
+  useMeshBoundsCenter: 0
+  allowShadows: 0
+  shadersAlreadyHandleTransparency: 0
 --- !u!1 &1883261757
 GameObject:
   m_ObjectHideFlags: 0

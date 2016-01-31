@@ -5015,6 +5015,7 @@ MonoBehaviour:
     hitPoint: 0
   damageSource: {fileID: 11481534}
   damageReceptor: {fileID: 11437610}
+  ButtonSuicide: 0
   characterControl: {fileID: 14311442}
   animator: {fileID: 9521480}
   maxSpeed: 2
@@ -5924,6 +5925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePoint: 1
+  isBreaker: 1
 --- !u!114 &11481976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6559,7 +6562,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: isBreaker
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: basePoint
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 144946}

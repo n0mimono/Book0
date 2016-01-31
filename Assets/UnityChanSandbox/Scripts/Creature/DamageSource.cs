@@ -6,6 +6,7 @@ public class DamageSource : MonoBehaviour {
 	public System.Func<bool> IsDamageable;
 
 	public int basePoint;
+	public bool isBreaker;
 
 	void Awake() {
 		OnHit += (src) => {};
