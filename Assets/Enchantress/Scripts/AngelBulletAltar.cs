@@ -104,8 +104,6 @@ public class AngelBulletAltar : MonoBehaviour {
 		particles.ForEach (p => p.SetEmission (false));
 
 		yield return new WaitForSeconds(0.5f);
-		Shaker.Instance.Do (s => s.StartShake ()); // tmp solution
-
 		for (int i = 0; i < 15; i++) { // 1 sec
 			MagicMagazine magazine = magazines.RandomOrDefault();
 			magazine.Load ();

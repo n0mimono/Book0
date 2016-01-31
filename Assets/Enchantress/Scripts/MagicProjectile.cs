@@ -37,6 +37,10 @@ public class MagicProjectile : MonoBehaviour {
 	public string instanceName;
 	protected Action<GameObject> OnExplotion = (obj) => {};
 
+	[Header("Shake")]
+	public Shaker.Type shakeOnFire;
+	public Shaker.Type shakeOnHit;
+
 	[Header("Debug")]
 	public bool fireOnStart;
 
@@ -74,11 +78,15 @@ public class MagicProjectile : MonoBehaviour {
 
 		cur.mode = Mode.Fire;
 		Move ().While (cur.Is(Mode.Fire)).StartBy (this);
+
+		Shaker.Shake (shakeOnFire, transform.position);
 	}
 
 	public virtual void Hit(Vector3 pos) {
 		if (!cur.Is (Mode.None)()) {
 			Explotion ().StartBy (this);
+
+			Shaker.Shake (shakeOnHit, transform.position);
 		}
 		cur.mode = Mode.None;
 	}

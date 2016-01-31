@@ -203,6 +203,15 @@ namespace Custom {
 			return src.FirstOrDefault ();
 		}
 
+		public static Vector3 Sum(this IEnumerable<Vector3> src) {
+			Vector3 sum = Vector3.zero;
+
+			foreach (Vector3 s in src) {
+				sum += s;
+			}
+
+			return sum;
+		}
 
 		public static TSource WhichMin<TSource, TResult>(this IEnumerable<TSource> srcs, Func<TSource, TResult> selector) where TResult: IComparable {
 			IEnumerator<TSource> iter = srcs.GetEnumerator();

@@ -142,6 +142,9 @@ MonoBehaviour:
   target: {fileID: 0}
   damageSource: {fileID: 11488868}
   instanceName: MagicBulletExplosion_Dragon
+  shakeOnFire: 2
+  shakeOnHit: 3
+  fireOnStart: 0
   trail: {fileID: 9650892}
   angleSpeed: 3
   loadOffset: {x: 0, y: 3, z: 0}
@@ -1797,6 +1800,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_EndWidth
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shakeOnHit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shakeOnFire
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

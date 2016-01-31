@@ -142,10 +142,14 @@ MonoBehaviour:
   target: {fileID: 0}
   damageSource: {fileID: 11488868}
   instanceName: MagicBulletExplosion
+  shakeOnFire: 0
+  shakeOnHit: 1
+  fireOnStart: 0
   trail: {fileID: 9650892}
   angleSpeed: 10
   loadOffset: {x: 0, y: 2, z: 0}
   loadNoise: {x: 0.1, y: 0, z: 0.1}
+  targetNoise: {x: 0, y: 0, z: 0}
   circleRotateSpeed: {x: 120, y: 90, z: 0}
   circle: {fileID: 0}
 --- !u!114 &11488868
@@ -1760,6 +1764,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: instanceName
       value: MagicBulletExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shakeOnFire
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shakeOnHit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

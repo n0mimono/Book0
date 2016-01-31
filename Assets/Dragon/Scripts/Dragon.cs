@@ -111,12 +111,12 @@ public partial class Dragon {
 	}
 
 	public void StartSpell() {
-		if (Shaker.Instance != null) {
-			Shaker.Instance.StartShake ();
-		}
 
 		if (isBreathing) {
 			ProcSpell ().StartBy (this);
+		} else {
+			// Roar only
+			Shaker.Shake(Shaker.Type.High, transform.position);
 		}
 	}
 
