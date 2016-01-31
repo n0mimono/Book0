@@ -264,7 +264,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11495504, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}
       propertyPath: iniBS.hitPoint
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80eb3520c11df43f2bf292537130bb71, type: 2}

@@ -10,6 +10,9 @@ Properties {
     [NoScaleOffset] _RightTex ("Right [-X]", 2D) = "grey" {}
     [NoScaleOffset] _UpTex ("Up [+Y]", 2D) = "grey" {}
     [NoScaleOffset] _DownTex ("Down [-Y]", 2D) = "grey" {}
+
+    _DarkFactor("Dark Factor", Float) = 1
+    [Toggle(_SKYBOX_DARK)] _SkyBottom ("Enable Darkness", Float) = 0
 }
 
 SubShader {
@@ -17,12 +20,15 @@ SubShader {
     Cull Off ZWrite Off
 
     CGINCLUDE
-    #include "UnityCG.cginc" 
+    #include "UnityCG.cginc"
+    #pragma multi_compile __ _SKYBOX_DARK
 
     half4 _Tint;
     half _Exposure;
     float _Rotation;
+
     float _FogFactor;
+    float _DarkFactor;
 
     inline float4 RotateAroundYInDegrees (float4 vertex, float degrees) {
         float alpha = degrees * UNITY_PI / 180.0;
@@ -42,33 +48,29 @@ SubShader {
         float4 posWorld  : TEXCOORD1;
     };
 
-    inline half3 add_fog(half3 c, v2f i, half fogBase) {
+    inline half3 add_fog(half3 c, v2f i) {
     #if defined(FOG_LINEAR) || defined(FOG_EXP) || defined(FOG_EXP2)
-        half coord = saturate(2 * i.texcoord.y - 1);
-
-        // fog factor
-        #if defined(FOG_LINEAR)
-            half fogFactor = -coord * _FogFactor * fogBase;
-        #elif defined(FOG_EXP)
-            half fogFactor = exp2(-coord * _FogFactor) * fogBase;
-        #elif defined(FOG_EXP2)
-            half fac = coord*_FogFactor;
-            half fogFactor = exp2(-fac * fac) * fogBase;
-        #else
-            half fogFactor = fogBase;
-        #endif
-
-        // fog color
-        half3 viewDir = normalize(_WorldSpaceCameraPos - i.posWorld);
-        half3 fogColor = saturate(unity_FogColor.rgb);
-
-        return lerp(c, fogColor, fogFactor);
+        half coord = max(0,dot(normalize(i.posWorld.xyz),half3(0,1,0)));
+        half fac = coord*_FogFactor;
+        half fogFactor = exp2(-fac * fac);
+        half4 fogColor = unity_FogColor;
+        return lerp(c, fogColor.rgb, fogFactor);
     #else
         return c;
     #endif
     }
 
-    inline v2f skybox_vert (appdata_t v) {
+    inline half3 add_dark(half3 c, v2f i) {
+    #if defined(_SKYBOX_DARK)
+        half coord = max(0,dot(normalize(i.posWorld.xyz),half3(0,-1,0)));
+        half fac = coord * _DarkFactor;
+        return lerp(c, half3(0,0,0), fac);
+    #else
+        return c;
+    #endif
+    }
+
+    v2f skybox_vert (appdata_t v) {
         v2f o;
         float4 vertex = RotateAroundYInDegrees(v.vertex, _Rotation);
         o.vertex = mul(UNITY_MATRIX_MVP, vertex);
@@ -78,7 +80,7 @@ SubShader {
         return o;
     }
 
-    inline half4 skybox_frag (v2f i, sampler2D smp, half fogBase)
+    half4 skybox_frag (v2f i, sampler2D smp)
     {
         half4 tex = tex2D (smp, i.texcoord);
         half3 c = tex.rgb;
@@ -86,7 +88,8 @@ SubShader {
         c = c * _Tint.rgb * unity_ColorSpaceDouble.rgb;
         c *= _Exposure;
 
-        c = add_fog(c, i, fogBase);
+        c = add_fog(c, i);
+        c = add_dark(c, i);
 
         return half4(c, 1);
     }
@@ -99,8 +102,8 @@ SubShader {
         #pragma multi_compile_fog
         sampler2D _FrontTex;
         v2f vert (appdata_t v) { return skybox_vert(v); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_FrontTex, 1); }
-        ENDCG 
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_FrontTex); }
+        ENDCG
     }
     Pass{
         CGPROGRAM
@@ -109,8 +112,8 @@ SubShader {
         #pragma multi_compile_fog
         sampler2D _BackTex;
         v2f vert (appdata_t v) { return skybox_vert(v); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_BackTex, 1); }
-        ENDCG 
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_BackTex); }
+        ENDCG
     }
     Pass{
         CGPROGRAM
@@ -119,7 +122,7 @@ SubShader {
         #pragma multi_compile_fog
         sampler2D _LeftTex;
         v2f vert (appdata_t v) { return skybox_vert(v); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_LeftTex, 1); }
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_LeftTex); }
         ENDCG
     }
     Pass{
@@ -129,9 +132,9 @@ SubShader {
         #pragma multi_compile_fog
         sampler2D _RightTex;
         v2f vert (appdata_t v) { return skybox_vert(v); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_RightTex, 1); }
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_RightTex); }
         ENDCG
-    }    
+    }
     Pass{
         CGPROGRAM
         #pragma vertex vert
@@ -139,9 +142,9 @@ SubShader {
         #pragma multi_compile_fog
         sampler2D _UpTex;
         v2f vert (appdata_t v) { return skybox_vert(v); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_UpTex, 0); }
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_UpTex); }
         ENDCG
-    }    
+    }
     Pass{
         CGPROGRAM
         #pragma vertex vert
@@ -149,7 +152,7 @@ SubShader {
         #pragma multi_compile_fog
         sampler2D _DownTex;
         v2f vert (appdata_t v) { return skybox_vert(v); }
-        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_DownTex, 0); }
+        half4 frag (v2f i) : SV_Target { return skybox_frag(i,_DownTex); }
         ENDCG
     }
 }

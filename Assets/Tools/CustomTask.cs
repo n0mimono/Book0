@@ -203,9 +203,11 @@ namespace Custom {
 			return new Task (enumerator);
 		}
 
-		public static void StartBy(this IEnumerator enumerator, MonoBehaviour behav) {
+		public static Coroutine StartBy(this IEnumerator enumerator, MonoBehaviour behav) {
 			if (behav.gameObject.activeInHierarchy) {
-				behav.StartCoroutine (enumerator);
+				return behav.StartCoroutine (enumerator);
+			} else {
+				return null;
 			}
 		}
 

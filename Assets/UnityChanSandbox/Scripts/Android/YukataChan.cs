@@ -44,6 +44,8 @@ public partial class YukataChan : MonoBehaviour {
 	}
 	private Status cur = new Status();
 
+	private bool IsTargetive { get { return cur.tgtTrans != null; } }
+
 	void Start() {
 		// event initilize
 		myTrans = yukataAction.transform;
@@ -61,6 +63,9 @@ public partial class YukataChan : MonoBehaviour {
 		// start update
 		UpdateCommon ().When (() => cur.isUpdateCommon).StartBy (this);
 		NextState (State.Search);
+
+		// misc
+		UpdateTarget().StartBy(this);
 
 		// force revive
 		yukataAction.SpawningRevive();
@@ -105,6 +110,22 @@ public partial class YukataChan : MonoBehaviour {
 			yukataAction.Move (myTrans.forward * cur.walkSpeed);
 
 			yield return null;
+		}
+	}
+
+	private IEnumerator UpdateTarget() {
+		yield return null;
+
+		while (true) {
+
+			if (cur.tgtTrans == null) {
+				GameObject tgtObj = gameObject.FindOppositeCharacters ().RandomOrDefault ();
+				if (tgtObj != null) {
+					cur.tgtTrans = tgtObj.transform;
+				}
+			}
+
+			yield return new WaitForSeconds(1f);
 		}
 	}
 
@@ -163,7 +184,7 @@ public partial class YukataChan {
 		while (true) {
 			yield return null;
 
-			if (IsStraightToTarget(0.8f) && IsNearTarget(15f)) {
+			if (IsTargetive && IsStraightToTarget(0.8f) && IsNearTarget(15f)) {
 				NextState (State.Chase);
 			}
 		}
@@ -184,8 +205,6 @@ public partial class YukataChan {
 	private IEnumerator UpdateChase() {
 		cur.turnSpeed = 10f;
 
-		cur.tgtTrans = gameObject.FindOppositeCharacters ().RandomOrDefault().transform;
-
 		cur.walkSpeed = runningSpeed;
 		while (true) {
 			cur.aimTrans.position = cur.tgtTrans.position;
@@ -197,9 +216,9 @@ public partial class YukataChan {
 		while (true) {
 			yield return null;
 
-			if (IsStraightToTarget (0.95f) && IsNearTarget (5f)) {
+			if (IsTargetive && IsStraightToTarget (0.95f) && IsNearTarget (5f)) {
 				NextState (State.Attack);
-			} else if (!IsStraightToTarget (0f) && !IsNearTarget (20f)) {
+			} else if (!IsTargetive || (!IsStraightToTarget (0f) && !IsNearTarget (20f))) {
 				NextState (State.Search);
 			}
 		}
