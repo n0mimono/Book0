@@ -2803,7 +2803,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126014}
-  m_LocalRotation: {x: 0, y: 0.8870109, z: -0, w: -0.46174863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3045,7 +3045,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181316}
-  m_LocalRotation: {x: 0.026264189, y: 0, z: 0, w: 0.99965507}
+  m_LocalRotation: {x: 0.02696208, y: 0, z: 0, w: 0.9996365}
   m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5228,7 +5228,7 @@ MonoBehaviour:
   target: {fileID: 0}
   damageSource: {fileID: 11421000}
   instanceName: 
-  fireOnStart: 1
+  fireOnStart: 0
   altar: {fileID: 11421904}
 --- !u!114 &11442526
 MonoBehaviour:
