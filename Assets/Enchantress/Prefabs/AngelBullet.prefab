@@ -5030,6 +5030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePoint: 0
 --- !u!114 &11421792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5228,6 +5229,8 @@ MonoBehaviour:
   target: {fileID: 0}
   damageSource: {fileID: 11421000}
   instanceName: 
+  shakeOnFire: 0
+  shakeOnHit: 0
   fireOnStart: 0
   altar: {fileID: 11421904}
 --- !u!114 &11442526
@@ -24192,7 +24195,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: basePoint
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 144236}

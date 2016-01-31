@@ -211,6 +211,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9d189e448f3da48fdad81dc7d2875644, type: 2}
+    - target: {fileID: 11496856, guid: 8f742c1308399468083cbac54797f73a, type: 2}
+      propertyPath: iniBS.hitPoint
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f742c1308399468083cbac54797f73a, type: 2}
   m_IsPrefabParent: 0
@@ -1396,6 +1400,10 @@ Prefab:
       propertyPath: angelMagazine
       value: 
       objectReference: {fileID: 752302646}
+    - target: {fileID: 11428222, guid: 95993897775434a68a692daf267da6d5, type: 2}
+      propertyPath: iniBS.hitPoint
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95993897775434a68a692daf267da6d5, type: 2}
   m_IsPrefabParent: 0
@@ -4032,6 +4040,10 @@ Prefab:
       propertyPath: angelMagazine
       value: 
       objectReference: {fileID: 1736298265}
+    - target: {fileID: 11408688, guid: 46b4db357d8de416bb08a59b987c04a3, type: 2}
+      propertyPath: iniBS.hitPoint
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46b4db357d8de416bb08a59b987c04a3, type: 2}
   m_IsPrefabParent: 0
@@ -4802,6 +4814,10 @@ Prefab:
       propertyPath: angelMagazine
       value: 
       objectReference: {fileID: 1060104054}
+    - target: {fileID: 11407088, guid: a79c8bf52344b4df1bf5bd7c5b4dd68a, type: 2}
+      propertyPath: iniBS.hitPoint
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a79c8bf52344b4df1bf5bd7c5b4dd68a, type: 2}
   m_IsPrefabParent: 0

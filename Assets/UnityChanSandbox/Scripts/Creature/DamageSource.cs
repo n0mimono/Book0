@@ -5,6 +5,8 @@ public class DamageSource : MonoBehaviour {
 	public event System.Action<DamageSource> OnHit;
 	public System.Func<bool> IsDamageable;
 
+	public int basePoint;
+
 	void Awake() {
 		OnHit += (src) => {};
 		IsDamageable = () => true;

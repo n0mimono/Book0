@@ -62,7 +62,7 @@ public partial class Creature {
 	}
 
 	protected virtual void OnDamage(DamageSource src) {
-		DecreaseHitPoint (1);
+		DecreaseHitPoint (src.basePoint);
 	}
 
 	public void ForceHpUpdate() {

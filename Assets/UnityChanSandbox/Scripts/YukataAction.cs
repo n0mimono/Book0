@@ -309,4 +309,3 @@ public partial class YukataAction {
 	}
 
 }
-
