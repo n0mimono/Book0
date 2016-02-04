@@ -134,11 +134,6 @@ public partial class YukataAction {
 		SetDiveVelocity (dir);
 	}
 
-	public void SpellFlower(LockHandler onCompleted) {
-		StartLockedAction (AnimeAction.Salute, onCompleted, true);
-		StartGuardianMagic ();
-	}
-
 	public void SpellAngel(LockHandler onCompleted) {
 		StartLockedAction (AnimeAction.Salute, onCompleted, true);
 		StartAngelMagic ();
@@ -173,7 +168,9 @@ public partial class YukataAction {
 	}
 
 	private void CancelActions() {
-		if (enchantress != null) StopSpell();
+		// wtf
+		enchantress.Do(e => StopHoldSpell ());
+		guardian.Do(g => StopChainSpell ());
 	}
 
 	public void Kill() {
@@ -238,8 +235,8 @@ public partial class YukataAction {
 	public EnchantControl enchantress;
 	public MagicShieldSpawner guardian;
 	public MagicMagazine angelMagazine;
-	private bool isSpelling = false;
-	private bool isGuarding = false;
+	private bool isChainSpelling = false;
+	private bool isHoldSpelling = false;
 
 	private void InitilizeEnchantress() {
 		Targettting ().StartBy (this);
@@ -252,56 +249,49 @@ public partial class YukataAction {
 		}
 	}
 
-	public void StartSpell() {
-		if (isSpelling) return;
-
-		isSpelling = true;
-		Spell ()
-			.While (() => isSpelling)
-			.StartBy (this);
-	}
-
-	private IEnumerator Spell() {
+	public void StartChainSpell() {
+		if (isChainSpelling) return;
+		isHoldSpelling = true;
 		enchantress.Hold ();
-		while (true) {
-			yield return new WaitForSeconds(1f);
-			enchantress.Load ();
-		}
 	}
 
-	public void StopSpell() {
-		isSpelling = false;
+	public void StopChainSpell() {
+		isChainSpelling = false;
 		enchantress.Unload ();
 		enchantress.Release ();
 	}
 
-	public void ReleaseSpell() {
-		isSpelling = false;
-		enchantress.Fire (EnchantControl.TargetMode.Single);
-		enchantress.Release ();
+	public void ChainSpell() {
+		ProcChainSpell ().StartBy (this);
 	}
 
-	private void StartGuardianMagic() {
-		if (isGuarding) return;
-
-		GuardianMagic ().StartBy (this);		
+	private IEnumerator ProcChainSpell() {
+		MagicSpawner magazine = enchantress.RandomLoad ();
+		yield return new WaitForSeconds(0.2f);
+		if (magazine != null) {
+			enchantress.Fire (EnchantControl.TargetMode.Single, magazine);
+		}
 	}
 
-	private IEnumerator GuardianMagic() {
-		isGuarding = true;
+	public void StartHoldSpell() {
+		if (isHoldSpelling) return;
+		isHoldSpelling = true;
+		ProcHoldSpell ().While (() => isHoldSpelling).StartBy (this);
+	}
 
-		yield return null;
-		guardian.transform.position = transform.position;
+	public void StopHoldSpell() {
+		if (isHoldSpelling) {
+			isHoldSpelling = false;
+			guardian.Fire (null);
+		}
+	}
+
+	private IEnumerator ProcHoldSpell() {
 		guardian.Load();
-
-		yield return new WaitForSeconds(2f);
-		BodyDown ();
-
-		yield return new WaitForSeconds(10f);
-		guardian.Fire(null);
-
-	    yield return new WaitForSeconds(2f);
-		isGuarding = false;
+		while (true) {
+			guardian.transform.position = transform.position;
+			yield return null;
+		}
 	}
 
 	private void StartAngelMagic() {
@@ -317,7 +307,6 @@ public partial class YukataAction {
 		yield return null;
 		angelMagazine.Fire (target);
 	}
-
 
 	[Button("Revive", "Revive")] public int ButtonRevive;
 }

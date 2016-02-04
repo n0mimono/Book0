@@ -50,16 +50,16 @@ public partial class EnchantControl : MonoBehaviour {
 		}
 	}
 
-	public void RandomLoad() {
-		if (!isActive) return;
+	public MagicSpawner RandomLoad() {
+		if (!isActive) return null;
 
 		MagicSpawner magazine = magazines
 			.Where (m => !m.IsLoaded).RandomOrDefault ();
-		if (magazine == null) {
-			return;
+		if (magazine != null) {
+			magazine.Load ();
 		}
 
-		magazine.Load ();
+		return magazine;
 	}
 
 	public void LoadAll() {
@@ -95,6 +95,14 @@ public partial class EnchantControl : MonoBehaviour {
 			.Where (m => m.IsLoaded)
 			.ToList ()
 			.ForEach (m => m.Fire (GetTarget(mode)));
+	}
+
+	public void Fire(TargetMode mode, MagicSpawner magazine) {
+		if (!isActive) return;
+
+		if (magazine.IsLoaded) {
+			magazine.Fire (GetTarget (mode));
+		}
 	}
 
 	public void SetTarget (Transform primaryTarget) {

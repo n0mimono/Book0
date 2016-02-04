@@ -66,24 +66,26 @@ public partial class YukataManager : MonoBehaviour {
 	}
 
 	private void OnChainAction(int count) {
-		if (count >= 3) {
-			yukataAction.SpellFlower ((act) => {});
-			//uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.Salute);
+		if (count == 0) {
+			yukataAction.StopChainSpell ();
+		} else if (count == 2) {
+			yukataAction.StartChainSpell ();
+		} else if (count >= 3) {
+			yukataAction.ChainSpell ();
 		}
+			
 	}
 
 	private void OnHoldction(int count) {
 		if (count == 0) {
-			yukataAction.StopSpell ();
+			yukataAction.StopHoldSpell ();
 		} else if (count == 1) {
-			yukataAction.StartSpell ();
+			yukataAction.StartHoldSpell ();
 		}
 	}
 
 	private void OnReleaseAction(int count) {
-		if (count >= 2) {
-			yukataAction.ReleaseSpell ();
-		}
+		yukataAction.StopHoldSpell ();
 	}
 
 	private void OnFlickSlide(Vector2 slideDir) {

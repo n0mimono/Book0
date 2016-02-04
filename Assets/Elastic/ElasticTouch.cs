@@ -138,8 +138,9 @@ public partial class ElasticTouch : MonoBehaviour, IPointerDownHandler, IPointer
 		if (!isActive) return;
 
 		st.time = Mathf.Max (st.time - Time.deltaTime, 0f);
-		if (st.time == 0f) {
+		if (st.count != 0 && st.time == 0f) {
 			st.count = 0;
+			handler.OnChain (st.count);
 		}
 
 		handler.OnUpdate (st.Vec);
