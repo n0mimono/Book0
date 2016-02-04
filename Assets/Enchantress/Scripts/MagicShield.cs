@@ -15,6 +15,9 @@ public class MagicShield : MagicProjectile {
 
 	public MeshExploder exploder;
 
+	private float curAlpha;
+	private float tgtAlpha;
+
 	void Awake() {
 		receptor.OnDamage += (src) => {
 			if (src.isBreaker) {
@@ -34,10 +37,22 @@ public class MagicShield : MagicProjectile {
 		}
 	}
 
+	void Update() {
+
+		float da = tgtAlpha - curAlpha;
+		if (Mathf.Abs (da) > 0.01f) {
+			float sign = Mathf.Sign(da);
+			curAlpha += sign * Time.deltaTime;
+			SetAlpha (curAlpha);
+		}
+	}
+
 	public override void Initialize() {
 		base.Initialize ();
 		collide.enabled = false;
 
+		tgtAlpha = 0f;
+		curAlpha = 0f;
 		SetAlpha (0f);
 	}
 
@@ -45,7 +60,7 @@ public class MagicShield : MagicProjectile {
 		base.Load ();
 		collide.enabled = true;
 
-		Fade (t => t, () => {});
+		tgtAlpha = 1f;
 	}
 
 	public override void Hit(Vector3 pos) {
@@ -54,7 +69,13 @@ public class MagicShield : MagicProjectile {
 	public override void Fire() {
 		collide.enabled = false;
 
-		Fade (t => 1 - t, () => gameObject.SetActive (false));
+		tgtAlpha = 0f;
+		AfterFire ().StartBy (this);
+	}
+
+	private IEnumerator AfterFire() {
+		yield return new WaitForSeconds (1.5f);
+		gameObject.SetActive (false);
 	}
 
 	private void OnGuard(Vector3 srcPos) {
@@ -64,17 +85,6 @@ public class MagicShield : MagicProjectile {
 
 		MagicCircle circle = obj.GetComponent<MagicCircle> ();
 		circle.Release ();
-	}
-
-	private void Fade(System.Func<float,float> timeToValue, System.Action onCompleted) {
-		float time = 0f;
-		new Noop ()
-			.OnUpdate (() => time += Time.deltaTime * fadeTimeScale)
-			.OnUpdate (() => SetAlpha (timeToValue (time)))
-			.While (() => 0f <= time && time <= 1f)
-			.OnCompleted (() => SetAlpha (timeToValue (time)))
-			.OnCompleted (() => onCompleted ())
-			.StartBy (this);
 	}
 
 	private void SetAlpha(float alpha) {
