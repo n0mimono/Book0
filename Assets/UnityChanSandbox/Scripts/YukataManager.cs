@@ -13,7 +13,8 @@ public partial class YukataManager : MonoBehaviour {
 
 	public UICameraControl uiCameraControl;
 	public UIInputControl  uiInputControl;
-	public UIHpGaugeYukata uiHpGauge;
+	public UIGaugeYukata   uiHpGauge;
+	public UIGaugeYukata   uiMpGauge;
 
 	public YukataAction yukataAction;
 	public Transform    cameraTrans;
@@ -55,8 +56,9 @@ public partial class YukataManager : MonoBehaviour {
 		yield return null;
 
 		uiCameraControl.OnCameraChangeButtonClicked ((int)ElasticCameraOperator.Mode.PlayerTargeting);
+		yukataAction.HpChangeHander += uiHpGauge.SetRate;
+		yukataAction.MpChangeHander += uiMpGauge.SetRate;
 
-		yukataAction.HpChangeHander += uiHpGauge.SetHPRate;
 		yukataAction.ForceHpUpdate (); // initialization
 	}
 

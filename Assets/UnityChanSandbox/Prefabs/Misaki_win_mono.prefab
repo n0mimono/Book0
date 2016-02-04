@@ -5011,8 +5011,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iniBS:
     hitPoint: 5
+    magicPoint: 1
+    recoverMagicSpeed: 0.1
   curBS:
     hitPoint: 0
+    magicPoint: 0
+    recoverMagicSpeed: 0
   damageSource: {fileID: 11481534}
   damageReceptor: {fileID: 11437610}
   ButtonSuicide: 0
@@ -5027,6 +5031,9 @@ MonoBehaviour:
   enchantress: {fileID: 0}
   guardian: {fileID: 0}
   angelMagazine: {fileID: 0}
+  chainSpellCost: 0.05
+  holdSpellCost: 0.2
+  ButtonRevive: 0
 --- !u!114 &11408414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6570,6 +6577,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: basePoint
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: iniBS.magicPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: iniBS.recoverMagicSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: chainSpellCost
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: holdSpellCost
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

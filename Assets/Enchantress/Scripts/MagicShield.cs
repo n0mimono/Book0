@@ -14,7 +14,6 @@ public class MagicShield : MagicProjectile {
 	private List<Material> materials = null;
 
 	public MeshExploder exploder;
-	private bool isFading = false;
 
 	void Awake() {
 		receptor.OnDamage += (src) => {
@@ -68,16 +67,12 @@ public class MagicShield : MagicProjectile {
 	}
 
 	private void Fade(System.Func<float,float> timeToValue, System.Action onCompleted) {
-		if (isFading) return;
-		isFading = true;
-
 		float time = 0f;
 		new Noop ()
 			.OnUpdate (() => time += Time.deltaTime * fadeTimeScale)
 			.OnUpdate (() => SetAlpha (timeToValue (time)))
 			.While (() => 0f <= time && time <= 1f)
 			.OnCompleted (() => SetAlpha (timeToValue (time)))
-			.OnCompleted (() => isFading = false)
 			.OnCompleted (() => onCompleted ())
 			.StartBy (this);
 	}

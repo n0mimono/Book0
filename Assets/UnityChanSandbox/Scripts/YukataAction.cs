@@ -58,7 +58,9 @@ public partial class YukataAction : Creature {
 		SetWalkable (true);
 	}
 
-	void Update() {
+	protected override void Update() {
+		base.Update ();
+
 		// suiside check
 		if (IsAlive && transform.position.y < -40f) {
 			ForceSetHp (1);
@@ -238,6 +240,9 @@ public partial class YukataAction {
 	private bool isChainSpelling = false;
 	private bool isHoldSpelling = false;
 
+	public float chainSpellCost;
+	public float holdSpellCost;
+
 	private void InitilizeEnchantress() {
 		Targettting ().StartBy (this);
 
@@ -262,7 +267,9 @@ public partial class YukataAction {
 	}
 
 	public void ChainSpell() {
-		ProcChainSpell ().StartBy (this);
+		if (ConsumeMagicPoint (chainSpellCost)) {
+			ProcChainSpell ().StartBy (this);
+		}
 	}
 
 	private IEnumerator ProcChainSpell() {
@@ -280,18 +287,22 @@ public partial class YukataAction {
 	}
 
 	public void StopHoldSpell() {
-		if (isHoldSpelling) {
-			isHoldSpelling = false;
-			guardian.Fire (null);
-		}
+		isHoldSpelling = false;
+		guardian.Fire(null);
 	}
 
 	private IEnumerator ProcHoldSpell() {
 		guardian.Load();
-		while (true) {
+		while (ConsumeMagicPoint(holdSpellCost * Time.deltaTime)) {
 			guardian.transform.position = transform.position;
 			yield return null;
 		}
+
+		yield return null;
+		BodyDown ();
+
+		isHoldSpelling = false;
+		guardian.Fire(null);
 	}
 
 	private void StartAngelMagic() {

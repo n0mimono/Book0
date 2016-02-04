@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class UIHpGaugeYukata : MonoBehaviour {
+public class UIGaugeYukata : MonoBehaviour {
 	public Image image;
 	public float lerpSpeed;
 
@@ -12,7 +12,7 @@ public class UIHpGaugeYukata : MonoBehaviour {
 		image.fillAmount = Mathf.Lerp (image.fillAmount, targetRate, lerpSpeed * Time.deltaTime);
 	}
 
-	public void SetHPRate(float rate) {
+	public void SetRate(float rate) {
 		targetRate = rate;
 	}
 

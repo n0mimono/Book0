@@ -17,6 +17,10 @@ public partial class Creature : MonoBehaviour {
 		InitilizeBattleStatus ();
 	}
 
+	protected virtual void Update() {
+		RecoverMagicPoint (Time.deltaTime);
+	}
+
 }
 
 public partial class Creature {
@@ -24,12 +28,15 @@ public partial class Creature {
 	[Serializable]
 	public struct BattleStatus {
 		public int hitPoint;
+		public float magicPoint;
+		public float recoverMagicSpeed;
 	}
 
 	[Header("Status Control")]
 	public BattleStatus iniBS;
 	public BattleStatus curBS;
 	public float HpRate { get { return (float)curBS.hitPoint / (float)iniBS.hitPoint; } }
+	public float MpRate { get { return curBS.magicPoint / iniBS.magicPoint; } }
 
 	public bool IsAlive { get { return curBS.hitPoint > 0; } }
 	private void DecreaseHitPoint(int point) {
@@ -55,6 +62,7 @@ public partial class Creature {
 
 	public event Action DeadHandler;
 	public event Action<float> HpChangeHander;
+	public event Action<float> MpChangeHander;
 
 	protected virtual void InitializeDamageControl() {
 		DeadHandler += () => {};
@@ -80,4 +88,22 @@ public partial class Creature {
 	}
 
 	[Button("ForceDamage", "Suicide", 100000)] public int ButtonSuicide;
+
+	public void RecoverMagicPoint(float dt) {
+		if (MpChangeHander != null) {
+			float mp = curBS.magicPoint + curBS.recoverMagicSpeed * dt;
+			curBS.magicPoint = Mathf.Clamp (mp, 0f, iniBS.magicPoint);
+			MpChangeHander (MpRate);
+		}
+	}
+
+	public bool ConsumeMagicPoint(float point) {
+		bool hasMP = curBS.magicPoint >= point;
+		if (hasMP) {
+			curBS.magicPoint -= point;
+			MpChangeHander (MpRate);
+		}
+		return hasMP;
+	}
+
 }
