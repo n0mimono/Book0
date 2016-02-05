@@ -3887,6 +3887,7 @@ MonoBehaviour:
   - UnityChanSandbox_02_Dragon
   - UnityChanSandbox_03_PixieRoad
   - UnityChanSandbox_04_Night
+  - UnityChanSandbox_05_Glass
   fadeMan: {fileID: 1632636039}
   startOnStart: 0
   loadOnInit: 1
