@@ -94,6 +94,7 @@ public class MagicProjectile : MonoBehaviour {
 	IEnumerator Explotion() {
 		GameObject obj = PoolManager.Instance.GetInstance (instanceName);
 		obj.transform.position = transform.position;
+		obj.transform.eulerAngles = transform.eulerAngles;
 
 		OnExplotion (obj);
 		yield return null;

@@ -55,6 +55,10 @@ MonoBehaviour:
   - {fileID: 107380, guid: 35d1f649886e248fca672c70c626083a, type: 2}
   - {fileID: 135564, guid: 0fc4d32d1ece04f5789e10669e8ec230, type: 2}
   - {fileID: 102152, guid: aab28117c9e5a4489bd11aeb6e49e344, type: 2}
+  - {fileID: 177614, guid: 78857431f18e546ea95aaa04e9675fea, type: 2}
+  - {fileID: 195808, guid: 39a071e8fabc94479bdfdc9f4363249a, type: 2}
+  - {fileID: 117454, guid: c2a4cbaeff76e4717b427f2eb04fdb06, type: 2}
+  - {fileID: 107380, guid: b46b41a03627642b1990611df06b3f63, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -64,7 +68,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: prefabs.Array.size
-      value: 15
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: prefabs.Array.data[3]
@@ -118,6 +122,22 @@ Prefab:
       propertyPath: prefabs.Array.data[14]
       value: 
       objectReference: {fileID: 102152, guid: aab28117c9e5a4489bd11aeb6e49e344, type: 2}
+    - target: {fileID: 0}
+      propertyPath: prefabs.Array.data[15]
+      value: 
+      objectReference: {fileID: 177614, guid: 78857431f18e546ea95aaa04e9675fea, type: 2}
+    - target: {fileID: 0}
+      propertyPath: prefabs.Array.data[16]
+      value: 
+      objectReference: {fileID: 195808, guid: 39a071e8fabc94479bdfdc9f4363249a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: prefabs.Array.data[17]
+      value: 
+      objectReference: {fileID: 117454, guid: c2a4cbaeff76e4717b427f2eb04fdb06, type: 2}
+    - target: {fileID: 0}
+      propertyPath: prefabs.Array.data[18]
+      value: 
+      objectReference: {fileID: 107380, guid: b46b41a03627642b1990611df06b3f63, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114798}
