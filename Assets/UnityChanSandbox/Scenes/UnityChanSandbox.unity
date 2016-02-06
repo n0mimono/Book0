@@ -4233,7 +4233,7 @@ MonoBehaviour:
   opTrans: {fileID: 1802821561}
   schemes:
   - mode: 0
-    lerpSpeed: 5
+    lerpSpeed: 0.5
   - mode: 1
     lerpSpeed: 1
   - mode: 2
@@ -4248,8 +4248,8 @@ MonoBehaviour:
     lerpSpeed: 4
   targets: []
   forwardingParams:
-    height: 1.5
-    back: -2
+    height: 2
+    back: -5
     forward: 4
     heightOffset: 1
   pTargettingParams:
