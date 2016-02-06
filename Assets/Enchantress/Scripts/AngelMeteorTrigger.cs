@@ -4,7 +4,7 @@ using System.Collections;
 public class AngelMeteorTrigger : MagicProjectile {
 
 	[Header("Angel")]
-	public AngelMeteor meteor;
+	public AngelAltar meteor;
 
 	public override void Initialize() {
 		base.Initialize ();

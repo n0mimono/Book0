@@ -12,6 +12,7 @@ public partial class MagicBullet : MagicProjectile {
 	public Vector3 loadOffset;
 	public Vector3 loadNoise;
 	public Vector3 targetNoise;
+	public bool isTrailOnLoad;
 
 	[Header("Circle")]
 	public Vector3 circleRotateSpeed;
@@ -35,7 +36,7 @@ public partial class MagicBullet : MagicProjectile {
 		base.Load ();
 
 		trail.Clear ();
-		trail.enabled = false;
+		trail.enabled = isTrailOnLoad;
 	}
 
 	public override void Fire() {

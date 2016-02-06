@@ -1902,7 +1902,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1928,7 +1928,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 157c1beb27a6b4678a46753b18c8b032, type: 2}
+  - {fileID: 2100000, guid: 09471b72b16404cd0b74aed8a66669b4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1954,7 +1954,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1980,7 +1980,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2006,7 +2006,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2032,7 +2032,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2058,7 +2058,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2084,7 +2084,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2110,7 +2110,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2136,7 +2136,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2162,7 +2162,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2188,7 +2188,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2214,7 +2214,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 157c1beb27a6b4678a46753b18c8b032, type: 2}
+  - {fileID: 2100000, guid: 09471b72b16404cd0b74aed8a66669b4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2240,7 +2240,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2266,7 +2266,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2292,7 +2292,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 157c1beb27a6b4678a46753b18c8b032, type: 2}
+  - {fileID: 2100000, guid: 09471b72b16404cd0b74aed8a66669b4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2318,7 +2318,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 157c1beb27a6b4678a46753b18c8b032, type: 2}
+  - {fileID: 2100000, guid: 09471b72b16404cd0b74aed8a66669b4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2344,7 +2344,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2370,7 +2370,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2396,7 +2396,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2422,7 +2422,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d2f391b46400f4442ab41d6bdee1260b, type: 2}
+  - {fileID: 2100000, guid: 969d2a4ce99b945adbf59487e0551565, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2448,7 +2448,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2474,7 +2474,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2500,7 +2500,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2526,7 +2526,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2552,7 +2552,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2578,7 +2578,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2604,7 +2604,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2630,7 +2630,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2656,7 +2656,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2682,7 +2682,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2708,7 +2708,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2734,7 +2734,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c541363bdd10f4971a9df87d4e918670, type: 2}
+  - {fileID: 2100000, guid: 1ac9a70f827314703977ffc36b45184b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2993,9 +2993,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3014,9 +3015,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3036,6 +3038,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11408752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3049,6 +3053,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11410926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3062,6 +3068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11411460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3074,9 +3082,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3096,6 +3105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11416232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3108,9 +3119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3130,6 +3142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11419084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3143,6 +3157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11419288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3156,6 +3172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11420190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3169,6 +3187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11421146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3182,6 +3202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11421348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3194,9 +3216,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3216,6 +3239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11422858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3229,6 +3254,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11422862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3241,9 +3268,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3262,9 +3290,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3284,6 +3313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11427010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3308,9 +3339,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3330,6 +3362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11428768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3342,9 +3376,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3364,6 +3399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 1
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11429798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3377,6 +3414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11437404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3390,6 +3429,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11438090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3403,6 +3444,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11442056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3415,9 +3458,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3437,6 +3481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11447750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3450,6 +3496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11448252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3462,9 +3510,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3484,6 +3533,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11450944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3496,9 +3547,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3518,6 +3570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11454270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3530,9 +3584,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3552,6 +3607,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 1
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11461016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3564,9 +3621,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3586,6 +3644,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11465282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3599,6 +3659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 1
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11466330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3611,9 +3673,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3633,6 +3696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11469916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3646,6 +3711,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 1
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11477410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3658,9 +3725,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3679,9 +3747,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3701,6 +3770,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11479798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3713,9 +3784,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3734,9 +3806,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3756,6 +3829,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11481532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3768,9 +3843,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3789,9 +3865,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3851,6 +3928,7 @@ MonoBehaviour:
   ButtonInitEnemy: 0
   ButtonHold: 0
   ButtonLoadAll: 0
+  ButtonFireForceSingle: 0
   ButtonFireSingle: 0
   ButtonFireMulti: 0
 --- !u!114 &11484918
@@ -3865,9 +3943,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3887,6 +3966,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11489214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3900,6 +3981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11490720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3912,9 +3995,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3934,6 +4018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11491466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3946,9 +4032,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3967,9 +4054,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -3988,9 +4076,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -4009,9 +4098,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -4031,6 +4121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 2
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11494432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4043,9 +4135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  instanceName: MagicBullet_Dragon
+  instanceName: MagicBullet_Dragon_Glass
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -4065,6 +4158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 1
   timeScale: 1
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -4,12 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Custom;
 
-public class AngelBulletAltar : MonoBehaviour {
-	public GameObject photographer;
-
-	public Transform target;
-	public System.Action OnProcCompleted; 
-
+public class AngelBulletAltar : AngelAltar {
+	[Header("Bullet")]
 	public List<MagicCircle> circles;
 	public List<ParticleSystem> particles;
 	public List<MagicMagazine> magazines;
@@ -45,26 +41,13 @@ public class AngelBulletAltar : MonoBehaviour {
 	public Bulletive bulletive;
 	public Bulletive bulletive2;
 
-	private enum CircleType {
-		UnderOuterCircle = 0,
-		UnderInnerCircle = 1,
-		MidUnderRing = 2,
-		MidInnerRing = 3,
-		MidOuterRing = 4,
-		MidUpperRing = 5,
-		UpperInnerCircle = 6,
-		UpperOuterCircle = 7,
-		UpperUpperCircle = 8,
-		Sky = 9,
-	}
-
 	void Start() {
 		particles.ForEach (p => p.SetEmission (false));
 		bulletive.main.gameObject.SetActive (false);
 		bulletive2.main.gameObject.SetActive (false);
 	}
 
-	public void StartProc() {
+	public override void StartProc() {
 		TraceTarget ().StartBy (this);
 		Proc ().StartBy (this);
 	}

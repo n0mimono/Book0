@@ -129,6 +129,7 @@ public partial class EnchantControl {
 	[Button("Hold", "Hold")] public float ButtonHold;
 	[Button("LoadAll", "LoadAll")] public float ButtonLoadAll;
 
+	[Button("ForceFire", "Fire Single (Force)")] public float ButtonFireForceSingle;
 	[Button("Fire", "Fire Single", TargetMode.Single)] public float ButtonFireSingle;
 	[Button("Fire", "Fire Multi", TargetMode.Multi)] public float ButtonFireMulti;
 

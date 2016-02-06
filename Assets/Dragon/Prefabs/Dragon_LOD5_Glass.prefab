@@ -1182,7 +1182,7 @@ GameObject:
   - 114: {fileID: 11471004}
   m_Layer: 8
   m_Name: Utc_win_mono
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8127,6 +8127,7 @@ MonoBehaviour:
   instanceName: MagicGlassBall
   positionNoise: {x: 0, y: 0, z: 0}
   getRawTarget: 0
+  projPosTrans: {fileID: 0}
   ButtonInitilize: 0
   ButtonLoad: 0
   ButtonFire: 0
@@ -8384,6 +8385,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rippleScale: 1
   timeScale: 3
+  ButtonHold: 0
+  ButtonRelease: 0
 --- !u!114 &11465258
 MonoBehaviour:
   m_ObjectHideFlags: 1

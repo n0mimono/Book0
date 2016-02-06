@@ -3,6 +3,7 @@ using System.Collections;
 using Custom;
 
 public class MagicMagazine : MagicSpawner {
+	[Header("Magazine")]
 	public MagicCircle circle;
 
 	public override void Initilize(string tag) {
@@ -13,5 +14,5 @@ public class MagicMagazine : MagicSpawner {
 			OnRelease = () => circle.Release ();
 		}
 	}
+
 }
-		

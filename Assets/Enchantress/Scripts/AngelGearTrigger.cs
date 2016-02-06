@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Custom;
 
-public class AngelBulletTrigger : MagicProjectile {
-	
-	[Header("Angel")]
-	public AngelAltar altar;
+public class AngelGearTrigger : MagicProjectile {
+
+	[Header("Gear")]
+	public AngelAltar gear;
 
 	public override void Initialize() {
 		base.Initialize ();
 
-		altar.OnProcCompleted = () => gameObject.SetActive (false);
+		gear.OnProcCompleted = () => gameObject.SetActive (false);
 	}
 
 	public override void Load() {
@@ -18,9 +17,9 @@ public class AngelBulletTrigger : MagicProjectile {
 	}
 
 	public override void Fire() {
-		altar.target = target;
+		gear.target = target;
 
-		altar.StartProc ();
+		gear.StartProc ();
 	}
 
 	public override void Unload() {

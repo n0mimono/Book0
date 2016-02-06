@@ -4,19 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using Custom;
 
-public class AngelMeteor : MonoBehaviour {
-	public GameObject photographer;
-
-	public Transform target;
-	public System.Action OnProcCompleted; 
-
+public class AngelMeteor : AngelAltar {
+	[Header("Meteor")]
 	public List<MagicCircle> circles;
 	public List<MagicMagazine> magazines;
 
 	void Start() {
 	}
 
-	public void StartProc() {
+	public override void StartProc() {
 		Proc ().StartBy (this);
 	}
 

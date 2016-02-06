@@ -8,7 +8,9 @@ using System;
 public partial class DragonMaster : MonoBehaviour {
 	public Dragon dragon;
 	public EnchantControl spellBullet;
-	public EnchantControl meteorSwarm;
+
+	[UnityEngine.Serialization.FormerlySerializedAs("meteorSwarm")]
+	public EnchantControl angelEnchant;
 
 	public List<Transform> dragonChairs;
 	public Transform focusCenter;
@@ -31,7 +33,7 @@ public partial class DragonMaster : MonoBehaviour {
 		state = State.None;
 
 		spellBullet.Do (e => e.Initilize (gameObject.tag));
-		meteorSwarm.Do (e => e.Initilize (gameObject.tag));
+		angelEnchant.Do (e => e.Initilize (gameObject.tag));
 
 		if (isPlayOnStart) {
 			ChooseProc ().StartBy (this);
@@ -75,7 +77,7 @@ public partial class DragonMaster {
 			Move,
 			Fire,
 			SpellBullet,
-			MeteorSwarm
+			AngelMagic
 		};
 		while (true) {
 			yield return new WaitForSeconds (1f);
@@ -225,13 +227,13 @@ public partial class DragonMaster {
 		state = State.None;
 	}
 
-	public void MeteorSwarm() {
-		if (meteorSwarm == null) return;
+	public void AngelMagic() {
+		if (angelEnchant == null) return;
 
-		ProcMeteorSwarm ().StartBy (this);
+		ProcAngelMagic ().StartBy (this);
 	}
 
-	private IEnumerator ProcMeteorSwarm() {
+	private IEnumerator ProcAngelMagic() {
 		state = State.Fire;
 
 		SetDragonState (Dragon.State.Idle);
@@ -240,17 +242,17 @@ public partial class DragonMaster {
 		SetDragonState (Dragon.State.FlyIdle);
 		while (!dragon.Is(Dragon.State.FlyIdle)) yield return null;
 
-		meteorSwarm.Hold ();
+		angelEnchant.Hold ();
 		yield return null;
-		meteorSwarm.LoadAll ();
+		angelEnchant.LoadAll ();
 		yield return new WaitForSeconds (1f);
 
 		yield return StartCoroutine (SubProcRoar ());
 		yield return new WaitForSeconds (1.5f);
 
-		meteorSwarm.Fire (EnchantControl.TargetMode.Single);
+		angelEnchant.Fire (EnchantControl.TargetMode.Single);
 		yield return null;
-		meteorSwarm.Release ();
+		angelEnchant.Release ();
 		yield return new WaitForSeconds (6f);
 
 		yield return StartCoroutine (SubProcRoar ());
@@ -279,7 +281,7 @@ public partial class DragonMaster {
 	[Button("Move", "Move")] public float ButtonMove;
 	[Button("Fire", "Fire")] public float ButtonFire;
 	[Button("SpellBullet", "Spell Bullet")] public float ButtonSpellBullet;
-	[Button("MeteorSwarm", "Meteor Swarm")] public float ButtonMeteorSwarm;
+	[Button("AngelMagic", "Angel Magic")] public float ButtonAngelMagic;
 
 	public void StartFire() {
 		GameObject enemy = gameObject.FindOppositeCharacters ().FirstOrDefault ();

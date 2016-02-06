@@ -10,12 +10,14 @@ public class MagicSpawner : MonoBehaviour {
 	public Vector3 positionNoise;
 	public bool getRawTarget;
 
+	public Transform projPosTrans;
+
 	public bool IsLoaded { get { return projectile != null; } }
 
 	protected Action OnHold = () => {};
 	protected Action OnRelease = () => {};
 
-	private Vector3 generatedPositionNoise;
+	protected Vector3 generatedPositionNoise;
 
 	public virtual void Initilize(string tag) {
 		gameObject.SetTag (tag, true);
@@ -51,9 +53,13 @@ public class MagicSpawner : MonoBehaviour {
 		projectile = null;
 	}
 
-	void Update() {
+	protected virtual void Update() {
 		if (projectile != null) {
-			projectile.transform.position = transform.position + generatedPositionNoise;
+			if (projPosTrans != null) {
+				projectile.transform.position = projPosTrans.position + generatedPositionNoise;
+			} else {
+				projectile.transform.position = transform.position + generatedPositionNoise;
+			}
 		}
 	}
 

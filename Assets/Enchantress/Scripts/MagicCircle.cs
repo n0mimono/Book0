@@ -45,4 +45,7 @@ public class MagicCircle : MonoBehaviour {
 
 		transform.localScale = scales * (1f + rippleScale * (1f - val));
 	}
+
+	[Button("Hold", "Hold")] public int ButtonHold;
+	[Button("Release", "Release")] public int ButtonRelease;
 }
