@@ -4254,7 +4254,7 @@ MonoBehaviour:
     heightOffset: 1
   pTargettingParams:
     height: 1.5
-    back: -3
+    back: -3.5
   mTargettingParams:
     height: 1.5
     distScale: 2

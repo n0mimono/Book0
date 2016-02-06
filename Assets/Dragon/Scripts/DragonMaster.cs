@@ -7,15 +7,18 @@ using System;
 
 public partial class DragonMaster : MonoBehaviour {
 	public Dragon dragon;
+
+	[Header("Enchant")]
 	public EnchantControl spellBullet;
-
-	[UnityEngine.Serialization.FormerlySerializedAs("meteorSwarm")]
 	public EnchantControl angelEnchant;
+	public bool isSetTargetToAngel;
 
+	[Header("Move")]
 	public List<Transform> dragonChairs;
 	public Transform focusCenter;
 	public float tgtAngleSpeed;
 
+	[Header("Meta")]
 	public bool isPlayOnStart;
 	public bool isIdlingOnly;
 
@@ -230,10 +233,16 @@ public partial class DragonMaster {
 	public void AngelMagic() {
 		if (angelEnchant == null) return;
 
-		ProcAngelMagic ().StartBy (this);
+		Transform target = null;
+		if (isSetTargetToAngel) {
+			GameObject enemy = gameObject.FindOppositeCharacters ().FirstOrDefault ();
+			target = enemy.transform;
+		}
+
+		ProcAngelMagic (target).StartBy (this);
 	}
 
-	private IEnumerator ProcAngelMagic() {
+	private IEnumerator ProcAngelMagic(Transform target) {
 		state = State.Fire;
 
 		SetDragonState (Dragon.State.Idle);
@@ -250,6 +259,7 @@ public partial class DragonMaster {
 		yield return StartCoroutine (SubProcRoar ());
 		yield return new WaitForSeconds (1.5f);
 
+		angelEnchant.SetTarget (target);
 		angelEnchant.Fire (EnchantControl.TargetMode.Single);
 		yield return null;
 		angelEnchant.Release ();

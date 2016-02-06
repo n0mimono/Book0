@@ -180,7 +180,7 @@ Prefab:
       objectReference: {fileID: 1599089786}
     - target: {fileID: 194540, guid: c9e9f4e6ff0f242ddb239bb635f2c9f8, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9e9f4e6ff0f242ddb239bb635f2c9f8, type: 2}
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragon: {fileID: 1725607981}
   spellBullet: {fileID: 2130717797}
-  meteorSwarm: {fileID: 1787141273}
+  angelEnchant: {fileID: 1787141273}
   dragonChairs:
   - {fileID: 813184002}
   - {fileID: 1103306199}
@@ -394,7 +394,7 @@ MonoBehaviour:
   ButtonMove: 0
   ButtonFire: 0
   ButtonSpellBullet: 0
-  ButtonMeteorSwarm: 0
+  ButtonAngelMagic: 0
   ButtonRoar: 0
 --- !u!4 &283190778
 Transform:
@@ -1207,7 +1207,7 @@ MeshCollider:
   m_GameObject: {fileID: 1004780010}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}

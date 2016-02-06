@@ -138,7 +138,7 @@ MonoBehaviour:
   collide: {fileID: 13553536}
   cur:
     mode: 0
-  speed: 100
+  speed: 40
   target: {fileID: 0}
   damageSource: {fileID: 11488868}
   instanceName: MagicBulletExplosion
@@ -146,7 +146,7 @@ MonoBehaviour:
   shakeOnHit: 3
   fireOnStart: 0
   trail: {fileID: 9650892}
-  angleSpeed: 90
+  angleSpeed: 1
   loadOffset: {x: 0, y: 2, z: 0}
   loadNoise: {x: 0.1, y: 0, z: 0.1}
   targetNoise: {x: 0.1, y: 0.1, z: 0.1}
@@ -1722,7 +1722,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: speed
-      value: 100
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
@@ -1754,7 +1754,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: angleSpeed
-      value: 90
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
