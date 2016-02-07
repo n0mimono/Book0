@@ -171,8 +171,8 @@ public partial class YukataAction {
 
 	private void CancelActions() {
 		// wtf
-		enchantress.Do(e => StopHoldSpell ());
-		guardian.Do(g => StopChainSpell ());
+		StopChainSpell ();
+		StopHoldSpell ();
 	}
 
 	public void Kill() {
@@ -261,6 +261,8 @@ public partial class YukataAction {
 	}
 
 	public void StopChainSpell() {
+		if (enchantress == null) return;
+
 		isChainSpelling = false;
 		enchantress.Unload ();
 		enchantress.Release ();
@@ -287,6 +289,8 @@ public partial class YukataAction {
 	}
 
 	public void StopHoldSpell() {
+		if (guardian == null) return;
+
 		isHoldSpelling = false;
 		guardian.Fire(null);
 	}

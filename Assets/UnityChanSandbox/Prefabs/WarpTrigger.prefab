@@ -112,7 +112,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935278e1befa249be9d994fba0d16385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receptor: {fileID: 11422240}
+  iniBS:
+    hitPoint: 1
+    magicPoint: 0
+    recoverMagicSpeed: 0
+  curBS:
+    hitPoint: 0
+    magicPoint: 0
+    recoverMagicSpeed: 0
+  damageSource: {fileID: 0}
+  damageReceptor: {fileID: 11422240}
+  ButtonSuicide: 0
   toWarp: {x: 0, y: 5, z: 0}
   loadIndex: 1
 --- !u!135 &13529896
@@ -133,7 +143,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: iniBS.hitPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damageReceptor
+      value: 
+      objectReference: {fileID: 11422240}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135030}

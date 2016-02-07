@@ -3,23 +3,23 @@ using System.Collections;
 using UnityEngine.Events;
 using Custom;
 
-public class FieldWarpTrigger : MonoBehaviour {
-	public DamageReceptor receptor;
+public class FieldWarpTrigger : Creature {
 	public Vector3 toWarp;
 	public int loadIndex;
 
 	public System.Action<int> OnLoad;
-
 	private bool isReady;
 
-	void Start() {
+	protected override void Initialize() {
+		base.Initialize ();
+
 		isReady = true;
 		GetComponent<Renderer> ().enabled = true;
 
-		receptor.OnDamage += OnDamage;
+		damageReceptor.OnDamage += DamageBreak;
 	}
 
-	private void OnDamage(DamageSource src) {
+	private void DamageBreak(DamageSource src) {
 		if (!isReady) return;
 		isReady = false;
 

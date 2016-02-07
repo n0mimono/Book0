@@ -280,7 +280,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 1143555443}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!23 &21945214
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3396,7 +3396,7 @@ Transform:
   - {fileID: 866878736}
   - {fileID: 581159360}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &362857471
 GameObject:
   m_ObjectHideFlags: 0
@@ -3714,7 +3714,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 1143555443}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!23 &394199310
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3961,6 +3961,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePoint: 0
+  isBreaker: 0
 --- !u!143 &410402516
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3993,10 +3995,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iniBS:
     hitPoint: 100
+    magicPoint: 0
+    recoverMagicSpeed: 0
   curBS:
     hitPoint: 0
+    magicPoint: 0
+    recoverMagicSpeed: 0
   damageSource: {fileID: 410402515}
   damageReceptor: {fileID: 410402514}
+  ButtonSuicide: 0
   characterControl: {fileID: 410402516}
   animator: {fileID: 410402523}
   maxSpeed: 2
@@ -4008,6 +4015,9 @@ MonoBehaviour:
   enchantress: {fileID: 0}
   guardian: {fileID: 0}
   angelMagazine: {fileID: 0}
+  chainSpellCost: 0
+  holdSpellCost: 0
+  ButtonRevive: 0
 --- !u!114 &410402518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4410,7 +4420,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 1143555443}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!23 &442831378
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6265,6 +6275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePoint: 0
+  isBreaker: 0
 --- !u!143 &646424640
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6297,10 +6309,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iniBS:
     hitPoint: 100
+    magicPoint: 0
+    recoverMagicSpeed: 0
   curBS:
     hitPoint: 0
+    magicPoint: 0
+    recoverMagicSpeed: 0
   damageSource: {fileID: 646424639}
   damageReceptor: {fileID: 646424638}
+  ButtonSuicide: 0
   characterControl: {fileID: 646424640}
   animator: {fileID: 646424647}
   maxSpeed: 2
@@ -6312,6 +6329,9 @@ MonoBehaviour:
   enchantress: {fileID: 0}
   guardian: {fileID: 0}
   angelMagazine: {fileID: 0}
+  chainSpellCost: 0
+  holdSpellCost: 0
+  ButtonRevive: 0
 --- !u!114 &646424642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9457,7 +9477,7 @@ Transform:
   m_Children:
   - {fileID: 1379290862}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &954915799
 GameObject:
   m_ObjectHideFlags: 0
@@ -9993,7 +10013,7 @@ Transform:
   m_LocalScale: {x: 30, y: 0.1, z: 30}
   m_Children: []
   m_Father: {fileID: 1143555443}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &1007315752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10835,7 +10855,7 @@ Transform:
   - {fileID: 1778972045}
   - {fileID: 1328126307}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1101053785
 GameObject:
   m_ObjectHideFlags: 0
@@ -11253,6 +11273,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1645160165}
   - {fileID: 1240658575}
   - {fileID: 21945213}
   - {fileID: 442831377}
@@ -11552,6 +11573,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1328126307}
   m_RootOrder: 2
+--- !u!1 &1210064917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1210064918}
+  - 114: {fileID: 1210064919}
+  m_Layer: 0
+  m_Name: FieldDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1210064918
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1210064917}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &1210064919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1210064917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29b1fd17051f43189973e68332e64aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3
+  creature: {fileID: 1657311251}
 --- !u!1 &1211240854
 GameObject:
   m_ObjectHideFlags: 0
@@ -11886,7 +11948,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 1143555443}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!23 &1240658576
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12185,7 +12247,7 @@ Transform:
   m_Children:
   - {fileID: 50012191}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1272429794
 GameObject:
   m_ObjectHideFlags: 0
@@ -14017,7 +14079,7 @@ Transform:
   - {fileID: 2121752123}
   - {fileID: 1607922235}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1489595511
 GameObject:
   m_ObjectHideFlags: 0
@@ -15179,7 +15241,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 1143555443}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!23 &1629495046
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15252,6 +15314,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 626017749}
   m_RootOrder: 0
+--- !u!1 &1645160164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1645160165}
+  - 33: {fileID: 1645160168}
+  - 65: {fileID: 1645160167}
+  - 23: {fileID: 1645160166}
+  m_Layer: 0
+  m_Name: Cube (0)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1645160165
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1645160164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_Children: []
+  m_Father: {fileID: 1143555443}
+  m_RootOrder: 0
+--- !u!23 &1645160166
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1645160164}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: e04b8e3924b464451b2a2bae0308a30e, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &1645160167
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1645160164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1645160168
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1645160164}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1649805510
 GameObject:
   m_ObjectHideFlags: 0
@@ -15354,6 +15491,12 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 453572, guid: 5b2d86567b41c4d8baca8f81ae845fc2, type: 2}
   m_PrefabInternal: {fileID: 1657311249}
+--- !u!114 &1657311251 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11483856, guid: 5b2d86567b41c4d8baca8f81ae845fc2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1657311249}
+  m_Script: {fileID: 11500000, guid: 935278e1befa249be9d994fba0d16385, type: 3}
 --- !u!1 &1663856082
 GameObject:
   m_ObjectHideFlags: 0
@@ -16238,7 +16381,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 1143555443}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!23 &1740416371
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16697,6 +16840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9197cefe40d404d19ae000704c9fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePoint: 0
+  isBreaker: 0
 --- !u!143 &1794056531
 CharacterController:
   m_ObjectHideFlags: 0
@@ -16729,10 +16874,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iniBS:
     hitPoint: 100
+    magicPoint: 0
+    recoverMagicSpeed: 0
   curBS:
     hitPoint: 0
+    magicPoint: 0
+    recoverMagicSpeed: 0
   damageSource: {fileID: 1794056530}
   damageReceptor: {fileID: 1794056529}
+  ButtonSuicide: 0
   characterControl: {fileID: 1794056531}
   animator: {fileID: 1794056538}
   maxSpeed: 2
@@ -16744,6 +16894,9 @@ MonoBehaviour:
   enchantress: {fileID: 0}
   guardian: {fileID: 0}
   angelMagazine: {fileID: 0}
+  chainSpellCost: 0
+  holdSpellCost: 0
+  ButtonRevive: 0
 --- !u!114 &1794056533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17393,7 +17546,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 1143555443}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!23 &1894048246
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18643,7 +18796,7 @@ RectTransform:
   m_Children:
   - {fileID: 803581662}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -19095,7 +19248,7 @@ Transform:
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 1143555443}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!23 &2123358557
 MeshRenderer:
   m_ObjectHideFlags: 0

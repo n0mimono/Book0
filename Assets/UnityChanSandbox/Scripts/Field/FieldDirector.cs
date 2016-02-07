@@ -1,20 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Custom;
 
 public class FieldDirector : MonoBehaviour {
 	public int id;
+	public Creature creature;
 
-	public Transform movableTrans;
-	public Transform anchorTrans;
-	public float lerpSpeed;
-
-	void Update() {
-		if (FieldModel.Instance.IsFieldOver (id)) {
-			movableTrans.position = Vector3.Lerp (movableTrans.position, anchorTrans.position, lerpSpeed);
-		}
+	void Start() {
+		creature.DeadHandler += OnFieldOver;
 	}
 
-	public void OnFieldOver() {
+	void OnDestroy() {
+		creature.DeadHandler -= OnFieldOver;
+	}
+
+	private void OnFieldOver() {
 		FieldModel.Instance.SetFieldOver (id, true);
 	}
 

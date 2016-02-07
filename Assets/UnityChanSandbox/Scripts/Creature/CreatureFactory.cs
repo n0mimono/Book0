@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Custom;
 
-public class CreatureFactory : MonoBehaviour {
+public class CreatureFactory : Creature {
+	
 	public GameObject original;
 	public Transform cylinder;
 
@@ -17,12 +18,15 @@ public class CreatureFactory : MonoBehaviour {
 
 	private List<GameObject> objList;
 
-	void Start() {
-		objList = new List<GameObject> ();
+	protected override void Initialize() {
+		base.Initialize ();
 
+		objList = new List<GameObject> ();
 		if (autoSpawn) {
-			AutoSpawn ().StartBy (this);
+			AutoSpawn ().While(() => IsAlive).StartBy (this);
 		}
+
+		DeadHandler += OnDead;
 	}
 
 	public void Spawn() {
@@ -31,6 +35,9 @@ public class CreatureFactory : MonoBehaviour {
 		if (obj == null) {
 			obj = Instantiate (original);
 			objList.Add (obj);
+
+			Creature creature = obj.GetComponent<Creature> ();
+			creature.DeadHandler += OnCreatureDead;
 		}
 		Transform trans = obj.transform;
 
@@ -60,6 +67,13 @@ public class CreatureFactory : MonoBehaviour {
 
 			yield return new WaitForSeconds (interval);
 		}
+	}
+
+	private void OnCreatureDead() {
+		OnDamage (damageSource);
+	}
+
+	private void OnDead() {
 	}
 
 }
