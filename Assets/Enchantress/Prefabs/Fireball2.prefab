@@ -124,8 +124,8 @@ MonoBehaviour:
   target: {fileID: 0}
   damageSource: {fileID: 11422704}
   instanceName: FireballExplosion
-  shakeOnFire: 0
-  shakeOnHit: 0
+  shakeOnFire: 2
+  shakeOnHit: 3
   fireOnStart: 0
   particleSystems:
   - {fileID: 19898282}
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basePoint: 2
+  isBreaker: 0
 --- !u!135 &13594054
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -3092,6 +3093,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: basePoint
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shakeOnFire
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shakeOnHit
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

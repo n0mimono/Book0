@@ -26,7 +26,7 @@ public partial class MagicBullet : MagicProjectile {
 		trail.material = Material.Instantiate (trail.material);
 		trail.enabled = false;
 
-		OnExplotion = (obj) => {
+		OnExplosion = (obj) => {
 			ParticleSystem particle = obj.GetComponent<ParticleSystem>();
 			particle.Play();
 		};

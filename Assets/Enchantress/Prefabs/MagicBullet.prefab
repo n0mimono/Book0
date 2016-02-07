@@ -150,6 +150,7 @@ MonoBehaviour:
   loadOffset: {x: 0, y: 2, z: 0}
   loadNoise: {x: 0.1, y: 0, z: 0.1}
   targetNoise: {x: 0, y: 0, z: 0}
+  isTrailOnLoad: 0
   circleRotateSpeed: {x: 120, y: 90, z: 0}
   circle: {fileID: 0}
 --- !u!114 &11488868
@@ -164,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basePoint: 1
+  isBreaker: 0
 --- !u!135 &13553536
 SphereCollider:
   m_ObjectHideFlags: 1

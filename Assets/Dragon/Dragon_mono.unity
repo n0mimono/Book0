@@ -362,7 +362,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 283190776}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bcefd1dcc92c4c19be6b688533dc620, type: 3}
   m_Name: 
@@ -370,6 +370,7 @@ MonoBehaviour:
   dragon: {fileID: 1725607981}
   spellBullet: {fileID: 2130717797}
   angelEnchant: {fileID: 1787141273}
+  isSetTargetToAngel: 0
   dragonChairs:
   - {fileID: 813184002}
   - {fileID: 1103306199}

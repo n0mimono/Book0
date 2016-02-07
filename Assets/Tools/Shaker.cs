@@ -29,6 +29,8 @@ public class Shaker : SingletonMonoBehaviorWithoutCreate<Shaker> {
 	public List<Shake> shakes;
 
 	public void StartShake(Type type, Vector3 position) {
+		//Debug.Log ("Start Shake: " + type + ", " + position);
+
 		ShakeParam param = shakeParamList.Where (s => s.type == type).FirstOrDefault ();
 		if (param == null) return;
 
@@ -49,6 +51,8 @@ public class Shaker : SingletonMonoBehaviorWithoutCreate<Shaker> {
 	}
 
 	public static void Shake(Type type, Vector3 position) {
+		//Debug.Log ("Shake: " + type + ", " + position);
+
 		Instance.Do (s => s.StartShake (type, position));
 	}
 
