@@ -156,10 +156,10 @@ public static class PlayLogManagement {
 		PlayLogManager.Instance.Add (obj);
 	}
 
-	public static void DoWithRecord(this RecordableObject obj, string method, Action nonRecordAction = null) {
+	public static void Rec(this RecordableObject obj, string method, Action actionWithoutRec = null) {
 		if (!PlayLogManager.Instance.IsReady) {
-			if (nonRecordAction != null) {
-				nonRecordAction ();
+			if (actionWithoutRec != null) {
+				actionWithoutRec ();
 			}
 			return;
 		}

@@ -6,8 +6,8 @@ public class SimpleJumper : MonoBehaviour, RecordableObject {
 
 	public void Jump() {
 		//JumpBody ();
-		this.DoWithRecord ("JumpBody", JumpBody);
-
+		// this.Rec ("JumpBody");
+		this.Rec ("JumpBody", JumpBody);
 	}
 
 	[RecordableAttribute]
