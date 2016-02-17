@@ -28,6 +28,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Lerp/Lerp.unity
   - enabled: 1
+    path: Assets/PlayLog/PlayLog.unity
+  - enabled: 1
     path: Assets/PostEffect/PostEffect.unity
   - enabled: 1
     path: Assets/Skybox/Skybox.unity

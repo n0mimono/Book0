@@ -473,8 +473,8 @@ MonoBehaviour:
         m_RotationOrder: 4
       StartPos: {x: 200, y: 0, z: 0}
       EndPos: {x: 200, y: -450, z: 0}
-      StartWorldPos: {x: 554.25, y: 208, z: 0}
-      EndWorldPos: {x: 554.25, y: -207.6875, z: 0}
+      StartWorldPos: {x: 699.75, y: 262.5, z: 0}
+      EndWorldPos: {x: 699.75, y: -262.3125, z: 0}
     ScalePropetiesAnim:
       scaleEnabled: 0
       TweenCurveEnterScale:
@@ -1053,7 +1053,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1352085302}
   m_Layer: 0
-  m_Name: Dummy01_abcdw
+  m_Name: Dummy01_abcdwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1073322448}
   m_HandleRect: {fileID: 1073322447}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1329,6 +1329,9 @@ MonoBehaviour:
   - name: Lerp
     enabled: 1
     path: Assets/Lerp/Lerp.unity
+  - name: PlayLog
+    enabled: 1
+    path: Assets/PlayLog/PlayLog.unity
   - name: PostEffect
     enabled: 1
     path: Assets/PostEffect/PostEffect.unity
