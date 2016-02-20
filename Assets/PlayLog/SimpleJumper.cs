@@ -6,7 +6,6 @@ public class SimpleJumper : MonoBehaviour, RecordableObject {
 
 	public void Jump() {
 		this.Do (JumpBody);
-		JumpBody();
 	}
 
 	[RecordableAttribute]
