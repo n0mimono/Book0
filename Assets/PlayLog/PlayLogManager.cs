@@ -152,19 +152,20 @@ public static class PlayLogManagement {
 		}
 	}
 
-	public static void AddToRecorder(this RecordableObject obj) {
+	public static void Add(RecordableObject obj) {
 		PlayLogManager.Instance.Add (obj);
 	}
 
-	public static void Rec(this RecordableObject obj, string method, Action actionWithoutRec = null) {
-		if (!PlayLogManager.Instance.IsReady) {
-			if (actionWithoutRec != null) {
-				actionWithoutRec ();
-			}
+	public static void Do(this RecordableObject obj, Action action) {
+		bool isRecordable = Attribute.GetCustomAttribute (action.Method, typeof(RecordableAttribute)) != null;
+
+		if (!PlayLogManager.Instance.IsReady || !isRecordable) {
+			action ();
 			return;
 		}
 
 		if (isRecordMode) {
+			string method = action.Method.Name;
 			PlayLogManager.Instance.DoWithRecord (obj.RecordName, method);
 		}
 	}

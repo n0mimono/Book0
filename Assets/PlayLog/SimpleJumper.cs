@@ -5,9 +5,7 @@ public class SimpleJumper : MonoBehaviour, RecordableObject {
 	public string RecordName { get { return "Jumper"; } }
 
 	public void Jump() {
-		//JumpBody ();
-		// this.Rec ("JumpBody");
-		this.Rec ("JumpBody", JumpBody);
+		this.Do (JumpBody);
 	}
 
 	[RecordableAttribute]
@@ -24,7 +22,7 @@ public class SimpleJumper : MonoBehaviour, RecordableObject {
 		PlayLogManagement.Initialize (true);
 		PlayLogManagement.StartRecordOrReplay ();
 
-		this.AddToRecorder ();
+		PlayLogManagement.Add (this);
 	}
 
 	public void Stop() {
@@ -35,7 +33,7 @@ public class SimpleJumper : MonoBehaviour, RecordableObject {
 		PlayLogManagement.Initialize (false);
 		PlayLogManagement.StartRecordOrReplay ();
 
-		this.AddToRecorder ();
+		PlayLogManagement.Add (this);
 	}
 
 }
