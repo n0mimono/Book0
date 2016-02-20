@@ -18,8 +18,19 @@ public class PlayLogManager : SingletonMonoBehavior<PlayLogManager> {
 	[Serializable]
 	public struct Record {
 		public float time;
+		public int type;
 		public string name;
 		public string method;
+		public Vector3 pos;
+		public Vector3 ang;
+
+		public void Execute(PlayLogManager man) {
+			if (type == 0) {
+				man.Do (name, method);
+			} else if (type == 1) {
+				man.SyncTransform (name, pos, ang);
+			}
+		}
 	}
 
 	[Serializable]
@@ -82,7 +93,7 @@ public class PlayLogManager : SingletonMonoBehavior<PlayLogManager> {
 		while (isActive) {
 
 			while (hasNext && iter.Current.time <= time) {
-				Do (iter.Current.name, iter.Current.method);
+				iter.Current.Execute (this);
 				hasNext = iter.MoveNext ();
 			}
 
@@ -107,10 +118,26 @@ public class PlayLogManager : SingletonMonoBehavior<PlayLogManager> {
 	public void DoWithRecord(string name, string method) {
 		if (isActive) {
 			Debug.Log ("Record: " + name + " => " + method + "@" + time);
-			records.Add (new Record () { time = time, name = name, method = method });
+			records.Add (new Record () { time = time, type = 0, name = name, method = method });
 		}
 
 		Do(name, method);
+	}
+
+	public void SyncTransform(string name, Vector3 pos, Vector3 ang) {
+		if (!methodDict.ContainsKey (name)) return; // wtf
+		
+		AssembledObject a = methodDict [name];
+
+		Transform transform = a.obj.transform;
+		transform.position = Vector3.Lerp (transform.position, pos, 1f);
+		transform.eulerAngles = Vector3.Lerp (transform.eulerAngles, ang, 1f);
+	}
+
+	public void RecordTransform(string name, Transform trans) {
+		if (isActive) {
+			records.Add (new Record () { time = time, type = 1, name = name, pos = trans.position, ang = trans.eulerAngles });
+		}
 	}
 
 	public void Add(RecordableObject obj) {
@@ -170,10 +197,20 @@ public static class PlayLogManagement {
 		}
 	}
 
+	public static void Sync(this RecordableObject obj, Transform trans) {
+		if (!PlayLogManager.Instance.IsReady) return;
+
+		if (isRecordMode) {
+			PlayLogManager.Instance.RecordTransform (obj.RecordName, trans);
+		}
+
+	}
+
 }
 
 public interface RecordableObject {
 	string RecordName { get; }
+	Transform transform { get; }
 }
 
 public class RecordableAttribute : Attribute {

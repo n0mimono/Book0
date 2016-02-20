@@ -6,6 +6,7 @@ public class SimpleJumper : MonoBehaviour, RecordableObject {
 
 	public void Jump() {
 		this.Do (JumpBody);
+		JumpBody();
 	}
 
 	[RecordableAttribute]
@@ -14,7 +15,7 @@ public class SimpleJumper : MonoBehaviour, RecordableObject {
 	}
 
 	void Update() {
-		//this.SyncTransform ();
+		this.Sync (transform);
 		//this.SyncVariables();
 	}
 
