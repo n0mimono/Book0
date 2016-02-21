@@ -1053,7 +1053,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1352085302}
   m_Layer: 0
-  m_Name: Dummy01_abcdwo
+  m_Name: Dummy01_ab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1335,6 +1335,9 @@ MonoBehaviour:
   - name: PostEffect
     enabled: 1
     path: Assets/PostEffect/PostEffect.unity
+  - name: Rim
+    enabled: 1
+    path: Assets/Rim/Rim.unity
   - name: Skybox
     enabled: 1
     path: Assets/Skybox/Skybox.unity
@@ -1508,7 +1511,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2062018830

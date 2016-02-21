@@ -156,6 +156,10 @@ namespace Custom {
 			return new Color (vec.x, vec.y, vec.z, alpha);
 		}
 
+		public static void CopyTextureFromMaterial(this Material dst, Material src, string name) {
+			dst.SetTexture (name, src.GetTexture (name));
+		}
+
 		public static void SetEmission(this ParticleSystem particle, bool isEnabled) {
 			ParticleSystem.EmissionModule emission = particle.emission;
 			emission.enabled = isEnabled;
