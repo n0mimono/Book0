@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Dragon_Enchant _Armor
-  m_Shader: {fileID: 4800000, guid: fad75c0b1c0a343f6ab9fb6b3dbc05ac, type: 3}
-  m_ShaderKeywords: USE_EDGE _PBS_QUALITY_BRDF1
+  m_Name: Dragon_Enchant_Body
+  m_Shader: {fileID: 4800000, guid: 09f164cea429745af930e1118fb5bb56, type: 3}
+  m_ShaderKeywords: USE_EDGE _BRDF_INPUT_METALLIC _PBS_QUALITY_BRDF1
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: e983d52141df742b0b7abbc247dd16ef, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 3a3c0acc807e9264ca0b32602a928a9a, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -232,7 +232,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.5
+        second: 0
       data:
         first:
           name: _BumpScale
@@ -256,10 +256,18 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 0
+        second: 1
       data:
         first:
-          name: _InvFade
+          name: _Mip
+        second: 7
+      data:
+        first:
+          name: _Gloss
+        second: 1
+      data:
+        first:
+          name: _RimPower
         second: 1
       data:
         first:
@@ -271,15 +279,11 @@ Material:
         second: 1
       data:
         first:
-          name: _SpecularPower
+          name: _InvFade
         second: 1
       data:
         first:
-          name: _Mip
-        second: 7
-      data:
-        first:
-          name: _Gloss
+          name: _SpecularPower
         second: 1
       data:
         first:
@@ -345,6 +349,34 @@ Material:
         first:
           name: _Open
         second: -1
+      data:
+        first:
+          name: _BRDF_INPUT
+        second: 0
+      data:
+        first:
+          name: _UseMetallicGlossMap
+        second: 0
+      data:
+        first:
+          name: _UseSpecGlossMap
+        second: 0
+      data:
+        first:
+          name: _UseNormalMap
+        second: 0
+      data:
+        first:
+          name: _UseEmissionMap
+        second: 0
+      data:
+        first:
+          name: _UseRim
+        second: 0
+      data:
+        first:
+          name: _RimScale
+        second: 1
     m_Colors:
       data:
         first:
@@ -410,3 +442,7 @@ Material:
         first:
           name: _RimLightColor
         second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _RimColor
+        second: {r: 1, g: 1, b: 1, a: 1}

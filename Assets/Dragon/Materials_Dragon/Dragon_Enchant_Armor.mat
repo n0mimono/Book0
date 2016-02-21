@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Dragon_Enchant _Body_Black
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Dragon_Enchant_Armor
+  m_Shader: {fileID: 4800000, guid: fad75c0b1c0a343f6ab9fb6b3dbc05ac, type: 3}
   m_ShaderKeywords: USE_EDGE _PBS_QUALITY_BRDF1
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: e983d52141df742b0b7abbc247dd16ef, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 3a3c0acc807e9264ca0b32602a928a9a, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -87,6 +87,20 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _ShadowTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _BackTex
         second:
           m_Texture: {fileID: 0}
@@ -102,20 +116,6 @@ Material:
       data:
         first:
           name: _BumpMap1
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ShadowTex
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpTex
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -232,7 +232,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -256,7 +256,7 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 1
+        second: 0
       data:
         first:
           name: _Mip
@@ -264,7 +264,7 @@ Material:
       data:
         first:
           name: _Gloss
-        second: 0
+        second: 1
       data:
         first:
           name: _Emission
@@ -279,12 +279,12 @@ Material:
         second: 1
       data:
         first:
-          name: _PBS_QUALITY
-        second: 0
-      data:
-        first:
           name: _SpecularPower
         second: 1
+      data:
+        first:
+          name: _PBS_QUALITY
+        second: 0
       data:
         first:
           name: _FadeLevel
@@ -353,23 +353,11 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.19117647, g: 0.19117647, b: 0.19117647, a: 1}
+        second: {r: 0.8, g: 0.8, b: 0.8, a: 1}
       data:
         first:
           name: _SpecColor
         second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-      data:
-        first:
-          name: _Rim
-        second: {r: 1, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _WaveScale4
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _WaveSpeed4
-        second: {r: 1, g: 1, b: -1, a: -1}
       data:
         first:
           name: _TintColor
@@ -378,6 +366,14 @@ Material:
         first:
           name: _ShadowColor
         second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+      data:
+        first:
+          name: _WaveScale4
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _WaveSpeed4
+        second: {r: 1, g: 1, b: -1, a: -1}
       data:
         first:
           name: _StartColor
